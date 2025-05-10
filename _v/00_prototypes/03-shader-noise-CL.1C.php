@@ -240,6 +240,11 @@ $pageTitle = "P5.js Animated Noise Shader";
                 return texture2D(u_blueNoiseTex, uv).r; // use red channel only
             }
 
+            vec3 hardMix(vec3 base, vec3 blend) {
+                vec3 result = base + blend * 2.0 - 1.0;
+                return step(0.5, result); // threshold to 0.0 or 1.0
+            }
+
             void main() {
                 // Flip the y-coordinate
                 vec2 st = vTexCoord;
@@ -273,7 +278,7 @@ $pageTitle = "P5.js Animated Noise Shader";
                 // vec2 texUv = mod(u_resolution * st, 128.0) / 128.0;
                 // color = texture2D(u_blueNoiseTex, texUv).rgb;
 
-                float levels = 16.0; // Number of levels for dithering
+                float levels = 32.0; // Number of levels for dithering
 
                 // 1. Apply Bayer dithering
                 // float dither = bayer4x4(st);
@@ -281,7 +286,15 @@ $pageTitle = "P5.js Animated Noise Shader";
 
                 // 2. Apply blue noise dithering
                 float dither = blueNoise(u_resolution * st);
-                color = floor(color * levels + dither) / levels;
+                
+                
+                // V1
+                // color = floor(color * levels + dither) / levels;
+
+                // V2
+                color = hardMix(color * levels, vec3(dither)) / 3.0;
+
+
 
                 // Output the final color
                 gl_FragColor = vec4(color, 1.0);
