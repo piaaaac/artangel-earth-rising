@@ -22,15 +22,30 @@ $pageTitle = "P5.js Animated Noise Shader";
     canvas {
       display: block;
     }
+
+    #info {
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0));
+      position: fixed;
+      color: white;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      font-family: "Menlo", 'Courier New', Courier, monospace;
+      font-size: 9px;
+    }
   </style>
 </head>
 
 <body>
-  <?php
-  // You can add PHP-generated content here if needed
-  ?>
+  <div id="info"></div>
 
   <script>
+    function logFps() {
+      const infoDiv = document.getElementById('info');
+      infoDiv.innerHTML = `FPS: ${Math.round(frameRate())}`;
+    }
+
+
     // Create a shader variable
     let theShader;
 
@@ -41,7 +56,7 @@ $pageTitle = "P5.js Animated Noise Shader";
     const NOISE_SCALE = 5.0;
 
     // How fast the noise animates along the z-axis (higher = faster)
-    const NOISE_SPEED = 0.8;
+    const NOISE_SPEED = 0.1;
 
     // Number of detail layers (1-8, higher = more detailed but slower)
     const NOISE_OCTAVES = 5;
@@ -111,6 +126,7 @@ $pageTitle = "P5.js Animated Noise Shader";
 
       // Draw a rectangle that covers the whole canvas
       quad(-1, -1, 1, -1, 1, 1, -1, 1);
+      logFps();
     }
 
     function windowResized() {
