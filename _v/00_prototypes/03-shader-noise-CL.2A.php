@@ -68,10 +68,10 @@ $pageTitle = "P5.js Animated Noise Shader";
     const NOISE_PERSISTENCE = 0.5;
 
     // Color 1 for the noise gradient (RGB 0-1)
-    const COLOR1 = [0.1, 0.3, 0.6]; // Dark blue
+    const COLOR1 = [1.0, 0.0, 0.0]; // Dark blue
 
     // Color 2 for the noise gradient (RGB 0-1)
-    const COLOR2 = [0.8, 0.7, 0.3]; // Golden
+    const COLOR2 = [0.0, 0.0, 0.0]; // Golden
 
     // Dithering parameters
     const DITHER_ENABLE = true; // Enable/disable dithering effect

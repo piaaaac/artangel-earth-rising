@@ -6,112 +6,129 @@ $pageTitle = "P5.js Animated Noise Shader";
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitle; ?></title>
-    <!-- Import p5.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #000;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?php echo $pageTitle; ?></title>
+  <!-- Import p5.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #000;
+    }
 
-        canvas {
-            display: block;
-        }
-    </style>
+    canvas {
+      display: block;
+    }
+
+    #info {
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0));
+      position: fixed;
+      color: white;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      font-family: "Menlo", 'Courier New', Courier, monospace;
+      font-size: 9px;
+    }
+  </style>
 </head>
 
 <body>
-    <?php
-    // You can add PHP-generated content here if needed
-    ?>
+  <div id="info"></div>
 
-    <script>
-        // Create a shader variable
-        let theShader, blueNoiseImg;
+  <script>
+    function logFps() {
+      const infoDiv = document.getElementById('info');
+      infoDiv.innerHTML = `FPS: ${Math.round(frameRate())}`;
+    }
 
-        // Preload function - nothing to preload
-        function preload() {
-            // We create the shader in setup
-            blueNoiseImg = loadImage("-assets/blue-noise-128x128.png");
-        }
+    // Create a shader variable
+    let theShader, blueNoiseImg;
 
-        function setup() {
-            // Create a full browser window sized canvas with WEBGL renderer
-            createCanvas(windowWidth, windowHeight, WEBGL);
+    // Preload function - nothing to preload
+    function preload() {
+      // We create the shader in setup
+      // blueNoiseImg = loadImage("-assets/blue-noise-128x128.png");
+      blueNoiseImg = loadImage("-assets/blue-noise-470x470.png");
+    }
 
-            // Create the shader with vertex and fragment code
-            theShader = createShader(vertexShader, fragmentShader);
+    function setup() {
+      // Create a full browser window sized canvas with WEBGL renderer
+      createCanvas(windowWidth, windowHeight, WEBGL);
 
-            // Disable default rendering style
-            noStroke();
-        }
+      // Create the shader with vertex and fragment code
+      theShader = createShader(vertexShader, fragmentShader);
 
-        function draw() {
-            // EDIT THESE PARAMETERS TO CONTROL THE NOISE APPEARANCE
-            // =====================================================
+      // Disable default rendering style
+      noStroke();
+    }
 
-            // How zoomed in/out the noise pattern appears (higher = zoom out)
-            let NOISE_SCALE = 1.0;
+    function draw() {
+      // EDIT THESE PARAMETERS TO CONTROL THE NOISE APPEARANCE
+      // =====================================================
 
-            // How fast the noise animates along the z-axis (higher = faster)
-            let NOISE_SPEED = 0.2;
-            NOISE_SPEED = map(mouseY, 0, height, 0.001, 1);
+      // How zoomed in/out the noise pattern appears (higher = zoom out)
+      let NOISE_SCALE = 2.0;
 
-            // Number of detail layers (1-8, higher = more detailed but slower)
-            let NOISE_OCTAVES = 2;
+      // How fast the noise animates along the z-axis (higher = faster)
+      let NOISE_SPEED = 0.2;
+      NOISE_SPEED = map(mouseY, 0, height, 0.001, 1);
 
-            // How much detail increases each octave (usually 2.0)
-            let NOISE_LACUNARITY = 2.0;
+      // Number of detail layers (1-8, higher = more detailed but slower)
+      let NOISE_OCTAVES = 2.0;
 
-            // How much influence each octave has (0.0-1.0, usually 0.5)
-            let NOISE_PERSISTENCE = 0.8;
+      // How much detail increases each octave (usually 2.0)
+      let NOISE_LACUNARITY = 2.0;
 
-            // Color 1 for the noise gradient (RGB 0-1)
-            let COLOR1 = [0.0, 0.0, 0.0]; // black
+      // How much influence each octave has (0.0-1.0, usually 0.5)
+      let NOISE_PERSISTENCE = 0.2;
 
-            // Color 2 for the noise gradient (RGB 0-1)
-            let COLOR2 = [1.0, 0.0, 0.0]; // red
+      // Color 1 for the noise gradient (RGB 0-1)
+      let COLOR1 = [0.0, 0.0, 0.0]; // black
 
-            // =====================================================
+      // Color 2 for the noise gradient (RGB 0-1)
+      let COLOR2 = [1.0, 0.0, 0.0]; // red
+      // let COLOR2 = [1.0, 1.0, 1.0]; // white
 
-            // Clear background and reset transformations
-            background(0);
-            resetMatrix();
+      // =====================================================
 
-            // Apply the shader
-            shader(theShader);
-            theShader.setUniform('u_blueNoiseTex', blueNoiseImg);
+      // Clear background and reset transformations
+      background(0);
+      resetMatrix();
 
-            // Pass parameters to the shader
-            theShader.setUniform("u_resolution", [width, height]);
-            theShader.setUniform("u_time", millis() / 1000.0);
+      // Apply the shader
+      shader(theShader);
+      theShader.setUniform('u_blueNoiseTex', blueNoiseImg);
 
-            // Pass noise control parameters to the shader
-            theShader.setUniform("u_noiseScale", NOISE_SCALE);
-            theShader.setUniform("u_noiseSpeed", NOISE_SPEED);
-            theShader.setUniform("u_octaves", NOISE_OCTAVES);
-            theShader.setUniform("u_lacunarity", NOISE_LACUNARITY);
-            theShader.setUniform("u_persistence", NOISE_PERSISTENCE);
+      // Pass parameters to the shader
+      theShader.setUniform("u_resolution", [width, height]);
+      theShader.setUniform("u_time", millis() / 1000.0);
 
-            // Pass colors to the shader
-            theShader.setUniform("u_color1", COLOR1);
-            theShader.setUniform("u_color2", COLOR2);
+      // Pass noise control parameters to the shader
+      theShader.setUniform("u_noiseScale", NOISE_SCALE);
+      theShader.setUniform("u_noiseSpeed", NOISE_SPEED);
+      theShader.setUniform("u_octaves", NOISE_OCTAVES);
+      theShader.setUniform("u_lacunarity", NOISE_LACUNARITY);
+      theShader.setUniform("u_persistence", NOISE_PERSISTENCE);
 
-            // Draw a rectangle that covers the whole canvas
-            quad(-1, -1, 1, -1, 1, 1, -1, 1);
-        }
+      // Pass colors to the shader
+      theShader.setUniform("u_color1", COLOR1);
+      theShader.setUniform("u_color2", COLOR2);
 
-        function windowResized() {
-            resizeCanvas(windowWidth, windowHeight);
-        }
+      // Draw a rectangle that covers the whole canvas
+      quad(-1, -1, 1, -1, 1, 1, -1, 1);
+      logFps();
+    }
 
-        // Define the vertex shader
-        const vertexShader = `
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
+
+    // Define the vertex shader
+    const vertexShader = `
             attribute vec3 aPosition;
             attribute vec2 aTexCoord;
             
@@ -129,8 +146,8 @@ $pageTitle = "P5.js Animated Noise Shader";
             }
         `;
 
-        // Define the fragment shader
-        const fragmentShader = `
+    // Define the fragment shader
+    const fragmentShader = `
             precision mediump float;
             
             varying vec2 vTexCoord;
@@ -234,9 +251,11 @@ $pageTitle = "P5.js Animated Noise Shader";
 
 
             // u_blueNoiseTex: 128x128 grayscale noise texture
+            // u_blueNoiseTex: 470x470 grayscale noise texture
             float blueNoise(vec2 fragCoord) {
                 // Match coordinates to texture size
-                vec2 uv = mod(fragCoord, 128.0) / 128.0;
+                // vec2 uv = mod(fragCoord, 128.0) / 128.0;
+                vec2 uv = mod(fragCoord, 470.0) / 470.0;
                 return texture2D(u_blueNoiseTex, uv).r; // use red channel only
             }
 
@@ -278,7 +297,7 @@ $pageTitle = "P5.js Animated Noise Shader";
                 // vec2 texUv = mod(u_resolution * st, 128.0) / 128.0;
                 // color = texture2D(u_blueNoiseTex, texUv).rgb;
 
-                float levels = 32.0; // Number of levels for dithering
+                float levels = 122.0; // Number of levels for dithering
 
                 // 1. Apply Bayer dithering
                 // float dither = bayer4x4(st);
@@ -292,16 +311,14 @@ $pageTitle = "P5.js Animated Noise Shader";
                 // color = floor(color * levels + dither) / levels;
 
                 // V2
-                color = hardMix(color * levels, vec3(dither)) / 3.0;
-
-
+                color = hardMix(color * levels, vec3(dither));
 
                 // Output the final color
                 gl_FragColor = vec4(color, 1.0);
 
             }
         `;
-    </script>
+  </script>
 </body>
 
 </html>
