@@ -1,4 +1,4 @@
-/* line 7, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 7, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 *:not(i), *:not(i)::before, *:not(i)::after {
   margin: 0;
   padding: 0;
@@ -6,31 +6,31 @@
   box-sizing: border-box;
 }
 
-/* line 15, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 15, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 html {
   -webkit-text-size-adjust: 100%;
   /* Prevent font scaling in landscape while allowing user zoom */
 }
 
-/* line 19, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 19, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, main, menu, nav, section, summary {
   display: block;
 }
 
-/* line 25, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 25, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 ::-moz-selection {
   background: #1a1aff;
   color: black;
 }
 
-/* line 30, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 30, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 ::selection {
   background: #1a1aff;
   color: black;
 }
 
-/* line 35, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 35, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 body:not(.user-is-tabbing) button:focus,
 body:not(.user-is-tabbing) input:focus,
 body:not(.user-is-tabbing) select:focus,
@@ -42,12 +42,12 @@ body:not(.user-is-tabbing) textarea:focus {
    Forms
    via https://gist.github.com/alucidbeing/3695908
    ========================================================================== */
-/* line 49, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 49, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 form {
   margin: 0;
 }
 
-/* line 50, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 50, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 fieldset {
   border: 0;
   margin: 0;
@@ -55,7 +55,7 @@ fieldset {
 }
 
 /* Indicate that 'label' will shift focus to the associated form element */
-/* line 53, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 53, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 label {
   cursor: pointer;
 }
@@ -64,7 +64,7 @@ label {
  * 1. Correct color not inheriting in IE6/7/8/9
  * 2. Correct alignment displayed oddly in IE6/7
  */
-/* line 60, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 60, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 legend {
   border: 0;
   *margin-left: -7px;
@@ -77,7 +77,7 @@ legend {
  * 2. Remove margins in FF3/4 S5 Chrome
  * 3. Define consistent vertical alignment display in all browsers
  */
-/* line 68, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 68, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 button, input, select, textarea {
   font-size: 100%;
   margin: 0;
@@ -88,7 +88,7 @@ button, input, select, textarea {
 /*
  * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
  */
-/* line 74, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 74, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 button, input {
   line-height: normal;
 }
@@ -98,7 +98,7 @@ button, input {
  * 2. Allow styling of clickable form elements in iOS
  * 3. Correct inner spacing displayed oddly in IE7 (doesn't effect IE6)
  */
-/* line 82, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 82, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 button, input[type="button"], input[type="reset"], input[type="submit"] {
   cursor: pointer;
   -webkit-appearance: button;
@@ -108,7 +108,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
 /*
  * Re-set default cursor for disabled elements
  */
-/* line 88, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 88, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 button[disabled], input[disabled] {
   cursor: default;
 }
@@ -116,7 +116,7 @@ button[disabled], input[disabled] {
 /*
  * Consistent box sizing and appearance
  */
-/* line 94, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 94, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 input[type="checkbox"], input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
@@ -124,7 +124,7 @@ input[type="checkbox"], input[type="radio"] {
   *height: 13px;
 }
 
-/* line 95, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 95, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
@@ -132,7 +132,7 @@ input[type="search"] {
   box-sizing: content-box;
 }
 
-/* line 96, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 96, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
@@ -140,7 +140,7 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
 /*
  * Remove inner padding and border in FF3/4: h5bp.com/l
  */
-/* line 102, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 102, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0;
@@ -150,7 +150,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  * 1. Remove default vertical scrollbar in IE6/7/8/9
  * 2. Allow only vertical resizing
  */
-/* line 109, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 109, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 textarea {
   overflow: auto;
   vertical-align: top;
@@ -158,559 +158,515 @@ textarea {
 }
 
 /* Colors for form validity */
-/* line 113, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_reset.scss */
+/* line 113, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_reset.scss */
 input:invalid, textarea:invalid {
   background-color: #f0dddd;
 }
 
-/* line 33, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-.font-sans-xl {
-  font-size: 42px;
-  letter-spacing: 0;
-  line-height: 1.2em;
-  font-weight: 700;
+@font-face {
+  font-family: "Gaisyr";
+  src: url("../fonts/ABCGaisyr-Light-Trial.woff2") format("woff2"), url("../fonts/ABCGaisyr-Light-Trial.woff") format("woff");
+  font-weight: 300;
   font-style: normal;
-  font-stretch: normal;
+}
+
+/* line 52, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+.font-serif-l {
+  font-family: "Gaisyr", serif;
+  font-size: 36px;
+  font-optical-sizing: auto;
+  letter-spacing: 0;
+  line-height: 1.05em;
 }
 
 @media (min-width: 576px) {
-  /* line 33, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-xl {
-    font-size: 42px;
+  /* line 52, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-l {
+    font-size: 36px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 33, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-xl {
-    font-size: 52px;
+  /* line 52, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-l {
+    font-size: 45px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 33, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-xl {
-    font-size: 52px;
+  /* line 52, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-l {
+    font-size: 45px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 33, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-xl {
-    font-size: 52px;
+  /* line 52, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-l {
+    font-size: 45px;
   }
 }
 
-/* line 34, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-.font-sans-l {
-  font-size: 20px;
+/* line 68, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+.font-serif-m {
+  font-family: "Gaisyr", serif;
+  font-size: 21px;
+  font-optical-sizing: auto;
   letter-spacing: 0;
-  line-height: 1.2em;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-}
-
-@media (min-width: 576px) {
-  /* line 34, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-l {
-    font-size: 20px;
-  }
-}
-
-@media (min-width: 768px) {
-  /* line 34, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-l {
-    font-size: 25px;
-  }
-}
-
-@media (min-width: 992px) {
-  /* line 34, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-l {
-    font-size: 25px;
-  }
-}
-
-@media (min-width: 1200px) {
-  /* line 34, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-l {
-    font-size: 25px;
-  }
-}
-
-/* line 35, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-.font-sans-m {
-  font-size: 13px;
-  letter-spacing: 0;
-  line-height: 1.2em;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-}
-
-@media (min-width: 576px) {
-  /* line 35, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-m {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 768px) {
-  /* line 35, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-m {
-    font-size: 15px;
-  }
-}
-
-@media (min-width: 992px) {
-  /* line 35, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-m {
-    font-size: 15px;
-  }
-}
-
-@media (min-width: 1200px) {
-  /* line 35, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-m {
-    font-size: 15px;
-  }
-}
-
-/* line 36, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-.font-sans-s {
-  font-size: 11px;
-  letter-spacing: 0.03em;
   line-height: 1.3em;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
 }
 
 @media (min-width: 576px) {
-  /* line 36, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-s {
-    font-size: 11px;
+  /* line 68, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-m {
+    font-size: 21px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 36, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-s {
-    font-size: 11px;
+  /* line 68, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-m {
+    font-size: 22px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 36, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-s {
-    font-size: 11px;
+  /* line 68, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-m {
+    font-size: 22px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 36, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-  .font-sans-s {
-    font-size: 11px;
+  /* line 68, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-m {
+    font-size: 22px;
   }
 }
 
-/* line 42, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
-p {
-  font-size: 13px;
+/* line 84, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+.font-serif-s {
+  font-family: "Gaisyr", serif;
+  font-size: 15px;
+  font-optical-sizing: auto;
   letter-spacing: 0;
-  line-height: 1.2em;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
+  line-height: 1.3em;
+}
+
+@media (min-width: 576px) {
+  /* line 84, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-s {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  /* line 84, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-s {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* line 84, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-s {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* line 84, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+  .font-serif-s {
+    font-size: 15px;
+  }
+}
+
+/* line 92, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
+p {
+  font-family: "Gaisyr", serif;
+  font-size: 21px;
+  font-optical-sizing: auto;
+  letter-spacing: 0;
+  line-height: 1.3em;
   margin-bottom: 1em;
 }
 
 @media (min-width: 576px) {
-  /* line 42, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 92, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   p {
-    font-size: 14px;
+    font-size: 21px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 42, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 92, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   p {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 42, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 92, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   p {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 42, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 92, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   p {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
-/* line 46, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+/* line 96, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
 h1 {
-  font-size: 42px;
+  font-family: "Gaisyr", serif;
+  font-size: 36px;
+  font-optical-sizing: auto;
   letter-spacing: 0;
-  line-height: 1.2em;
-  font-weight: 700;
-  font-style: normal;
-  font-stretch: normal;
+  line-height: 1.05em;
 }
 
 @media (min-width: 576px) {
-  /* line 46, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 96, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h1 {
-    font-size: 42px;
+    font-size: 36px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 46, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 96, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h1 {
-    font-size: 52px;
+    font-size: 45px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 46, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 96, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h1 {
-    font-size: 52px;
+    font-size: 45px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 46, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 96, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h1 {
-    font-size: 52px;
+    font-size: 45px;
   }
 }
 
-/* line 47, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+/* line 99, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
 h2 {
-  font-size: 20px;
+  font-family: "Gaisyr", serif;
+  font-size: 36px;
+  font-optical-sizing: auto;
   letter-spacing: 0;
-  line-height: 1.2em;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
+  line-height: 1.05em;
 }
 
 @media (min-width: 576px) {
-  /* line 47, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 99, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h2 {
-    font-size: 20px;
+    font-size: 36px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 47, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 99, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h2 {
-    font-size: 25px;
+    font-size: 45px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 47, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 99, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h2 {
-    font-size: 25px;
+    font-size: 45px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 47, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 99, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h2 {
-    font-size: 25px;
+    font-size: 45px;
   }
 }
 
-/* line 48, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+/* line 102, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
 h3 {
-  font-size: 13px;
+  font-family: "Gaisyr", serif;
+  font-size: 21px;
+  font-optical-sizing: auto;
   letter-spacing: 0;
-  line-height: 1.2em;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
+  line-height: 1.3em;
 }
 
 @media (min-width: 576px) {
-  /* line 48, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 102, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h3 {
-    font-size: 14px;
+    font-size: 21px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 48, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 102, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h3 {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 48, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 102, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h3 {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 48, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 102, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h3 {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
-/* line 49, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+/* line 105, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
 h4 {
-  font-size: 13px;
+  font-family: "Gaisyr", serif;
+  font-size: 21px;
+  font-optical-sizing: auto;
   letter-spacing: 0;
-  line-height: 1.2em;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
+  line-height: 1.3em;
 }
 
 @media (min-width: 576px) {
-  /* line 49, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 105, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h4 {
-    font-size: 14px;
+    font-size: 21px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 49, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 105, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h4 {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 49, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 105, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h4 {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 49, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 105, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h4 {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
-/* line 50, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+/* line 108, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
 h5 {
-  font-size: 11px;
-  letter-spacing: 0.03em;
+  font-family: "Gaisyr", serif;
+  font-size: 15px;
+  font-optical-sizing: auto;
+  letter-spacing: 0;
   line-height: 1.3em;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
 }
 
 @media (min-width: 576px) {
-  /* line 50, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 108, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h5 {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 50, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 108, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h5 {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 50, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 108, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h5 {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 50, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 108, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h5 {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
-/* line 51, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+/* line 111, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
 h6 {
-  font-size: 11px;
-  letter-spacing: 0.03em;
+  font-family: "Gaisyr", serif;
+  font-size: 15px;
+  font-optical-sizing: auto;
+  letter-spacing: 0;
   line-height: 1.3em;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
 }
 
 @media (min-width: 576px) {
-  /* line 51, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 111, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h6 {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 51, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 111, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h6 {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 51, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 111, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h6 {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 51, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 111, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   h6 {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
-/* line 57, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+/* line 119, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
 .block-sans-s,
 .block-sans-s p {
   color: black;
-  font-size: 11px;
-  letter-spacing: 0.03em;
+  font-family: "Gaisyr", serif;
+  font-size: 15px;
+  font-optical-sizing: auto;
+  letter-spacing: 0;
   line-height: 1.3em;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
 }
 
 @media (min-width: 576px) {
-  /* line 57, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 119, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-s,
   .block-sans-s p {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 57, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 119, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-s,
   .block-sans-s p {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 57, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 119, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-s,
   .block-sans-s p {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 57, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 119, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-s,
   .block-sans-s p {
-    font-size: 11px;
+    font-size: 15px;
   }
 }
 
-/* line 63, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+/* line 125, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
 .block-sans-m,
 .block-sans-m p {
   color: black;
-  font-size: 13px;
+  font-family: "Gaisyr", serif;
+  font-size: 21px;
+  font-optical-sizing: auto;
   letter-spacing: 0;
-  line-height: 1.2em;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
+  line-height: 1.3em;
 }
 
 @media (min-width: 576px) {
-  /* line 63, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 125, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-m,
   .block-sans-m p {
-    font-size: 14px;
+    font-size: 21px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 63, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 125, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-m,
   .block-sans-m p {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 63, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 125, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-m,
   .block-sans-m p {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 63, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 125, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-m,
   .block-sans-m p {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
-/* line 69, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+/* line 131, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
 .block-sans-l,
 .block-sans-l p {
   color: black;
-  font-size: 20px;
+  font-family: "Gaisyr", serif;
+  font-size: 36px;
+  font-optical-sizing: auto;
   letter-spacing: 0;
-  line-height: 1.2em;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
+  line-height: 1.05em;
 }
 
 @media (min-width: 576px) {
-  /* line 69, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 131, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-l,
   .block-sans-l p {
-    font-size: 20px;
+    font-size: 36px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 69, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 131, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-l,
   .block-sans-l p {
-    font-size: 25px;
+    font-size: 45px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 69, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 131, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-l,
   .block-sans-l p {
-    font-size: 25px;
+    font-size: 45px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 69, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_typography.scss */
+  /* line 131, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_typography.scss */
   .block-sans-l,
   .block-sans-l p {
-    font-size: 25px;
+    font-size: 45px;
   }
 }
 
@@ -743,19 +699,19 @@ h6 {
  * }
  *
  */
-/* line 29, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 29, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 label {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-/* line 31, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 31, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 label .text {
   margin-left: 10px;
 }
 
-/* line 34, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 34, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch {
   position: relative;
   display: inline-block;
@@ -763,24 +719,24 @@ label .text {
   height: 34px;
 }
 
-/* line 40, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 40, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* line 45, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 45, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch input:checked + .slider {
   background-color: orange;
 }
 
-/* line 51, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 51, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch input:checked + .slider::before {
   transform: translateX(21px);
 }
 
-/* line 55, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 55, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch .slider {
   position: absolute;
   cursor: pointer;
@@ -792,7 +748,7 @@ label .text {
   transition: .2s;
 }
 
-/* line 65, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 65, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch .slider::before {
   position: absolute;
   content: "";
@@ -804,28 +760,28 @@ label .text {
   transition: .2s;
 }
 
-/* line 76, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 76, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch .slider.round {
   border-radius: 34px;
 }
 
-/* line 78, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 78, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch .slider.round::before {
   border-radius: 50%;
 }
 
-/* line 84, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 84, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch.small {
   width: 34px;
   height: 20px;
 }
 
-/* line 87, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 87, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch.small input:checked + .slider::before {
   transform: translateX(14px);
 }
 
-/* line 91, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 91, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch.small .slider::before {
   height: 14px;
   width: 14px;
@@ -833,7 +789,7 @@ label .text {
   bottom: 3px;
 }
 
-/* line 97, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/_switch.scss */
+/* line 97, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/_switch.scss */
 .switch.small .slider.round {
   border-radius: 20px;
 }
@@ -845,7 +801,7 @@ label .text {
  * @site https://jonsuh.com/hamburgers
  * @link https://github.com/jonsuh/hamburgers
  */
-/* line 3, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/_base.scss */
+/* line 3, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/_base.scss */
 .hamburger {
   padding: 0 0;
   display: inline-block;
@@ -862,24 +818,24 @@ label .text {
   overflow: visible;
 }
 
-/* line 21, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/_base.scss */
+/* line 21, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/_base.scss */
 .hamburger:hover {
   opacity: 1;
 }
 
-/* line 30, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/_base.scss */
+/* line 30, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/_base.scss */
 .hamburger.is-active:hover {
   opacity: 1;
 }
 
-/* line 38, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/_base.scss */
+/* line 38, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/_base.scss */
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
   background-color: #f1f3d7;
 }
 
-/* line 46, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/_base.scss */
+/* line 46, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/_base.scss */
 .hamburger-box {
   width: var(--ui-space);
   height: 29.5px;
@@ -887,14 +843,14 @@ label .text {
   position: relative;
 }
 
-/* line 53, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/_base.scss */
+/* line 53, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/_base.scss */
 .hamburger-inner {
   display: block;
   top: 50%;
   margin-top: -0.75px;
 }
 
-/* line 58, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/_base.scss */
+/* line 58, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/_base.scss */
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
   width: var(--ui-space);
   height: 1.5px;
@@ -906,18 +862,18 @@ label .text {
   transition-timing-function: ease;
 }
 
-/* line 71, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/_base.scss */
+/* line 71, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/_base.scss */
 .hamburger-inner::before, .hamburger-inner::after {
   content: "";
   display: block;
 }
 
-/* line 77, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/_base.scss */
+/* line 77, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/_base.scss */
 .hamburger-inner::before {
   top: -14px;
 }
 
-/* line 83, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/_base.scss */
+/* line 83, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/_base.scss */
 .hamburger-inner::after {
   bottom: -14px;
 }
@@ -925,12 +881,12 @@ label .text {
 /*
    * Slider
    */
-/* line 6, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/types/_slider.scss */
+/* line 6, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/types/_slider.scss */
 .hamburger--slider .hamburger-inner {
   top: 0.75px;
 }
 
-/* line 9, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/types/_slider.scss */
+/* line 9, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/types/_slider.scss */
 .hamburger--slider .hamburger-inner::before {
   top: 14px;
   transition-property: transform, opacity;
@@ -938,122 +894,122 @@ label .text {
   transition-duration: 0.15s;
 }
 
-/* line 16, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/types/_slider.scss */
+/* line 16, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/types/_slider.scss */
 .hamburger--slider .hamburger-inner::after {
   top: 28px;
 }
 
-/* line 22, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/types/_slider.scss */
+/* line 22, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/types/_slider.scss */
 .hamburger--slider.is-active .hamburger-inner {
   transform: translate3d(0, 14px, 0) rotate(45deg);
 }
 
-/* line 27, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/types/_slider.scss */
+/* line 27, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/types/_slider.scss */
 .hamburger--slider.is-active .hamburger-inner::before {
   transform: rotate(-45deg) translate3d(var(--ui-space)/-7, -12.5px, 0);
   opacity: 0;
 }
 
-/* line 32, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/hamburgers/types/_slider.scss */
+/* line 32, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/hamburgers/types/_slider.scss */
 .hamburger--slider.is-active .hamburger-inner::after {
   transform: translate3d(0, -28px, 0) rotate(-90deg);
 }
 
-/* line 36, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 36, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 :root {
   --ui-space: 45px;
   --border-width: 1px;
 }
 
 @media (min-width: 768px) {
-  /* line 36, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+  /* line 36, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
   :root {
     --ui-space: 65px;
     --border-width: 1.5px;
   }
 }
 
-/* line 49, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 49, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .color-white {
   color: white;
 }
 
-/* line 52, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 52, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .color-white-50 {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* line 55, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 55, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .bg-white {
   background-color: white;
 }
 
-/* line 58, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 58, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .no-u {
   text-decoration: none;
 }
 
-/* line 61, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 61, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .u-hover {
   text-decoration: none;
 }
 
-/* line 63, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 63, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .u-hover:hover {
   text-decoration: underline;
 }
 
-/* line 67, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 67, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .pointer {
   cursor: pointer;
 }
 
-/* line 70, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 70, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .upper {
   text-transform: uppercase;
 }
 
-/* line 73, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 73, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .lower {
   text-transform: none;
 }
 
-/* line 77, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 77, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .space-1 {
   height: 20px;
 }
 
-/* line 80, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 80, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .space-2 {
   height: 40px;
 }
 
-/* line 83, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 83, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .space-3 {
   height: 60px;
 }
 
-/* line 86, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 86, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .space-4 {
   height: 80px;
 }
 
-/* line 89, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 89, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .space-6 {
   height: 120px;
 }
 
-/* line 92, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 92, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .space-8 {
   height: 160px;
 }
 
-/* line 100, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 100, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 * {
   text-rendering: geometricPrecision;
 }
 
-/* line 107, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 107, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 body {
   overflow-x: hidden;
   width: 100vw;
@@ -1061,17 +1017,17 @@ body {
   color: #f1f3d7;
 }
 
-/* line 112, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 112, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 body.media-open {
   overflow: hidden;
 }
 
-/* line 120, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 120, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 hr {
   border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* line 124, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 124, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -1079,14 +1035,14 @@ a {
   color: inherit;
 }
 
-/* line 132, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 132, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 ul {
   list-style: none;
   padding-left: 0;
   margin-left: 0;
 }
 
-/* line 142, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 142, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .button {
   display: inline-flex;
   align-items: center;
@@ -1094,12 +1050,11 @@ ul {
   height: 47px;
   border: 1px solid grey;
   color: grey;
-  font-size: 13px;
+  font-family: "Gaisyr", serif;
+  font-size: 21px;
+  font-optical-sizing: auto;
   letter-spacing: 0;
-  line-height: 1.2em;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
+  line-height: 1.3em;
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 3px;
@@ -1108,40 +1063,40 @@ ul {
 }
 
 @media (min-width: 576px) {
-  /* line 142, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+  /* line 142, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
   .button {
-    font-size: 14px;
+    font-size: 21px;
   }
 }
 
 @media (min-width: 768px) {
-  /* line 142, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+  /* line 142, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
   .button {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
 @media (min-width: 992px) {
-  /* line 142, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+  /* line 142, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
   .button {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
 @media (min-width: 1200px) {
-  /* line 142, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+  /* line 142, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
   .button {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
 
-/* line 155, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 155, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .button:hover, .button.active {
   background-color: grey;
   color: grey;
 }
 
-/* line 160, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 160, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 .button.small {
   height: 37px;
   width: auto;
@@ -1167,7 +1122,7 @@ ul {
   }
 }
 
-/* line 190, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 190, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #menu-panel {
   z-index: 30;
   position: fixed;
@@ -1181,13 +1136,13 @@ ul {
   transition: all 400ms;
 }
 
-/* line 201, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 201, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 body[data-menu-panel="true"] #menu-panel {
   opacity: 1;
   pointer-events: all;
 }
 
-/* line 207, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 207, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #accessibility-panel {
   z-index: 30;
   position: fixed;
@@ -1203,7 +1158,7 @@ body[data-menu-panel="true"] #menu-panel {
 }
 
 @media (max-width: 991.98px) {
-  /* line 207, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+  /* line 207, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
   #accessibility-panel {
     width: auto;
     right: 50%;
@@ -1211,7 +1166,7 @@ body[data-menu-panel="true"] #menu-panel {
 }
 
 @media (max-width: 575.98px) {
-  /* line 207, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+  /* line 207, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
   #accessibility-panel {
     width: auto;
     right: var(--ui-space);
@@ -1219,13 +1174,13 @@ body[data-menu-panel="true"] #menu-panel {
   }
 }
 
-/* line 228, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 228, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 body[data-accessibility-panel="true"] #accessibility-panel {
   opacity: 1;
   pointer-events: all;
 }
 
-/* line 234, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 234, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #about-panel {
   z-index: 30;
   position: fixed;
@@ -1240,14 +1195,14 @@ body[data-accessibility-panel="true"] #accessibility-panel {
   transition: all 400ms;
 }
 
-/* line 249, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 249, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 body[data-about-panel="true"] #about-panel {
   opacity: 1;
   pointer-events: all;
   top: var(--ui-space);
 }
 
-/* line 260, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 260, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #button-top-left,
 #button-top-right,
 #button-bottom-left,
@@ -1264,31 +1219,31 @@ body[data-about-panel="true"] #about-panel {
   color: #f1f3d7;
 }
 
-/* line 275, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 275, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #button-top-left {
   top: 0;
   left: 0;
 }
 
-/* line 279, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 279, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #button-top-right {
   top: 0;
   right: 0;
 }
 
-/* line 283, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 283, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #button-bottom-left {
   bottom: 0;
   left: 0;
 }
 
-/* line 287, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 287, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #button-bottom-right {
   bottom: 0;
   right: 0;
 }
 
-/* line 292, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 292, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #ui-line-top,
 #ui-line-bottom,
 #ui-line-left,
@@ -1300,7 +1255,7 @@ body[data-about-panel="true"] #about-panel {
   transition: all 400ms;
 }
 
-/* line 302, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 302, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #ui-line-top {
   top: 0;
   left: 0;
@@ -1309,7 +1264,7 @@ body[data-about-panel="true"] #about-panel {
   border-bottom: var(--border-width) solid #f1f3d7;
 }
 
-/* line 309, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 309, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #ui-line-bottom {
   bottom: 0;
   left: 0;
@@ -1318,7 +1273,7 @@ body[data-about-panel="true"] #about-panel {
   border-top: var(--border-width) solid #f1f3d7;
 }
 
-/* line 316, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 316, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #ui-line-left {
   left: 0;
   top: 0;
@@ -1327,7 +1282,7 @@ body[data-about-panel="true"] #about-panel {
   border-right: var(--border-width) solid #f1f3d7;
 }
 
-/* line 323, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 323, ../../../../../Users/piaaaac/code/artangel-earth-rising/v/2-beta/assets/css-source/index.scss */
 #ui-line-right {
   right: 0;
   top: 0;
