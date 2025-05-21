@@ -1,3 +1,9 @@
+## TODO
+
+-   import fonts
+-   import icons
+-   typography settings
+
 ## Accessibiity checklist
 
 https://medium.com/@zmactavish/15-html-tags-for-accessibility-2738183cbc3

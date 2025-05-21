@@ -1215,16 +1215,17 @@ body[data-menu-panel="true"] #menu-panel {
   #accessibility-panel {
     width: auto;
     right: var(--ui-space);
+    border-right-width: 0;
   }
 }
 
-/* line 227, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 228, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 body[data-accessibility-panel="true"] #accessibility-panel {
   opacity: 1;
   pointer-events: all;
 }
 
-/* line 233, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 234, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 #about-panel {
   z-index: 30;
   position: fixed;
@@ -1239,14 +1240,14 @@ body[data-accessibility-panel="true"] #accessibility-panel {
   transition: all 400ms;
 }
 
-/* line 248, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 249, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 body[data-about-panel="true"] #about-panel {
   opacity: 1;
   pointer-events: all;
   top: var(--ui-space);
 }
 
-/* line 259, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 260, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 #button-top-left,
 #button-top-right,
 #button-bottom-left,
@@ -1263,31 +1264,31 @@ body[data-about-panel="true"] #about-panel {
   color: #f1f3d7;
 }
 
-/* line 274, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 275, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 #button-top-left {
   top: 0;
   left: 0;
 }
 
-/* line 278, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 279, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 #button-top-right {
   top: 0;
   right: 0;
 }
 
-/* line 282, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 283, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 #button-bottom-left {
   bottom: 0;
   left: 0;
 }
 
-/* line 286, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 287, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 #button-bottom-right {
   bottom: 0;
   right: 0;
 }
 
-/* line 291, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 292, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 #ui-line-top,
 #ui-line-bottom,
 #ui-line-left,
@@ -1299,7 +1300,7 @@ body[data-about-panel="true"] #about-panel {
   transition: all 400ms;
 }
 
-/* line 301, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 302, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 #ui-line-top {
   top: 0;
   left: 0;
@@ -1308,7 +1309,7 @@ body[data-about-panel="true"] #about-panel {
   border-bottom: var(--border-width) solid #f1f3d7;
 }
 
-/* line 308, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 309, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 #ui-line-bottom {
   bottom: 0;
   left: 0;
@@ -1317,7 +1318,7 @@ body[data-about-panel="true"] #about-panel {
   border-top: var(--border-width) solid #f1f3d7;
 }
 
-/* line 315, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 316, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 #ui-line-left {
   left: 0;
   top: 0;
@@ -1326,7 +1327,7 @@ body[data-about-panel="true"] #about-panel {
   border-right: var(--border-width) solid #f1f3d7;
 }
 
-/* line 322, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
+/* line 323, ../../../../../Users/piaaaac/code/artangel-earth-rising/_v/01_beta/assets/css-source/index.scss */
 #ui-line-right {
   right: 0;
   top: 0;

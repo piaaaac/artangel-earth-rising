@@ -219,6 +219,7 @@ ul {
   @include media-breakpoint-down(xs) {
     width: auto;
     right: var(--ui-space);
+    border-right-width: 0;
   }
   background-color: rgba(#9f4848, 0.5);
   opacity: 0;
