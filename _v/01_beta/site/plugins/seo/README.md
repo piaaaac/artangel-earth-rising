@@ -1,7 +1,7 @@
-![Kirby SEO Banner](/.github/new-banner.png)
+![Kirby SEO Banner](/.github/banner.png)
 
 <h1 align="center">Kirby SEO</h1>
-<p align="center">All-in-one toolkit that makes implementing SEO & Meta best practices a breeze</p>
+<p align="center">SEO for Kirby CMS – done right.</p>
 
 ---
 
@@ -17,14 +17,14 @@
 
 ## Get started
 
-[Read the documentation](https://plugins.andkindness.com/seo/docs/get-started/feature-overview) to get started with Kirby SEO.
+[Read the documentation](./docs/index.md) to get started with Kirby SEO.
+
+## Support the project
+
+> [!NOTE]
+> This plugin is provided free of charge & published under the permissive MIT License. If you use it in a commercial project, please consider sponsoring me on GitHub to support further development and continued maintenance of Kirby SEO.
 
 ## License
 
-Kirby SEO 2.0 is not free software. In order to run it on a public server, you'll have to purchase a valid Kirby license & a valid SEO license.
-
-Copyright 2023-2024 © Tobias Möritz - Love & Kindness GmbH
-
----
-
-Kirby SEO 1.0 is licensed unter the MIT license.
+[MIT License](./../LICENSE)
+Copyright © 2023-2024 Tobias Möritz

@@ -17,16 +17,6 @@ return [
 		}
 	],
 	[
-		'pattern' => 'sitemap',
-		'action' => function () {
-			if (!option('tobimori.seo.sitemap.redirect', true) || !option('tobimori.seo.sitemap.active', true)) {
-				$this->next();
-			}
-
-			go('/sitemap.xml');
-		}
-	],
-	[
 		'pattern' => 'sitemap.xsl',
 		'action' => function () {
 			if (!option('tobimori.seo.sitemap.active', true)) {

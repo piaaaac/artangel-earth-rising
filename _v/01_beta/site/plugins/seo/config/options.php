@@ -63,7 +63,6 @@ return [
 	],
 	'sitemap' => [
 		'active' => true,
-		'redirect' => true, // redirect /sitemap to /sitemap.xml
 		'lang' => 'en',
 		'generator' => require __DIR__ . '/options/sitemap.php',
 		'changefreq' => 'weekly',

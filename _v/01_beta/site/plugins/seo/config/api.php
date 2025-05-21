@@ -69,7 +69,7 @@ return [
 					return [
 						'page' => $model->slug(),
 						'url' => $model->url(),
-						'title' => $meta->metaTitle()->value(),
+						'title' => $meta->title()->value(),
 						'description' => $meta->metaDescription()->value(),
 						'ogSiteName' => $meta->ogSiteName()->value(),
 						'ogTitle' => $meta->ogTitle()->value(),

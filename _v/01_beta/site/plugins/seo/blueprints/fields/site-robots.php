@@ -1,9 +1,10 @@
 <?php
 
 use Kirby\Cms\App;
+use Kirby\Toolkit\Str;
 
 return function (App $kirby) {
-	if (!$kirby->option('tobimori.seo.robots.active') || !$kirby->option('tobimori.seo.robots.pageSettings')) {
+	if (!$kirby->option('tobimori.seo.robots.pageSettings', $kirby->option('tobimori.seo.robots.active', false))) {
 		return [
 			'type' => 'hidden'
 		];
@@ -24,12 +25,12 @@ return function (App $kirby) {
 		}
 
 		$fields["robots{$robots}"] = [
-			'label' =>  "robots-{$robots}",
+			'label' =>  'robots-' . Str::lower($robots),
 			'type' => 'toggles',
-			'help' => "robots-{$robots}-help",
+			'help' => 'robots-' . Str::lower($robots) . '-help',
 			'width' => '1/2',
 			'default' => 'default',
-			'reset' => false,
+			'required' => true,
 			'options' => [
 				'default' => t('default-select') . ' ' . ($index ? t('yes') : t('no')),
 				'true' => t('yes'),
