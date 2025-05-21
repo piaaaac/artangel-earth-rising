@@ -1,0 +1,362 @@
+@charset "UTF-8";
+
+// -----------------------------------------------------------------------------
+// SCSS Variables
+// -----------------------------------------------------------------------------
+
+$button-h: 47px;
+$button-h-s: 37px;
+$menu-h: 50px;
+$border-radius: 3px;
+$space: 20px;
+$ui-space-mob: 45px;
+$ui-space-dsk: 65px;
+$border-width-mob: 1px;
+$border-width-dsk: 1.5px;
+$c-whiteish: #f1f3d7;
+
+// -----------------------------------------------------------------------------
+// External files import
+// -----------------------------------------------------------------------------
+
+@import "bootstrap-scss/_functions";
+@import "bootstrap-scss/_variables";
+@import "bootstrap-scss/mixins/_breakpoints";
+@import "_reset";
+@import "_typography";
+@import "_mixins";
+@import "_switch";
+@import "hamburger-settings";
+@import "hamburgers/hamburgers";
+
+// -----------------------------------------------------------------------------
+// CSS Variables
+// -----------------------------------------------------------------------------
+
+:root {
+  --ui-space: #{$ui-space-mob};
+  --border-width: #{$border-width-mob};
+  @include media-breakpoint-up(md) {
+    --ui-space: #{$ui-space-dsk};
+    --border-width: #{$border-width-dsk};
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Utilities
+// -----------------------------------------------------------------------------
+
+.color-white {
+  color: white;
+}
+.color-white-50 {
+  color: rgba(white, 0.5);
+}
+.bg-white {
+  background-color: white;
+}
+.no-u {
+  text-decoration: none;
+}
+.u-hover {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.pointer {
+  cursor: pointer;
+}
+.upper {
+  text-transform: uppercase;
+}
+.lower {
+  text-transform: none;
+}
+
+.space-1 {
+  height: #{$space * 1};
+}
+.space-2 {
+  height: #{$space * 2};
+}
+.space-3 {
+  height: #{$space * 3};
+}
+.space-4 {
+  height: #{$space * 4};
+}
+.space-6 {
+  height: #{$space * 6};
+}
+.space-8 {
+  height: #{$space * 8};
+}
+
+// -----------------------------------------------------------------------------
+// General tags & classes
+// -----------------------------------------------------------------------------
+
+* {
+  // text-rendering: auto;
+  // text-rendering: optimizeSpeed;
+  // text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision; // OK on chrome
+}
+
+body {
+  overflow-x: hidden;
+  width: 100vw;
+  background-color: black;
+  color: $c-whiteish;
+  &.media-open {
+    overflow: hidden;
+  }
+}
+
+main {
+}
+
+hr {
+  border-top: 1px solid rgba(white, 0.3);
+}
+
+a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 10%;
+  color: inherit;
+  // &:hover { color: white; }
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+// -----------------------------------------------------------------------------
+// REUSABLE PIECES
+// -----------------------------------------------------------------------------
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: $button-h;
+  border: 1px solid grey;
+  color: grey;
+  @include font-sans-m;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: $border-radius;
+  padding: 0 $space;
+  transition: background-color 400ms, color 400ms;
+  &:hover,
+  &.active {
+    background-color: grey;
+    color: grey;
+  }
+  &.small {
+    height: $button-h-s;
+    width: auto;
+    padding: 0 10px;
+    text-transform: none;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// SPECIFIC - PANELS
+// -----------------------------------------------------------------------------
+
+#menu-panel {
+  z-index: 30;
+  position: fixed;
+  top: var(--ui-space);
+  left: var(--ui-space);
+  right: var(--ui-space);
+  bottom: var(--ui-space);
+  background-color: rgba(#9f4848, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 400ms;
+  @at-root body[data-menu-panel="true"] & {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+#accessibility-panel {
+  z-index: 30;
+  position: fixed;
+  top: var(--ui-space);
+  left: var(--ui-space);
+  width: 320px;
+  bottom: var(--ui-space);
+  border-right: var(--border-width) solid $c-whiteish;
+  @include media-breakpoint-down(md) {
+    width: auto;
+    right: 50%;
+  }
+  @include media-breakpoint-down(xs) {
+    width: auto;
+    right: var(--ui-space);
+    border-right-width: 0;
+  }
+  background-color: rgba(#9f4848, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 400ms;
+  @at-root body[data-accessibility-panel="true"] & {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+#about-panel {
+  z-index: 30;
+  position: fixed;
+  top: calc(100% - var(--ui-space));
+  left: var(--ui-space);
+  right: var(--ui-space);
+
+  // bottom: var(--ui-space);
+  height: calc(100% - var(--ui-space) - var(--ui-space));
+  overflow-y: scroll;
+
+  background-color: rgba(#9f4848, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 400ms;
+  @at-root body[data-about-panel="true"] & {
+    opacity: 1;
+    pointer-events: all;
+    top: var(--ui-space);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// SPECIFIC - UI
+// -----------------------------------------------------------------------------
+
+#button-top-left,
+#button-top-right,
+#button-bottom-left,
+#button-bottom-right {
+  z-index: 49;
+  position: fixed;
+  background-color: black;
+  height: var(--ui-space);
+  width: var(--ui-space);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 400ms;
+  color: $c-whiteish;
+}
+#button-top-left {
+  top: 0;
+  left: 0;
+}
+#button-top-right {
+  top: 0;
+  right: 0;
+}
+#button-bottom-left {
+  bottom: 0;
+  left: 0;
+}
+#button-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+#ui-line-top,
+#ui-line-bottom,
+#ui-line-left,
+#ui-line-right {
+  z-index: 50;
+  position: fixed;
+  background-color: transparent;
+  pointer-events: none;
+  transition: all 400ms;
+}
+#ui-line-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--ui-space);
+  border-bottom: var(--border-width) solid $c-whiteish;
+}
+#ui-line-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--ui-space);
+  border-top: var(--border-width) solid $c-whiteish;
+}
+#ui-line-left {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--ui-space);
+  border-right: var(--border-width) solid $c-whiteish;
+}
+#ui-line-right {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--ui-space);
+  border-left: var(--border-width) solid $c-whiteish;
+}
+
+// ------------------------------------------------------------------------
+// Layout
+// ------------------------------------------------------------------------
+
+// .container-fluid {
+//   max-width: 940px;
+//   max-width: 1100px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   padding-left: 30px;
+//   padding-right: 30px;
+//   @include media-breakpoint-down(xs) {
+//     padding-left: 15px;
+//     padding-right: 15px;
+//   }
+// }
+
+// -----------------------------------------------------------------------------
+// BOOTSTRAP BREAKPOINTS
+// -----------------------------------------------------------------------------
+
+// xs ---                 Portrait phones
+// sm ---  576px and up   Small devices (landscape phones)
+// md ---  768px and up   Medium devices (tablets)
+// lg ---  992px and up   Large devices (desktops)
+// xl --- 1200px and up   Extra large devices (large desktops)
+
+// No media query necessary for xs breakpoint as it's effectively `@media (min-width: 0) { ... }`
+// @include media-breakpoint-up(sm) { ... }
+// @include media-breakpoint-only(md) { ... }
+// @include media-breakpoint-between(md, xl) { ... }
+// @include media-breakpoint-down(lg) { ... }

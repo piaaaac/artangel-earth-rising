@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+// ------------------------------------------------------------------------
+// Fonts
+// ------------------------------------------------------------------------
+
+@font-face {
+  font-family: "Gaisyr";
+  src: url("../fonts/ABCGaisyr-Light-Trial.woff2") format("woff2"),
+    url("../fonts/ABCGaisyr-Light-Trial.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+$font-serif: "Gaisyr", serif;
+
+@mixin font-style($ff, $xs, $sm, $md, $lg, $xl, $letter-sp, $line-h) {
+  font-family: $ff;
+  font-size: $xs;
+  font-optical-sizing: auto;
+  letter-spacing: $letter-sp;
+  line-height: $line-h;
+  @include media-breakpoint-up(sm) {
+    font-size: $sm;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: $md;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: $lg;
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: $xl;
+  }
+}
+
+// ------------------------------------------------------------------------
+// Font styles
+// ------------------------------------------------------------------------
+
+@mixin font-serif-l {
+  @include font-style(
+    $ff: $font-serif,
+    $xs: 36px,
+    $sm: 36px,
+    $md: 45px,
+    $lg: 45px,
+    $xl: 45px,
+    $letter-sp: 0,
+    $line-h: 1.05em
+  );
+}
+.font-serif-l {
+  @include font-serif-l;
+}
+
+@mixin font-serif-m {
+  @include font-style(
+    $ff: $font-serif,
+    $xs: 21px,
+    $sm: 21px,
+    $md: 22px,
+    $lg: 22px,
+    $xl: 22px,
+    $letter-sp: 0,
+    $line-h: 1.3em
+  );
+}
+.font-serif-m {
+  @include font-serif-m;
+}
+
+@mixin font-serif-s {
+  @include font-style(
+    $ff: $font-serif,
+    $xs: 15px,
+    $sm: 15px,
+    $md: 15px,
+    $lg: 15px,
+    $xl: 15px,
+    $letter-sp: 0,
+    $line-h: 1.3em
+  );
+}
+.font-serif-s {
+  @include font-serif-s;
+}
+
+// -----------------------------------------------------------------------------
+// Elements
+// -----------------------------------------------------------------------------
+
+p {
+  @include font-serif-m;
+  margin-bottom: 1em;
+}
+h1 {
+  @include font-serif-l;
+}
+h2 {
+  @include font-serif-l;
+}
+h3 {
+  @include font-serif-m;
+}
+h4 {
+  @include font-serif-m;
+}
+h5 {
+  @include font-serif-s;
+}
+h6 {
+  @include font-serif-s;
+}
+
+// -----------------------------------------------------------------------------
+// Block styles
+// -----------------------------------------------------------------------------
+
+.block-sans-s,
+.block-sans-s p {
+  color: black;
+  @include font-serif-s;
+}
+
+.block-sans-m,
+.block-sans-m p {
+  color: black;
+  @include font-serif-m;
+}
+
+.block-sans-l,
+.block-sans-l p {
+  color: black;
+  @include font-serif-l;
+}
