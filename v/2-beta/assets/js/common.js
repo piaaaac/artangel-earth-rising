@@ -57,8 +57,8 @@ function openTrack(trackData) {
   document.body.dataset.trackOpen = trackData.id;
   trackTitle.textContent = trackData.title;
   trackArtist.textContent = trackData.artist;
-  trackInfoArtist.innerHTML = trackData.infoartist; // NEEDS FIX !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  trackInfoScript.innerHTML = trackData.infoscript; // NEEDS FIX !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  trackInfoArtist.innerHTML = trackData.infoartist;
+  trackInfoScript.innerHTML = trackData.infoscript;
   colorCover.style.backgroundColor = trackData.uicolor;
 }
 
