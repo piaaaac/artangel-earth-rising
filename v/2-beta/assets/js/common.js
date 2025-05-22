@@ -76,6 +76,12 @@ function closeAllPanels() {
   document.body.dataset.aboutPanel = false;
 }
 
+function startTracklist() {
+  document.querySelector('#circle').classList.add('zoom-out');
+  var trackData = tracks[0];
+  openTrack(trackData);
+}
+
 function handleTrackClick(event, element) {
   event.preventDefault();
   var trackId = element.getAttribute("data-track-uuid");

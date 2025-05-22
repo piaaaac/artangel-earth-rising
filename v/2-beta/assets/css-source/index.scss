@@ -191,12 +191,38 @@ main#main-content {
   right: var(--ui-space);
   bottom: var(--ui-space);
   transition: all $transition-duration;
-  background-color: rgba(rgb(0, 0, 111), 0.5);
-  background-image: url(../images/test-bg.jpg);
   background-size: cover;
-  @at-root body[data-track-open=""] & {
-    opacity: 0;
-    pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @at-root body:not([data-track-open=""]) & {
+    background-color: rgba(rgb(0, 0, 111), 0.5);
+    background-image: url(../images/test-bg.jpg);
+  }
+  #circle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: $c-whiteish;
+    cursor: pointer;
+    transition: all 500ms;
+    z-index: 1;
+    &:hover {
+      width: 25vh;
+      height: 25vh;
+      background-color: transparent;
+      border: 1px solid $c-whiteish;
+      // transition: all 500ms;
+    }
+    &.zoom-out {
+      pointer-events: none;
+      width: 80vh;
+      height: 80vh;
+      transform:scale(3);
+      transition: all 1000ms;
+      border: 1px solid $c-whiteish;
+      background-color: transparent;
+    }
   }
   #color-cover {
     position: absolute;
@@ -208,6 +234,9 @@ main#main-content {
     pointer-events: none;
     transition: all $transition-duration;
     mix-blend-mode: multiply;
+    @at-root body[data-track-open=""] & {
+      opacity: 0;
+    }
   }
 }
 
