@@ -46,7 +46,9 @@ $json = json_encode($data);
 </nav>
 
 <main id="main-content">
-  <div id="circle" class="starting-point" onclick="startTracklist();"></div>
+  <div id="background"></div>
+  <!-- <div id="circle" class="starting-point" onclick="startTracklist();"></div> -->
+  <div id="circle" class="starting-point" onclick="openNextTrack();"></div>
   <div id="color-cover"></div>
 </main>
 

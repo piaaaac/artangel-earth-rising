@@ -2,12 +2,15 @@
 // Variables
 // ----------------------------------------------------------------
 
+let interval;
+
 const hamburgers = document.querySelectorAll(".hamburger");
 const trackArtist = document.getElementById("track-artist");
 const trackTitle = document.getElementById("track-title");
 const trackInfoArtist = document.getElementById("track-info-artist");
 const trackInfoScript = document.getElementById("track-info-script");
 const colorCover = document.getElementById("color-cover");
+const circle = document.querySelector("#circle");
 
 // ----------------------------------------------------------------
 // Execution start
@@ -54,18 +57,18 @@ function toggleAboutPanel(bool) {
 
 function openTrack(trackData) {
   closeAllPanels();
-  document.body.dataset.trackOpen = trackData.id;
-  document.body.dataset.trackOpenIndex = Number(trackData.index);
-  trackTitle.textContent = trackData.title;
-  trackArtist.textContent = trackData.artist;
-  trackInfoArtist.innerHTML = trackData.infoartist;
-  trackInfoScript.innerHTML = trackData.infoscript;
-  colorCover.style.backgroundColor = trackData.uicolor;
+  document.body.dataset.trackOpen = trackData.uuid;
+  animateCircle(() => {
+    trackTitle.textContent = trackData.title;
+    trackArtist.textContent = trackData.artist;
+    trackInfoArtist.innerHTML = trackData.infoartist;
+    trackInfoScript.innerHTML = trackData.infoscript;
+    colorCover.style.backgroundColor = trackData.uicolor;
+  });
 }
 
 function closeTrack() {
   document.body.dataset.trackOpen = "";
-  document.body.dataset.trackOpenIndex = "";
 }
 
 function closeAllPanels() {
@@ -78,13 +81,12 @@ function closeAllPanels() {
   document.body.dataset.aboutPanel = false;
 }
 
-
 function handleTrackClick(event, element) {
   event.preventDefault();
   var trackId = element.getAttribute("data-track-uuid");
   var track = tracks.find((t) => t.uuid === trackId);
   var trackIndex = tracks.indexOf(track);
-  clearInterval(intervalTask);
+  clearInterval(interval);
   openTrack(track);
 }
 
@@ -92,51 +94,50 @@ function handleTitleClick(event) {
   event.preventDefault();
   closeAllPanels();
   closeTrack();
+  resetAlbum();
 }
 
 function startTracklist() {
-  document.querySelector('#circle').classList.add('zoom-out');
-  var track = tracks[0];
-  openTrack(track);
-
-  setTimeout(function() {
-    document.querySelector('#circle').classList.remove('starting-point','zoom-out');
-    document.querySelector('#circle').classList.add('zoom-in');
-
-    tempAutoplay(goToNextTrack(), 5000, (tracks.length - 1));
-  },1000)
+  interval = setInterval(openNextTrack, 5000);
 }
 
-function goToNextTrack() {
-  document.querySelector('#circle').classList.add('zoom-out');
+function getCurrentIndex() {
+  return tracks.findIndex((t) => t.uuid === document.body.dataset.trackOpen);
+}
 
-  if (document.body.dataset.trackOpenIndex === undefined) {
-    var track = tracks[0];
-    openTrack(track);
+function openNextTrack() {
+  let nextIndex = 0;
+  const currentIndex = getCurrentIndex();
+  if (currentIndex != -1) {
+    nextIndex = currentIndex + 1;
+  }
+  if (nextIndex >= tracks.length) {
+    clearInterval(interval);
+    resetAlbum();
   } else {
-    var nextTrack = Number(document.body.dataset.trackOpenIndex) + 1;
-    openTrack(tracks[nextTrack]);
+    var track = tracks[nextIndex];
+    openTrack(track);
   }
-
-  setTimeout(function() {
-    document.querySelector('#circle').classList.remove('starting-point','zoom-out');
-    document.querySelector('#circle').classList.add('zoom-in');
-  }, 1000)
 }
 
-var intervalTask;
-function tempAutoplay(callback, interval, repeatTimes) {
-  let repeated = 0;
-  var intervalTask = setInterval(doTask, interval)
-
-  function doTask() {
-    if ( repeated < repeatTimes ) {
-      goToNextTrack()
-      repeated += 1
-    } else {
-      clearInterval(intervalTask)
+function animateCircle(callback) {
+  circle.classList.add("zoom-out");
+  setTimeout(function () {
+    circle.classList.remove("starting-point", "zoom-out");
+    circle.classList.add("zoom-in");
+    if (typeof callback === "function") {
+      callback();
     }
-  }
+  }, 1000);
+}
+
+function resetAlbum() {
+  circle.classList.remove("zoom-in", "zoom-out");
+  circle.classList.add("starting-point", "forced-start");
+  setTimeout(function () {
+    circle.classList.remove("forced-start");
+  }, 1000);
+  document.body.dataset.trackOpen = "";
 }
 
 // ----------------------------------------------------------------

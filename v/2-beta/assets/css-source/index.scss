@@ -137,8 +137,8 @@ body {
   &[data-menu-panel="true"],
   &[data-about-panel="true"] {
     #main-content {
-      filter: blur(15px);
-      opacity: 0.5;
+      // filter: blur(15px);
+      opacity: 0.1;
     }
   }
 }
@@ -185,11 +185,11 @@ ul {
 
 @keyframes animateCircleOut {
   from {
-    transform:scale(1);
+    transform: scale(1);
     opacity: 1;
   }
   to {
-    transform:scale(3);
+    transform: scale(3);
     opacity: 0;
   }
 }
@@ -200,8 +200,8 @@ ul {
     height: 0;
   }
   to {
-    width: 80vh;
-    height: 80vh;
+    width: 75vmin;
+    height: 75vmin;
   }
 }
 
@@ -213,27 +213,38 @@ main#main-content {
   right: var(--ui-space);
   bottom: var(--ui-space);
   transition: all $transition-duration;
-  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  @at-root body:not([data-track-open=""]) & {
-    background-color: rgba(rgb(0, 0, 111), 0.5);
+  #background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
     background-image: url(../images/test-bg.jpg);
+    transition: all $transition-duration;
+    @at-root body:not([data-track-open=""]) & {
+      opacity: 1;
+    }
   }
   #circle {
     border-radius: 50%;
     cursor: pointer;
     transition: all 500ms;
     z-index: 30;
+    aspect-ratio: 1/1;
     border: 1px solid $c-whiteish;
     &.starting-point {
       width: 20px;
       height: 20px;
       background-color: $c-whiteish;
-      &:hover {
-        width: 25vh;
-        height: 25vh;
+      &:not(.forced-start):hover {
+        width: 25vmin;
+        height: 25vmin;
         background-color: transparent;
       }
     }
@@ -259,9 +270,11 @@ main#main-content {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #666;
+    background-color: black;
     pointer-events: none;
     transition: all 800ms $transition-duration;
+    transition: all $transition-duration;
+    transition: all 200ms;
     mix-blend-mode: multiply;
     @at-root body[data-track-open=""] & {
       opacity: 0;
@@ -445,7 +458,7 @@ main#main-content {
   width: 320px;
   bottom: var(--ui-space);
   border-right: var(--border-width) solid $c-whiteish;
-  background-color: rgba(black, 0.8);
+  background-color: rgba(black, 0.9);
   padding: $space;
   @include media-breakpoint-down(md) {
     width: auto;
@@ -533,6 +546,7 @@ main#main-content {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: black;
   // @include font-serif-l;
 }
 #top-txt {
@@ -540,7 +554,6 @@ main#main-content {
 }
 #bottom-txt,
 #bottom-txt-about {
-  background-color: black;
   bottom: 0;
 }
 #bottom-txt-about {
