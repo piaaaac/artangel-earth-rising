@@ -84,6 +84,7 @@ function handleTrackClick(event, element) {
   var trackId = element.getAttribute("data-track-uuid");
   var track = tracks.find((t) => t.uuid === trackId);
   var trackIndex = tracks.indexOf(track);
+  clearInterval(intervalTask);
   openTrack(track);
 }
 
@@ -102,13 +103,12 @@ function startTracklist() {
     document.querySelector('#circle').classList.remove('starting-point','zoom-out');
     document.querySelector('#circle').classList.add('zoom-in');
 
-    tempAutoplay(goToNextTrack(), 5000, tracks.length);
+    tempAutoplay(goToNextTrack(), 5000, (tracks.length - 1));
   },1000)
 }
 
 function goToNextTrack() {
   document.querySelector('#circle').classList.add('zoom-out');
-  console.log(document.body.dataset.trackOpenIndex);
 
   if (document.body.dataset.trackOpenIndex === undefined) {
     var track = tracks[0];
@@ -124,9 +124,10 @@ function goToNextTrack() {
   }, 1000)
 }
 
+var intervalTask;
 function tempAutoplay(callback, interval, repeatTimes) {
   let repeated = 0;
-  const intervalTask = setInterval(doTask, interval)
+  var intervalTask = setInterval(doTask, interval)
 
   function doTask() {
     if ( repeated < repeatTimes ) {
