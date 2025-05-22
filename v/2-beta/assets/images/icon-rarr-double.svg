@@ -2,7 +2,7 @@
 <svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>icon-rarr-double</title>
     <g id="icon-rarr-double" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M17.0001,1 C17.0001,16.9315 28.3342,36.1488 39.6202,40 C28.3342,45.226 17.0001,63.0685 17.0001,79" id="Path" stroke="#F1F3D7"></path>
-        <path d="M38.612,1 C38.612,22.5378 55.8002,40 77,40 C55.8002,40 38.612,57.4623 38.612,79" id="Path" stroke="#F1F3D7"></path>
+        <path d="M17.0001,1 C17.0001,16.9315 28.3342,36.1488 39.6202,40 C28.3342,45.226 17.0001,63.0685 17.0001,79" id="Path" stroke="#F1F3D7" stroke-width="1.2"></path>
+        <path d="M38.612,1 C38.612,22.5378 55.8002,40 77,40 C55.8002,40 38.612,57.4623 38.612,79" id="Path" stroke="#F1F3D7" stroke-width="1.2"></path>
     </g>
 </svg>

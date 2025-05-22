@@ -14,6 +14,10 @@
   <h2 class="only-dsk">Messages from the Pale Blue Dot</h2>
 </div>
 
+<div id="bottom-txt-about" role="button" onclick="toggleAboutPanel()">
+  <h2 class="only-dsk">ABOUT & CREDITS</h2>
+</div>
+
 <!-- Buttons -->
 
 <nav class="button-wrapper" id="button-wrapper-top-left">

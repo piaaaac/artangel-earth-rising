@@ -21,9 +21,8 @@
 </head>
 
 <body
-  data-template="<?= $page->template() ?>"
-  data-accessibility-panel="false"
   data-track-open=""
+  data-accessibility-panel="false"
   data-track-info="false"
   data-about-panel="false"
   data-menu-panel="false">

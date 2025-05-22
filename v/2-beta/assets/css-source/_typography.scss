@@ -40,11 +40,11 @@ $font-serif: "Gaisyr", serif;
 @mixin font-serif-l {
   @include font-style(
     $ff: $font-serif,
-    $xs: 27px,
-    $sm: 27px,
-    $md: 27px,
-    $lg: 27px,
-    $xl: 27px,
+    $xs: 25px,
+    $sm: 25px,
+    $md: 25px,
+    $lg: 25px,
+    $xl: 25px,
     $letter-sp: 0,
     $line-h: 1.25em
   );
@@ -90,7 +90,7 @@ $font-serif: "Gaisyr", serif;
 // -----------------------------------------------------------------------------
 
 p {
-  @include font-serif-m;
+  @include font-serif-l;
 }
 p,
 h1,
@@ -118,13 +118,13 @@ h3 {
   @include font-serif-l;
 }
 h4 {
-  @include font-serif-m;
+  @include font-serif-l;
 }
 h5 {
-  @include font-serif-s;
+  @include font-serif-l;
 }
 h6 {
-  @include font-serif-s;
+  @include font-serif-l;
 }
 
 // -----------------------------------------------------------------------------

@@ -2,12 +2,10 @@
 <svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>icon-accessibility</title>
     <g id="icon-accessibility" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
-        <g id="accessibility" transform="translate(13, 10)" stroke="#F1F3D7">
-            <line x1="26.5714" y1="20.6509" x2="26.5714" y2="36.3969" id="Path"></line>
-            <path d="M26.5714,33.4443 C26.5714,49.6335 15.0851,60.9999 0,60.9999" id="Path" stroke-linecap="round"></path>
-            <path d="M26.5714,33.4443 C26.5714,49.6335 38.0577,60.9999 53.1428,60.9999" id="Path" stroke-linecap="round"></path>
-            <path d="M26.5712,0 C31.9561,0 36.3964,4.5769 36.3964,10.3174 C36.3964,16.0579 31.9562,20.6348 26.5712,20.6348 C21.1863,20.6348 16.746,16.0578 16.746,10.3174 C16.746,4.577 21.1863,0 26.5712,0 Z" id="Path"></path>
-            <line x1="0" y1="27.5396" x2="53.1429" y2="27.5396" id="Path" stroke-linecap="round"></line>
-        </g>
+        <line x1="39.5714" y1="30.6509" x2="39.5714" y2="46.3969" id="Path" stroke="#F1F3D7" stroke-width="1.2"></line>
+        <path d="M39.5714,43.4443 C39.5714,59.6335 28.0851,70.9999 13,70.9999" id="Path" stroke="#F1F3D7" stroke-width="1.2" stroke-linecap="round"></path>
+        <path d="M39.5714,43.4443 C39.5714,59.6335 51.0577,70.9999 66.1428,70.9999" id="Path" stroke="#F1F3D7" stroke-width="1.2" stroke-linecap="round"></path>
+        <path d="M39.5712,10 C44.9561,10 49.3964,14.5769 49.3964,20.3174 C49.3964,26.0579 44.9562,30.6348 39.5712,30.6348 C34.1863,30.6348 29.746,26.0578 29.746,20.3174 C29.746,14.577 34.1863,10 39.5712,10 Z" id="Path" stroke="#F1F3D7" stroke-width="1.2"></path>
+        <line x1="13" y1="37.5396" x2="66.1429" y2="37.5396" id="Path" stroke="#F1F3D7" stroke-width="1.2" stroke-linecap="round"></line>
     </g>
 </svg>
