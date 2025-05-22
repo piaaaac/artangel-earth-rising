@@ -1,4 +1,4 @@
-title: Default Page
+title: Track
 
 tabs:
   content:
@@ -9,8 +9,12 @@ tabs:
           fields:
             type: fields
             fields:
-              text:
-                extends: fields/writer-field
+              artist:
+                label: Artist name
+                type: text
+              uiColor:
+                label: UI color
+                type: color
 
       sidebar:
         width: 1/3

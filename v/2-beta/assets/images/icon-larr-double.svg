@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-larr-double</title>
+    <g id="icon-larr-double" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M40.3799,1 C40.3799,16.9315 51.714,36.1488 63,40 C51.714,45.226 40.3799,63.0685 40.3799,79" id="Path" stroke="#F1F3D7" transform="translate(51.6899, 40) rotate(180) translate(-51.6899, -40)"></path>
+        <path d="M3.0001,1 C3.0001,22.5378 20.1883,40 41.3881,40 C20.1883,40 3.0001,57.4623 3.0001,79" id="Path" stroke="#F1F3D7" transform="translate(22.1941, 40) rotate(180) translate(-22.1941, -40)"></path>
+    </g>
+</svg>

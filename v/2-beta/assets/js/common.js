@@ -2,6 +2,8 @@
 // Variables
 // ----------------------------------------------------------------
 
+const hamburgers = document.querySelectorAll(".hamburger");
+
 // ----------------------------------------------------------------
 // Execution start
 // ----------------------------------------------------------------
@@ -16,6 +18,9 @@ function toggleMenuPanel(bool) {
   }
   closeAllPanels();
   document.body.dataset.menuPanel = bool;
+  hamburgers.forEach((hamburger) => {
+    hamburger.classList.toggle("is-active", bool);
+  });
 }
 
 function toggleAccessibilityPanel(bool) {
@@ -44,6 +49,9 @@ function toggleAboutPanel(bool) {
 
 function closeAllPanels() {
   document.body.dataset.menuPanel = false;
+  hamburgers.forEach((hamburger) => {
+    hamburger.classList.toggle("is-active", false);
+  });
   document.body.dataset.accessibilityPanel = false;
   document.body.dataset.workInfo = false;
   document.body.dataset.aboutPanel = false;

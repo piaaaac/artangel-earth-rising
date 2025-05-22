@@ -8,15 +8,14 @@ $hamburger-active-layer-color: #f1f3d7;
 $hamburger-hover-opacity: 1;
 $hamburger-active-hover-opacity: $hamburger-hover-opacity;
 $hamburger-layer-color: #f1f3d7;
-$hamburger-layer-border-radius: 1px;
+$hamburger-layer-border-radius: 0px;
 
-$hamburger-layer-spacing: 12.5px;
+$hamburger-layer-spacing: 8.5px;
 // $hamburger-layer-spacing: 30%;
 // >>> _base.scss
 
-$hamburger-layer-height: 1.5px;
-$hamburger-layer-width: 23px;
-$hamburger-layer-width: var(--ui-space);
+$hamburger-layer-height: 1px;
+$hamburger-layer-width: calc(var(--ui-space) * 1.5);
 
 // To use CSS filters as the hover effect instead of opacity,
 // set $hamburger-hover-use-filter as true and

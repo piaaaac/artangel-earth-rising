@@ -1,0 +1,22 @@
+label: Text
+type: writer
+marks:
+  - link
+  - italic
+nodes:
+  - bulletList
+  - orderedList
+  - heading
+  - horizontalRule
+  - quote
+# toolbar:
+#   inline: false
+#   marks:
+#     - link
+#     - italic
+#   nodes:
+#     - bulletList
+#     - orderedList
+#     - heading
+#     - horizontalRule
+#     - quote

@@ -1,0 +1,73 @@
+Title: Earth Rising
+
+----
+
+Text: 
+
+----
+
+Metatitle: Earth Rising | Messages from the Pale Blue Dot
+
+----
+
+Metatemplate: Earth Rising | Messages from the Pale Blue Dot
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: true
+
+----
+
+Robotsfollow: true
+
+----
+
+Robotsarchive: true
+
+----
+
+Robotsimageindex: true
+
+----
+
+Robotssnippet: true
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: phc2BicF9ZQfnyu0

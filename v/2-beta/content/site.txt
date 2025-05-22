@@ -1,1 +1,53 @@
-Title: Site Title
+Title: Earth Rising
+
+----
+
+Metatemplate: Earth Rising | Messages from the Pale Blue Dot
+
+----
+
+Metadescription: ⁠A concept album in which artists, poets, writers and musicians hold a mirror to humanity.
+
+----
+
+Ogtemplate: Earth Rising | Messages from the Pale Blue Dot
+
+----
+
+Ogdescription: ⁠A concept album in which artists, poets, writers and musicians hold a mirror to humanity.
+
+----
+
+Ogsitename: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: summary
+
+----
+
+Robotsindex: true
+
+----
+
+Robotsfollow: true
+
+----
+
+Robotsarchive: true
+
+----
+
+Robotsimageindex: true
+
+----
+
+Robotssnippet: true
+
+----
+
+Socialmediaaccounts: 

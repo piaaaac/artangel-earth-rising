@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="98px" height="26px" viewBox="0 0 98 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>stars-volume-1-r2l</title>
+    <g id="stars-volume-1-r2l" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="stars-volume-1" transform="translate(49, 13) scale(-1, 1) translate(-49, -13)" stroke="#F1F3D7">
+            <path d="M26,13 C17.953,13 13,17.953 13,26 C13,17.953 8.047,13 0,13 C8.047,13 13,8.047 13,0 C13,8.047 17.953,13 26,13 Z" id="Path" fill="#F1F3D7" fill-rule="nonzero"></path>
+            <path d="M62,13 C53.953,13 49,17.953 49,26 C49,17.953 44.047,13 36,13 C44.047,13 49,8.047 49,0 C49,8.047 53.953,13 62,13 Z" id="Path"></path>
+            <path d="M98,13 C89.953,13 85,17.953 85,26 C85,17.953 80.047,13 72,13 C80.047,13 85,8.047 85,0 C85,8.047 89.953,13 98,13 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>

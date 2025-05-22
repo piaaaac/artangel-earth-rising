@@ -1,0 +1,73 @@
+Title: Credits
+
+----
+
+Text: <h1>Credits</h1><hr><h2>Leo Robinson</h2><h3>Monologue for The Second Land</h3><p>Leo Robinson<br><em>Lead Artist</em></p><p>Astan Meyer<br><em>Performer</em></p><p>Buster Grey Jung<br><em>Director of Photography</em></p><p>Anna Niamh Patterson<br><em>B Camera Operator &amp; Camera Assistant</em></p><p>Joe Nkadi Gaffer, Simone Carty<br><em>Sound Recordist</em></p><p>Molly M. Whawell<br><em>Production Manager</em></p><p>Rosie Jones-Burslem<br><em>Costume</em></p><p>Toni-Ann Malcom<br><em>Hair</em></p><p>Yoi Wan<br><em>MUA</em></p><hr><h2>Leo Robinson</h2><h3>Monologue for The Second Land</h3><p>Leo Robinson<br><em>Lead Artist</em></p><p>Astan Meyer<br><em>Performer</em></p><p>Buster Grey Jung<br><em>Director of Photography</em></p><p>Anna Niamh Patterson<br><em>B Camera Operator &amp; Camera Assistant</em></p><p>Joe Nkadi Gaffer, Simone Carty<br><em>Sound Recordist</em></p><p>Molly M. Whawell<br><em>Production Manager</em></p><p>Rosie Jones-Burslem<br><em>Costume</em></p><p>Toni-Ann Malcom<br><em>Hair</em></p><p>Yoi Wan<br><em>MUA</em></p><hr><h2>Leo Robinson</h2><h3>Monologue for The Second Land</h3><p>Leo Robinson<br><em>Lead Artist</em></p><p>Astan Meyer<br><em>Performer</em></p><p>Buster Grey Jung<br><em>Director of Photography</em></p><p>Anna Niamh Patterson<br><em>B Camera Operator &amp; Camera Assistant</em></p><p>Joe Nkadi Gaffer, Simone Carty<br><em>Sound Recordist</em></p><p>Molly M. Whawell<br><em>Production Manager</em></p><p>Rosie Jones-Burslem<br><em>Costume</em></p><p>Toni-Ann Malcom<br><em>Hair</em></p><p>Yoi Wan<br><em>MUA</em></p><p>&nbsp;</p>
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: true
+
+----
+
+Robotsfollow: true
+
+----
+
+Robotsarchive: true
+
+----
+
+Robotsimageindex: true
+
+----
+
+Robotssnippet: true
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: kFwvRlNe3xsqYDqZ

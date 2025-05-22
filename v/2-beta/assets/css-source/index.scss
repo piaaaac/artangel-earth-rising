@@ -8,11 +8,11 @@ $button-h: 47px;
 $button-h-s: 37px;
 $menu-h: 50px;
 $border-radius: 3px;
-$space: 20px;
+$space: 15px;
 $ui-space-mob: 45px;
 $ui-space-dsk: 65px;
 $border-width-mob: 1px;
-$border-width-dsk: 1.5px;
+$border-width-dsk: 1px;
 $c-whiteish: #f1f3d7;
 
 // -----------------------------------------------------------------------------
@@ -46,15 +46,6 @@ $c-whiteish: #f1f3d7;
 // Utilities
 // -----------------------------------------------------------------------------
 
-.color-white {
-  color: white;
-}
-.color-white-50 {
-  color: rgba(white, 0.5);
-}
-.bg-white {
-  background-color: white;
-}
 .no-u {
   text-decoration: none;
 }
@@ -74,23 +65,51 @@ $c-whiteish: #f1f3d7;
   text-transform: none;
 }
 
-.space-1 {
-  height: #{$space * 1};
+.p-space {
+  padding: $space;
 }
-.space-2 {
-  height: #{$space * 2};
+.pt-space {
+  padding-top: $space;
 }
-.space-3 {
-  height: #{$space * 3};
+.pb-space {
+  padding-bottom: $space;
 }
-.space-4 {
-  height: #{$space * 4};
+.pl-space {
+  padding-left: $space;
 }
-.space-6 {
-  height: #{$space * 6};
+.pr-space {
+  padding-right: $space;
 }
-.space-8 {
-  height: #{$space * 8};
+.m-space {
+  margin: $space;
+}
+.mt-space {
+  margin-top: $space;
+}
+.mb-space {
+  margin-bottom: $space;
+}
+.ml-space {
+  margin-left: $space;
+}
+.mr-space {
+  margin-right: $space;
+}
+.px-space {
+  padding-left: $space;
+  padding-right: $space;
+}
+.py-space {
+  padding-top: $space;
+  padding-bottom: $space;
+}
+.mx-space {
+  margin-left: $space;
+  margin-right: $space;
+}
+.my-space {
+  margin-top: $space;
+  margin-bottom: $space;
 }
 
 // -----------------------------------------------------------------------------
@@ -109,6 +128,8 @@ body {
   width: 100vw;
   background-color: black;
   color: $c-whiteish;
+  @include font-serif-m;
+  text-align: center;
   &.media-open {
     overflow: hidden;
   }
@@ -118,11 +139,11 @@ main {
 }
 
 hr {
-  border-top: 1px solid rgba(white, 0.3);
+  border-top: var(--border-width) solid $c-whiteish;
 }
 
 a {
-  text-decoration: underline;
+  text-decoration: none;
   text-decoration-thickness: 1px;
   text-underline-offset: 10%;
   color: inherit;
@@ -139,48 +160,8 @@ ul {
 // REUSABLE PIECES
 // -----------------------------------------------------------------------------
 
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: $button-h;
-  border: 1px solid grey;
-  color: grey;
-  @include font-serif-m;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: $border-radius;
-  padding: 0 $space;
-  transition: background-color 400ms, color 400ms;
-  &:hover,
-  &.active {
-    background-color: grey;
-    color: grey;
-  }
-  &.small {
-    height: $button-h-s;
-    width: auto;
-    padding: 0 10px;
-    text-transform: none;
-  }
-}
-
-@keyframes blink {
-  0% {
-    opacity: 0.5;
-  }
-  25% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 0.3;
-  }
-  75% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0.5;
-  }
+.custom-hover:hover {
+  color: var(--hover-color);
 }
 
 // -----------------------------------------------------------------------------
@@ -194,13 +175,69 @@ ul {
   left: var(--ui-space);
   right: var(--ui-space);
   bottom: var(--ui-space);
-  background-color: rgba(#9f4848, 0.5);
+  // background-color: rgba(#9f4848, 0.5);
   opacity: 0;
   pointer-events: none;
-  transition: all 400ms;
+  // transition: all 200ms;
   @at-root body[data-menu-panel="true"] & {
     opacity: 1;
     pointer-events: all;
+  }
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: stretch;
+
+  ul.content-wrapper {
+    max-height: 100%;
+    overflow-y: auto;
+    padding-top: $space * 2;
+    padding-bottom: $space * 2;
+  }
+  a.track {
+    @include font-serif-l;
+    display: inline-flex;
+    width: 100%;
+    padding: 8px 0;
+    .left,
+    .right {
+      width: 50%;
+      display: inline-block;
+      padding-left: $space;
+      padding-right: $space;
+    }
+    .left {
+      text-align: right;
+    }
+    .right {
+      text-align: left;
+    }
+  }
+  .line {
+    border-left: var(--border-width) solid $c-whiteish;
+    position: fixed;
+    top: var(--ui-space);
+    bottom: var(--ui-space);
+    left: 50%;
+    width: 0;
+  }
+  @include media-breakpoint-down(md) {
+    a.track {
+      @include font-serif-m;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    a.track {
+      display: block;
+      .left,
+      .right {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    .line {
+      display: none;
+    }
   }
 }
 
@@ -212,6 +249,7 @@ ul {
   width: 320px;
   bottom: var(--ui-space);
   border-right: var(--border-width) solid $c-whiteish;
+  padding: $space;
   @include media-breakpoint-down(md) {
     width: auto;
     right: 50%;
@@ -221,10 +259,10 @@ ul {
     right: var(--ui-space);
     border-right-width: 0;
   }
-  background-color: rgba(#9f4848, 0.5);
+  // background-color: rgba(#9f4848, 0.5);
   opacity: 0;
   pointer-events: none;
-  transition: all 400ms;
+  // transition: all 200ms;
   @at-root body[data-accessibility-panel="true"] & {
     opacity: 1;
     pointer-events: all;
@@ -237,19 +275,48 @@ ul {
   top: calc(100% - var(--ui-space));
   left: var(--ui-space);
   right: var(--ui-space);
-
-  // bottom: var(--ui-space);
   height: calc(100% - var(--ui-space) - var(--ui-space));
   overflow-y: scroll;
-
-  background-color: rgba(#9f4848, 0.5);
+  // background-color: rgba(#9f4848, 0.5);
   opacity: 0;
   pointer-events: none;
-  transition: all 400ms;
+  // transition: all 200ms;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
   @at-root body[data-about-panel="true"] & {
     opacity: 1;
     pointer-events: all;
     top: var(--ui-space);
+  }
+  .about-content,
+  .credits-content {
+    width: 50%;
+    padding: $space;
+    hr {
+      margin-top: $space;
+      margin-bottom: $space;
+      margin-left: -$space;
+      margin-right: -$space;
+    }
+  }
+  .line {
+    border-left: var(--border-width) solid $c-whiteish;
+    position: fixed;
+    top: var(--ui-space);
+    bottom: var(--ui-space);
+    left: 50%;
+    width: 0;
+  }
+  @include media-breakpoint-down(sm) {
+    flex-flow: column nowrap;
+    .about-content,
+    .credits-content {
+      width: 100%;
+    }
+    .line {
+      display: none;
+    }
   }
 }
 
@@ -257,34 +324,66 @@ ul {
 // SPECIFIC - UI
 // -----------------------------------------------------------------------------
 
-#button-top-left,
-#button-top-right,
-#button-bottom-left,
-#button-bottom-right {
-  z-index: 49;
+#top-txt,
+#bottom-txt {
+  z-index: 50;
   position: fixed;
-  background-color: black;
+  left: var(--ui-space);
+  right: var(--ui-space);
   height: var(--ui-space);
-  width: var(--ui-space);
+  // transition: all 200ms;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 400ms;
-  color: $c-whiteish;
+  @include font-serif-l;
 }
-#button-top-left {
+#top-txt {
+  top: 0;
+}
+#bottom-txt {
+  bottom: 0;
+}
+
+#button-wrapper-top-left,
+#button-wrapper-top-right,
+#button-wrapper-bottom-left,
+#button-wrapper-bottom-right {
+  z-index: 49;
+  position: fixed;
+  background-color: black;
+  width: var(--ui-space);
+  height: var(--ui-space);
+  max-width: var(--ui-space);
+  max-height: var(--ui-space);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // transition: all 200ms;
+  overflow: hidden;
+  color: $c-whiteish;
+  button {
+    background-color: transparent;
+    img {
+      width: 100%;
+      height: 100%;
+      // max-width: var(--ui-space);
+      // max-height: var(--ui-space);
+    }
+  }
+}
+#button-wrapper-top-left {
   top: 0;
   left: 0;
 }
-#button-top-right {
+#button-wrapper-top-right {
   top: 0;
   right: 0;
 }
-#button-bottom-left {
+#button-wrapper-bottom-left {
   bottom: 0;
   left: 0;
 }
-#button-bottom-right {
+#button-wrapper-bottom-right {
   bottom: 0;
   right: 0;
 }
@@ -297,7 +396,7 @@ ul {
   position: fixed;
   background-color: transparent;
   pointer-events: none;
-  transition: all 400ms;
+  // transition: all 200ms;
 }
 #ui-line-top {
   top: 0;
@@ -326,6 +425,12 @@ ul {
   bottom: 0;
   width: var(--ui-space);
   border-left: var(--border-width) solid $c-whiteish;
+}
+
+.hamburger-inner::before {
+  @include media-breakpoint-up(md) {
+    opacity: 0;
+  }
 }
 
 // ------------------------------------------------------------------------

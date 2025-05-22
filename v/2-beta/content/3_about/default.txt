@@ -1,0 +1,73 @@
+Title: About
+
+----
+
+Text: <h1>About</h1><hr><p>In the 1970s, the Golden Record was created to introduce humanity to aliens.</p><p>Almost 50 years later, Artangel presents Earth Rising — a new kind of record, one that introduces humanity to itself.</p><p>While the Golden Record has travelled a great distance and represents the breadth of life on earth, Earth Rising explores the depth of the human experience as revealed by artists. Composed of entirely new work, this record holds up a mirror to humanity.</p>
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: false
+
+----
+
+Robotsfollow: true
+
+----
+
+Robotsarchive: false
+
+----
+
+Robotsimageindex: true
+
+----
+
+Robotssnippet: true
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: hxxipBFVzkZ1MEv7

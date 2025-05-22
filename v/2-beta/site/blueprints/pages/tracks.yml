@@ -1,9 +1,10 @@
-title: Site
+title: Tracks
 
 tabs:
   content:
     sections:
       pages:
         type: pages
+        template: track
 
-  seo: seo/site
+  seo: seo/page
