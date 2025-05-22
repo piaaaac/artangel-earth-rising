@@ -40,9 +40,9 @@ $font-serif: "Gaisyr", serif;
 @mixin font-serif-l {
   @include font-style(
     $ff: $font-serif,
-    $xs: 25px,
-    $sm: 25px,
-    $md: 25px,
+    $xs: 18px,
+    $sm: 20px,
+    $md: 23px,
     $lg: 25px,
     $xl: 25px,
     $letter-sp: 0,

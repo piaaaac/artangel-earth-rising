@@ -152,7 +152,7 @@ input:invalid, textarea:invalid {
 
 .font-serif-l {
   font-family: "Gaisyr", serif;
-  font-size: 25px;
+  font-size: 18px;
   font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 1.25em;
@@ -160,13 +160,13 @@ input:invalid, textarea:invalid {
 
 @media (min-width: 576px) {
   .font-serif-l {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
 @media (min-width: 768px) {
   .font-serif-l {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 
@@ -248,7 +248,7 @@ input:invalid, textarea:invalid {
 
 p {
   font-family: "Gaisyr", serif;
-  font-size: 25px;
+  font-size: 18px;
   font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 1.25em;
@@ -256,13 +256,13 @@ p {
 
 @media (min-width: 576px) {
   p {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
 @media (min-width: 768px) {
   p {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 
@@ -311,7 +311,7 @@ h6:last-child {
 
 h1 {
   font-family: "Gaisyr", serif;
-  font-size: 25px;
+  font-size: 18px;
   font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 1.25em;
@@ -319,13 +319,13 @@ h1 {
 
 @media (min-width: 576px) {
   h1 {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 
@@ -343,7 +343,7 @@ h1 {
 
 h2 {
   font-family: "Gaisyr", serif;
-  font-size: 25px;
+  font-size: 18px;
   font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 1.25em;
@@ -351,13 +351,13 @@ h2 {
 
 @media (min-width: 576px) {
   h2 {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
 @media (min-width: 768px) {
   h2 {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 
@@ -375,7 +375,7 @@ h2 {
 
 h3 {
   font-family: "Gaisyr", serif;
-  font-size: 25px;
+  font-size: 18px;
   font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 1.25em;
@@ -383,13 +383,13 @@ h3 {
 
 @media (min-width: 576px) {
   h3 {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
 @media (min-width: 768px) {
   h3 {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 
@@ -407,7 +407,7 @@ h3 {
 
 h4 {
   font-family: "Gaisyr", serif;
-  font-size: 25px;
+  font-size: 18px;
   font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 1.25em;
@@ -415,13 +415,13 @@ h4 {
 
 @media (min-width: 576px) {
   h4 {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
 @media (min-width: 768px) {
   h4 {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 
@@ -439,7 +439,7 @@ h4 {
 
 h5 {
   font-family: "Gaisyr", serif;
-  font-size: 25px;
+  font-size: 18px;
   font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 1.25em;
@@ -447,13 +447,13 @@ h5 {
 
 @media (min-width: 576px) {
   h5 {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
 @media (min-width: 768px) {
   h5 {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 
@@ -471,7 +471,7 @@ h5 {
 
 h6 {
   font-family: "Gaisyr", serif;
-  font-size: 25px;
+  font-size: 18px;
   font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 1.25em;
@@ -479,13 +479,13 @@ h6 {
 
 @media (min-width: 576px) {
   h6 {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
 @media (min-width: 768px) {
   h6 {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 
@@ -822,7 +822,7 @@ body {
   background-color: black;
   color: #f1f3d7;
   font-family: "Gaisyr", serif;
-  font-size: 25px;
+  font-size: 18px;
   font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 1.25em;
@@ -831,13 +831,13 @@ body {
 
 @media (min-width: 576px) {
   body {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
 @media (min-width: 768px) {
   body {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 
@@ -855,6 +855,11 @@ body {
 
 body.media-open {
   overflow: hidden;
+}
+
+body[data-menu-panel="true"] #main-content, body[data-about-panel="true"] #main-content {
+  filter: blur(15px);
+  opacity: 0.5;
 }
 
 hr {
@@ -908,14 +913,6 @@ body[data-track-open=""] main#main-content {
   pointer-events: none;
 }
 
-body[data-menu-panel="true"] main#main-content {
-  filter: blur(15px);
-}
-
-body[data-about-panel="true"] main#main-content {
-  filter: blur(15px);
-}
-
 main#main-content #color-cover {
   position: absolute;
   top: 0;
@@ -959,6 +956,10 @@ main#main-content #color-cover {
 #track-info-dsk-r .vertical-bar h2 {
   transform: rotate(-90deg);
   min-width: calc(100vh - var(--ui-space) - var(--ui-space));
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0 15px;
 }
 
 #track-info-dsk-l .content-wrapper,
@@ -1047,7 +1048,6 @@ body:not([data-track-open=""])[data-track-info="true"] #track-info-dsk-r .button
   left: var(--ui-space);
   right: var(--ui-space);
   bottom: var(--ui-space);
-  background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   pointer-events: none;
   transition: all 800ms;
