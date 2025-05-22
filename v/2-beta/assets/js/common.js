@@ -80,6 +80,11 @@ function startTracklist() {
   document.querySelector('#circle').classList.add('zoom-out');
   var trackData = tracks[0];
   openTrack(trackData);
+
+  setTimeout(function() {
+    document.querySelector('#circle').classList.remove('starting-point','zoom-out');
+    document.querySelector('#circle').classList.add('zoom-in');
+  },1000)
 }
 
 function handleTrackClick(event, element) {

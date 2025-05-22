@@ -43,9 +43,8 @@ $json = json_encode($data);
 </nav>
 
 <main id="main-content">
-  <div id="circle" onclick="startTracklist();"></div>
+  <div id="circle" class="starting-point" onclick="startTracklist();"></div>
   <div id="color-cover"></div>
-  <div id="sec-circle"></div>
 </main>
 
 <?php snippet("nav") ?>

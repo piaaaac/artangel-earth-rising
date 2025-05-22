@@ -183,6 +183,28 @@ ul {
 // SPECIFIC - PANELS
 // -----------------------------------------------------------------------------
 
+@keyframes animateCircleOut {
+  from {
+    transform:scale(1);
+    opacity: 1;
+  }
+  to {
+    transform:scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes animateCircleIn {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 80vh;
+    height: 80vh;
+  }
+}
+
 main#main-content {
   z-index: 29;
   position: fixed;
@@ -201,28 +223,35 @@ main#main-content {
   }
   #circle {
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    background-color: $c-whiteish;
     cursor: pointer;
     transition: all 500ms;
-    z-index: 1;
-    &:hover {
-      width: 25vh;
-      height: 25vh;
-      background-color: transparent;
-      border: 1px solid $c-whiteish;
-      // transition: all 500ms;
+    z-index: 30;
+    border: 1px solid $c-whiteish;
+    &.starting-point {
+      width: 20px;
+      height: 20px;
+      background-color: $c-whiteish;
+      &:hover {
+        width: 25vh;
+        height: 25vh;
+        background-color: transparent;
+      }
+    }
+    &.zoom-in {
+      animation: animateCircleIn 1s forwards;
     }
     &.zoom-out {
       pointer-events: none;
       width: 80vh;
       height: 80vh;
-      transform:scale(3);
-      transition: all 1000ms;
-      border: 1px solid $c-whiteish;
       background-color: transparent;
+      animation: animateCircleOut 2s;
     }
+  }
+  #sec-circle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
   }
   #color-cover {
     position: absolute;
@@ -232,7 +261,7 @@ main#main-content {
     bottom: 0;
     background-color: #666;
     pointer-events: none;
-    transition: all $transition-duration;
+    transition: all 800ms $transition-duration;
     mix-blend-mode: multiply;
     @at-root body[data-track-open=""] & {
       opacity: 0;
