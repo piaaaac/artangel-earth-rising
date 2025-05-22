@@ -42,20 +42,9 @@ $json = json_encode($data);
   <div class="line"></div>
 </nav>
 
-<section id="track-info-dsk-l">
-  <div class="content-wrapper"></div>
-  <div role="button" aria-label="Toggle track info" class="vertical-bar" onclick="toggleTrackInfo()">
-    <h2 id="track-artist"></h2>
-  </div>
-</section>
-<section id="track-info-dsk-r">
-  <div role="button" aria-label="Toggle track info" class="vertical-bar" onclick="toggleTrackInfo()">
-    <h2 id="track-title"></h2>
-  </div>
-  <div class="content-wrapper"></div>
-</section>
-
-<main id="main-content"></main>
+<main id="main-content">
+  <div id="color-cover"></div>
+</main>
 
 <?php snippet("nav") ?>
 

@@ -897,7 +897,7 @@ ul {
   left: var(--ui-space);
   right: var(--ui-space);
   bottom: var(--ui-space);
-  transition: all 1200ms;
+  transition: all 800ms;
   background-color: rgba(0, 0, 111, 0.5);
   background-image: url(../images/test-bg.jpg);
   background-size: cover;
@@ -908,6 +908,18 @@ body[data-track-open=""] #main-content {
   pointer-events: none;
 }
 
+#main-content #color-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #666;
+  pointer-events: none;
+  transition: all 800ms;
+  mix-blend-mode: multiply;
+}
+
 #track-info-dsk-l,
 #track-info-dsk-r {
   z-index: 60;
@@ -916,7 +928,7 @@ body[data-track-open=""] #main-content {
   bottom: 0;
   width: 50%;
   max-width: 50%;
-  transition: all 1200ms;
+  transition: all 800ms;
   background-color: black;
   display: flex;
   align-items: stretch;
@@ -931,7 +943,7 @@ body[data-track-open=""] #main-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 1200ms;
+  transition: all 800ms;
   font-family: "Gaisyr", serif;
   font-size: 27px;
   font-optical-sizing: auto;
@@ -977,13 +989,35 @@ body[data-track-open=""] #main-content {
 #track-info-dsk-l .content-wrapper,
 #track-info-dsk-r .content-wrapper {
   width: calc(100% - var(--ui-space));
+  position: relative;
+  top: var(--ui-space);
   padding: 15px;
   overflow-y: auto;
   max-height: calc(100% - var(--ui-space) - var(--ui-space));
 }
 
+#track-info-dsk-l .button-wrapper,
+#track-info-dsk-r .button-wrapper {
+  position: absolute;
+  bottom: 0;
+  background-color: transparent;
+}
+
+#track-info-dsk-l .button-wrapper img,
+#track-info-dsk-r .button-wrapper img {
+  transition: all 800ms;
+}
+
 #track-info-dsk-l {
   left: -51%;
+}
+
+#track-info-dsk-l .vertical-bar {
+  border-left: var(--border-width) solid transparent;
+}
+
+#track-info-dsk-l .button-wrapper {
+  right: 0;
 }
 
 body:not([data-track-open=""]) #track-info-dsk-l {
@@ -998,12 +1032,20 @@ body:not([data-track-open=""])[data-track-info="true"] #track-info-dsk-l .vertic
   border-left: var(--border-width) solid #f1f3d7;
 }
 
-#track-info-dsk-l .vertical-bar {
-  border-left: var(--border-width) solid transparent;
+body:not([data-track-open=""])[data-track-info="true"] #track-info-dsk-l .button-wrapper img {
+  transform: rotate(180deg);
 }
 
 #track-info-dsk-r {
   right: -51%;
+}
+
+#track-info-dsk-r .vertical-bar {
+  border-right: var(--border-width) solid transparent;
+}
+
+#track-info-dsk-r .button-wrapper {
+  left: 0;
 }
 
 body:not([data-track-open=""]) #track-info-dsk-r {
@@ -1018,8 +1060,8 @@ body:not([data-track-open=""])[data-track-info="true"] #track-info-dsk-r .vertic
   border-right: var(--border-width) solid #f1f3d7;
 }
 
-#track-info-dsk-r .vertical-bar {
-  border-right: var(--border-width) solid transparent;
+body:not([data-track-open=""])[data-track-info="true"] #track-info-dsk-r .button-wrapper img {
+  transform: rotate(180deg);
 }
 
 #menu-panel {
@@ -1032,7 +1074,7 @@ body:not([data-track-open=""])[data-track-info="true"] #track-info-dsk-r .vertic
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   pointer-events: none;
-  transition: all 1200ms;
+  transition: all 800ms;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -1171,7 +1213,7 @@ body[data-menu-panel="true"] #menu-panel {
   padding: 15px;
   opacity: 0;
   pointer-events: none;
-  transition: all 1200ms;
+  transition: all 800ms;
 }
 
 @media (max-width: 991.98px) {
@@ -1204,7 +1246,7 @@ body[data-accessibility-panel="true"] #accessibility-panel {
   overflow-y: scroll;
   opacity: 0;
   pointer-events: none;
-  transition: all 1200ms;
+  transition: all 800ms;
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
@@ -1259,7 +1301,7 @@ body[data-about-panel="true"] #about-panel {
   left: var(--ui-space);
   right: var(--ui-space);
   height: var(--ui-space);
-  transition: all 1200ms;
+  transition: all 800ms;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1315,7 +1357,7 @@ body[data-about-panel="true"] #about-panel {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 1200ms;
+  transition: all 800ms;
   overflow: hidden;
   color: #f1f3d7;
 }
@@ -1324,7 +1366,7 @@ body[data-about-panel="true"] #about-panel {
   background-color: transparent;
 }
 
-.button-wrapper button img {
+.button-wrapper img {
   width: 100%;
   height: 100%;
 }
@@ -1380,7 +1422,7 @@ body:not([data-track-open=""])[data-track-info="true"] #button-wrapper-top-right
   position: fixed;
   background-color: transparent;
   pointer-events: none;
-  transition: all 1200ms;
+  transition: all 800ms;
 }
 
 #ui-line-top {

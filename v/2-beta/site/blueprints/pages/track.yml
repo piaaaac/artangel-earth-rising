@@ -15,6 +15,12 @@ tabs:
               uiColor:
                 label: UI color
                 type: color
+              infoArtist:
+                label: Artist and track info
+                extends: fields/writer-field
+              infoScript:
+                label: Script info
+                extends: fields/writer-field
 
       sidebar:
         width: 1/3

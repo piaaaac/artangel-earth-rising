@@ -14,7 +14,7 @@ $ui-space-dsk: 65px;
 $border-width-mob: 1px;
 $border-width-dsk: 1px;
 $c-whiteish: #f1f3d7;
-$transition-duration: 1200ms;
+$transition-duration: 800ms;
 
 // -----------------------------------------------------------------------------
 // External files import
@@ -194,6 +194,17 @@ ul {
     opacity: 0;
     pointer-events: none;
   }
+  #color-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #666;
+    pointer-events: none;
+    transition: all $transition-duration;
+    mix-blend-mode: multiply;
+  }
 }
 
 #track-info-dsk-l,
@@ -227,13 +238,29 @@ ul {
   }
   .content-wrapper {
     width: calc(100% - var(--ui-space));
+    position: relative;
+    top: var(--ui-space);
     padding: $space;
     overflow-y: auto;
     max-height: calc(100% - var(--ui-space) - var(--ui-space));
   }
+  .button-wrapper {
+    position: absolute;
+    bottom: 0;
+    background-color: transparent;
+    img {
+      transition: all $transition-duration;
+    }
+  }
 }
 #track-info-dsk-l {
   left: -51%;
+  .vertical-bar {
+    border-left: var(--border-width) solid transparent;
+  }
+  .button-wrapper {
+    right: 0;
+  }
   @at-root body:not([data-track-open=""]) & {
     left: calc(-50% + var(--ui-space));
   }
@@ -242,13 +269,19 @@ ul {
     .vertical-bar {
       border-left: var(--border-width) solid $c-whiteish;
     }
-  }
-  .vertical-bar {
-    border-left: var(--border-width) solid transparent;
+    .button-wrapper img {
+      transform: rotate(180deg);
+    }
   }
 }
 #track-info-dsk-r {
   right: -51%;
+  .vertical-bar {
+    border-right: var(--border-width) solid transparent;
+  }
+  .button-wrapper {
+    left: 0;
+  }
   @at-root body:not([data-track-open=""]) & {
     right: calc(-50% + var(--ui-space));
   }
@@ -257,9 +290,9 @@ ul {
     .vertical-bar {
       border-right: var(--border-width) solid $c-whiteish;
     }
-  }
-  .vertical-bar {
-    border-right: var(--border-width) solid transparent;
+    .button-wrapper img {
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -454,10 +487,10 @@ ul {
   color: $c-whiteish;
   button {
     background-color: transparent;
-    img {
-      width: 100%;
-      height: 100%;
-    }
+  }
+  img {
+    width: 100%;
+    height: 100%;
   }
 }
 #button-wrapper-top-left,

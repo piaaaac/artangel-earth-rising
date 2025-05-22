@@ -4,7 +4,9 @@
 
 <div id="top-txt">
   <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-r2l.svg" alt="Volume 1 Logo">
-  <h1 class="mx-3">EARTH RISING</h1>
+  <a href="<?= $site->url() ?>" onclick="handleTitleClick(event);">
+    <h1 class="mx-3">EARTH RISING</h1>
+  </a>
   <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-l2r.svg" alt="Volume 1 Logo">
 </div>
 
@@ -47,6 +49,27 @@
     <img src="<?= $ass ?>/images/icon-artangel.svg" alt="Accessibility Icon">
   </button>
 </nav>
+
+<!-- Track info on the sides -->
+
+<section id="track-info-dsk-l">
+  <div class="content-wrapper">
+    <div id="track-info-artist"></div>
+  </div>
+  <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="toggleTrackInfo()">
+    <h2 id="track-artist"></h2>
+  </div>
+  <span class="button-wrapper"><img src="<?= $ass ?>/images/icon-rarr.svg" /></span>
+</section>
+<section id="track-info-dsk-r">
+  <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="toggleTrackInfo()">
+    <h2 id="track-title"></h2>
+  </div>
+  <div class="content-wrapper">
+    <div id="track-info-script"></div>
+  </div>
+  <span class="button-wrapper"><img src="<?= $ass ?>/images/icon-larr.svg" /></span>
+</section>
 
 <!-- Lines -->
 

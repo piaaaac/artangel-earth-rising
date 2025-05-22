@@ -5,6 +5,9 @@
 const hamburgers = document.querySelectorAll(".hamburger");
 const trackArtist = document.getElementById("track-artist");
 const trackTitle = document.getElementById("track-title");
+const trackInfoArtist = document.getElementById("track-info-artist");
+const trackInfoScript = document.getElementById("track-info-script");
+const colorCover = document.getElementById("color-cover");
 
 // ----------------------------------------------------------------
 // Execution start
@@ -54,6 +57,13 @@ function openTrack(trackData) {
   document.body.dataset.trackOpen = trackData.id;
   trackTitle.textContent = trackData.title;
   trackArtist.textContent = trackData.artist;
+  trackInfoArtist.innerHTML = trackData.infoArtist; // NEEDS FIX !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  trackInfoScript.innerHTML = trackData.infoScript; // NEEDS FIX !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  colorCover.style.backgroundColor = trackData.uicolor;
+}
+
+function closeTrack() {
+  document.body.dataset.trackOpen = "";
 }
 
 function closeAllPanels() {
@@ -71,6 +81,11 @@ function handleTrackClick(event, element) {
   var trackId = element.getAttribute("data-track-uuid");
   var track = tracks.find((t) => t.uuid === trackId);
   openTrack(track);
+}
+function handleTitleClick(event) {
+  event.preventDefault();
+  closeAllPanels();
+  closeTrack();
 }
 
 // ----------------------------------------------------------------
