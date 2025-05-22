@@ -3,13 +3,13 @@
 <!-- Texts -->
 
 <div id="top-txt">
-  <img src="<?= $ass ?>/images/stars-volume-1-r2l.svg" alt="Volume 1 Logo">
+  <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-r2l.svg" alt="Volume 1 Logo">
   <h1 class="mx-3">EARTH RISING</h1>
-  <img src="<?= $ass ?>/images/stars-volume-1-l2r.svg" alt="Volume 1 Logo">
+  <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-l2r.svg" alt="Volume 1 Logo">
 </div>
 
 <div id="bottom-txt">
-  <h2>Messages from the Pale Blue Dot</h2>
+  <h2 class="only-dsk">Messages from the Pale Blue Dot</h2>
 </div>
 
 <!-- Buttons -->

@@ -163,6 +163,16 @@ ul {
 .custom-hover:hover {
   color: var(--hover-color);
 }
+.only-dsk {
+  @include media-breakpoint-down(xs) {
+    display: none;
+  }
+}
+.only-mob {
+  @include media-breakpoint-up(sm) {
+    display: none;
+  }
+}
 
 // -----------------------------------------------------------------------------
 // SPECIFIC - PANELS
@@ -178,7 +188,7 @@ ul {
   // background-color: rgba(#9f4848, 0.5);
   opacity: 0;
   pointer-events: none;
-  // transition: all 200ms;
+  transition: all 200ms;
   @at-root body[data-menu-panel="true"] & {
     opacity: 1;
     pointer-events: all;
@@ -262,7 +272,7 @@ ul {
   // background-color: rgba(#9f4848, 0.5);
   opacity: 0;
   pointer-events: none;
-  // transition: all 200ms;
+  transition: all 200ms;
   @at-root body[data-accessibility-panel="true"] & {
     opacity: 1;
     pointer-events: all;
@@ -280,7 +290,7 @@ ul {
   // background-color: rgba(#9f4848, 0.5);
   opacity: 0;
   pointer-events: none;
-  // transition: all 200ms;
+  transition: all 200ms;
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
@@ -331,7 +341,7 @@ ul {
   left: var(--ui-space);
   right: var(--ui-space);
   height: var(--ui-space);
-  // transition: all 200ms;
+  transition: all 200ms;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -358,7 +368,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  // transition: all 200ms;
+  transition: all 200ms;
   overflow: hidden;
   color: $c-whiteish;
   button {
@@ -396,7 +406,7 @@ ul {
   position: fixed;
   background-color: transparent;
   pointer-events: none;
-  // transition: all 200ms;
+  transition: all 200ms;
 }
 #ui-line-top {
   top: 0;
