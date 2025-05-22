@@ -14,6 +14,7 @@ $ui-space-dsk: 65px;
 $border-width-mob: 1px;
 $border-width-dsk: 1px;
 $c-whiteish: #f1f3d7;
+$transition-duration: 1200ms;
 
 // -----------------------------------------------------------------------------
 // External files import
@@ -178,6 +179,90 @@ ul {
 // SPECIFIC - PANELS
 // -----------------------------------------------------------------------------
 
+#main-content {
+  z-index: 29;
+  position: fixed;
+  top: var(--ui-space);
+  left: var(--ui-space);
+  right: var(--ui-space);
+  bottom: var(--ui-space);
+  transition: all $transition-duration;
+  background-color: rgba(rgb(0, 0, 111), 0.5);
+  background-image: url(../images/test-bg.jpg);
+  background-size: cover;
+  @at-root body[data-track-open=""] & {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+#track-info-dsk-l,
+#track-info-dsk-r {
+  z-index: 60;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  max-width: 50%;
+  // pointer-events: none;
+  transition: all $transition-duration;
+  background-color: black;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  .vertical-bar {
+    width: var(--ui-space);
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all $transition-duration;
+    @include font-serif-l;
+    cursor: pointer;
+    h2 {
+      transform: rotate(-90deg);
+      min-width: calc(100vh - var(--ui-space) - var(--ui-space));
+    }
+  }
+  .content-wrapper {
+    width: calc(100% - var(--ui-space));
+    padding: $space;
+    overflow-y: auto;
+    max-height: calc(100% - var(--ui-space) - var(--ui-space));
+  }
+}
+#track-info-dsk-l {
+  left: -51%;
+  @at-root body:not([data-track-open=""]) & {
+    left: calc(-50% + var(--ui-space));
+  }
+  @at-root body:not([data-track-open=""])[data-track-info="true"] & {
+    left: 0;
+    .vertical-bar {
+      border-left: var(--border-width) solid $c-whiteish;
+    }
+  }
+  .vertical-bar {
+    border-left: var(--border-width) solid transparent;
+  }
+}
+#track-info-dsk-r {
+  right: -51%;
+  @at-root body:not([data-track-open=""]) & {
+    right: calc(-50% + var(--ui-space));
+  }
+  @at-root body:not([data-track-open=""])[data-track-info="true"] & {
+    right: 0;
+    .vertical-bar {
+      border-right: var(--border-width) solid $c-whiteish;
+    }
+  }
+  .vertical-bar {
+    border-right: var(--border-width) solid transparent;
+  }
+}
+
 #menu-panel {
   z-index: 30;
   position: fixed;
@@ -185,10 +270,10 @@ ul {
   left: var(--ui-space);
   right: var(--ui-space);
   bottom: var(--ui-space);
-  // background-color: rgba(#9f4848, 0.5);
+  background-color: rgba(black, 0.8);
   opacity: 0;
   pointer-events: none;
-  transition: all 200ms;
+  transition: all $transition-duration;
   @at-root body[data-menu-panel="true"] & {
     opacity: 1;
     pointer-events: all;
@@ -259,6 +344,7 @@ ul {
   width: 320px;
   bottom: var(--ui-space);
   border-right: var(--border-width) solid $c-whiteish;
+  background-color: rgba(black, 0.8);
   padding: $space;
   @include media-breakpoint-down(md) {
     width: auto;
@@ -272,7 +358,7 @@ ul {
   // background-color: rgba(#9f4848, 0.5);
   opacity: 0;
   pointer-events: none;
-  transition: all 200ms;
+  transition: all $transition-duration;
   @at-root body[data-accessibility-panel="true"] & {
     opacity: 1;
     pointer-events: all;
@@ -290,7 +376,7 @@ ul {
   // background-color: rgba(#9f4848, 0.5);
   opacity: 0;
   pointer-events: none;
-  transition: all 200ms;
+  transition: all $transition-duration;
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
@@ -341,7 +427,7 @@ ul {
   left: var(--ui-space);
   right: var(--ui-space);
   height: var(--ui-space);
-  transition: all 200ms;
+  transition: all $transition-duration;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -354,12 +440,7 @@ ul {
   bottom: 0;
 }
 
-#button-wrapper-top-left,
-#button-wrapper-top-right,
-#button-wrapper-bottom-left,
-#button-wrapper-bottom-right {
-  z-index: 49;
-  position: fixed;
+.button-wrapper {
   background-color: black;
   width: var(--ui-space);
   height: var(--ui-space);
@@ -368,7 +449,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 200ms;
+  transition: all $transition-duration;
   overflow: hidden;
   color: $c-whiteish;
   button {
@@ -376,24 +457,42 @@ ul {
     img {
       width: 100%;
       height: 100%;
-      // max-width: var(--ui-space);
-      // max-height: var(--ui-space);
     }
   }
 }
+#button-wrapper-top-left,
+#button-wrapper-top-right,
+#button-wrapper-bottom-left,
+#button-wrapper-bottom-right {
+  position: fixed;
+}
 #button-wrapper-top-left {
+  z-index: 61;
   top: 0;
   left: 0;
+  border-left: 1px solid transparent;
+  @at-root body:not([data-track-open=""])[data-track-info="true"] & {
+    left: calc(50% - var(--ui-space));
+    border-left: var(--border-width) solid $c-whiteish;
+  }
 }
 #button-wrapper-top-right {
+  z-index: 61;
   top: 0;
   right: 0;
+  border-right: 1px solid transparent;
+  @at-root body:not([data-track-open=""])[data-track-info="true"] & {
+    right: calc(50% - var(--ui-space));
+    border-right: var(--border-width) solid $c-whiteish;
+  }
 }
 #button-wrapper-bottom-left {
+  z-index: 49;
   bottom: 0;
   left: 0;
 }
 #button-wrapper-bottom-right {
+  z-index: 49;
   bottom: 0;
   right: 0;
 }
@@ -402,11 +501,11 @@ ul {
 #ui-line-bottom,
 #ui-line-left,
 #ui-line-right {
-  z-index: 50;
+  z-index: 70;
   position: fixed;
   background-color: transparent;
   pointer-events: none;
-  transition: all 200ms;
+  transition: all $transition-duration;
 }
 #ui-line-top {
   top: 0;
@@ -428,6 +527,10 @@ ul {
   bottom: 0;
   width: var(--ui-space);
   border-right: var(--border-width) solid $c-whiteish;
+  @at-root body:not([data-track-open=""])[data-track-info="true"] & {
+    left: calc(50% - var(--ui-space));
+    opacity: 0;
+  }
 }
 #ui-line-right {
   right: 0;
@@ -435,6 +538,9 @@ ul {
   bottom: 0;
   width: var(--ui-space);
   border-left: var(--border-width) solid $c-whiteish;
+  @at-root body:not([data-track-open=""])[data-track-info="true"] & {
+    right: calc(50% - var(--ui-space));
+  }
 }
 
 .hamburger-inner::before {

@@ -66,3 +66,12 @@ function breakpointIs(breakpointName, compare) {
     return current.index >= breakpointIndex;
   }
 }
+
+// --------------------------------------------------------------------
+// random element from array
+// --------------------------------------------------------------------
+function getRandomElement(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) return undefined;
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}

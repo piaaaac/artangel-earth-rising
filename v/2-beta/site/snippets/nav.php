@@ -14,13 +14,13 @@
 
 <!-- Buttons -->
 
-<nav id="button-wrapper-top-left">
+<nav class="button-wrapper" id="button-wrapper-top-left">
   <button onclick="toggleAccessibilityPanel()">
     <img src="<?= $ass ?>/images/icon-accessibility.svg" alt="Accessibility Icon">
   </button>
 </nav>
 
-<nav id="button-wrapper-top-right">
+<nav class="button-wrapper" id="button-wrapper-top-right">
   <button type="button" style="position: relative; top: 2.5px;"
     class="hamburger hamburger--slider"
     onclick="toggleMenuPanel()"
@@ -31,7 +31,7 @@
   </button>
 </nav>
 
-<nav id="button-wrapper-bottom-left">
+<nav class="button-wrapper" id="button-wrapper-bottom-left">
   <button type="button" style="position: relative; top: 2.5px;"
     class="hamburger hamburger--slider"
     onclick="toggleMenuPanel()"
@@ -42,7 +42,7 @@
   </button>
 </nav>
 
-<nav id="button-wrapper-bottom-right">
+<nav class="button-wrapper" id="button-wrapper-bottom-right">
   <button onclick="toggleAboutPanel()" style="position: relative; top: 4px;">
     <img src="<?= $ass ?>/images/icon-artangel.svg" alt="Accessibility Icon">
   </button>

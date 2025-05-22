@@ -4,11 +4,11 @@ marks:
   - link
   - italic
 nodes:
-  - bulletList
-  - orderedList
+  # - bulletList
+  # - orderedList
   - heading
   - horizontalRule
-  - quote
+  # - quote
 # toolbar:
 #   inline: false
 #   marks:

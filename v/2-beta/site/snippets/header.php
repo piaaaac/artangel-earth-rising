@@ -23,6 +23,7 @@
 <body
   data-template="<?= $page->template() ?>"
   data-accessibility-panel="false"
-  data-work-info="false"
+  data-track-open=""
+  data-track-info="false"
   data-about-panel="false"
   data-menu-panel="false">
