@@ -22,6 +22,7 @@
 
 <body
   data-track-open=""
+  data-track-open-index=""
   data-accessibility-panel="false"
   data-track-info="false"
   data-about-panel="false"

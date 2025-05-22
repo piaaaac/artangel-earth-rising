@@ -5,13 +5,16 @@ $vol1Page = page("vol1");
 
 // Prepare data to pass to js
 $data = [];
-foreach ($vol1Page->children()->listed() as $track) {
+$i = 0;
+foreach ($vol1Page->children()->listed() as $key => $track) {
   $item = $track->content()->toArray();
+  $item["index"] = $i;
   $item["id"] = $track->id();
   $item["uid"] = $track->uid();
   $item["uuid"] = $track->uuid()->id();
   $item["url"] = $track->url();
   $data[] = $item;
+  $i++;
 }
 $json = json_encode($data);
 ?>

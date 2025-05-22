@@ -55,6 +55,7 @@ function toggleAboutPanel(bool) {
 function openTrack(trackData) {
   closeAllPanels();
   document.body.dataset.trackOpen = trackData.id;
+  document.body.dataset.trackOpenIndex = Number(trackData.index);
   trackTitle.textContent = trackData.title;
   trackArtist.textContent = trackData.artist;
   trackInfoArtist.innerHTML = trackData.infoartist;
@@ -64,6 +65,7 @@ function openTrack(trackData) {
 
 function closeTrack() {
   document.body.dataset.trackOpen = "";
+  document.body.dataset.trackOpenIndex = "";
 }
 
 function closeAllPanels() {
@@ -76,27 +78,64 @@ function closeAllPanels() {
   document.body.dataset.aboutPanel = false;
 }
 
-function startTracklist() {
-  document.querySelector('#circle').classList.add('zoom-out');
-  var trackData = tracks[0];
-  openTrack(trackData);
-
-  setTimeout(function() {
-    document.querySelector('#circle').classList.remove('starting-point','zoom-out');
-    document.querySelector('#circle').classList.add('zoom-in');
-  },1000)
-}
 
 function handleTrackClick(event, element) {
   event.preventDefault();
   var trackId = element.getAttribute("data-track-uuid");
   var track = tracks.find((t) => t.uuid === trackId);
+  var trackIndex = tracks.indexOf(track);
   openTrack(track);
 }
+
 function handleTitleClick(event) {
   event.preventDefault();
   closeAllPanels();
   closeTrack();
+}
+
+function startTracklist() {
+  document.querySelector('#circle').classList.add('zoom-out');
+  var track = tracks[0];
+  openTrack(track);
+
+  setTimeout(function() {
+    document.querySelector('#circle').classList.remove('starting-point','zoom-out');
+    document.querySelector('#circle').classList.add('zoom-in');
+
+    tempAutoplay(goToNextTrack(), 5000, tracks.length);
+  },1000)
+}
+
+function goToNextTrack() {
+  document.querySelector('#circle').classList.add('zoom-out');
+  console.log(document.body.dataset.trackOpenIndex);
+
+  if (document.body.dataset.trackOpenIndex === undefined) {
+    var track = tracks[0];
+    openTrack(track);
+  } else {
+    var nextTrack = Number(document.body.dataset.trackOpenIndex) + 1;
+    openTrack(tracks[nextTrack]);
+  }
+
+  setTimeout(function() {
+    document.querySelector('#circle').classList.remove('starting-point','zoom-out');
+    document.querySelector('#circle').classList.add('zoom-in');
+  }, 1000)
+}
+
+function tempAutoplay(callback, interval, repeatTimes) {
+  let repeated = 0;
+  const intervalTask = setInterval(doTask, interval)
+
+  function doTask() {
+    if ( repeated < repeatTimes ) {
+      goToNextTrack()
+      repeated += 1
+    } else {
+      clearInterval(intervalTask)
+    }
+  }
 }
 
 // ----------------------------------------------------------------
