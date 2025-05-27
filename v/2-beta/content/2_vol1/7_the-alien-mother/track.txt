@@ -2,11 +2,27 @@ Title: The Alien Mother
 
 ----
 
-Artist: Emilia Alvarez
+Artist: Michel Nieva
 
 ----
 
 Uicolor: #0000ff
+
+----
+
+Tracktype: audio
+
+----
+
+Typeaudiofiles: 
+
+----
+
+Typevideofiles: 
+
+----
+
+Typeslideshowfiles: 
 
 ----
 

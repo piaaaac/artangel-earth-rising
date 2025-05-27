@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @param $trackUid - from controller, from route
+ * */
+
 $aboutPage = page("about");
 $creditsPage = page("credits");
 $vol1Page = page("vol1");
@@ -23,7 +28,9 @@ $json = json_encode($data);
 
 <script>
   const tracks = <?= $json ?>;
-  console.log(tracks);
+  const initialTrackUid = "<?= $trackUid ?>";
+  console.log("tracks", tracks);
+  console.log("initialTrackUid", initialTrackUid);
 </script>
 
 <nav id="menu-panel">
@@ -48,8 +55,13 @@ $json = json_encode($data);
 <main id="main-content">
   <div id="background"></div>
   <!-- <div id="circle" class="starting-point" onclick="startTracklist();"></div> -->
-  <div id="circle" class="starting-point" onclick="openNextTrack();"></div>
+  <div id="circle" class="starting-point" onclick="handleDotClick(event, this);"></div>
   <div id="color-cover"></div>
+  <div id="player-ui">
+    <button id="prev-track" onclick="openPrevTrack()">PREV TRACK</button>
+    <button id="play-pause-button">PLAY/PAUSE</button>
+    <button id="next-track" onclick="openNextTrack()">NEXT TRACK</button>
+  </div>
 </main>
 
 <?php snippet("nav") ?>

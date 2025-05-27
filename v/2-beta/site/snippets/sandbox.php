@@ -1,4 +1,9 @@
 <?php
+
+$str = snippet("track-content", ["track" => page("vol1/archived-love-by-nayomi-apsara")], true);
+kill($str);
+
+
 $data = [];
 
 foreach (page("vol1")->children()->listed() as $track) {

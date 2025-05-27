@@ -947,10 +947,10 @@ body:not([data-track-open=""]) main#main-content #background {
 }
 
 main#main-content #circle {
+  z-index: 30;
   border-radius: 50%;
   cursor: pointer;
   transition: all 500ms;
-  z-index: 30;
   aspect-ratio: 1/1;
   border: 1px solid #f1f3d7;
 }
@@ -1315,6 +1315,12 @@ body[data-about-panel="true"] #about-panel {
   #about-panel .line {
     display: none;
   }
+}
+
+#player-ui {
+  z-index: 40;
+  position: fixed;
+  top: 30vh;
 }
 
 #top-txt,

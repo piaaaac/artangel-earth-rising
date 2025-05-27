@@ -1,7 +1,7 @@
 title: Track
 
 tabs:
-  content:
+  data:
     columns:
       main:
         width: 2/3
@@ -12,23 +12,59 @@ tabs:
               artist:
                 label: Artist name
                 type: text
+                width: 1/2
               uiColor:
                 label: UI color
                 type: color
-              infoArtist:
-                label: Artist and track info
-                extends: fields/writer-field
-              infoScript:
-                label: Script info
-                extends: fields/writer-field
+                width: 1/2
+              trackType:
+                label: Track type
+                type: select
+                options:
+                  audio: Audio
+                  video: Video
+                  slideshow: Slideshow
+                required: true
+              typeAudioFiles:
+                label: Audio file
+                type: files
+                max: 1
+                query: page.videos
+                when:
+                  trackType: audio
+              typeVideoFiles:
+                label: Video files
+                type: files
+                help: "Provide an mp4 and a webm file for best compatibility. Or it will be a vimeo embed?"
+                query: page.audio
+                when:
+                  trackType: video
+              typeSlideshowFiles:
+                label: Slideshow images
+                type: files
+                query: page.images
+                when:
+                  trackType: slideshow
 
       sidebar:
         width: 1/3
         sections:
-          pages:
-            type: pages
-            template: default
+          pages: false
           files:
             type: files
+
+  texts:
+    sections:
+      fields2:
+        type: fields
+        fields:
+          infoArtist:
+            label: Artist and track info
+            extends: fields/writer-field
+            width: 1/2
+          infoScript:
+            label: Script info
+            extends: fields/writer-field
+            width: 1/2
 
   seo: seo/page

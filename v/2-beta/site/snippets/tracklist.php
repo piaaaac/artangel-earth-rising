@@ -12,6 +12,8 @@
         style="--hover-color: <?= $track->uiColor()->value() ?>;"
         href="<?= $track->url() ?>"
         data-track-uuid="<?= $track->uuid()->id() ?>"
+        data-track-uid="<?= $track->uid() ?>"
+        data-track-id="<?= $track->id() ?>"
         onclick="handleTrackClick(event, this);">
         <span class="left"><?= $track->artist() ?></span>
         <span class="right"><?= $track->title() ?></span>

@@ -16,6 +16,12 @@ const circle = document.querySelector("#circle");
 // Execution start
 // ----------------------------------------------------------------
 
+if (initialTrackUid) {
+  var track = tracks.find((t) => t.uid === initialTrackUid);
+  console.log("Track passed via url:", track);
+  openTrack(track);
+}
+
 // ----------------------------------------------------------------
 // Functions
 // ----------------------------------------------------------------
@@ -65,6 +71,7 @@ function openTrack(trackData) {
     trackInfoScript.innerHTML = trackData.infoscript;
     colorCover.style.backgroundColor = trackData.uicolor;
   });
+  loadTrackContent(trackData.id);
 }
 
 function closeTrack() {
@@ -83,8 +90,9 @@ function closeAllPanels() {
 
 function handleTrackClick(event, element) {
   event.preventDefault();
-  var trackId = element.getAttribute("data-track-uuid");
-  var track = tracks.find((t) => t.uuid === trackId);
+  var trackUid = element.getAttribute("data-track-uid");
+  var track = tracks.find((t) => t.uid === trackUid);
+  console.log("Track clicked:", track);
   var trackIndex = tracks.indexOf(track);
   clearInterval(interval);
   openTrack(track);
@@ -95,6 +103,13 @@ function handleTitleClick(event) {
   closeAllPanels();
   closeTrack();
   resetAlbum();
+}
+
+function handleDotClick(event, element) {
+  console.log("Dot clicked", element);
+  if (element.classList.contains("starting-point")) {
+    openNextTrack();
+  }
 }
 
 function startTracklist() {
@@ -119,6 +134,20 @@ function openNextTrack() {
     openTrack(track);
   }
 }
+function openPrevTrack() {
+  let prevIndex = 0;
+  const currentIndex = getCurrentIndex();
+  if (currentIndex != -1) {
+    prevIndex = currentIndex - 1;
+  }
+  if (prevIndex < 0) {
+    clearInterval(interval);
+    resetAlbum();
+  } else {
+    var track = tracks[prevIndex];
+    openTrack(track);
+  }
+}
 
 function animateCircle(callback) {
   circle.classList.add("zoom-out");
@@ -138,6 +167,49 @@ function resetAlbum() {
     circle.classList.remove("forced-start");
   }, 1000);
   document.body.dataset.trackOpen = "";
+  setUrlHome();
+}
+
+// ------
+
+// url
+
+function setUrlHome() {
+  const url = new URL(window.siteUrl);
+  history.pushState({}, "", url);
+}
+function setUrlTrack(id) {
+  const url = new URL(window.siteUrl + "/" + id);
+  history.pushState({}, "", url);
+}
+addEventListener("popstate", (event) => {
+  // Handle browser back/forward navigation
+  console.log(event);
+});
+
+// ajax
+
+function loadTrackContent(id) {
+  setUrlTrack(id);
+  var url = window.siteUrl + "/" + id + ".json";
+  fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((jsonData) => {
+      // blurContent(true);
+      setTimeout(() => {
+        // bodyContent.textContent = ""
+        handleReceivedTrackData(jsonData);
+      }, 600);
+    })
+    .catch((err) => {
+      console.log("Error fetching page:", err);
+    });
+}
+
+function handleReceivedTrackData(json) {
+  console.log(json);
 }
 
 // ----------------------------------------------------------------

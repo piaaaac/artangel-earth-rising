@@ -232,10 +232,10 @@ main#main-content {
     }
   }
   #circle {
+    z-index: 30;
     border-radius: 50%;
     cursor: pointer;
     transition: all 500ms;
-    z-index: 30;
     aspect-ratio: 1/1;
     border: 1px solid $c-whiteish;
     &.starting-point {
@@ -528,6 +528,16 @@ main#main-content {
       display: none;
     }
   }
+}
+
+// -----------------------------------------------------------------------------
+// SPECIFIC - PLAYER UI
+// -----------------------------------------------------------------------------
+
+#player-ui {
+  z-index: 40;
+  position: fixed;
+  top: 30vh;
 }
 
 // -----------------------------------------------------------------------------
