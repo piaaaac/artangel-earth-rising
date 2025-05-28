@@ -1,4 +1,36 @@
-Title: Tracks Volume 1
+Title: Track 8
+
+----
+
+Artist: Lorem Ipsum Nunc
+
+----
+
+Uicolor: #ff4400
+
+----
+
+Tracktype: audio
+
+----
+
+Typeaudiofiles: 
+
+----
+
+Typevideofiles: 
+
+----
+
+Typeslideshowfiles: 
+
+----
+
+Infoartist: 
+
+----
+
+Infoscript: 
 
 ----
 
@@ -66,4 +98,4 @@ Metainherit:
 
 ----
 
-Uuid: pE5ZNfNQtrSRlLEC
+Uuid: eKcUHqHszBJgq7Ll

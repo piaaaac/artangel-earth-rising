@@ -1,6 +1,6 @@
 <?php
 
-$str = snippet("track-content", ["track" => page("vol1/archived-love-by-nayomi-apsara")], true);
+$str = snippet("track-content", ["track" => page("vol2/track-1")], true);
 kill($str);
 
 
