@@ -175,7 +175,7 @@ function resetAlbum() {
 // url
 
 function setUrlHome() {
-  const url = new URL(window.siteUrl);
+  const url = new URL(window.siteUrl + "/" + currentVolume);
   history.pushState({}, "", url);
 }
 function setUrlTrack(id) {

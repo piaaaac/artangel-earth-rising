@@ -1,4 +1,6 @@
 title: Volume
+options:
+  changeSlug: false
 
 tabs:
   content:

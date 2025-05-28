@@ -544,6 +544,29 @@ main#main-content {
 // SPECIFIC - UI
 // -----------------------------------------------------------------------------
 
+.stars {
+  display: flex;
+  & .left {
+  }
+  &.right {
+    transform: scale(-1, 1);
+  }
+  svg {
+    path.star {
+      opacity: 0.3;
+      @at-root body[data-current-uid="vol1"] &.star1 {
+        opacity: 1;
+      }
+      @at-root body[data-current-uid="vol2"] &.star2 {
+        opacity: 1;
+      }
+      @at-root body[data-current-uid="vol3"] &.star3 {
+        opacity: 1;
+      }
+    }
+  }
+}
+
 #top-txt,
 #bottom-txt,
 #bottom-txt-about {

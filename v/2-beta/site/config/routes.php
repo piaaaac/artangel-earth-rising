@@ -15,6 +15,7 @@ return [
         $uid = $track->uid();
       }
       $data = [
+        "volumeUid" => $vol,
         "trackUid" => $uid,
       ];
       return page($vol)->render($data);

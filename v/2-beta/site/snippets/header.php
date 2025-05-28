@@ -21,6 +21,7 @@
 </head>
 
 <body
+  data-current-uid="<?= $page->uid() ?>"
   data-track-open=""
   data-accessibility-panel="false"
   data-track-info="false"

@@ -1323,6 +1323,30 @@ body[data-about-panel="true"] #about-panel {
   top: 30vh;
 }
 
+.stars {
+  display: flex;
+}
+
+.stars.right {
+  transform: scale(-1, 1);
+}
+
+.stars svg path.star {
+  opacity: 0.3;
+}
+
+body[data-current-uid="vol1"] .stars svg path.star.star1 {
+  opacity: 1;
+}
+
+body[data-current-uid="vol2"] .stars svg path.star.star2 {
+  opacity: 1;
+}
+
+body[data-current-uid="vol3"] .stars svg path.star.star3 {
+  opacity: 1;
+}
+
 #top-txt,
 #bottom-txt,
 #bottom-txt-about {

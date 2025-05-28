@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @param $volumeUid - from controller, from route
  * @param $trackUid - from controller, from route
  * */
 
@@ -28,8 +29,10 @@ $json = json_encode($data);
 <script>
   const tracks = <?= $json ?>;
   const initialTrackUid = "<?= $trackUid ?>";
+  const currentVolume = "<?= $volumeUid ?>"; // e.g. "vol1", "vol2", etc.
   console.log("tracks", tracks);
   console.log("initialTrackUid", initialTrackUid);
+  console.log("currentVolume", currentVolume);
 </script>
 
 <nav id="menu-panel">
