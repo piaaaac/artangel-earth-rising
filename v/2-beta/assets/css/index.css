@@ -957,6 +957,16 @@ body:not([data-track-open=""]) main#main-content #background {
   opacity: 1;
 }
 
+main#main-content #video-target {
+  z-index: 29;
+  position: fixed;
+  top: var(--ui-space);
+  left: var(--ui-space);
+  right: var(--ui-space);
+  bottom: var(--ui-space);
+  transition: all 800ms;
+}
+
 main#main-content #circle-wrapper {
   mix-blend-mode: lighten;
   z-index: 30;

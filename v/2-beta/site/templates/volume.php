@@ -63,6 +63,7 @@ $json = json_encode($data);
 
 <main id="main-content">
   <div id="background"></div>
+  <div id="video-target"></div>
   <!-- <div id="circle" class="starting-point" onclick="startTracklist();"></div> -->
   <div id="circle-wrapper">
     <div id="circle" class="starting-point" onclick="handleDotClick(event, this);"></div>
@@ -99,6 +100,19 @@ $json = json_encode($data);
     <button id="next-track" onclick="handleNextTrackClick()"><img src="<?= $kirby->url("assets") ?>/images/icon-rarr-double.svg" alt="Next Track"></button>
   </div>
 </main>
+
+<script type="module">
+  import {
+    VidstackPlayer
+  } from '<?= $kirby->url("assets") ?>/lib/vidstack/player.core.js';
+
+  const player = await VidstackPlayer.create({
+    target: '#video-target',
+    title: 'Sprite Fight',
+    src: 'https://files.vidstack.io/sprite-fight/720p.mp4',
+    poster: 'https://files.vidstack.io/sprite-fight/poster.webp',
+  });
+</script>
 
 <?php snippet("nav") ?>
 
