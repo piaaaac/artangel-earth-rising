@@ -48,6 +48,13 @@ $json = json_encode($data);
   </ul>
 </nav>
 
+<nav id="artangel-panel">
+  <p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint iure quia, neque explicabo mollitia quas est
+    aut voluptas itaque, numquam temporibus, at ad sit nisi tenetur quaerat ex! Vero, placeat?
+  </p>
+</nav>
+
 <nav id="about-panel">
   <div class="about-content"><?= $aboutPage->text()->kt() ?></div>
   <div class="credits-content"><?= $creditsPage->text()->kt() ?></div>
@@ -57,12 +64,39 @@ $json = json_encode($data);
 <main id="main-content">
   <div id="background"></div>
   <!-- <div id="circle" class="starting-point" onclick="startTracklist();"></div> -->
-  <div id="circle" class="starting-point" onclick="handleDotClick(event, this);"></div>
+  <div id="circle-wrapper">
+    <div id="circle" class="starting-point" onclick="handleDotClick(event, this);"></div>
+    <div id="circle-time">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <path id="circlePath"
+            d="M50,50
+               m -40,0
+               a 40,40 0 1,1 80,0
+               a 40,40 0 1,1 -80,0" />
+        </defs>
+
+        <!-- Visible path -->
+        <use href="#circlePath" />
+        <rect class="one" x="74" y="15" width="24" height="33" />
+        <rect class="two" x="74" y="53" width="24" height="31" />
+
+        <!-- Centered text on circle -->
+        <text text-anchor="middle" dominant-baseline="middle">
+          <textPath href="#circlePath" startOffset="50%">
+            <tspan id="time-current">00:00</tspan>
+            <tspan>&nbsp;&nbsp;&nbsp;</tspan>
+            <tspan id="time-duration">88:88</tspan>
+          </textPath>
+        </text>
+      </svg>
+    </div>
+  </div>
   <div id="color-cover"></div>
   <div id="player-ui">
-    <button id="prev-track" onclick="openPrevTrack()">PREV TRACK</button>
-    <button id="play-pause-button">PLAY/PAUSE</button>
-    <button id="next-track" onclick="openNextTrack()">NEXT TRACK</button>
+    <button id="prev-track" onclick="handlePrevTrackClick()"><img src="<?= $kirby->url("assets") ?>/images/icon-larr-double.svg" alt="Previous Track"></button>
+    <button id="play-pause-button" onclick="handlePlayButtonClick(event)"></button>
+    <button id="next-track" onclick="handleNextTrackClick()"><img src="<?= $kirby->url("assets") ?>/images/icon-rarr-double.svg" alt="Next Track"></button>
   </div>
 </main>
 

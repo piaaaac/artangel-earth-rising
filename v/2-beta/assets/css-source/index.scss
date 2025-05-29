@@ -41,6 +41,7 @@ $transition-duration: 800ms;
     --ui-space: #{$ui-space-dsk};
     --border-width: #{$border-width-dsk};
   }
+  --stars-color: unset;
 }
 
 // -----------------------------------------------------------------------------
@@ -170,12 +171,12 @@ ul {
 }
 .only-dsk {
   @include media-breakpoint-down(xs) {
-    display: none;
+    display: none !important;
   }
 }
 .only-mob {
   @include media-breakpoint-up(sm) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -200,8 +201,17 @@ ul {
     height: 0;
   }
   to {
-    width: 75vmin;
-    height: 75vmin;
+    width: calc(75vmin - 80px);
+    height: calc(75vmin - 80px);
+  }
+}
+
+@keyframes animateRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -231,32 +241,44 @@ main#main-content {
       opacity: 1;
     }
   }
-  #circle {
+  #circle-wrapper {
+    mix-blend-mode: lighten;
     z-index: 30;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 500ms;
-    aspect-ratio: 1/1;
-    border: 1px solid $c-whiteish;
-    &.starting-point {
-      width: 20px;
-      height: 20px;
-      background-color: $c-whiteish;
-      &:not(.forced-start):hover {
-        width: 25vmin;
-        height: 25vmin;
-        background-color: transparent;
+
+    @include media-breakpoint-up(md) {
+      width: calc(100vmin - var(--ui-space) * 3);
+      height: calc(100vmin - var(--ui-space) * 3);
+    }
+
+    #circle {
+      display: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 500ms;
+      aspect-ratio: 1/1;
+      border: 1px solid $c-whiteish;
+      &.starting-point {
+        width: 20px;
+        height: 20px;
+        background-color: $c-whiteish;
+        &:not(.forced-start):hover {
+          width: 25vmin;
+          height: 25vmin;
+          background-color: transparent;
+        }
       }
-    }
-    &.zoom-in {
-      animation: animateCircleIn 1s forwards;
-    }
-    &.zoom-out {
-      pointer-events: none;
-      width: 80vh;
-      height: 80vh;
-      background-color: transparent;
-      animation: animateCircleOut 2s;
+      &.zoom-in {
+        animation: animateCircleIn 1s forwards;
+      }
+      &.zoom-out {
+        pointer-events: none;
+        // width: 80vh;
+        // height: 80vh;
+        width: calc(75vmin - 80px);
+        height: calc(75vmin - 80px);
+        background-color: transparent;
+        animation: animateCircleOut 2s;
+      }
     }
   }
   #sec-circle {
@@ -278,6 +300,56 @@ main#main-content {
     mix-blend-mode: multiply;
     @at-root body[data-track-open=""] & {
       opacity: 0;
+    }
+  }
+}
+
+#circle-time {
+  animation: animateRotate 12s infinite linear;
+  display: flex;
+  &.paused {
+    animation-play-state: paused;
+  }
+  &.clean {
+    text,
+    rect {
+      opacity: 0;
+    }
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+    vector-effect: non-scaling-stroke;
+  }
+
+  path#circlePath {
+    stroke: $c-whiteish;
+    stroke-width: 0.2px;
+    fill: none;
+  }
+
+  rect.one,
+  rect.two {
+    transition: all $transition-duration;
+    fill: black;
+    stroke: none;
+  }
+
+  text {
+    transition: all $transition-duration;
+    transform: translate(-2px, 0px);
+    font-size: 5px;
+    font-family: sans-serif;
+    fill: $c-whiteish;
+    letter-spacing: 0.5px;
+    stroke: black;
+    @include font-serif-l;
+    font-size: 10px !important;
+    font-weight: 200;
+    paint-order: stroke fill;
+    #time-current,
+    #time-duration {
+      font-variant-numeric: tabular-nums;
     }
   }
 }
@@ -340,17 +412,27 @@ main#main-content {
   }
   .button-wrapper {
     right: 0;
+    img {
+      @include media-breakpoint-down(xs) {
+        transform: rotate(-90deg);
+      }
+    }
   }
   @at-root body:not([data-track-open=""]) & {
     left: calc(-50% + var(--ui-space));
   }
   @at-root body:not([data-track-open=""])[data-track-info="true"] & {
-    left: 0;
-    .vertical-bar {
-      border-left: var(--border-width) solid $c-whiteish;
+    @include media-breakpoint-up(sm) {
+      left: 0;
+      .vertical-bar {
+        border-left: var(--border-width) solid $c-whiteish;
+      }
     }
     .button-wrapper img {
       transform: rotate(180deg);
+      @include media-breakpoint-down(xs) {
+        transform: rotate(90deg);
+      }
     }
   }
 }
@@ -361,17 +443,27 @@ main#main-content {
   }
   .button-wrapper {
     left: 0;
+    img {
+      @include media-breakpoint-down(xs) {
+        transform: rotate(90deg);
+      }
+    }
   }
   @at-root body:not([data-track-open=""]) & {
     right: calc(-50% + var(--ui-space));
   }
   @at-root body:not([data-track-open=""])[data-track-info="true"] & {
-    right: 0;
-    .vertical-bar {
-      border-right: var(--border-width) solid $c-whiteish;
+    @include media-breakpoint-up(sm) {
+      right: 0;
+      .vertical-bar {
+        border-right: var(--border-width) solid $c-whiteish;
+      }
     }
     .button-wrapper img {
       transform: rotate(180deg);
+      @include media-breakpoint-down(xs) {
+        transform: rotate(-90deg);
+      }
     }
   }
 }
@@ -450,32 +542,78 @@ main#main-content {
   }
 }
 
-#accessibility-panel {
+#accessibility-panel,
+#artangel-panel {
   z-index: 30;
   position: fixed;
   top: var(--ui-space);
-  left: var(--ui-space);
   width: 320px;
   bottom: var(--ui-space);
-  border-right: var(--border-width) solid $c-whiteish;
   background-color: rgba(black, 0.9);
   padding: $space;
-  @include media-breakpoint-down(md) {
-    width: auto;
-    right: 50%;
-  }
-  @include media-breakpoint-down(xs) {
-    width: auto;
-    right: var(--ui-space);
-    border-right-width: 0;
-  }
   // background-color: rgba(#9f4848, 0.5);
   opacity: 0;
   pointer-events: none;
   transition: all $transition-duration;
-  @at-root body[data-accessibility-panel="true"] & {
+  &#accessibility-panel {
+    border-right: var(--border-width) solid $c-whiteish;
+    left: var(--ui-space);
+    @include media-breakpoint-down(md) {
+      width: auto;
+      right: 50%;
+    }
+    @include media-breakpoint-down(xs) {
+      width: auto;
+      right: var(--ui-space);
+      border-right-width: 0;
+    }
+    @at-root body[data-accessibility-panel="true"] & {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+  &#artangel-panel {
+    border-left: var(--border-width) solid $c-whiteish;
+    right: var(--ui-space);
+    @include media-breakpoint-down(md) {
+      width: auto;
+      left: 50%;
+    }
+    @include media-breakpoint-down(xs) {
+      width: auto;
+      left: var(--ui-space);
+      border-left-width: 0;
+    }
+    @at-root body[data-artangel-panel="true"] & {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+#track-info-mob {
+  z-index: 30;
+  position: fixed;
+  top: calc(100% - var(--ui-space));
+  left: var(--ui-space);
+  right: var(--ui-space);
+  height: calc(100% - var(--ui-space) - var(--ui-space));
+  overflow-y: scroll;
+  opacity: 0;
+  pointer-events: none;
+  transition: all $transition-duration;
+  background-color: black;
+  @at-root body:not([data-track-open=""])[data-track-info="true"] & {
     opacity: 1;
     pointer-events: all;
+    top: var(--ui-space);
+  }
+  @include media-breakpoint-up(sm) {
+    display: none;
+  }
+  #track-info-artist-mob {
+  }
+  #track-info-script-mob {
   }
 }
 
@@ -538,6 +676,44 @@ main#main-content {
   z-index: 40;
   position: fixed;
   top: 30vh;
+  #next-track,
+  #prev-track {
+    position: fixed;
+    bottom: calc(var(--ui-space) + 20px);
+    background-color: transparent;
+    height: var(--ui-space);
+    cursor: pointer;
+    display: flex;
+  }
+  #next-track {
+    right: calc(var(--ui-space) + 20px);
+    @include media-breakpoint-up(md) {
+      top: calc(50% - var(--ui-space) / 2);
+    }
+  }
+  #prev-track {
+    left: calc(var(--ui-space) + 20px);
+    @include media-breakpoint-up(md) {
+      top: calc(50% - var(--ui-space) / 2);
+    }
+  }
+  #play-pause-button {
+    background-color: transparent;
+    @include font-serif-l;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $c-whiteish;
+    &::after {
+      content: "PAUSE";
+    }
+    @at-root body[data-player-paused="true"] & {
+      &::after {
+        content: "PLAY";
+      }
+    }
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -553,15 +729,19 @@ main#main-content {
   }
   svg {
     path.star {
+      transition: all $transition-duration;
       opacity: 0.3;
       @at-root body[data-current-uid="vol1"] &.star1 {
         opacity: 1;
+        fill: var(--stars-color, $c-whiteish);
       }
       @at-root body[data-current-uid="vol2"] &.star2 {
         opacity: 1;
+        fill: var(--stars-color, $c-whiteish);
       }
       @at-root body[data-current-uid="vol3"] &.star3 {
         opacity: 1;
+        fill: var(--stars-color, $c-whiteish);
       }
     }
   }
@@ -632,8 +812,10 @@ main#main-content {
   left: 0;
   border-left: 1px solid transparent;
   @at-root body:not([data-track-open=""])[data-track-info="true"] & {
-    left: calc(50% - var(--ui-space));
-    border-left: var(--border-width) solid $c-whiteish;
+    @include media-breakpoint-up(sm) {
+      left: calc(50% - var(--ui-space));
+      border-left: var(--border-width) solid $c-whiteish;
+    }
   }
 }
 #button-wrapper-top-right {
@@ -642,8 +824,10 @@ main#main-content {
   right: 0;
   border-right: 1px solid transparent;
   @at-root body:not([data-track-open=""])[data-track-info="true"] & {
-    right: calc(50% - var(--ui-space));
-    border-right: var(--border-width) solid $c-whiteish;
+    @include media-breakpoint-up(sm) {
+      right: calc(50% - var(--ui-space));
+      border-right: var(--border-width) solid $c-whiteish;
+    }
   }
 }
 #button-wrapper-bottom-left {
@@ -688,8 +872,10 @@ main#main-content {
   width: var(--ui-space);
   border-right: var(--border-width) solid $c-whiteish;
   @at-root body:not([data-track-open=""])[data-track-info="true"] & {
-    left: calc(50% - var(--ui-space));
-    opacity: 0;
+    @include media-breakpoint-up(sm) {
+      left: calc(50% - var(--ui-space));
+      opacity: 0;
+    }
   }
 }
 #ui-line-right {
@@ -699,7 +885,9 @@ main#main-content {
   width: var(--ui-space);
   border-left: var(--border-width) solid $c-whiteish;
   @at-root body:not([data-track-open=""])[data-track-info="true"] & {
-    right: calc(50% - var(--ui-space));
+    @include media-breakpoint-up(sm) {
+      right: calc(50% - var(--ui-space));
+    }
   }
 }
 

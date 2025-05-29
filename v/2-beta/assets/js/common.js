@@ -9,8 +9,11 @@ const trackArtist = document.getElementById("track-artist");
 const trackTitle = document.getElementById("track-title");
 const trackInfoArtist = document.getElementById("track-info-artist");
 const trackInfoScript = document.getElementById("track-info-script");
+const trackInfoArtistMob = document.getElementById("track-info-artist-mob");
+const trackInfoScriptMob = document.getElementById("track-info-script-mob");
 const colorCover = document.getElementById("color-cover");
 const circle = document.querySelector("#circle");
+const circleTime = document.querySelector("#circle-time");
 
 // ----------------------------------------------------------------
 // Execution start
@@ -45,6 +48,14 @@ function toggleAccessibilityPanel(bool) {
   document.body.dataset.accessibilityPanel = bool;
 }
 
+function toggleArtangelPanel(bool) {
+  if (bool === undefined) {
+    bool = document.body.dataset.artangelPanel === "true" ? false : true;
+  }
+  closeAllPanels();
+  document.body.dataset.artangelPanel = bool;
+}
+
 function toggleTrackInfo(bool) {
   if (bool === undefined) {
     bool = document.body.dataset.trackInfo === "true" ? false : true;
@@ -64,14 +75,20 @@ function toggleAboutPanel(bool) {
 function openTrack(trackData) {
   closeAllPanels();
   document.body.dataset.trackOpen = trackData.uuid;
-  animateCircle(() => {
-    trackTitle.textContent = trackData.title;
-    trackArtist.textContent = trackData.artist;
-    trackInfoArtist.innerHTML = trackData.infoartist;
-    trackInfoScript.innerHTML = trackData.infoscript;
-    colorCover.style.backgroundColor = trackData.uicolor;
-  });
   loadTrackContent(trackData.id);
+  colorStars(null);
+  trackTitle.textContent = trackData.title;
+  trackArtist.textContent = trackData.artist;
+  trackInfoArtist.innerHTML = trackData.infoartist;
+  circleTime.classList.add("clean");
+  animateCircle(() => {
+    trackInfoArtistMob.innerHTML = trackData.infoartist;
+    trackInfoScript.innerHTML = trackData.infoscript;
+    trackInfoScriptMob.innerHTML = trackData.infoscript;
+    colorCover.style.backgroundColor = trackData.uicolor;
+    colorStars(trackData.uicolor);
+    setTimeout(() => toggleTrackPlay(true), 1000);
+  });
 }
 
 function closeTrack() {
@@ -84,6 +101,7 @@ function closeAllPanels() {
     hamburger.classList.toggle("is-active", false);
   });
   document.body.dataset.accessibilityPanel = false;
+  document.body.dataset.artangelPanel = false;
   document.body.dataset.trackInfo = false;
   document.body.dataset.aboutPanel = false;
 }
@@ -110,6 +128,15 @@ function handleDotClick(event, element) {
   if (element.classList.contains("starting-point")) {
     openNextTrack();
   }
+}
+
+function handlePrevTrackClick() {
+  toggleTrackPlay(false);
+  openPrevTrack();
+}
+function handleNextTrackClick() {
+  toggleTrackPlay(false);
+  openNextTrack();
 }
 
 function startTracklist() {
@@ -168,6 +195,27 @@ function resetAlbum() {
   }, 1000);
   document.body.dataset.trackOpen = "";
   setUrlHome();
+  colorStars(null);
+}
+
+function colorStars(color) {
+  document.documentElement.style.setProperty("--stars-color", color ?? "unset");
+}
+
+// ------
+
+// Player controls
+
+function handlePlayButtonClick() {
+  let paused = document.body.dataset.playerPaused === "true" ? true : false;
+  let nextPlayState = paused;
+  toggleTrackPlay(nextPlayState);
+}
+
+function toggleTrackPlay(bool) {
+  circleTime.classList.toggle("paused", !bool);
+  circleTime.classList.remove("clean");
+  document.body.dataset.playerPaused = !bool;
 }
 
 // ------
