@@ -1,0 +1,15 @@
+{
+	"private": true,
+	"license": "UNLICENSED",
+	"type": "module",
+	"scripts": {
+		"dev": "kirbyup serve src/index.js",
+		"build": "kirbyup src/index.js"
+	},
+	"devDependencies": {
+		"husky": "^9.1.7",
+		"kirbyup": "^3.2.0",
+		"postcss": "^8.4.49",
+		"sass": "^1.82.0"
+	}
+}
