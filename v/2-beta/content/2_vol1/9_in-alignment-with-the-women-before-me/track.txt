@@ -1,12 +1,12 @@
-Title: Archived Love by Nayomi Apsara
+Title: In Alignment with the Women before me
 
 ----
 
-Artist: Nayomi Apsara
+Artist: Porsha Olayiwola
 
 ----
 
-Uicolor: #00ccff
+Uicolor: #00ddff
 
 ----
 
@@ -14,15 +14,15 @@ Tracktype: audio
 
 ----
 
-Typeaudiofiles: 
+Typeaudiofile: - file://mbewqsibdclhuzg1
 
 ----
 
-Typevideofiles: 
+Typevideosourcemp4: 
 
 ----
 
-Typeslideshowfiles: 
+Typevideosourcewebm: 
 
 ----
 
@@ -98,4 +98,4 @@ Metainherit:
 
 ----
 
-Uuid: j1RPHEpCjf9q8E7c
+Uuid: QBhnGl16LGqOjBFG

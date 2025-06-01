@@ -957,14 +957,24 @@ body:not([data-track-open=""]) main#main-content #background {
   opacity: 1;
 }
 
-main#main-content #video-target {
+main#main-content #media-container {
   z-index: 29;
-  position: fixed;
-  top: var(--ui-space);
-  left: var(--ui-space);
-  right: var(--ui-space);
-  bottom: var(--ui-space);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
   transition: all 800ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+main#main-content #media-container video {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 main#main-content #circle-wrapper {
@@ -1012,12 +1022,6 @@ main#main-content #circle-wrapper #circle.zoom-out {
   animation: animateCircleOut 2s;
 }
 
-main#main-content #sec-circle {
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-}
-
 main#main-content #color-cover {
   position: absolute;
   top: 0;
@@ -1041,7 +1045,7 @@ body[data-track-open=""] main#main-content #color-cover {
   display: flex;
 }
 
-#circle-time.paused {
+body[data-player-playing="false"] #circle-time {
   animation-play-state: paused;
 }
 
@@ -1597,7 +1601,7 @@ body[data-about-panel="true"] #about-panel {
   content: "PAUSE";
 }
 
-body[data-player-paused="true"] #player-ui #play-pause-button::after {
+body[data-player-playing="false"] #player-ui #play-pause-button::after {
   content: "PLAY";
 }
 

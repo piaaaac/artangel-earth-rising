@@ -1,12 +1,12 @@
-Title: In Alignment with the Women before me
+Title: Bonus Track (ES)
 
 ----
 
-Artist: Porsha Olayiwola
+Artist: Michel Nieva
 
 ----
 
-Uicolor: #9900ff
+Uicolor: #00ffff
 
 ----
 
@@ -14,15 +14,15 @@ Tracktype: audio
 
 ----
 
-Typeaudiofiles: 
+Typeaudiofile: - file://rs09qnyatjopvp0n
 
 ----
 
-Typevideofiles: 
+Typevideosourcemp4: 
 
 ----
 
-Typeslideshowfiles: 
+Typevideosourcewebm: 
 
 ----
 
@@ -98,4 +98,4 @@ Metainherit:
 
 ----
 
-Uuid: QBhnGl16LGqOjBFG
+Uuid: nvGBw117RnRRCCHm

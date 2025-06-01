@@ -61,7 +61,6 @@ $json = json_encode($data);
 
 <main id="main-content">
   <div id="background"></div>
-  <!-- <div id="circle" class="starting-point" onclick="startTracklist();"></div> -->
   <div id="circle" class="starting-point" onclick="handleDotClick(event, this);"></div>
   <div id="color-cover"></div>
   <div id="player-ui">

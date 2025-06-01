@@ -6,7 +6,7 @@ Artist: Emilia Alvarez
 
 ----
 
-Uicolor: #0066ff
+Uicolor: #0000ff
 
 ----
 
@@ -14,15 +14,27 @@ Tracktype: video
 
 ----
 
-Typeaudiofiles: 
+Typeaudiofile: 
 
 ----
 
-Typevideofiles: 
+Typevideosourcemp4: - file://ywoe7iwpljtczouf
 
 ----
 
-Typeslideshowfiles: 
+Typevideosourcewebm: - file://7wljikbo43m1mxkr
+
+----
+
+Typevideoposter: - file://6fsmvcp0nff1mmg6
+
+----
+
+Typeslideshowaudiofile: 
+
+----
+
+Typeslideshowimagefiles: 
 
 ----
 

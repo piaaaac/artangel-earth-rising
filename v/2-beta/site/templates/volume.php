@@ -12,12 +12,45 @@ $creditsPage = page("credits");
 $data = [];
 $i = 0;
 foreach ($page->children()->listed() as $key => $track) {
-  $item = $track->content()->toArray();
+  // $item = $track->content()->toArray();
+  $item = [];
+  $item["title"] = $track->title()->value();
+  $item["artist"] = $track->artist()->value();
   $item["index"] = $i;
   $item["id"] = $track->id();
   $item["uid"] = $track->uid();
   $item["uuid"] = $track->uuid()->id();
   $item["url"] = $track->url();
+  $item["trackType"] = $track->trackType()->value();
+
+  if ($item["trackType"] === "audio") {
+    $fileAudio = $track->typeAudioFile()->toFile();
+    if ($fileAudio) {
+      $item["audioFileUrl"] = $fileAudio->url();
+    }
+  } elseif ($item["trackType"] === "slideshow") {
+    $fileAudio = $track->typeSlideshowAudioFile()->toFile();
+    if ($fileAudio) {
+      $item["audioFileUrl"] = $fileAudio->url();
+    }
+    $item["imageFilesUrls"] = [];
+    foreach ($track->typeSlideshowImageFiles()->toFiles() as $image) {
+      $item["imageFilesUrls"][] = $image->url();
+    }
+  } elseif ($item["trackType"] === "video") {
+    $fileMp4 = $track->typeVideoSourceMp4()->toFile();
+    if ($fileMp4) {
+      $item["videoFileMp4Url"] = $fileMp4->url();
+    }
+    $fileWebm = $track->typeVideoSourceWebm()->toFile();
+    if ($fileWebm) {
+      $item["videoFileWebmUrl"] = $fileWebm->url();
+    }
+    $filePoster = $track->typeVideoPoster()->toFile();
+    if ($filePoster) {
+      $item["videoFilePosterUrl"] = $filePoster->url();
+    }
+  }
   $data[] = $item;
   $i++;
 }
@@ -63,8 +96,7 @@ $json = json_encode($data);
 
 <main id="main-content">
   <div id="background"></div>
-  <div id="video-target"></div>
-  <!-- <div id="circle" class="starting-point" onclick="startTracklist();"></div> -->
+  <div id="media-container"></div>
   <div id="circle-wrapper">
     <div id="circle" class="starting-point" onclick="handleDotClick(event, this);"></div>
     <div id="circle-time">
@@ -95,22 +127,25 @@ $json = json_encode($data);
   </div>
   <div id="color-cover"></div>
   <div id="player-ui">
-    <button id="prev-track" onclick="handlePrevTrackClick()"><img src="<?= $kirby->url("assets") ?>/images/icon-larr-double.svg" alt="Previous Track"></button>
-    <button id="play-pause-button" onclick="handlePlayButtonClick(event)"></button>
-    <button id="next-track" onclick="handleNextTrackClick()"><img src="<?= $kirby->url("assets") ?>/images/icon-rarr-double.svg" alt="Next Track"></button>
+    <button id="prev-track"><img src="<?= $kirby->url("assets") ?>/images/icon-larr-double.svg" alt="Previous Track"></button>
+    <button id="play-pause-button"></button>
+    <button id="next-track"><img src="<?= $kirby->url("assets") ?>/images/icon-rarr-double.svg" alt="Next Track"></button>
   </div>
 </main>
 
-<script type="module">
-  import {
-    VidstackPlayer
-  } from '<?= $kirby->url("assets") ?>/lib/vidstack/player.core.js';
 
-  const player = await VidstackPlayer.create({
-    target: '#video-target',
-    title: 'Sprite Fight',
-    src: 'https://files.vidstack.io/sprite-fight/720p.mp4',
-    poster: 'https://files.vidstack.io/sprite-fight/poster.webp',
+<div class="actions">
+  <button type="button" class="btn js-play">Play</button>
+  <button type="button" class="btn js-pause">Pause</button>
+  <button type="button" class="btn js-stop">Stop</button>
+  <button type="button" class="btn js-rewind">Rewind</button>
+  <button type="button" class="btn js-forward">Forward</button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // cp = new CustomPlyr("media-container");
+    // cp.loadNewTrack("video", testMp4Url1, testPosterUrl1);
   });
 </script>
 

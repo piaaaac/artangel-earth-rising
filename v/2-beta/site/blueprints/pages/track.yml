@@ -25,24 +25,54 @@ tabs:
                   video: Video
                   slideshow: Slideshow
                 required: true
-              typeAudioFiles:
+
+              typeAudioFile:
                 label: Audio file
                 type: files
+                required: true
                 max: 1
-                query: page.videos
-                when:
-                  trackType: audio
-              typeVideoFiles:
-                label: Video files
-                type: files
-                help: "Provide an mp4 and a webm file for best compatibility. Or it will be a vimeo embed?"
                 query: page.audio
                 when:
+                  trackType: audio
+
+              typeVideoSourceMp4:
+                label: Video Source .mp4
+                type: files
+                query: page.videos.filter('extension', 'mp4')
+                required: true
+                max: 1
+                when:
                   trackType: video
-              typeSlideshowFiles:
+              typeVideoSourceWebm:
+                label: Video Source .webm
+                type: files
+                query: page.videos.filter('extension', 'webm')
+                required: true
+                max: 1
+                when:
+                  trackType: video
+              typeVideoPoster:
+                label: Poster image
+                type: files
+                query: page.images
+                required: true
+                max: 1
+                when:
+                  trackType: video
+
+              typeSlideshowAudioFile:
+                label: Audio file
+                type: files
+                required: true
+                max: 1
+                query: page.audio
+                when:
+                  trackType: slideshow
+              typeSlideshowImageFiles:
                 label: Slideshow images
                 type: files
                 query: page.images
+                required: true
                 when:
                   trackType: slideshow
 

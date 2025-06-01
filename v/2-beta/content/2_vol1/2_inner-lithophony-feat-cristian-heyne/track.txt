@@ -6,7 +6,7 @@ Artist: Sebastian Riffo
 
 ----
 
-Uicolor: #00eeff
+Uicolor: #9900ff
 
 ----
 
@@ -14,15 +14,26 @@ Tracktype: slideshow
 
 ----
 
-Typeaudiofiles: 
+Typeaudiofile: 
 
 ----
 
-Typevideofiles: 
+Typevideosourcemp4: 
 
 ----
 
-Typeslideshowfiles: 
+Typevideosourcewebm: 
+
+----
+
+Typeslideshowaudiofile: - file://e12t7xt3lid3rtvl
+
+----
+
+Typeslideshowimagefiles:
+
+- file://vsnobjb9ddwgjmyt
+- file://wwvznaaypzaaekfy
 
 ----
 

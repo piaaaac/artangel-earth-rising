@@ -6,7 +6,7 @@ Artist: Leo Robinson
 
 ----
 
-Uicolor: #00ffff
+Uicolor: #cc00ff
 
 ----
 
@@ -14,15 +14,27 @@ Tracktype: video
 
 ----
 
-Typeaudiofiles: 
+Typeaudiofile: 
 
 ----
 
-Typevideofiles: 
+Typevideosourcemp4: - file://ztplc6bd2zpvcwvu
 
 ----
 
-Typeslideshowfiles: 
+Typevideosourcewebm: - file://p0lwpvet1q19vo2s
+
+----
+
+Typevideoposter: - file://lr6dwtuz2u7wkmtp
+
+----
+
+Typeslideshowaudiofile: 
+
+----
+
+Typeslideshowimagefiles: 
 
 ----
 

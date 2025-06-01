@@ -1,8 +1,6 @@
-// ----------------------------------------------------------------
-// Variables
-// ----------------------------------------------------------------
-
-let interval;
+// ----------------------------------------------------------------------------
+// Helper variables
+// ----------------------------------------------------------------------------
 
 const hamburgers = document.querySelectorAll(".hamburger");
 const trackArtist = document.getElementById("track-artist");
@@ -14,20 +12,13 @@ const trackInfoScriptMob = document.getElementById("track-info-script-mob");
 const colorCover = document.getElementById("color-cover");
 const circle = document.querySelector("#circle");
 const circleTime = document.querySelector("#circle-time");
+const circleTimeAnimate = document.querySelector("#circle-time");
+const circleTimeSeek = document.querySelector("#time-current");
+const circleTimeDuration = document.querySelector("#time-duration");
 
-// ----------------------------------------------------------------
-// Execution start
-// ----------------------------------------------------------------
-
-if (initialTrackUid) {
-  var track = tracks.find((t) => t.uid === initialTrackUid);
-  console.log("Track passed via url:", track);
-  openTrack(track);
-}
-
-// ----------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // Functions
-// ----------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 function toggleMenuPanel(bool) {
   if (bool === undefined) {
@@ -87,7 +78,7 @@ function openTrack(trackData) {
     trackInfoScriptMob.innerHTML = trackData.infoscript;
     colorCover.style.backgroundColor = trackData.uicolor;
     colorStars(trackData.uicolor);
-    setTimeout(() => toggleTrackPlay(true), 1000);
+    // setTimeout(() => toggleTrackPlay(true), 1000);
   });
 }
 
@@ -112,7 +103,6 @@ function handleTrackClick(event, element) {
   var track = tracks.find((t) => t.uid === trackUid);
   console.log("Track clicked:", track);
   var trackIndex = tracks.indexOf(track);
-  clearInterval(interval);
   openTrack(track);
 }
 
@@ -130,18 +120,14 @@ function handleDotClick(event, element) {
   }
 }
 
-function handlePrevTrackClick() {
-  toggleTrackPlay(false);
-  openPrevTrack();
-}
-function handleNextTrackClick() {
-  toggleTrackPlay(false);
-  openNextTrack();
-}
-
-function startTracklist() {
-  interval = setInterval(openNextTrack, 5000);
-}
+// function handlePrevTrackClick() {
+//   toggleTrackPlay(false);
+//   openPrevTrack();
+// }
+// function handleNextTrackClick() {
+//   toggleTrackPlay(false);
+//   openNextTrack();
+// }
 
 function getCurrentIndex() {
   return tracks.findIndex((t) => t.uuid === document.body.dataset.trackOpen);
@@ -154,7 +140,6 @@ function openNextTrack() {
     nextIndex = currentIndex + 1;
   }
   if (nextIndex >= tracks.length) {
-    clearInterval(interval);
     resetAlbum();
   } else {
     var track = tracks[nextIndex];
@@ -168,7 +153,6 @@ function openPrevTrack() {
     prevIndex = currentIndex - 1;
   }
   if (prevIndex < 0) {
-    clearInterval(interval);
     resetAlbum();
   } else {
     var track = tracks[prevIndex];
@@ -177,10 +161,10 @@ function openPrevTrack() {
 }
 
 function animateCircle(callback) {
-  circle.classList.add("zoom-out");
+  circleTimeAnimate.classList.add("zoom-out");
   setTimeout(function () {
-    circle.classList.remove("starting-point", "zoom-out");
-    circle.classList.add("zoom-in");
+    circleTimeAnimate.classList.remove("starting-point", "zoom-out");
+    circleTimeAnimate.classList.add("zoom-in");
     if (typeof callback === "function") {
       callback();
     }
@@ -188,10 +172,10 @@ function animateCircle(callback) {
 }
 
 function resetAlbum() {
-  circle.classList.remove("zoom-in", "zoom-out");
-  circle.classList.add("starting-point", "forced-start");
+  circleTimeAnimate.classList.remove("zoom-in", "zoom-out");
+  circleTimeAnimate.classList.add("starting-point", "forced-start");
   setTimeout(function () {
-    circle.classList.remove("forced-start");
+    circleTimeAnimate.classList.remove("forced-start");
   }, 1000);
   document.body.dataset.trackOpen = "";
   setUrlHome();
@@ -202,20 +186,13 @@ function colorStars(color) {
   document.documentElement.style.setProperty("--stars-color", color ?? "unset");
 }
 
-// ------
-
-// Player controls
-
-function handlePlayButtonClick() {
-  let paused = document.body.dataset.playerPaused === "true" ? true : false;
-  let nextPlayState = paused;
-  toggleTrackPlay(nextPlayState);
-}
-
-function toggleTrackPlay(bool) {
-  circleTime.classList.toggle("paused", !bool);
-  circleTime.classList.remove("clean");
-  document.body.dataset.playerPaused = !bool;
+function formatTime(seconds) {
+  if (isNaN(seconds)) {
+    return "00:00";
+  }
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
 }
 
 // ------
@@ -260,6 +237,198 @@ function handleReceivedTrackData(json) {
   console.log(json);
 }
 
-// ----------------------------------------------------------------
-// Events
-// ----------------------------------------------------------------
+// ----------------------------------------------------------------------------
+// Class PlayerController
+// ----------------------------------------------------------------------------
+// - Core logic for loading media.
+// - Manages playback, playlist, media switching, and player lifecycle.
+// - Wraps Plyr or native HTML5.
+// ----------------------------------------------------------------------------
+
+class PlayerController {
+  constructor(containerId, tracks) {
+    this.mediaContainer = document.getElementById(containerId);
+    this.tracks = tracks;
+    this.events = {}; // 🔹 event name → array of callbacks
+    this.plyr = null;
+  }
+
+  // Keep track of callbacks associated to events
+  on(eventName, callback) {
+    if (!this.events[eventName]) {
+      this.events[eventName] = [];
+    }
+    this.events[eventName].push(callback);
+  }
+
+  // Execute all callbacks for a given event
+  emit(eventName, payload) {
+    const listeners = this.events[eventName];
+    if (listeners) {
+      listeners.forEach((cb) => cb(payload));
+    }
+  }
+
+  next() {
+    // Implement next track logic here if needed
+  }
+
+  loadNewTrack(track) {
+    // prepare variables
+    let mediaType = track.trackType === "video" ? "video" : "audio";
+
+    // Remove old player
+    this.plyr?.destroy();
+    this.mediaContainer.innerHTML = "";
+
+    // Create new media element (video or audio)
+    const media = document.createElement(mediaType);
+    media.setAttribute("id", "player");
+    media.setAttribute("controls", "");
+    media.setAttribute("playsinline", "");
+
+    if (track.videoFilePosterUrl && mediaType === "video") {
+      media.setAttribute("poster", videoFilePosterUrl);
+    }
+
+    const source = document.createElement("source");
+    let src =
+      mediaType === "video" ? track.typeVideoSourceMp4 : track.audioFileUrl;
+    source.setAttribute("src", src);
+    source.setAttribute("type", `${mediaType}/${src.split(".").pop()}`);
+    media.appendChild(source);
+
+    if (mediaType === "video") {
+      const source2 = document.createElement("source");
+      source2.setAttribute("src", track.typeVideoSourceWebm);
+      source2.setAttribute("type", "video/webm");
+      media.appendChild(source2);
+    }
+
+    this.mediaContainer.appendChild(media);
+
+    // Reinitialize Plyr
+    this.plyr = new Plyr("#player");
+    console.log("Plyr initialized:", this.plyr);
+    this.exposePlyrEvents();
+  }
+
+  exposePlyrEvents = () => {
+    this.plyr.on("ended", (event) => {
+      this.emit("ended", event);
+    });
+    this.plyr.on("timeupdate", (event) => {
+      this.emit("timeupdate", { currentTime: this.plyr.currentTime });
+    });
+    this.plyr.on("loadedmetadata", (event) => {
+      this.emit("loadedmetadata", { duration: this.plyr.duration });
+    });
+  };
+}
+
+// ----------------------------------------------------------------------------
+// Class PlayerUI
+//
+// - Handles all DOM/UI concerns: buttons, events, feedback, metadata display, etc.
+// - Communicates with PlayerController
+// ----------------------------------------------------------------------------
+
+class PlayerUI {
+  constructor(controller, uiSelectors) {
+    this.controller = controller;
+    this.selectors = uiSelectors;
+    this.bindUIEvents();
+    this.bindControllerEvents();
+  }
+
+  toggleTrackPlay(bool) {
+    let paused = document.body.dataset.playerPaused === "true" ? true : false;
+    let nextPlayState = paused;
+    if (bool !== undefined) {
+      nextPlayState = bool;
+    }
+    circleTime.classList.toggle("paused", !nextPlayState);
+    circleTime.classList.remove("clean");
+    document.body.dataset.playerPaused = !nextPlayState;
+    if (nextPlayState) {
+      this.controller.plyr.play();
+    } else {
+      this.controller.plyr.pause();
+    }
+  }
+
+  setTrackSeek(s) {
+    circleTimeSeek.textContent = formatTime(s);
+  }
+
+  setTrackDuration(s) {
+    circleTimeDuration.textContent = formatTime(s);
+  }
+
+  bindUIEvents() {
+    this.selectors.playBtn.addEventListener("click", () => {
+      this.controller.plyr.togglePlay();
+      console.log("plyr", this.controller.plyr);
+    });
+    this.selectors.nextBtn.addEventListener("click", () => {
+      this.toggleTrackPlay(false);
+      openNextTrack();
+      this.controller.next();
+    });
+    this.selectors.prevBtn.addEventListener("click", () => {
+      this.toggleTrackPlay(false);
+      openPrevTrack();
+      this.controller.prev();
+    });
+  }
+
+  bindControllerEvents() {
+    this.controller.on("ended", () => {
+      console.log("controller event - ended");
+      // const nextIndex = (currentIndex + 1) % playlist.length;
+      // loadTrack(nextIndex);
+    });
+
+    // Update UI on play/pause
+    this.controller.on("timeupdate", ({ currentTime }) => {
+      console.log("controller event - timeupdate", currentTime);
+      setTrackSeek(currentTime);
+    });
+
+    this.controller.on("loadedmetadata", ({ duration }) => {
+      console.log("controller event - loadedmetadata", duration);
+      setTrackDuration(duration);
+    });
+  }
+
+  updateTrackInfo(track) {
+    // Update UI with title, duration, thumbnail, etc.
+  }
+}
+
+// ----------------------------------------------------------------------------
+// 🔁 Communication Patterns between PlayerController and PlayerUI
+// UI → Player: through direct method calls (controller.next()).
+// Player → UI: via an event system (controller.on('trackChange', cb)).
+// ----------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------
+// Execution start
+// ----------------------------------------------------------------------------
+
+let cp;
+
+// From url: route > controller > template volume.php
+if (initialTrackUid) {
+  var track = tracks.find((t) => t.uid === initialTrackUid);
+  console.log("Track passed via url:", track);
+  openTrack(track);
+}
+
+const controller = new PlayerController("media-container", tracks);
+
+const ui = new PlayerUI(controller, {
+  prevBtn: document.getElementById("prev-track"),
+  playBtn: document.getElementById("play-pause-button"),
+  nextBtn: document.getElementById("next-track"),
+});
