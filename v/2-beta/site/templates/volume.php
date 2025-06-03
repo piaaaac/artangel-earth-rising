@@ -12,8 +12,8 @@ $creditsPage = page("credits");
 $data = [];
 $i = 0;
 foreach ($page->children()->listed() as $key => $track) {
-  // $item = $track->content()->toArray();
   $item = [];
+  // $item = $track->content()->toArray();
   $item["title"] = $track->title()->value();
   $item["artist"] = $track->artist()->value();
   $item["index"] = $i;
@@ -21,34 +21,42 @@ foreach ($page->children()->listed() as $key => $track) {
   $item["uid"] = $track->uid();
   $item["uuid"] = $track->uuid()->id();
   $item["url"] = $track->url();
+  $item["infoartist"] = $track->infoArtist()->value();
+  $item["infoscript"] = $track->infoScript()->value();
   $item["trackType"] = $track->trackType()->value();
+  $item["slideshowFilesUrls"] = [];
 
-  if ($item["trackType"] === "audio") {
+  // Prepare media-specific data for Plyr
+  $item["media"] = [];
+  $trackType = $track->trackType()->value();
+  if ($trackType === "audio") {
+    $item["media"]["type"] = "audio";
     $fileAudio = $track->typeAudioFile()->toFile();
     if ($fileAudio) {
-      $item["audioFileUrl"] = $fileAudio->url();
+      $item["media"]["audioFileUrl"] = $fileAudio->url();
     }
-  } elseif ($item["trackType"] === "slideshow") {
+  } elseif ($trackType === "slideshow") {
+    $item["media"]["type"] = "audio";
     $fileAudio = $track->typeSlideshowAudioFile()->toFile();
     if ($fileAudio) {
-      $item["audioFileUrl"] = $fileAudio->url();
+      $item["media"]["audioFileUrl"] = $fileAudio->url();
     }
-    $item["imageFilesUrls"] = [];
     foreach ($track->typeSlideshowImageFiles()->toFiles() as $image) {
-      $item["imageFilesUrls"][] = $image->url();
+      $item["slideshowFilesUrls"][] = $image->url();
     }
-  } elseif ($item["trackType"] === "video") {
+  } elseif ($trackType === "video") {
+    $item["media"]["type"] = "video";
     $fileMp4 = $track->typeVideoSourceMp4()->toFile();
     if ($fileMp4) {
-      $item["videoFileMp4Url"] = $fileMp4->url();
+      $item["media"]["videoFileMp4Url"] = $fileMp4->url();
     }
     $fileWebm = $track->typeVideoSourceWebm()->toFile();
     if ($fileWebm) {
-      $item["videoFileWebmUrl"] = $fileWebm->url();
+      $item["media"]["videoFileWebmUrl"] = $fileWebm->url();
     }
     $filePoster = $track->typeVideoPoster()->toFile();
     if ($filePoster) {
-      $item["videoFilePosterUrl"] = $filePoster->url();
+      $item["media"]["videoFilePosterUrl"] = $filePoster->url();
     }
   }
   $data[] = $item;
@@ -119,7 +127,7 @@ $json = json_encode($data);
           <textPath href="#circlePath" startOffset="50%">
             <tspan id="time-current">00:00</tspan>
             <tspan>&nbsp;&nbsp;&nbsp;</tspan>
-            <tspan id="time-duration">88:88</tspan>
+            <tspan id="time-duration">00:00</tspan>
           </textPath>
         </text>
       </svg>

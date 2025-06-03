@@ -11,7 +11,7 @@
     </svg>
   </div>
   <!-- <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-r2l.svg" alt="Volume 1 Logo"> -->
-  <a class="only-dsk" href="<?= $site->url() ?>" onclick="handleTitleClick(event);">
+  <a class="only-dsk" href="<?= $site->url() ?>" onclick="app.wui.handleTitleClick(event);">
     <h1 class="mx-3">EARTH RISING</h1>
   </a>
   <!-- <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-l2r.svg" alt="Volume 1 Logo"> -->
@@ -28,14 +28,14 @@
   <h2 class="only-dsk">Messages from the Pale Blue Dot</h2>
 </div>
 
-<div id="bottom-txt-about" role="button" onclick="toggleAboutPanel()">
+<div id="bottom-txt-about" role="button" onclick="app.wui.toggleAboutPanel()">
   <h2 class="only-dsk">ABOUT & CREDITS</h2>
 </div>
 
 <!-- Buttons -->
 
 <nav class="button-wrapper" id="button-wrapper-top-left">
-  <button onclick="toggleAccessibilityPanel()">
+  <button onclick="app.wui.toggleAccessibilityPanel()">
     <img src="<?= $ass ?>/images/icon-accessibility.svg" alt="Accessibility Icon">
   </button>
 </nav>
@@ -43,7 +43,7 @@
 <nav class="button-wrapper" id="button-wrapper-top-right">
   <button type="button" style="position: relative; top: 2.5px;"
     class="hamburger hamburger--slider"
-    onclick="toggleMenuPanel()"
+    onclick="app.wui.toggleMenuPanel()"
     aria-label="Menu and Tracklist" aria-controls="navigation">
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
@@ -54,7 +54,7 @@
 <nav class="button-wrapper" id="button-wrapper-bottom-left">
   <button type="button" style="position: relative; top: 2.5px;"
     class="hamburger hamburger--slider"
-    onclick="toggleMenuPanel()"
+    onclick="app.wui.toggleMenuPanel()"
     aria-label="Menu and Tracklist" aria-controls="navigation">
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
@@ -63,7 +63,7 @@
 </nav>
 
 <nav class="button-wrapper" id="button-wrapper-bottom-right">
-  <button onclick="toggleArtangelPanel()" style="position: relative; top: 4px;">
+  <button onclick="app.wui.toggleArtangelPanel()" style="position: relative; top: 4px;">
     <img src="<?= $ass ?>/images/icon-artangel.svg" alt="Artangel Icon">
   </button>
 </nav>
@@ -81,13 +81,13 @@
   <div class="content-wrapper">
     <div id="track-info-artist"></div>
   </div>
-  <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="toggleTrackInfo()">
+  <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="app.wui.toggleTrackInfo()">
     <h2 id="track-artist"></h2>
   </div>
   <span class="button-wrapper"><img src="<?= $ass ?>/images/icon-rarr.svg" /></span>
 </section>
 <section id="track-info-dsk-r">
-  <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="toggleTrackInfo()">
+  <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="app.wui.toggleTrackInfo()">
     <h2 id="track-title"></h2>
   </div>
   <div class="content-wrapper">

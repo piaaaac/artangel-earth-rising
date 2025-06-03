@@ -1,190 +1,33 @@
-// ----------------------------------------------------------------------------
-// Helper variables
-// ----------------------------------------------------------------------------
-
-const hamburgers = document.querySelectorAll(".hamburger");
-const trackArtist = document.getElementById("track-artist");
-const trackTitle = document.getElementById("track-title");
-const trackInfoArtist = document.getElementById("track-info-artist");
-const trackInfoScript = document.getElementById("track-info-script");
-const trackInfoArtistMob = document.getElementById("track-info-artist-mob");
-const trackInfoScriptMob = document.getElementById("track-info-script-mob");
-const colorCover = document.getElementById("color-cover");
-const circle = document.querySelector("#circle");
-const circleTime = document.querySelector("#circle-time");
-const circleTimeAnimate = document.querySelector("#circle-time");
-const circleTimeSeek = document.querySelector("#time-current");
-const circleTimeDuration = document.querySelector("#time-duration");
+/**
+ * @param tracks comes from php (site/templates/volume.php)
+ */
 
 // ----------------------------------------------------------------------------
-// Functions
+// Architecture
+//
+// Functions at top level:
+// handle the website UI (panels like about, accessibility, track-infos etc.)
+//
+// Media Player: 2 classes
+// - PlayerController: manages media loading, playback, and events.
+// - PlayerUI: handles player UI interactions, and UI updates.
+//
+// 🔁 Communication Patterns between PlayerController and PlayerUI:
+// UI → Player: through direct method calls (controller.next()).
+// Player → UI: via an event system (controller.on('trackChange', cb)).
 // ----------------------------------------------------------------------------
 
-function toggleMenuPanel(bool) {
-  if (bool === undefined) {
-    bool = document.body.dataset.menuPanel === "true" ? false : true;
-  }
-  closeAllPanels();
-  document.body.dataset.menuPanel = bool;
-  hamburgers.forEach((hamburger) => {
-    hamburger.classList.toggle("is-active", bool);
-  });
-}
+// TODO NEXT
+// - fix classes/data-attributes for showing/hiding the player, and transition between tracks (circle aniimations)
+// - refactor
 
-function toggleAccessibilityPanel(bool) {
-  if (bool === undefined) {
-    bool = document.body.dataset.accessibilityPanel === "true" ? false : true;
-  }
-  closeAllPanels();
-  document.body.dataset.accessibilityPanel = bool;
-}
+// ----------------------------------------------------------------------------
+// Event listeners or global handlers
+// ----------------------------------------------------------------------------
 
-function toggleArtangelPanel(bool) {
-  if (bool === undefined) {
-    bool = document.body.dataset.artangelPanel === "true" ? false : true;
-  }
-  closeAllPanels();
-  document.body.dataset.artangelPanel = bool;
-}
-
-function toggleTrackInfo(bool) {
-  if (bool === undefined) {
-    bool = document.body.dataset.trackInfo === "true" ? false : true;
-  }
-  closeAllPanels();
-  document.body.dataset.trackInfo = bool;
-}
-
-function toggleAboutPanel(bool) {
-  if (bool === undefined) {
-    bool = document.body.dataset.aboutPanel === "true" ? false : true;
-  }
-  closeAllPanels();
-  document.body.dataset.aboutPanel = bool;
-}
-
-function openTrack(trackData) {
-  closeAllPanels();
-  document.body.dataset.trackOpen = trackData.uuid;
-  loadTrackContent(trackData.id);
-  colorStars(null);
-  trackTitle.textContent = trackData.title;
-  trackArtist.textContent = trackData.artist;
-  trackInfoArtist.innerHTML = trackData.infoartist;
-  circleTime.classList.add("clean");
-  animateCircle(() => {
-    trackInfoArtistMob.innerHTML = trackData.infoartist;
-    trackInfoScript.innerHTML = trackData.infoscript;
-    trackInfoScriptMob.innerHTML = trackData.infoscript;
-    colorCover.style.backgroundColor = trackData.uicolor;
-    colorStars(trackData.uicolor);
-    // setTimeout(() => toggleTrackPlay(true), 1000);
-  });
-}
-
-function closeTrack() {
-  document.body.dataset.trackOpen = "";
-}
-
-function closeAllPanels() {
-  document.body.dataset.menuPanel = false;
-  hamburgers.forEach((hamburger) => {
-    hamburger.classList.toggle("is-active", false);
-  });
-  document.body.dataset.accessibilityPanel = false;
-  document.body.dataset.artangelPanel = false;
-  document.body.dataset.trackInfo = false;
-  document.body.dataset.aboutPanel = false;
-}
-
-function handleTrackClick(event, element) {
-  event.preventDefault();
-  var trackUid = element.getAttribute("data-track-uid");
-  var track = tracks.find((t) => t.uid === trackUid);
-  console.log("Track clicked:", track);
-  var trackIndex = tracks.indexOf(track);
-  openTrack(track);
-}
-
-function handleTitleClick(event) {
-  event.preventDefault();
-  closeAllPanels();
-  closeTrack();
-  resetAlbum();
-}
-
-function handleDotClick(event, element) {
-  console.log("Dot clicked", element);
-  if (element.classList.contains("starting-point")) {
-    openNextTrack();
-  }
-}
-
-// function handlePrevTrackClick() {
-//   toggleTrackPlay(false);
-//   openPrevTrack();
-// }
-// function handleNextTrackClick() {
-//   toggleTrackPlay(false);
-//   openNextTrack();
-// }
-
-function getCurrentIndex() {
-  return tracks.findIndex((t) => t.uuid === document.body.dataset.trackOpen);
-}
-
-function openNextTrack() {
-  let nextIndex = 0;
-  const currentIndex = getCurrentIndex();
-  if (currentIndex != -1) {
-    nextIndex = currentIndex + 1;
-  }
-  if (nextIndex >= tracks.length) {
-    resetAlbum();
-  } else {
-    var track = tracks[nextIndex];
-    openTrack(track);
-  }
-}
-function openPrevTrack() {
-  let prevIndex = 0;
-  const currentIndex = getCurrentIndex();
-  if (currentIndex != -1) {
-    prevIndex = currentIndex - 1;
-  }
-  if (prevIndex < 0) {
-    resetAlbum();
-  } else {
-    var track = tracks[prevIndex];
-    openTrack(track);
-  }
-}
-
-function animateCircle(callback) {
-  circleTimeAnimate.classList.add("zoom-out");
-  setTimeout(function () {
-    circleTimeAnimate.classList.remove("starting-point", "zoom-out");
-    circleTimeAnimate.classList.add("zoom-in");
-    if (typeof callback === "function") {
-      callback();
-    }
-  }, 1000);
-}
-
-function resetAlbum() {
-  circleTimeAnimate.classList.remove("zoom-in", "zoom-out");
-  circleTimeAnimate.classList.add("starting-point", "forced-start");
-  setTimeout(function () {
-    circleTimeAnimate.classList.remove("forced-start");
-  }, 1000);
-  document.body.dataset.trackOpen = "";
-  setUrlHome();
-  colorStars(null);
-}
-
-function colorStars(color) {
-  document.documentElement.style.setProperty("--stars-color", color ?? "unset");
-}
+// ----------------------------------------------------------------------------
+// Utility functions
+// ----------------------------------------------------------------------------
 
 function formatTime(seconds) {
   if (isNaN(seconds)) {
@@ -195,9 +38,7 @@ function formatTime(seconds) {
   return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
 }
 
-// ------
-
-// url
+// --- url
 
 function setUrlHome() {
   const url = new URL(window.siteUrl + "/" + currentVolume);
@@ -212,10 +53,13 @@ addEventListener("popstate", (event) => {
   console.log(event);
 });
 
-// ajax
+// --- ajax
 
-function loadTrackContent(id) {
-  setUrlTrack(id);
+function loadTrackContentAjax(id) {
+  console.log(
+    "Loading content with ajax isn't really doing much atm, since most/everything is stored in the tracks array. Keeping it for future use, but for now just returning false"
+  );
+  return false;
   var url = window.siteUrl + "/" + id + ".json";
   fetch(url)
     .then((response) => {
@@ -225,7 +69,8 @@ function loadTrackContent(id) {
       // blurContent(true);
       setTimeout(() => {
         // bodyContent.textContent = ""
-        handleReceivedTrackData(jsonData);
+        // handleReceivedTrackData(jsonData);
+        console.log("handleReceivedTrackData(jsonData) to be implemented");
       }, 600);
     })
     .catch((err) => {
@@ -233,27 +78,371 @@ function loadTrackContent(id) {
     });
 }
 
-function handleReceivedTrackData(json) {
-  console.log(json);
+// ----------------------------------------------------------------------------
+// Class App
+// ----------------------------------------------------------------------------
+// Main application logic
+// - Manages the state of the application, including the current track and playback status.
+// ----------------------------------------------------------------------------
+
+class App {
+  constructor(wui, pui, tracks) {
+    this.wui = wui;
+    this.pui = pui;
+    this.state = {
+      tracks: tracks,
+      currentTrackIndex: null,
+      playing: false,
+    };
+    this.wui.bindApp(this);
+    this.pui.bindApp(this);
+  }
+
+  openTrack(index) {
+    this.state.currentTrackIndex = index;
+    const trackData = this.state.tracks[index];
+    setUrlTrack(trackData.id);
+    this.pui.ctrl.loadNewTrack(trackData);
+    this.wui.updateTrackUI(trackData);
+  }
+
+  closeTrack() {
+    this.state.currentTrackIndex = null;
+    this.wui.updateTrackUI(false);
+  }
+
+  openNextTrack() {
+    let newIndex = this.state.currentTrackIndex + 1;
+    if (newIndex >= this.state.tracks.length) {
+      this.resetAlbum();
+      return;
+    }
+    this.openTrack(newIndex);
+  }
+
+  openPrevTrack() {
+    let newIndex = this.state.currentTrackIndex - 1;
+    if (newIndex < 0) {
+      this.resetAlbum();
+      return;
+    }
+    this.openTrack(newIndex);
+  }
+
+  resetAlbum() {
+    this.wui.resetPlayerUI();
+    setUrlHome();
+    this.closeTrack();
+  }
+
+  findTrackIndexBy(property, value) {
+    return this.state.tracks.findIndex((t) => t[property] === value);
+  }
+
+  // --- Events
+
+  handleTrackClick(event, element) {
+    event.preventDefault();
+    var uuid = element.getAttribute("data-track-uuid");
+    // var trackData = this.state.tracks.find((t) => t.uuid === uuid);
+    // console.log("Track clicked:", trackData);
+    const newIndex = this.findTrackIndexBy("uuid", uuid);
+    this.openTrack(newIndex);
+  }
+
+  handleDotClick(event, element) {
+    if (element.classList.contains("starting-point")) {
+      this.openNextTrack();
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Class WebUI
+// ----------------------------------------------------------------------------
+// - handle the website UI (panels like about, accessibility, track-infos etc.)
+// ----------------------------------------------------------------------------
+
+class WebUI {
+  constructor() {
+    this.hamburgers = document.querySelectorAll(".hamburger");
+    this.trackArtist = document.getElementById("track-artist");
+    this.trackTitle = document.getElementById("track-title");
+    this.trackInfoArtist = document.getElementById("track-info-artist");
+    this.trackInfoScript = document.getElementById("track-info-script");
+    this.trackInfoArtistMob = document.getElementById("track-info-artist-mob");
+    this.trackInfoScriptMob = document.getElementById("track-info-script-mob");
+    this.colorCover = document.getElementById("color-cover");
+    this.circle = document.querySelector("#circle");
+    this.circleTime = document.querySelector("#circle-time");
+    this.circleTimeAnimate = document.querySelector("#circle-time");
+    this.parentApp = null;
+  }
+
+  // Passing false, null or undefined, the track UI is closed
+  updateTrackUI(trackData) {
+    if (!trackData) {
+      document.body.dataset.trackOpen == "";
+      return;
+    }
+    document.body.dataset.trackOpen = trackData.id;
+    this.closeAllPanels();
+    this.colorStars(null);
+    this.trackTitle.textContent = trackData.title;
+    this.trackArtist.textContent = trackData.artist;
+    this.trackInfoArtist.innerHTML = trackData.infoartist;
+    this.circleTime.classList.add("clean");
+    this.animateCircle(() => {
+      this.trackInfoArtistMob.innerHTML = trackData.infoartist;
+      this.trackInfoScript.innerHTML = trackData.infoscript;
+      this.trackInfoScriptMob.innerHTML = trackData.infoscript;
+      this.colorCover.style.backgroundColor = trackData.uicolor;
+      this.colorStars(trackData.uicolor);
+    });
+  }
+
+  resetPlayerUI() {
+    // circleTimeAnimate.classList.remove("zoom-in", "zoom-out");
+    // circleTimeAnimate.classList.add("starting-point", "forced-start");
+    // setTimeout(function () {
+    //   circleTimeAnimate.classList.remove("forced-start");
+    // }, 1000);
+    // document.body.dataset.trackOpen = "";
+    // colorStars(null);
+  }
+
+  handleTitleClick(event) {
+    event.preventDefault();
+    this.closeAllPanels();
+    this.parentApp.resetAlbum();
+  }
+
+  toggleMenuPanel(bool) {
+    if (bool === undefined) {
+      bool = document.body.dataset.menuPanel === "true" ? false : true;
+    }
+    this.closeAllPanels();
+    document.body.dataset.menuPanel = bool;
+    this.hamburgers.forEach((hamburger) => {
+      hamburger.classList.toggle("is-active", bool);
+    });
+  }
+
+  toggleAccessibilityPanel(bool) {
+    if (bool === undefined) {
+      bool = document.body.dataset.accessibilityPanel === "true" ? false : true;
+    }
+    this.closeAllPanels();
+    document.body.dataset.accessibilityPanel = bool;
+  }
+
+  toggleArtangelPanel(bool) {
+    if (bool === undefined) {
+      bool = document.body.dataset.artangelPanel === "true" ? false : true;
+    }
+    this.closeAllPanels();
+    document.body.dataset.artangelPanel = bool;
+  }
+
+  toggleTrackInfo(bool) {
+    if (bool === undefined) {
+      bool = document.body.dataset.trackInfo === "true" ? false : true;
+    }
+    this.closeAllPanels();
+    document.body.dataset.trackInfo = bool;
+  }
+
+  toggleAboutPanel(bool) {
+    if (bool === undefined) {
+      bool = document.body.dataset.aboutPanel === "true" ? false : true;
+    }
+    this.closeAllPanels();
+    document.body.dataset.aboutPanel = bool;
+  }
+
+  closeAllPanels() {
+    document.body.dataset.menuPanel = false;
+    this.hamburgers.forEach((hamburger) => {
+      hamburger.classList.toggle("is-active", false);
+    });
+    document.body.dataset.accessibilityPanel = false;
+    document.body.dataset.artangelPanel = false;
+    document.body.dataset.trackInfo = false;
+    document.body.dataset.aboutPanel = false;
+  }
+
+  colorStars(color) {
+    document.documentElement.style.setProperty(
+      "--stars-color",
+      color ?? "unset"
+    );
+  }
+
+  animateCircle(callback) {
+    // TO BE REWRITTEN
+    this.circleTimeAnimate.classList.add("zoom-out");
+    const that = this;
+    setTimeout(function () {
+      that.circleTimeAnimate.classList.remove("starting-point", "zoom-out");
+      that.circleTimeAnimate.classList.add("zoom-in");
+      if (typeof callback === "function") {
+        callback();
+      }
+    }, 1000);
+  }
+
+  bindApp(app) {
+    this.parentApp = app;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Class PlayerUI
+//
+// - Handles all DOM/UI concerns: buttons, events, feedback, metadata display, etc.
+// - Communicates with PlayerController
+// ----------------------------------------------------------------------------
+
+class PlayerUI {
+  constructor(controller, uiSelectors) {
+    this.circleTimeSeek = document.querySelector("#time-current");
+    this.circleTimeDuration = document.querySelector("#time-duration");
+    this.circleTime = document.querySelector("#circle-time");
+    this.ctrl = controller;
+    this.selectors = uiSelectors;
+    this.parentApp = null;
+
+    this.bindUIEvents();
+    this.bindControllerEvents();
+  }
+
+  toggleTrackPlay(bool) {
+    let nextPlayState = true;
+    if (this.ctrl.plyr) {
+      nextPlayState = this.ctrl.plyr.playing ? false : true;
+    }
+    if (bool !== undefined) {
+      nextPlayState = bool;
+    }
+    // circleTime.classList.toggle("paused", !nextPlayState);
+    // document.body.dataset.playerPaused = !nextPlayState;
+    document.body.dataset.playerPlaying = nextPlayState ? "true" : "false";
+    if (nextPlayState) {
+      this.ctrl.plyr?.play();
+    } else {
+      this.ctrl.plyr?.pause();
+    }
+  }
+
+  setTrackSeek(s) {
+    this.circleTimeSeek.textContent = formatTime(s);
+  }
+
+  setTrackDuration(s) {
+    this.circleTimeDuration.textContent = formatTime(s);
+  }
+
+  bindApp(app) {
+    this.parentApp = app;
+  }
+
+  // Interactions PlayerUI → Controller
+  bindUIEvents() {
+    this.selectors.playBtn.addEventListener("click", () => {
+      this.toggleTrackPlay();
+    });
+    this.selectors.nextBtn.addEventListener("click", () => {
+      this.toggleTrackPlay(false);
+      this.parentApp.openNextTrack();
+    });
+    this.selectors.prevBtn.addEventListener("click", () => {
+      this.toggleTrackPlay(false);
+      this.parentApp.openPrevTrack();
+    });
+  }
+
+  // Interactions Controller → PlayerUI
+  bindControllerEvents() {
+    this.ctrl.on("ended", () => {
+      console.log("controller event - track ended");
+      // const nextIndex = (currentIndex + 1) % playlist.length;
+      // loadTrack(nextIndex);
+    });
+
+    // Update UI on play/pause
+    this.ctrl.on("timeupdate", ({ currentTime }) => {
+      // console.log("controller event - timeupdate", currentTime);
+      this.setTrackSeek(currentTime);
+    });
+
+    this.ctrl.on("loadedmetadata", ({ duration }) => {
+      // console.log("controller event - loadedmetadata", duration);
+      this.setTrackDuration(duration);
+      this.setTrackSeek(0);
+      this.circleTime.classList.remove("clean");
+    });
+  }
+
+  updateTrackInfo(track) {
+    // Update UI with title, duration, thumbnail, etc.
+  }
 }
 
 // ----------------------------------------------------------------------------
 // Class PlayerController
 // ----------------------------------------------------------------------------
 // - Core logic for loading media.
-// - Manages playback, playlist, media switching, and player lifecycle.
+// - Manages playback, media switching, and player lifecycle.
 // - Wraps Plyr or native HTML5.
 // ----------------------------------------------------------------------------
 
 class PlayerController {
-  constructor(containerId, tracks) {
+  constructor(containerId) {
     this.mediaContainer = document.getElementById(containerId);
-    this.tracks = tracks;
     this.events = {}; // 🔹 event name → array of callbacks
     this.plyr = null;
   }
 
-  // Keep track of callbacks associated to events
+  loadNewTrack(track) {
+    // Remove old player
+    this.plyr?.destroy();
+    this.mediaContainer.innerHTML = "";
+
+    // Create new media element (video or audio)
+    const mediaEl = document.createElement(track.media.type);
+    mediaEl.setAttribute("id", "player");
+    mediaEl.setAttribute("controls", "");
+    mediaEl.setAttribute("playsinline", "");
+
+    if (track.media.videoFilePosterUrl && track.media.type === "video") {
+      mediaEl.setAttribute("poster", track.media.videoFilePosterUrl);
+    }
+
+    const source = document.createElement("source");
+    let src =
+      track.media.type === "video"
+        ? track.media.videoFileMp4Url
+        : track.media.audioFileUrl;
+    source.setAttribute("src", src);
+    source.setAttribute("type", `${track.media.type}/${src.split(".").pop()}`);
+    mediaEl.appendChild(source);
+
+    if (track.media.type === "video") {
+      const source2 = document.createElement("source");
+      source2.setAttribute("src", track.media.videoFileWebmUrl);
+      source2.setAttribute("type", "video/webm");
+      mediaEl.appendChild(source2);
+    }
+
+    this.mediaContainer.appendChild(mediaEl);
+
+    // Reinitialize Plyr
+    this.plyr = new Plyr("#player");
+    console.log("Plyr initialized:", this.plyr);
+    this.exposePlyrEvents();
+  }
+
+  // Register callbacks associated to events
   on(eventName, callback) {
     if (!this.events[eventName]) {
       this.events[eventName] = [];
@@ -261,56 +450,12 @@ class PlayerController {
     this.events[eventName].push(callback);
   }
 
-  // Execute all callbacks for a given event
+  // Execute all registered callbacks for a given event
   emit(eventName, payload) {
     const listeners = this.events[eventName];
     if (listeners) {
       listeners.forEach((cb) => cb(payload));
     }
-  }
-
-  next() {
-    // Implement next track logic here if needed
-  }
-
-  loadNewTrack(track) {
-    // prepare variables
-    let mediaType = track.trackType === "video" ? "video" : "audio";
-
-    // Remove old player
-    this.plyr?.destroy();
-    this.mediaContainer.innerHTML = "";
-
-    // Create new media element (video or audio)
-    const media = document.createElement(mediaType);
-    media.setAttribute("id", "player");
-    media.setAttribute("controls", "");
-    media.setAttribute("playsinline", "");
-
-    if (track.videoFilePosterUrl && mediaType === "video") {
-      media.setAttribute("poster", videoFilePosterUrl);
-    }
-
-    const source = document.createElement("source");
-    let src =
-      mediaType === "video" ? track.typeVideoSourceMp4 : track.audioFileUrl;
-    source.setAttribute("src", src);
-    source.setAttribute("type", `${mediaType}/${src.split(".").pop()}`);
-    media.appendChild(source);
-
-    if (mediaType === "video") {
-      const source2 = document.createElement("source");
-      source2.setAttribute("src", track.typeVideoSourceWebm);
-      source2.setAttribute("type", "video/webm");
-      media.appendChild(source2);
-    }
-
-    this.mediaContainer.appendChild(media);
-
-    // Reinitialize Plyr
-    this.plyr = new Plyr("#player");
-    console.log("Plyr initialized:", this.plyr);
-    this.exposePlyrEvents();
   }
 
   exposePlyrEvents = () => {
@@ -327,108 +472,23 @@ class PlayerController {
 }
 
 // ----------------------------------------------------------------------------
-// Class PlayerUI
-//
-// - Handles all DOM/UI concerns: buttons, events, feedback, metadata display, etc.
-// - Communicates with PlayerController
-// ----------------------------------------------------------------------------
-
-class PlayerUI {
-  constructor(controller, uiSelectors) {
-    this.controller = controller;
-    this.selectors = uiSelectors;
-    this.bindUIEvents();
-    this.bindControllerEvents();
-  }
-
-  toggleTrackPlay(bool) {
-    let paused = document.body.dataset.playerPaused === "true" ? true : false;
-    let nextPlayState = paused;
-    if (bool !== undefined) {
-      nextPlayState = bool;
-    }
-    circleTime.classList.toggle("paused", !nextPlayState);
-    circleTime.classList.remove("clean");
-    document.body.dataset.playerPaused = !nextPlayState;
-    if (nextPlayState) {
-      this.controller.plyr.play();
-    } else {
-      this.controller.plyr.pause();
-    }
-  }
-
-  setTrackSeek(s) {
-    circleTimeSeek.textContent = formatTime(s);
-  }
-
-  setTrackDuration(s) {
-    circleTimeDuration.textContent = formatTime(s);
-  }
-
-  bindUIEvents() {
-    this.selectors.playBtn.addEventListener("click", () => {
-      this.controller.plyr.togglePlay();
-      console.log("plyr", this.controller.plyr);
-    });
-    this.selectors.nextBtn.addEventListener("click", () => {
-      this.toggleTrackPlay(false);
-      openNextTrack();
-      this.controller.next();
-    });
-    this.selectors.prevBtn.addEventListener("click", () => {
-      this.toggleTrackPlay(false);
-      openPrevTrack();
-      this.controller.prev();
-    });
-  }
-
-  bindControllerEvents() {
-    this.controller.on("ended", () => {
-      console.log("controller event - ended");
-      // const nextIndex = (currentIndex + 1) % playlist.length;
-      // loadTrack(nextIndex);
-    });
-
-    // Update UI on play/pause
-    this.controller.on("timeupdate", ({ currentTime }) => {
-      console.log("controller event - timeupdate", currentTime);
-      setTrackSeek(currentTime);
-    });
-
-    this.controller.on("loadedmetadata", ({ duration }) => {
-      console.log("controller event - loadedmetadata", duration);
-      setTrackDuration(duration);
-    });
-  }
-
-  updateTrackInfo(track) {
-    // Update UI with title, duration, thumbnail, etc.
-  }
-}
-
-// ----------------------------------------------------------------------------
-// 🔁 Communication Patterns between PlayerController and PlayerUI
-// UI → Player: through direct method calls (controller.next()).
-// Player → UI: via an event system (controller.on('trackChange', cb)).
-// ----------------------------------------------------------------------------
-
-// ----------------------------------------------------------------------------
 // Execution start
 // ----------------------------------------------------------------------------
 
-let cp;
-
-// From url: route > controller > template volume.php
-if (initialTrackUid) {
-  var track = tracks.find((t) => t.uid === initialTrackUid);
-  console.log("Track passed via url:", track);
-  openTrack(track);
-}
-
-const controller = new PlayerController("media-container", tracks);
-
-const ui = new PlayerUI(controller, {
+// Initialize objects
+const wui = new WebUI();
+const pc = new PlayerController("media-container");
+const pui = new PlayerUI(pc, {
   prevBtn: document.getElementById("prev-track"),
   playBtn: document.getElementById("play-pause-button"),
   nextBtn: document.getElementById("next-track"),
 });
+const app = new App(wui, pui, tracks);
+
+// From url: route > controller > template volume.php
+if (initialTrackUid) {
+  var track = tracks.find((t) => t.uid === initialTrackUid);
+  var index = tracks.findIndex((t) => t.uid === initialTrackUid);
+  console.log(`Track passed via url: ${index}`, track);
+  app.openTrack(index);
+}

@@ -898,11 +898,11 @@ ul {
 
 @keyframes animateCircleOut {
   from {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
   to {
-    transform: scale(3);
+    transform: translate(-50%, -50%) scale(3);
     opacity: 0;
   }
 }
@@ -977,6 +977,10 @@ main#main-content #media-container video {
   max-height: 100%;
 }
 
+main#main-content #media-container .plyr--audio {
+  opacity: 0.2;
+}
+
 main#main-content #circle-wrapper {
   mix-blend-mode: lighten;
   z-index: 30;
@@ -990,8 +994,11 @@ main#main-content #circle-wrapper {
 }
 
 main#main-content #circle-wrapper #circle {
-  display: none;
   border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   cursor: pointer;
   transition: all 500ms;
   aspect-ratio: 1/1;
