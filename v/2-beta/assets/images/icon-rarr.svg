@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>icon-rarr</title>
-    <g id="icon-rarr" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M39.8552,80 C39.8552,57.9022 57.7574,40 79.8552,40 C57.7574,40 39.8552,22.0978 39.8552,0" id="Path" stroke="#F1F3D7" stroke-width="1.2"></path>
-        <line x1="80" y1="39.99995" x2="0" y2="39.99995" id="Path" stroke="#F1F3D7" stroke-width="1.2"></line>
+    <g id="icon-rarr" stroke="none" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+        <path d="M39.8552,80 C39.8552,57.9022 57.7574,40 79.8552,40 C57.7574,40 39.8552,22.0978 39.8552,0" id="Path" stroke="#F1F3D7"></path>
+        <line x1="80" y1="39.99995" x2="0" y2="39.99995" id="Path" stroke="#F1F3D7"></line>
     </g>
 </svg>

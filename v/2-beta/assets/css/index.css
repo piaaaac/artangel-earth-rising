@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *:not(i), *:not(i)::before, *:not(i)::after {
   margin: 0;
   padding: 0;
@@ -957,7 +958,7 @@ main#main-content #background {
   right: 0;
   bottom: 0;
   background-size: auto;
-  background-size: 3077px 2091px;
+  background-size: 3077px 1080px;
   animation: bgPan 150s linear infinite;
   background-position-y: 20%;
   background-image: url(../images/test-bg-l.png);
@@ -1237,6 +1238,10 @@ main#main-content #player-ui-buttons #play-pause-button::after {
 
 body[data-player-playing="false"] main#main-content #player-ui-buttons #play-pause-button::after {
   content: "PLAY";
+}
+
+body[data-player-loading="true"] main#main-content #player-ui-buttons #play-pause-button::after {
+  content: "···";
 }
 
 main#main-content #color-cover {

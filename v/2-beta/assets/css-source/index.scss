@@ -274,7 +274,11 @@ main#main-content {
     right: 0;
     bottom: 0;
     background-size: auto;
-    background-size: 3077px 2091px; // half of the original image size
+
+    $bg-img-w: 6154px;
+    $bg-img-h: 2160px;
+    background-size: #{$bg-img-w/2} #{$bg-img-h/2}; // half of the original image size
+
     animation: bgPan 150s linear infinite;
     background-position-y: 20%;
     background-image: url(../images/test-bg-l.png);
@@ -468,6 +472,11 @@ main#main-content {
       @at-root body[data-player-playing="false"] & {
         &::after {
           content: "PLAY";
+        }
+      }
+      @at-root body[data-player-loading="true"] & {
+        &::after {
+          content: "···";
         }
       }
     }

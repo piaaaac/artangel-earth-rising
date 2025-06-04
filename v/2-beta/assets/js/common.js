@@ -424,6 +424,16 @@ class PlayerUI {
       this.parentApp.openNextTrack();
     });
 
+    this.ctrl.on("waiting", () => {
+      document.body.dataset.playerLoading = "true";
+    });
+    this.ctrl.on("stalled", () => {
+      document.body.dataset.playerLoading = "true";
+    });
+    this.ctrl.on("canplay", () => {
+      document.body.dataset.playerLoading = "false";
+    });
+
     this.ctrl.on("timeupdate", ({ currentTime }) => {
       // console.log("controller event - timeupdate", currentTime);
       this.setTrackSeek(currentTime);
@@ -522,6 +532,7 @@ class PlayerController {
     this.plyr = new Plyr("#player", options);
     console.log("Plyr initialized:", this.plyr);
     this.exposePlyrEvents();
+    this.bindDebugEvents();
     this.plyr.play();
 
     document.body.dataset.trackType = track.trackType;
@@ -544,9 +555,64 @@ class PlayerController {
     }
   }
 
+  bindDebugEvents() {
+    var eventNames = [
+      "progress",
+      "playing",
+      "play",
+      "pause",
+      "timeupdate",
+      "volumechange",
+      "seeking",
+      "seeked",
+      "ratechange",
+      "ended",
+      "enterfullscreen",
+      "exitfullscreen",
+      "captionsenabled",
+      "captionsdisabled",
+      "languagechange",
+      "controlshidden",
+      "controlsshown",
+      "ready",
+      "loadstart",
+      "loadeddata",
+      "loadedmetadata",
+      "qualitychange",
+      "canplay",
+      "canplaythrough",
+      "stalled",
+      "waiting",
+      "emptied",
+      "cuechange",
+      "error",
+    ];
+    eventNames.forEach((eventName) => {
+      this.plyr.on(eventName, (event) => {
+        console.log("debug: event: " + eventName);
+      });
+    });
+  }
+
   exposePlyrEvents = () => {
-    this.plyr.on("ended", (event) => {
-      this.emit("ended", event);
+    this.plyr.on("loadedmetadata", (event) => {
+      this.emit("loadedmetadata", { duration: this.plyr.duration });
+    });
+
+    // .....
+    this.plyr.on("waiting", (event) => {
+      this.emit("waiting", event);
+    });
+    this.plyr.on("stalled", (event) => {
+      this.emit("stalled", event);
+    });
+    this.plyr.on("canplay", (event) => {
+      this.emit("canplay", event);
+    });
+    // .....
+
+    this.plyr.on("timeupdate", (event) => {
+      this.emit("timeupdate", { currentTime: this.plyr.currentTime });
     });
     this.plyr.on("playing", (event) => {
       this.emit("playing", event);
@@ -554,11 +620,8 @@ class PlayerController {
     this.plyr.on("pause", (event) => {
       this.emit("pause", event);
     });
-    this.plyr.on("timeupdate", (event) => {
-      this.emit("timeupdate", { currentTime: this.plyr.currentTime });
-    });
-    this.plyr.on("loadedmetadata", (event) => {
-      this.emit("loadedmetadata", { duration: this.plyr.duration });
+    this.plyr.on("ended", (event) => {
+      this.emit("ended", event);
     });
   };
 }
