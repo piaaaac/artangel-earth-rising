@@ -72,6 +72,7 @@
 
 <section id="track-info-mob">
   <div id="track-info-artist-mob"></div>
+  <hr />
   <div id="track-info-script-mob"></div>
 </section>
 

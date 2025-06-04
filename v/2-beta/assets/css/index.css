@@ -253,6 +253,10 @@ p {
   font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 1.25em;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 2.5em;
+  margin-bottom: 2em;
 }
 
 @media (min-width: 576px) {
@@ -279,7 +283,6 @@ p {
   }
 }
 
-p,
 h1,
 h2,
 h3,
@@ -288,26 +291,6 @@ h5,
 h6 {
   font-weight: 300;
   margin: 15px 0;
-}
-
-p:first-child,
-h1:first-child,
-h2:first-child,
-h3:first-child,
-h4:first-child,
-h5:first-child,
-h6:first-child {
-  margin-top: 0;
-}
-
-p:last-child,
-h1:last-child,
-h2:last-child,
-h3:last-child,
-h4:last-child,
-h5:last-child,
-h6:last-child {
-  margin-bottom: 0;
 }
 
 h1 {
@@ -863,6 +846,11 @@ body[data-menu-panel="true"] #main-content, body[data-about-panel="true"] #main-
   opacity: 0.1;
 }
 
+body[data-track-open=""] .player-ui {
+  opacity: 0;
+  pointer-events: none;
+}
+
 hr {
   border-top: var(--border-width) solid #f1f3d7;
 }
@@ -896,6 +884,10 @@ ul {
   }
 }
 
+.focusable:focus, .focusable:focus-visible {
+  box-shadow: 0px 0px 5px #f1f3d7;
+}
+
 @keyframes animateCircleOut {
   from {
     transform: translate(-50%, -50%) scale(1);
@@ -927,6 +919,23 @@ ul {
   }
 }
 
+@keyframes bgPan {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -100%;
+  }
+}
+
+body[data-player-playing="true"][data-track-type="video"] main#main-content[data-hide-player-controls="true"] #player-ui-buttons, body[data-player-playing="true"][data-track-type="slideshow"] main#main-content[data-hide-player-controls="true"] #player-ui-buttons {
+  opacity: 0;
+}
+
+body[data-player-playing="true"][data-track-type="video"] main#main-content[data-hide-player-controls="true"] #circle-wrapper, body[data-player-playing="true"][data-track-type="slideshow"] main#main-content[data-hide-player-controls="true"] #circle-wrapper {
+  opacity: 0;
+}
+
 main#main-content {
   z-index: 29;
   position: fixed;
@@ -941,20 +950,27 @@ main#main-content {
 }
 
 main#main-content #background {
+  z-index: 30;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-size: cover;
-  background-position: center;
+  background-size: auto;
+  background-size: 3077px 2091px;
+  animation: bgPan 150s linear infinite;
+  background-position-y: 20%;
+  background-image: url(../images/test-bg-l.png);
   opacity: 0;
-  background-image: url(../images/test-bg.jpg);
   transition: all 800ms;
 }
 
-body:not([data-track-open=""]) main#main-content #background {
+body[data-track-type="audio"]:not([data-track-open=""]) main#main-content #background {
   opacity: 1;
+}
+
+body[data-player-playing="false"] main#main-content #background {
+  animation-play-state: paused;
 }
 
 main#main-content #media-container {
@@ -977,13 +993,24 @@ main#main-content #media-container video {
   max-height: 100%;
 }
 
-main#main-content #media-container .plyr--audio {
-  opacity: 0.2;
+main#main-content #media-container.darken {
+  opacity: 0.3;
+}
+
+body[data-player-playing="false"] main#main-content #media-container {
+  opacity: 0.3;
+}
+
+body[data-track-open=""] main#main-content #media-container {
+  opacity: 0;
 }
 
 main#main-content #circle-wrapper {
   mix-blend-mode: lighten;
   z-index: 30;
+  z-index: 60;
+  transition: opacity 666ms;
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -994,6 +1021,8 @@ main#main-content #circle-wrapper {
 }
 
 main#main-content #circle-wrapper #circle {
+  z-index: 60;
+  pointer-events: all;
   border-radius: 50%;
   position: absolute;
   left: 50%;
@@ -1029,58 +1058,51 @@ main#main-content #circle-wrapper #circle.zoom-out {
   animation: animateCircleOut 2s;
 }
 
-main#main-content #color-cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: black;
-  pointer-events: none;
-  transition: all 800ms 800ms;
-  transition: all 800ms;
-  transition: all 200ms;
-  mix-blend-mode: multiply;
-}
-
-body[data-track-open=""] main#main-content #color-cover {
+body:not([data-track-open=""]) main#main-content #circle-wrapper #circle {
   opacity: 0;
+  pointer-events: none;
 }
 
-#circle-time {
+main#main-content #circle-wrapper #circle-time {
   animation: animateRotate 12s infinite linear;
   display: flex;
 }
 
-body[data-player-playing="false"] #circle-time {
+body[data-player-playing="false"] main#main-content #circle-wrapper #circle-time {
   animation-play-state: paused;
 }
 
-#circle-time.clean text,
-#circle-time.clean rect {
+main#main-content #circle-wrapper #circle-time.clean text,
+main#main-content #circle-wrapper #circle-time.clean rect {
   opacity: 0;
 }
 
-#circle-time svg {
+main#main-content #circle-wrapper #circle-time svg {
   width: 100%;
   height: 100%;
   vector-effect: non-scaling-stroke;
 }
 
-#circle-time path#circlePath {
+main#main-content #circle-wrapper #circle-time path#circlePath {
   stroke: #f1f3d7;
-  stroke-width: 0.2px;
+  stroke-width: 0.4px;
   fill: none;
 }
 
-#circle-time rect.one,
-#circle-time rect.two {
+@media (min-width: 768px) {
+  main#main-content #circle-wrapper #circle-time path#circlePath {
+    stroke-width: 0.2px;
+  }
+}
+
+main#main-content #circle-wrapper #circle-time rect.one,
+main#main-content #circle-wrapper #circle-time rect.two {
   transition: all 800ms;
   fill: black;
   stroke: none;
 }
 
-#circle-time text {
+main#main-content #circle-wrapper #circle-time text {
   transition: all 800ms;
   transform: translate(-2px, 0px);
   font-size: 5px;
@@ -1099,32 +1121,145 @@ body[data-player-playing="false"] #circle-time {
 }
 
 @media (min-width: 576px) {
-  #circle-time text {
+  main#main-content #circle-wrapper #circle-time text {
     font-size: 20px;
   }
 }
 
 @media (min-width: 768px) {
-  #circle-time text {
+  main#main-content #circle-wrapper #circle-time text {
     font-size: 23px;
   }
 }
 
 @media (min-width: 992px) {
-  #circle-time text {
+  main#main-content #circle-wrapper #circle-time text {
     font-size: 25px;
   }
 }
 
 @media (min-width: 1200px) {
-  #circle-time text {
+  main#main-content #circle-wrapper #circle-time text {
     font-size: 25px;
   }
 }
 
-#circle-time text #time-current,
-#circle-time text #time-duration {
+main#main-content #circle-wrapper #circle-time text #time-current,
+main#main-content #circle-wrapper #circle-time text #time-duration {
   font-variant-numeric: tabular-nums;
+}
+
+main#main-content #player-ui-buttons {
+  z-index: 40;
+  position: fixed;
+  top: 30vh;
+  transition: opacity 666ms;
+}
+
+main#main-content #player-ui-buttons #next-track,
+main#main-content #player-ui-buttons #prev-track {
+  position: fixed;
+  bottom: calc(var(--ui-space) + 20px);
+  background-color: transparent;
+  height: var(--ui-space);
+  cursor: pointer;
+  display: flex;
+}
+
+main#main-content #player-ui-buttons #next-track {
+  right: calc(var(--ui-space) + 20px);
+}
+
+@media (min-width: 768px) {
+  main#main-content #player-ui-buttons #next-track {
+    top: calc(50% - var(--ui-space) / 2);
+  }
+}
+
+main#main-content #player-ui-buttons #prev-track {
+  left: calc(var(--ui-space) + 20px);
+}
+
+@media (min-width: 768px) {
+  main#main-content #player-ui-buttons #prev-track {
+    top: calc(50% - var(--ui-space) / 2);
+  }
+}
+
+main#main-content #player-ui-buttons #play-pause-button {
+  background-color: transparent;
+  font-family: "Gaisyr", serif;
+  font-size: 18px;
+  font-optical-sizing: auto;
+  letter-spacing: 0;
+  line-height: 1.25em;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #f1f3d7;
+}
+
+@media (min-width: 576px) {
+  main#main-content #player-ui-buttons #play-pause-button {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  main#main-content #player-ui-buttons #play-pause-button {
+    font-size: 23px;
+  }
+}
+
+@media (min-width: 992px) {
+  main#main-content #player-ui-buttons #play-pause-button {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 1200px) {
+  main#main-content #player-ui-buttons #play-pause-button {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 768px) {
+  main#main-content #player-ui-buttons #play-pause-button {
+    font-size: 60px;
+    font-size: 7vmin;
+  }
+}
+
+main#main-content #player-ui-buttons #play-pause-button::after {
+  content: "PAUSE";
+}
+
+body[data-player-playing="false"] main#main-content #player-ui-buttons #play-pause-button::after {
+  content: "PLAY";
+}
+
+main#main-content #color-cover {
+  z-index: 30;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  pointer-events: none;
+  transition: all 800ms 800ms;
+  transition: all 800ms;
+  transition: all 200ms;
+  mix-blend-mode: multiply;
+}
+
+body:not([data-track-type="audio"]) main#main-content #color-cover {
+  opacity: 0 !important;
+}
+
+body[data-track-type="audio"][data-track-open=""] main#main-content #color-cover {
+  opacity: 0;
 }
 
 #track-info-dsk-l,
@@ -1169,7 +1304,6 @@ body[data-player-playing="false"] #circle-time {
   width: calc(100% - var(--ui-space));
   position: relative;
   top: var(--ui-space);
-  padding: 15px;
   overflow-y: auto;
   max-height: calc(100% - var(--ui-space) - var(--ui-space));
 }
@@ -1472,6 +1606,14 @@ body:not([data-track-open=""])[data-track-info="true"] #track-info-mob {
   }
 }
 
+#track-info-mob #track-info-artist-mob {
+  padding: 30px 15px;
+}
+
+#track-info-mob #track-info-script-mob {
+  padding: 30px 15px;
+}
+
 #about-panel {
   z-index: 30;
   position: fixed;
@@ -1528,88 +1670,6 @@ body[data-about-panel="true"] #about-panel {
   #about-panel .line {
     display: none;
   }
-}
-
-#player-ui {
-  z-index: 40;
-  position: fixed;
-  top: 30vh;
-}
-
-#player-ui #next-track,
-#player-ui #prev-track {
-  position: fixed;
-  bottom: calc(var(--ui-space) + 20px);
-  background-color: transparent;
-  height: var(--ui-space);
-  cursor: pointer;
-  display: flex;
-}
-
-#player-ui #next-track {
-  right: calc(var(--ui-space) + 20px);
-}
-
-@media (min-width: 768px) {
-  #player-ui #next-track {
-    top: calc(50% - var(--ui-space) / 2);
-  }
-}
-
-#player-ui #prev-track {
-  left: calc(var(--ui-space) + 20px);
-}
-
-@media (min-width: 768px) {
-  #player-ui #prev-track {
-    top: calc(50% - var(--ui-space) / 2);
-  }
-}
-
-#player-ui #play-pause-button {
-  background-color: transparent;
-  font-family: "Gaisyr", serif;
-  font-size: 18px;
-  font-optical-sizing: auto;
-  letter-spacing: 0;
-  line-height: 1.25em;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #f1f3d7;
-}
-
-@media (min-width: 576px) {
-  #player-ui #play-pause-button {
-    font-size: 20px;
-  }
-}
-
-@media (min-width: 768px) {
-  #player-ui #play-pause-button {
-    font-size: 23px;
-  }
-}
-
-@media (min-width: 992px) {
-  #player-ui #play-pause-button {
-    font-size: 25px;
-  }
-}
-
-@media (min-width: 1200px) {
-  #player-ui #play-pause-button {
-    font-size: 25px;
-  }
-}
-
-#player-ui #play-pause-button::after {
-  content: "PAUSE";
-}
-
-body[data-player-playing="false"] #player-ui #play-pause-button::after {
-  content: "PLAY";
 }
 
 .stars {

@@ -92,8 +92,12 @@ $font-serif: "Gaisyr", serif;
 
 p {
   @include font-serif-l;
+  padding-left: $space;
+  padding-right: $space;
+  margin-top: 2.5em;
+  margin-bottom: 2em;
 }
-p,
+// p,
 h1,
 h2,
 h3,
@@ -102,12 +106,12 @@ h5,
 h6 {
   font-weight: 300;
   margin: $space 0;
-  &:first-child {
-    margin-top: 0;
-  }
-  &:last-child {
-    margin-bottom: 0;
-  }
+  // &:first-child {
+  //   margin-top: 0;
+  // }
+  // &:last-child {
+  //   margin-bottom: 0;
+  // }
 }
 h1 {
   @include font-serif-l;

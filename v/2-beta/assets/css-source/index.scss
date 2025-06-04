@@ -142,6 +142,10 @@ body {
       opacity: 0.1;
     }
   }
+  &[data-track-open=""] .player-ui {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 hr {
@@ -181,6 +185,19 @@ ul {
 }
 
 // -----------------------------------------------------------------------------
+// ACCESSIBILITY
+// -----------------------------------------------------------------------------
+
+.focusable {
+  &:focus,
+  &:focus-visible {
+    box-shadow: 0px 0px 5px $c-whiteish;
+    // outline-color: green;
+    // outline-width: 5px;
+  }
+}
+
+// -----------------------------------------------------------------------------
 // SPECIFIC - PANELS
 // -----------------------------------------------------------------------------
 
@@ -215,6 +232,29 @@ ul {
   }
 }
 
+@keyframes bgPan {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -100%;
+  }
+}
+
+body[data-player-playing="true"] {
+  &[data-track-type="video"],
+  &[data-track-type="slideshow"] {
+    main#main-content[data-hide-player-controls="true"] {
+      #player-ui-buttons {
+        opacity: 0;
+      }
+      #circle-wrapper {
+        opacity: 0;
+      }
+    }
+  }
+}
+
 main#main-content {
   z-index: 29;
   position: fixed;
@@ -227,18 +267,24 @@ main#main-content {
   justify-content: center;
   align-items: center;
   #background {
+    z-index: 30;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-size: cover;
-    background-position: center;
+    background-size: auto;
+    background-size: 3077px 2091px; // half of the original image size
+    animation: bgPan 150s linear infinite;
+    background-position-y: 20%;
+    background-image: url(../images/test-bg-l.png);
     opacity: 0;
-    background-image: url(../images/test-bg.jpg);
     transition: all $transition-duration;
-    @at-root body:not([data-track-open=""]) & {
+    @at-root body[data-track-type="audio"]:not([data-track-open=""]) & {
       opacity: 1;
+    }
+    @at-root body[data-player-playing="false"] & {
+      animation-play-state: paused;
     }
   }
   #media-container {
@@ -259,12 +305,24 @@ main#main-content {
       max-height: 100%;
     }
     .plyr--audio {
-      opacity: 0.2;
+      // opacity: 0.05;
+    }
+    &.darken {
+      opacity: 0.3;
+    }
+    @at-root body[data-player-playing="false"] & {
+      opacity: 0.3;
+    }
+    @at-root body[data-track-open=""] & {
+      opacity: 0;
     }
   }
   #circle-wrapper {
     mix-blend-mode: lighten;
     z-index: 30;
+    z-index: 60;
+    transition: opacity 666ms;
+    pointer-events: none;
 
     @include media-breakpoint-up(md) {
       width: calc(100vmin - var(--ui-space) * 3);
@@ -273,6 +331,8 @@ main#main-content {
 
     #circle {
       // display: none;
+      z-index: 60;
+      pointer-events: all;
       border-radius: 50%;
       position: absolute;
       left: 50%;
@@ -304,9 +364,117 @@ main#main-content {
         background-color: transparent;
         animation: animateCircleOut 2s;
       }
+      @at-root body:not([data-track-open=""]) & {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+    #circle-time {
+      animation: animateRotate 12s infinite linear;
+      display: flex;
+      @at-root body[data-player-playing="false"] & {
+        animation-play-state: paused;
+      }
+      &.clean {
+        text,
+        rect {
+          opacity: 0;
+        }
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+        vector-effect: non-scaling-stroke;
+      }
+
+      path#circlePath {
+        stroke: $c-whiteish;
+        stroke-width: 0.4px;
+        @include media-breakpoint-up(md) {
+          stroke-width: 0.2px;
+        }
+        fill: none;
+      }
+
+      rect.one,
+      rect.two {
+        transition: all $transition-duration;
+        fill: black;
+        stroke: none;
+      }
+
+      text {
+        transition: all $transition-duration;
+        transform: translate(-2px, 0px);
+        font-size: 5px;
+        font-family: sans-serif;
+        fill: $c-whiteish;
+        letter-spacing: 0.5px;
+        stroke: black;
+        @include font-serif-l;
+        font-size: 10px !important;
+        font-weight: 200;
+        paint-order: stroke fill;
+        #time-current,
+        #time-duration {
+          font-variant-numeric: tabular-nums;
+        }
+      }
     }
   }
+
+  #player-ui-buttons {
+    z-index: 40;
+    position: fixed;
+    top: 30vh;
+    transition: opacity 666ms;
+
+    #next-track,
+    #prev-track {
+      position: fixed;
+      bottom: calc(var(--ui-space) + 20px);
+      background-color: transparent;
+      height: var(--ui-space);
+      cursor: pointer;
+      display: flex;
+    }
+    #next-track {
+      right: calc(var(--ui-space) + 20px);
+      @include media-breakpoint-up(md) {
+        top: calc(50% - var(--ui-space) / 2);
+      }
+    }
+    #prev-track {
+      left: calc(var(--ui-space) + 20px);
+      @include media-breakpoint-up(md) {
+        top: calc(50% - var(--ui-space) / 2);
+      }
+    }
+    #play-pause-button {
+      background-color: transparent;
+      @include font-serif-l;
+      @include media-breakpoint-up(md) {
+        font-size: 60px;
+        font-size: 7vmin;
+      }
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $c-whiteish;
+      &::after {
+        content: "PAUSE";
+      }
+      @at-root body[data-player-playing="false"] & {
+        &::after {
+          content: "PLAY";
+        }
+      }
+    }
+  }
+
   #color-cover {
+    z-index: 30;
     position: absolute;
     top: 0;
     left: 0;
@@ -318,58 +486,11 @@ main#main-content {
     transition: all $transition-duration;
     transition: all 200ms;
     mix-blend-mode: multiply;
-    @at-root body[data-track-open=""] & {
-      opacity: 0;
+    @at-root body:not([data-track-type="audio"]) & {
+      opacity: 0 !important;
     }
-  }
-}
-
-#circle-time {
-  animation: animateRotate 12s infinite linear;
-  display: flex;
-  @at-root body[data-player-playing="false"] & {
-    animation-play-state: paused;
-  }
-  &.clean {
-    text,
-    rect {
+    @at-root body[data-track-type="audio"][data-track-open=""] & {
       opacity: 0;
-    }
-  }
-  svg {
-    width: 100%;
-    height: 100%;
-    vector-effect: non-scaling-stroke;
-  }
-
-  path#circlePath {
-    stroke: $c-whiteish;
-    stroke-width: 0.2px;
-    fill: none;
-  }
-
-  rect.one,
-  rect.two {
-    transition: all $transition-duration;
-    fill: black;
-    stroke: none;
-  }
-
-  text {
-    transition: all $transition-duration;
-    transform: translate(-2px, 0px);
-    font-size: 5px;
-    font-family: sans-serif;
-    fill: $c-whiteish;
-    letter-spacing: 0.5px;
-    stroke: black;
-    @include font-serif-l;
-    font-size: 10px !important;
-    font-weight: 200;
-    paint-order: stroke fill;
-    #time-current,
-    #time-duration {
-      font-variant-numeric: tabular-nums;
     }
   }
 }
@@ -411,7 +532,6 @@ main#main-content {
     width: calc(100% - var(--ui-space));
     position: relative;
     top: var(--ui-space);
-    padding: $space;
     overflow-y: auto;
     max-height: calc(100% - var(--ui-space) - var(--ui-space));
   }
@@ -632,8 +752,10 @@ main#main-content {
     display: none;
   }
   #track-info-artist-mob {
+    padding: #{$space * 2} $space;
   }
   #track-info-script-mob {
+    padding: #{$space * 2} $space;
   }
 }
 
@@ -691,50 +813,6 @@ main#main-content {
 // -----------------------------------------------------------------------------
 // SPECIFIC - PLAYER UI
 // -----------------------------------------------------------------------------
-
-#player-ui {
-  z-index: 40;
-  position: fixed;
-  top: 30vh;
-  #next-track,
-  #prev-track {
-    position: fixed;
-    bottom: calc(var(--ui-space) + 20px);
-    background-color: transparent;
-    height: var(--ui-space);
-    cursor: pointer;
-    display: flex;
-  }
-  #next-track {
-    right: calc(var(--ui-space) + 20px);
-    @include media-breakpoint-up(md) {
-      top: calc(50% - var(--ui-space) / 2);
-    }
-  }
-  #prev-track {
-    left: calc(var(--ui-space) + 20px);
-    @include media-breakpoint-up(md) {
-      top: calc(50% - var(--ui-space) / 2);
-    }
-  }
-  #play-pause-button {
-    background-color: transparent;
-    @include font-serif-l;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: $c-whiteish;
-    &::after {
-      content: "PAUSE";
-    }
-    @at-root body[data-player-playing="false"] & {
-      &::after {
-        content: "PLAY";
-      }
-    }
-  }
-}
 
 // -----------------------------------------------------------------------------
 // SPECIFIC - UI

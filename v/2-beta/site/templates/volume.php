@@ -16,6 +16,7 @@ foreach ($page->children()->listed() as $key => $track) {
   // $item = $track->content()->toArray();
   $item["title"] = $track->title()->value();
   $item["artist"] = $track->artist()->value();
+  $item["uicolor"] = $track->uiColor()->value();
   $item["index"] = $i;
   $item["id"] = $track->id();
   $item["uid"] = $track->uid();
@@ -103,11 +104,13 @@ $json = json_encode($data);
 </nav>
 
 <main id="main-content">
-  <div id="background"></div>
+  <div id="background">
+    <div id="color-cover"></div>
+  </div>
   <div id="media-container"></div>
   <div id="circle-wrapper">
-    <div id="circle" class="starting-point" onclick="handleDotClick(event, this);"></div>
-    <div id="circle-time">
+    <div id="circle" class="starting-point" onclick="app.handleDotClick(event, this);"></div>
+    <div id="circle-time" class="player-ui">
       <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
         <defs>
           <path id="circlePath"
@@ -133,22 +136,13 @@ $json = json_encode($data);
       </svg>
     </div>
   </div>
-  <div id="color-cover"></div>
-  <div id="player-ui">
-    <button id="prev-track"><img src="<?= $kirby->url("assets") ?>/images/icon-larr-double.svg" alt="Previous Track"></button>
-    <button id="play-pause-button"></button>
-    <button id="next-track"><img src="<?= $kirby->url("assets") ?>/images/icon-rarr-double.svg" alt="Next Track"></button>
+  <!-- <div id="color-cover"></div> -->
+  <div id="player-ui-buttons" class="player-ui">
+    <button class="focusable" id="prev-track"><img src="<?= $kirby->url("assets") ?>/images/icon-larr-double.svg" alt="Previous Track"></button>
+    <button class="focusable" id="play-pause-button"></button>
+    <button class="focusable" id="next-track"><img src="<?= $kirby->url("assets") ?>/images/icon-rarr-double.svg" alt="Next Track"></button>
   </div>
 </main>
-
-
-<div class="actions">
-  <button type="button" class="btn js-play">Play</button>
-  <button type="button" class="btn js-pause">Pause</button>
-  <button type="button" class="btn js-stop">Stop</button>
-  <button type="button" class="btn js-rewind">Rewind</button>
-  <button type="button" class="btn js-forward">Forward</button>
-</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {

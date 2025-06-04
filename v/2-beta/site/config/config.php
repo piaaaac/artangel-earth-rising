@@ -11,7 +11,7 @@ return [
   "routes" => require_once 'routes.php',
 
   "assets" => [
-    "version" => "0.0.7",
+    "version" => "0.0.10",
   ],
 
   // "hooks" => require_once "hooks.php", // currently []

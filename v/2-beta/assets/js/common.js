@@ -98,21 +98,39 @@ class App {
     this.pui.bindApp(this);
   }
 
+  getAppState(property) {
+    if (property) {
+      return this.state[property];
+    }
+    console.error("getAppState called without property");
+  }
+
+  setAppState(property, value) {
+    if (property && value !== undefined) {
+      this.state[property] = value;
+    } else {
+      console.error("setAppState called without property or value");
+    }
+  }
+
   openTrack(index) {
     this.state.currentTrackIndex = index;
     const trackData = this.state.tracks[index];
     setUrlTrack(trackData.id);
-    this.pui.ctrl.loadNewTrack(trackData);
-    this.wui.updateTrackUI(trackData);
-  }
 
-  closeTrack() {
-    this.state.currentTrackIndex = null;
-    this.wui.updateTrackUI(false);
+    const that = this;
+    const onAnimationDone = function () {
+      that.pui.ctrl.loadNewTrack(trackData);
+    };
+    this.wui.updateTrackUI(trackData, onAnimationDone);
   }
 
   openNextTrack() {
-    let newIndex = this.state.currentTrackIndex + 1;
+    let curr = this.state.currentTrackIndex;
+    if (curr === null) {
+      curr = -1;
+    }
+    const newIndex = curr + 1;
     if (newIndex >= this.state.tracks.length) {
       this.resetAlbum();
       return;
@@ -129,7 +147,13 @@ class App {
     this.openTrack(newIndex);
   }
 
+  closeTrack() {
+    this.state.currentTrackIndex = null;
+    this.wui.updateTrackUI(false);
+  }
+
   resetAlbum() {
+    this.pui.toggleTrackPlay(false);
     this.wui.resetPlayerUI();
     setUrlHome();
     this.closeTrack();
@@ -176,11 +200,13 @@ class WebUI {
     this.circle = document.querySelector("#circle");
     this.circleTime = document.querySelector("#circle-time");
     this.circleTimeAnimate = document.querySelector("#circle-time");
+    this.main = document.querySelector("main");
+
     this.parentApp = null;
   }
 
   // Passing false, null or undefined, the track UI is closed
-  updateTrackUI(trackData) {
+  updateTrackUI(trackData, callback) {
     if (!trackData) {
       document.body.dataset.trackOpen == "";
       return;
@@ -192,12 +218,19 @@ class WebUI {
     this.trackArtist.textContent = trackData.artist;
     this.trackInfoArtist.innerHTML = trackData.infoartist;
     this.circleTime.classList.add("clean");
+    // console.log("updateTrackUi BEFORE");
+
+    const that = this;
     this.animateCircle(() => {
-      this.trackInfoArtistMob.innerHTML = trackData.infoartist;
-      this.trackInfoScript.innerHTML = trackData.infoscript;
-      this.trackInfoScriptMob.innerHTML = trackData.infoscript;
-      this.colorCover.style.backgroundColor = trackData.uicolor;
-      this.colorStars(trackData.uicolor);
+      // console.log("updateTrackUi AFTER");
+      that.trackInfoArtistMob.innerHTML = trackData.infoartist;
+      that.trackInfoScript.innerHTML = trackData.infoscript;
+      that.trackInfoScriptMob.innerHTML = trackData.infoscript;
+      that.colorCover.style.backgroundColor = trackData.uicolor;
+      that.colorStars(trackData.uicolor);
+      if (typeof callback === "function") {
+        callback();
+      }
     });
   }
 
@@ -207,8 +240,8 @@ class WebUI {
     // setTimeout(function () {
     //   circleTimeAnimate.classList.remove("forced-start");
     // }, 1000);
-    // document.body.dataset.trackOpen = "";
-    // colorStars(null);
+    document.body.dataset.trackOpen = "";
+    this.colorStars(null);
   }
 
   handleTitleClick(event) {
@@ -308,9 +341,13 @@ class PlayerUI {
     this.circleTimeSeek = document.querySelector("#time-current");
     this.circleTimeDuration = document.querySelector("#time-duration");
     this.circleTime = document.querySelector("#circle-time");
+    this.mediaContainer = document.querySelector("#media-container");
+    this.main = document.querySelector("main");
+
     this.ctrl = controller;
     this.selectors = uiSelectors;
     this.parentApp = null;
+    this.timeout = null;
 
     this.bindUIEvents();
     this.bindControllerEvents();
@@ -359,17 +396,34 @@ class PlayerUI {
       this.toggleTrackPlay(false);
       this.parentApp.openPrevTrack();
     });
+    this.main.addEventListener("mouseout", (event) => {
+      // this.main.dataset.hidePlayerControls = "true";
+      this.hidePlayerControls(true);
+    });
+    this.main.addEventListener("mousemove", (event) => {
+      // console.log("mousemove on main", event);
+      // this.main.dataset.hidePlayerControls = "false";
+      this.hidePlayerControls(false);
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        // this.main.dataset.hidePlayerControls = "true";
+        this.hidePlayerControls(true);
+      }, 1600);
+    });
+  }
+
+  hidePlayerControls(bool) {
+    this.main.dataset.hidePlayerControls = bool ? "true" : "false";
+    this.mediaContainer.classList.toggle("darken", !bool);
   }
 
   // Interactions Controller → PlayerUI
   bindControllerEvents() {
     this.ctrl.on("ended", () => {
       console.log("controller event - track ended");
-      // const nextIndex = (currentIndex + 1) % playlist.length;
-      // loadTrack(nextIndex);
+      this.parentApp.openNextTrack();
     });
 
-    // Update UI on play/pause
     this.ctrl.on("timeupdate", ({ currentTime }) => {
       // console.log("controller event - timeupdate", currentTime);
       this.setTrackSeek(currentTime);
@@ -380,6 +434,18 @@ class PlayerUI {
       this.setTrackDuration(duration);
       this.setTrackSeek(0);
       this.circleTime.classList.remove("clean");
+    });
+
+    this.ctrl.on("playing", () => {
+      console.log("controller event - playing");
+      document.body.dataset.playerPlaying = "true";
+      this.parentApp.setAppState("playing", true);
+    });
+
+    this.ctrl.on("pause", () => {
+      console.log("controller event - pause");
+      document.body.dataset.playerPlaying = "false";
+      this.parentApp.setAppState("playing", false);
     });
   }
 
@@ -403,7 +469,7 @@ class PlayerController {
     this.plyr = null;
   }
 
-  loadNewTrack(track) {
+  loadNewTrack(track /* callback */) {
     // Remove old player
     this.plyr?.destroy();
     this.mediaContainer.innerHTML = "";
@@ -437,9 +503,29 @@ class PlayerController {
     this.mediaContainer.appendChild(mediaEl);
 
     // Reinitialize Plyr
-    this.plyr = new Plyr("#player");
+    const plyrOptions = {
+      common: {
+        keyboard: { global: true },
+      },
+      audio: {
+        controls: [],
+      },
+      video: {
+        controls: [],
+      },
+    };
+    const options = Object.assign(
+      {},
+      plyrOptions.common,
+      plyrOptions[track.media.type]
+    );
+    this.plyr = new Plyr("#player", options);
     console.log("Plyr initialized:", this.plyr);
     this.exposePlyrEvents();
+    this.plyr.play();
+
+    document.body.dataset.trackType = track.trackType;
+    // callback();
   }
 
   // Register callbacks associated to events
@@ -461,6 +547,12 @@ class PlayerController {
   exposePlyrEvents = () => {
     this.plyr.on("ended", (event) => {
       this.emit("ended", event);
+    });
+    this.plyr.on("playing", (event) => {
+      this.emit("playing", event);
+    });
+    this.plyr.on("pause", (event) => {
+      this.emit("pause", event);
     });
     this.plyr.on("timeupdate", (event) => {
       this.emit("timeupdate", { currentTime: this.plyr.currentTime });
