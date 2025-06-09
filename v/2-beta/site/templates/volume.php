@@ -109,7 +109,7 @@ $json = json_encode($data);
   </div>
   <div id="media-container"></div>
   <div id="circle-wrapper">
-    <div id="circle" class="starting-point" onclick="app.handleDotClick(event, this);"></div>
+    <div id="circle-dot" class="starting-point" onclick="app.handleDotClick(event, this);"></div>
     <div id="circle-time" class="player-ui">
       <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
         <defs>

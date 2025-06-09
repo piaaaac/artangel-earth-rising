@@ -1,8 +1,8 @@
 ## TODO
 
--   import fonts
--   import icons
--   typography settings
+-   check if versions are the final mastered ones
+-   add all correct copy
+-   when UI is active make video more visible (on pause or mousemove)
 
 ## Accessibiity checklist
 

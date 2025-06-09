@@ -197,9 +197,9 @@ class WebUI {
     this.trackInfoArtistMob = document.getElementById("track-info-artist-mob");
     this.trackInfoScriptMob = document.getElementById("track-info-script-mob");
     this.colorCover = document.getElementById("color-cover");
-    this.circle = document.querySelector("#circle");
+    this.circleDot = document.querySelector("#circle-dot");
     this.circleTime = document.querySelector("#circle-time");
-    this.circleTimeAnimate = document.querySelector("#circle-time");
+    this.circleTimeAnimate = document.querySelector("#circle-wrapper");
     this.main = document.querySelector("main");
 
     this.parentApp = null;
@@ -218,11 +218,11 @@ class WebUI {
     this.trackArtist.textContent = trackData.artist;
     this.trackInfoArtist.innerHTML = trackData.infoartist;
     this.circleTime.classList.add("clean");
-    // console.log("updateTrackUi BEFORE");
+    console.log("updateTrackUi ----------------------- BEFORE");
 
     const that = this;
     this.animateCircle(() => {
-      // console.log("updateTrackUi AFTER");
+      console.log("updateTrackUi ----------------------- AFTER");
       that.trackInfoArtistMob.innerHTML = trackData.infoartist;
       that.trackInfoScript.innerHTML = trackData.infoscript;
       that.trackInfoScriptMob.innerHTML = trackData.infoscript;
@@ -235,11 +235,6 @@ class WebUI {
   }
 
   resetPlayerUI() {
-    // circleTimeAnimate.classList.remove("zoom-in", "zoom-out");
-    // circleTimeAnimate.classList.add("starting-point", "forced-start");
-    // setTimeout(function () {
-    //   circleTimeAnimate.classList.remove("forced-start");
-    // }, 1000);
     document.body.dataset.trackOpen = "";
     this.colorStars(null);
   }
@@ -312,15 +307,28 @@ class WebUI {
   }
 
   animateCircle(callback) {
-    // TO BE REWRITTEN
-    this.circleTimeAnimate.classList.add("zoom-out");
+    this.circleTimeAnimate.classList.remove(
+      "state-size-small",
+      "state-size-normal"
+    );
+    this.circleTimeAnimate.classList.add("state-size-large");
     const that = this;
     setTimeout(function () {
-      that.circleTimeAnimate.classList.remove("starting-point", "zoom-out");
-      that.circleTimeAnimate.classList.add("zoom-in");
-      if (typeof callback === "function") {
-        callback();
-      }
+      that.circleTimeAnimate.classList.remove(
+        "state-size-large",
+        "state-size-normal"
+      );
+      that.circleTimeAnimate.classList.add("state-size-small");
+      setTimeout(function () {
+        that.circleTimeAnimate.classList.remove(
+          "state-size-small",
+          "state-size-large"
+        );
+        that.circleTimeAnimate.classList.add("state-size-normal");
+        if (typeof callback === "function") {
+          callback();
+        }
+      }, 1000);
     }, 1000);
   }
 

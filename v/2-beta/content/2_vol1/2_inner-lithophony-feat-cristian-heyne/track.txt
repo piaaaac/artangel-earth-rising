@@ -26,6 +26,10 @@ Typevideosourcewebm:
 
 ----
 
+Typevideoposter: 
+
+----
+
 Typeslideshowaudiofile: - file://e12t7xt3lid3rtvl
 
 ----
@@ -37,11 +41,11 @@ Typeslideshowimagefiles:
 
 ----
 
-Infoartist: <p>ARTWORK</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id leo ut orci cursus. Nunc blandit velit in dolor ultrices, id rutrum tortor consectetur. Vivamus nec iaculis massa. Vivamus auctor mauris vitae purus maximus tincidunt. Duis pretium aliquet bibendum. Mauris nunc enim, tristique sit amet placerat, dapibus at nibh. Praesent quis nisl rhoncus, convallis magna in, porta augue. Aliquam pharetra ac nisl ultricies viverra. Praesent a consectetur magna. Vestibulum elementum in magna eu posuere. Sed in quam volutpat, pellentesque diam sed, eleifend velit. Ut eu dui elit. Vestibulum vel suscipit magna. Duis sagittis tristique laoreet.</p><p>BIOGRAPHY</p><p>Phasellus facilisis lorem enim vestibulum, vitae sodales nunc tempus. Vivamus metus odio, condimentum dictum ex nec, viverra vehicula ligula. Nunc pulvinar, leo ac condimentum vehicula, mauris odio egestas nunc, iaculis tristique orci metus at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rutrum, nisl quis euismod mattis, lorem risus sagittis dui, et porttitor ante quam id augue. Cras facilisis dignissim dignissim. Maecenas eget rutrum enim. Ut vulputate tincidunt erat sit amet faucibus. In volutpat sagittis tortor, eget tempor orci vestibulum et. Etiam sed porta orci.</p>
+Infoartist: <p>Sebastián Riffo Valdebenito shifts focus from the image of rock carvings to the sound of their making in his track <em>Inner Lithophony</em>. Recorded at the petroglyph site of Valle del Encanto in Chile, the piece begins with delicate taps that build into rhythmic drumming, eventually echoing the pulse of electronic dance music. Interwoven with these sounds are birdsong captured on-site—an ambient reminder of the natural world surrounding these ancient marks. Riffo Valdebenito suggests that our sense of rhythm and musical expression may be rooted in the primal act of carving—linking ancient tools and communications to the origins of percussion.</p><hr><p>Sebastián Riffo Valdebenito is a visual artist and researcher based in Santiago, Chile. His experimental practice explores the relationships between contemporary art, archaeological heritage, and socio-natural disasters in Chile. Working across drawing, painting, video, and installation, he constructs dense visual languages using techniques like collage, frottage, and montage, articulating a poetics of rupture, memory, and affective landscapes.</p>
 
 ----
 
-Infoscript: <p>TRANSCRIPT<br><br>Subtitles lorem ipsum dolor sit.<br><br> amet unde omnis iste natus error.<br><br>Sit voluptatem accusantium doloremque laudantium, totam rem aperiam. <br><br>Et quasi architecto beatae vitae dicta sunt explicabo. <br> <br>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.<br><br>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. <br><br>Subtitles lorem ipsum dolor sit.<br><br> amet unde omnis iste natus error.<br><br>Sit voluptatem accusantium doloremque laudantium, totam rem aperiam. <br><br>sed quia consequuntur magni dolores eos qui ratione</p>
+Infoscript: 
 
 ----
 
