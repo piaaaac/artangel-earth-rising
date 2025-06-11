@@ -2,7 +2,7 @@ Title: About
 
 ----
 
-Text: <h1>About</h1><hr><p>In the 1970s, the Golden Record was created to introduce humanity to aliens.</p><p>Almost 50 years later, Artangel presents Earth Rising — a new kind of record, one that introduces humanity to itself.</p><p>While the Golden Record has travelled a great distance and represents the breadth of life on earth, Earth Rising explores the depth of the human experience as revealed by artists. Composed of entirely new work, this record holds up a mirror to humanity.</p>
+Blocks: [{"content":{"text":"<p>ABOUT</p><hr><p>In the 1970s, the Golden Record was created to introduce humanity to extraterrestrial life. Half a century later, Artangel presents Earth Rising, a concept album that introduces humanity to itself.</p><p>Composed of new audio works, Earth Rising, Volume I presents a cross-section of the human experience – revealing our will to survive, our tangled relationship with love, and our drive to create.</p><p>Launched into the solar system in 1977, the Golden Record was intended to be an audio/visual time capsule of Earth, portraying carefully selected sounds and images to other life forms across space. Earth Rising keeps its intentions on the ground, exploring the complexity and depth of what it means to be human.</p><p>Volume II will be released in 2026 and Volume III in 2027.</p><p>&nbsp;</p><p>STREAMING PLATFORMS</p><p>Apple Music&nbsp;&nbsp;</p><p>Spotify&nbsp;</p><p>Amazon Music&nbsp;</p><p>Soundcloud</p><p>YouTubeMusic</p><p>Deezer&nbsp;</p><p>Tidal</p><p>&nbsp;</p>"},"id":"cca3e8f1-af9e-4614-ae1b-3f867174ab92","isHidden":false,"type":"text"},{"content":{"items":[{"itemheader":"<p>Other Streaming Platforms</p>","itemcontent":"<p>Pandora&nbsp;</p><p>iHeart Radio</p><p>Napster&nbsp;</p><p>Tencent&nbsp;</p><p>Snapchat/ 7digital&nbsp;</p><p>BOOM&nbsp;</p><p>NetEase</p><p>Gaana</p><p>Joox</p><p>Qobuz</p><p>Peloton</p><p>Douyin Streaming/Qishui Yinyue&nbsp;</p><p>MediaNet</p><p>Gracenote</p><p>YouSee Musik / Telmore Musik</p><p>KKBox</p><p>Music Island</p><p>Anghami</p><p>Yandex</p><p>ClaroMusica</p><p>Zvooq</p><p>JioSaavn</p><p>Kuack</p><p>Boomplay Music</p>"}]},"id":"a768021d-4902-4d25-ae2d-af3ea03efe13","isHidden":false,"type":"accordion"}]
 
 ----
 
@@ -67,6 +67,10 @@ Robotssnippet: true
 ----
 
 Metainherit: 
+
+----
+
+Text: 
 
 ----
 

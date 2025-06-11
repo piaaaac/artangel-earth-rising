@@ -26,11 +26,23 @@ Typevideosourcewebm:
 
 ----
 
-Infoartist: <p>ARTWORK</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id leo ut orci cursus. Nunc blandit velit in dolor ultrices, id rutrum tortor consectetur. Vivamus nec iaculis massa. Vivamus auctor mauris vitae purus maximus tincidunt. Duis pretium aliquet bibendum. Mauris nunc enim, tristique sit amet placerat, dapibus at nibh. Praesent quis nisl rhoncus, convallis magna in, porta augue. Aliquam pharetra ac nisl ultricies viverra. Praesent a consectetur magna. Vestibulum elementum in magna eu posuere. Sed in quam volutpat, pellentesque diam sed, eleifend velit. Ut eu dui elit. Vestibulum vel suscipit magna. Duis sagittis tristique laoreet.</p><p>BIOGRAPHY</p><p>Phasellus facilisis lorem enim vestibulum, vitae sodales nunc tempus. Vivamus metus odio, condimentum dictum ex nec, viverra vehicula ligula. Nunc pulvinar, leo ac condimentum vehicula, mauris odio egestas nunc, iaculis tristique orci metus at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rutrum, nisl quis euismod mattis, lorem risus sagittis dui, et porttitor ante quam id augue. Cras facilisis dignissim dignissim. Maecenas eget rutrum enim. Ut vulputate tincidunt erat sit amet faucibus. In volutpat sagittis tortor, eget tempor orci vestibulum et. Etiam sed porta orci.</p>
+Typevideoposter: 
 
 ----
 
-Infoscript: <p>TRANSCRIPT<br><br>Subtitles lorem ipsum dolor sit.<br><br> amet unde omnis iste natus error.<br><br>Sit voluptatem accusantium doloremque laudantium, totam rem aperiam. <br><br>Et quasi architecto beatae vitae dicta sunt explicabo. <br> <br>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.<br><br>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. <br><br>Subtitles lorem ipsum dolor sit.<br><br> amet unde omnis iste natus error.<br><br>Sit voluptatem accusantium doloremque laudantium, totam rem aperiam. <br><br>sed quia consequuntur magni dolores eos qui ratione</p>
+Typeslideshowaudiofile: 
+
+----
+
+Typeslideshowimagefiles: 
+
+----
+
+Infoartist: <p>Max Cooper explores how easily we take sound for granted by composing a piece with extraterrestrial listeners in mind. How might aliens hear — if they hear at all — what we do? Beginning with finger clicks and handclaps, Cooper layers electronic textures that build into a soundscape fit for the climax of a sci-fi epic. At its core, the piece reflects a deeply human impulse: the empathetic attempt to imagine another being’s experience of a reality we assume as given.</p><hr><p>Max Cooper is an audio-visual pioneer and non-conformist with a PhD in Computational Biology which informs his explorations at the intersection of music, science and art. His multimedia collaborations with scientists, mathematicians, architects, coders, designers, directors and visual artists creates audio- visual performances, installations and films. Max tours internationally, presenting shows and experiences at landmarks including the Acropolis in Athens and performing at major music and arts festivals around the world. Max Cooper has collaborated with Zaha Hadid Architects, Dolby, L-Acoustics, 4DSOUND, Barbican Centre, The Babraham Institute and exhibited work at museums including the Pompidou Metz, V&amp;A London, ZKM Karlsruhe, Museum Wave Seoul and The Science Museum London.</p>
+
+----
+
+Infoscript: 
 
 ----
 

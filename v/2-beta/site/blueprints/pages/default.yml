@@ -4,21 +4,25 @@ tabs:
   content:
     columns:
       main:
-        width: 2/3
+        width: 3/3
         sections:
           fields:
             type: fields
             fields:
-              text:
-                extends: fields/writer-field
+              blocks:
+                extends: fields/block-field
 
-      sidebar:
-        width: 1/3
-        sections:
-          pages:
-            type: pages
-            template: default
-          files:
-            type: files
+      sidebar: false
+
+      # sidebar:
+      #   width: 1/3
+      #   sections:
+      #     pages:
+      #       type: pages
+      #       template: default
+      #       max: 0
+      #     files:
+      #       type: files
+      #       max: 0
 
   seo: seo/page

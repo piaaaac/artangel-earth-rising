@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-fullscreen</title>
+    <g id="icon-fullscreen" stroke="none" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+        <g id="Group" transform="translate(44.3284, 6.6066)" stroke="#F1F3D7">
+            <path d="M13.0649909,1 C13.0649909,6.52251282 17.5424838,11 23.0649909,11 C17.5424838,11 13.0649909,15.4775128 13.0649909,21" id="Path" stroke-width="1.5" transform="translate(18.065, 11) rotate(-45) translate(-18.065, -11)"></path>
+            <line x1="21.6005248" y1="7.46446609" x2="5" y2="23.7951182" id="Line-Copy-2" stroke-width="1.5"></line>
+        </g>
+        <g id="Group-Copy" transform="translate(21.5, 21.1066) scale(-1, 1) translate(-21.5, -21.1066)translate(7, 6.6066)" stroke="#F1F3D7">
+            <path d="M13.0649909,1 C13.0649909,6.52251282 17.5424838,11 23.0649909,11 C17.5424838,11 13.0649909,15.4775128 13.0649909,21" id="Path" stroke-width="1.5" transform="translate(18.065, 11) rotate(-45) translate(-18.065, -11)"></path>
+            <line x1="21.6005248" y1="7.46446609" x2="5" y2="23.7951182" id="Line-Copy-2" stroke-width="1.5"></line>
+        </g>
+        <g id="Group-Copy-3" transform="translate(58.8284, 57.9562) scale(1, -1) translate(-58.8284, -57.9562)translate(44.3284, 43.4562)" stroke="#F1F3D7">
+            <path d="M13.0649909,1 C13.0649909,6.52251282 17.5424838,11 23.0649909,11 C17.5424838,11 13.0649909,15.4775128 13.0649909,21" id="Path" stroke-width="1.5" transform="translate(18.065, 11) rotate(-45) translate(-18.065, -11)"></path>
+            <line x1="21.6005248" y1="7.46446609" x2="5" y2="23.7951182" id="Line-Copy-2" stroke-width="1.5"></line>
+        </g>
+        <g id="Group-Copy-2" transform="translate(21.5, 57.9562) scale(-1, -1) translate(-21.5, -57.9562)translate(7, 43.4562)" stroke="#F1F3D7">
+            <path d="M13.0649909,1 C13.0649909,6.52251282 17.5424838,11 23.0649909,11 C17.5424838,11 13.0649909,15.4775128 13.0649909,21" id="Path" stroke-width="1.5" transform="translate(18.065, 11) rotate(-45) translate(-18.065, -11)"></path>
+            <line x1="21.6005248" y1="7.46446609" x2="5" y2="23.7951182" id="Line-Copy-2" stroke-width="1.5"></line>
+        </g>
+    </g>
+</svg>

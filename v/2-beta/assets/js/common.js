@@ -201,6 +201,7 @@ class WebUI {
     this.circleTime = document.querySelector("#circle-time");
     this.circleTimeAnimate = document.querySelector("#circle-wrapper");
     this.main = document.querySelector("main");
+    this.tracklistLinks = document.querySelectorAll("#menu-panel a.track");
 
     this.parentApp = null;
   }
@@ -218,6 +219,7 @@ class WebUI {
     this.trackArtist.textContent = trackData.artist;
     this.trackInfoArtist.innerHTML = trackData.infoartist;
     this.circleTime.classList.add("clean");
+    this.tracklistLinks.forEach((el) => el.classList.remove("active"));
     console.log("updateTrackUi ----------------------- BEFORE");
 
     const that = this;
@@ -228,6 +230,12 @@ class WebUI {
       that.trackInfoScriptMob.innerHTML = trackData.infoscript;
       that.colorCover.style.backgroundColor = trackData.uicolor;
       that.colorStars(trackData.uicolor);
+      document
+        .querySelector(
+          "#menu-panel a.track[data-track-id='" + trackData.id + "']"
+        )
+        ?.classList.add("active");
+
       if (typeof callback === "function") {
         callback();
       }
@@ -307,6 +315,8 @@ class WebUI {
   }
 
   animateCircle(callback) {
+    document.body.dataset.circleAnimating = "true";
+    document.body.dataset.circleAnimationStage = "1";
     this.circleTimeAnimate.classList.remove(
       "state-size-small",
       "state-size-normal"
@@ -314,12 +324,15 @@ class WebUI {
     this.circleTimeAnimate.classList.add("state-size-large");
     const that = this;
     setTimeout(function () {
+      document.body.dataset.circleAnimationStage = "2";
       that.circleTimeAnimate.classList.remove(
         "state-size-large",
         "state-size-normal"
       );
       that.circleTimeAnimate.classList.add("state-size-small");
       setTimeout(function () {
+        document.body.dataset.circleAnimating = "false";
+        document.body.dataset.circleAnimationStage = "";
         that.circleTimeAnimate.classList.remove(
           "state-size-small",
           "state-size-large"
@@ -328,8 +341,8 @@ class WebUI {
         if (typeof callback === "function") {
           callback();
         }
-      }, 1000);
-    }, 1000);
+      }, 800);
+    }, 1400);
   }
 
   bindApp(app) {
@@ -393,6 +406,7 @@ class PlayerUI {
 
   // Interactions PlayerUI → Controller
   bindUIEvents() {
+    const that = this;
     this.selectors.playBtn.addEventListener("click", () => {
       this.toggleTrackPlay();
     });
@@ -404,24 +418,30 @@ class PlayerUI {
       this.toggleTrackPlay(false);
       this.parentApp.openPrevTrack();
     });
-    this.main.addEventListener("mouseout", (event) => {
-      // this.main.dataset.hidePlayerControls = "true";
-      this.hidePlayerControls(true);
+    this.selectors.fullscreenBtn.addEventListener("click", () => {
+      this.ctrl.plyr.fullscreen.toggle();
     });
-    this.main.addEventListener("mousemove", (event) => {
-      // console.log("mousemove on main", event);
-      // this.main.dataset.hidePlayerControls = "false";
-      this.hidePlayerControls(false);
-      clearTimeout(this.timeout);
-      this.timeout = setTimeout(() => {
-        // this.main.dataset.hidePlayerControls = "true";
-        this.hidePlayerControls(true);
-      }, 1600);
+    this.main.addEventListener("mouseout", () => {
+      this.togglePlayerControlsHidden(true);
+    });
+    this.main.addEventListener("mousemove", () => {
+      that.showPlayerControls();
+    });
+    this.main.addEventListener("touchstart", () => {
+      that.showPlayerControls();
     });
   }
 
-  hidePlayerControls(bool) {
-    this.main.dataset.hidePlayerControls = bool ? "true" : "false";
+  showPlayerControls() {
+    this.togglePlayerControlsHidden(false);
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.togglePlayerControlsHidden(true);
+    }, 1600);
+  }
+
+  togglePlayerControlsHidden(bool) {
+    this.main.dataset.playerControlsHidden = bool ? "true" : "false";
     this.mediaContainer.classList.toggle("darken", !bool);
   }
 
@@ -541,7 +561,9 @@ class PlayerController {
     console.log("Plyr initialized:", this.plyr);
     this.exposePlyrEvents();
     this.bindDebugEvents();
-    this.plyr.play();
+    setTimeout(() => {
+      this.plyr.play();
+    }, 1000);
 
     document.body.dataset.trackType = track.trackType;
     // callback();
@@ -645,6 +667,7 @@ const pui = new PlayerUI(pc, {
   prevBtn: document.getElementById("prev-track"),
   playBtn: document.getElementById("play-pause-button"),
   nextBtn: document.getElementById("next-track"),
+  fullscreenBtn: document.getElementById("fullscreen-button"),
 });
 const app = new App(wui, pui, tracks);
 

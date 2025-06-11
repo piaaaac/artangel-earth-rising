@@ -1,0 +1,6 @@
+name: field.blocks.text.name
+# preview: fields
+wysiwyg: true
+fields:
+  text:
+    extends: fields/writer-field

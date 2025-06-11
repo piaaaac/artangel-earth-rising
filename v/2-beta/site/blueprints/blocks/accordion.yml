@@ -1,0 +1,13 @@
+name: Accordion
+preview: fields
+wysiwyg: true
+fields:
+  items:
+    type: structure
+    fields:
+      itemHeader:
+        label: Header
+        extends: fields/writer-field
+      itemContent:
+        label: Content
+        extends: fields/writer-field

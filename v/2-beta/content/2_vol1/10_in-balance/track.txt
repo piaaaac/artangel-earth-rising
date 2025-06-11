@@ -26,11 +26,23 @@ Typevideosourcewebm:
 
 ----
 
-Infoartist: <p>ARTWORK</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id leo ut orci cursus. Nunc blandit velit in dolor ultrices, id rutrum tortor consectetur. Vivamus nec iaculis massa. Vivamus auctor mauris vitae purus maximus tincidunt. Duis pretium aliquet bibendum. Mauris nunc enim, tristique sit amet placerat, dapibus at nibh. Praesent quis nisl rhoncus, convallis magna in, porta augue. Aliquam pharetra ac nisl ultricies viverra. Praesent a consectetur magna. Vestibulum elementum in magna eu posuere. Sed in quam volutpat, pellentesque diam sed, eleifend velit. Ut eu dui elit. Vestibulum vel suscipit magna. Duis sagittis tristique laoreet.</p><p>BIOGRAPHY</p><p>Phasellus facilisis lorem enim vestibulum, vitae sodales nunc tempus. Vivamus metus odio, condimentum dictum ex nec, viverra vehicula ligula. Nunc pulvinar, leo ac condimentum vehicula, mauris odio egestas nunc, iaculis tristique orci metus at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rutrum, nisl quis euismod mattis, lorem risus sagittis dui, et porttitor ante quam id augue. Cras facilisis dignissim dignissim. Maecenas eget rutrum enim. Ut vulputate tincidunt erat sit amet faucibus. In volutpat sagittis tortor, eget tempor orci vestibulum et. Etiam sed porta orci.</p>
+Typevideoposter: 
 
 ----
 
-Infoscript: <p>TRANSCRIPT<br><br>Subtitles lorem ipsum dolor sit.<br><br> amet unde omnis iste natus error.<br><br>Sit voluptatem accusantium doloremque laudantium, totam rem aperiam. <br><br>Et quasi architecto beatae vitae dicta sunt explicabo. <br> <br>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.<br><br>sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. <br><br>Subtitles lorem ipsum dolor sit.<br><br> amet unde omnis iste natus error.<br><br>Sit voluptatem accusantium doloremque laudantium, totam rem aperiam. <br><br>sed quia consequuntur magni dolores eos qui ratione</p>
+Typeslideshowaudiofile: 
+
+----
+
+Typeslideshowimagefiles: 
+
+----
+
+Infoartist: <p>The final track comes from musician, composer, and vocalist Plumm, who crafts an evocative journey using the sound of her voice, but without words. At times solo, at times layered, the piece showcases the raw power and range of the human voice — both literal and metaphorical.&nbsp;</p><p>Recorded in varied states — after running, meditating, upon waking, and before sleep — the work captures the voice in moments of vulnerability, relaxation and transition. The only word to arrive at the very end signals surrender and triumph at once.&nbsp;</p><hr><p>Plumm is a vocalist, composer, multi-instrumentalist and bandleader hailing from South London, England, with a Welsh core. Plumm’s sound is dark, ethereal, alternative, trip-hop, electronic, eerie, improvisational and vocal-heavy. Her song,You Are The One Live, is the title track for Apple TV's new series Liaison. Catch her as Jamz Supernova’s ‘After Dark Discovery’ and Clash Magazine's 'one-to-watch'.</p>
+
+----
+
+Infoscript: 
 
 ----
 

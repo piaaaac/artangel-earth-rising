@@ -11,8 +11,8 @@
     </svg>
   </div>
   <!-- <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-r2l.svg" alt="Volume 1 Logo"> -->
-  <a class="only-dsk" href="<?= $site->url() ?>" onclick="app.wui.handleTitleClick(event);">
-    <h1 class="mx-3">EARTH RISING</h1>
+  <a class="only-dsk no-u" href="<?= $site->url() ?>" onclick="app.wui.handleTitleClick(event);">
+    <h1 class="mx-3 mb-0">EARTH RISING</h1>
   </a>
   <!-- <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-l2r.svg" alt="Volume 1 Logo"> -->
   <div class="stars right">
@@ -25,11 +25,11 @@
 </div>
 
 <div id="bottom-txt">
-  <h2 class="only-dsk">Messages from the Pale Blue Dot</h2>
+  <h2 class="only-dsk mb-0">Messages from the Pale Blue Dot</h2>
 </div>
 
 <div id="bottom-txt-about" role="button" onclick="app.wui.toggleAboutPanel()">
-  <h2 class="only-dsk">ABOUT & CREDITS</h2>
+  <h2 class="only-dsk mb-0">ABOUT & CREDITS</h2>
 </div>
 
 <!-- Buttons -->
@@ -71,16 +71,16 @@
 <!-- Track info mobile -->
 
 <section id="track-info-mob">
-  <div id="track-info-artist-mob"></div>
+  <div id="track-info-artist-mob" class="kt-container"></div>
   <hr />
-  <div id="track-info-script-mob"></div>
+  <div id="track-info-script-mob" class="kt-container"></div>
 </section>
 
 <!-- Track info on the sides -->
 
 <section id="track-info-dsk-l">
   <div class="content-wrapper">
-    <div id="track-info-artist"></div>
+    <div id="track-info-artist" class="kt-container p-3"></div>
   </div>
   <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="app.wui.toggleTrackInfo()">
     <h2 id="track-artist"></h2>
@@ -92,7 +92,7 @@
     <h2 id="track-title"></h2>
   </div>
   <div class="content-wrapper">
-    <div id="track-info-script"></div>
+    <div id="track-info-script" class="kt-container p-3"></div>
   </div>
   <span class="button-wrapper"><img src="<?= $ass ?>/images/icon-larr.svg" /></span>
 </section>

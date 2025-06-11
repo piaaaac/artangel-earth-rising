@@ -7,6 +7,7 @@
 
 $aboutPage = page("about");
 $creditsPage = page("credits");
+$artangelPage = page("artangel-panel");
 
 // Prepare data to pass to js
 $data = [];
@@ -91,20 +92,25 @@ $json = json_encode($data);
 </nav>
 
 <nav id="artangel-panel">
-  <p>
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint iure quia, neque explicabo mollitia quas est
-    aut voluptas itaque, numquam temporibus, at ad sit nisi tenetur quaerat ex! Vero, placeat?
-  </p>
+  <div class="kt-container">
+    <?= $artangelPage->blocks()->toBlocks() ?>
+  </div>
 </nav>
 
 <nav id="about-panel">
-  <div class="about-content"><?= $aboutPage->text()->kt() ?></div>
-  <div class="credits-content"><?= $creditsPage->text()->kt() ?></div>
+  <div class="about-content kt-container">
+    <?= $aboutPage->blocks()->toBlocks() ?>
+  </div>
+  <div class="credits-content kt-container">
+    <?= $creditsPage->blocks()->toBlocks() ?>
+  </div>
   <div class="line"></div>
 </nav>
 
 <main id="main-content">
-  <div id="background">
+  <div id="backgrounds">
+    <div id="bg-layer1"></div>
+    <div id="bg-layer2"></div>
     <div id="color-cover"></div>
   </div>
   <div id="media-container"></div>
@@ -141,6 +147,7 @@ $json = json_encode($data);
     <button class="focusable" id="prev-track"><img src="<?= $kirby->url("assets") ?>/images/icon-larr-double.svg" alt="Previous Track"></button>
     <button class="focusable" id="play-pause-button"></button>
     <button class="focusable" id="next-track"><img src="<?= $kirby->url("assets") ?>/images/icon-rarr-double.svg" alt="Next Track"></button>
+    <button class="focusable" id="fullscreen-button"><img src="<?= $kirby->url("assets") ?>/images/icon-fullscreen.svg" alt="Toggle fullscreen"></button>
   </div>
 </main>
 

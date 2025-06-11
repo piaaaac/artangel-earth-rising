@@ -1,0 +1,14 @@
+label: Content blocks
+type: blocks
+fieldsets:
+  - text
+  - accordion
+  # - space
+  # - heading
+  # - image
+  # - list
+  # - quote
+  # - gallery
+  # - video
+  # - code
+  # - markdown
