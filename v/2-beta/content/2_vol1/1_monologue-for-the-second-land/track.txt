@@ -18,11 +18,11 @@ Typeaudiofile:
 
 ----
 
-Typevideosourcemp4: - file://ztplc6bd2zpvcwvu
+Typevideosourcemp4: - file://nvdx5nekcgvwrg16
 
 ----
 
-Typevideosourcewebm: - file://p0lwpvet1q19vo2s
+Typevideosourcewebm: - file://dc5d2ecq63jnfj9c
 
 ----
 
@@ -30,19 +30,19 @@ Typevideoposter: - file://lr6dwtuz2u7wkmtp
 
 ----
 
-Typeslideshowaudiofile: 
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Leo Robinson is a UK-based artist. His work explores speculative narratives, rituals and games through sculptural installation, sound, video and diagrammatical works. Robinson is represented by Tiwani Contemporary, and was recently awarded the Arts Foundation Futures Award for Visual Arts. Robinson has presented solo exhibitions at London Mithraeum, Indigo + Madder and Chapter Arts Centre and has undertaken residencies at GAS Foundation (NG) and Hospitalfield (UK).</p>"},"id":"a74c29cb-dfd4-4210-8ff1-23d4204eb8bd","isHidden":false,"type":"text"}]
 
 ----
 
-Typeslideshowimagefiles: 
+Blocksright: [{"content":{"text":"<p>ABOUT THE TRACK</p><hr><p>The album opens with Leo Robinson’s audio-visual artwork <em>Monologue for the Second Land</em>. Set in a mythologised St Vincent, a priestess guides a seeker embarking on a journey of understanding and belonging. She indicates that clues have been left in the form of petroglyphs by ancestral stone-carvers, encountered across centuries throughout colonial and contemporary histories. The piece ends with a declaration that the storytellers endure, bearing witness and leaving messages for seekers yet to come.<br>&nbsp;</p>"},"id":"39b0d124-f9b6-40fa-b5f8-3b36c795739b","isHidden":false,"type":"text"},{"content":{"items":[{"itemheader":"<p>TRANSCRIPT</p>","itemcontent":"<p>&nbsp;<em><br>Monologue for The Second Land<br></em>&nbsp;</p><p>An iridescent bridge dreams you into the unknown;</p><p>Explosive and volcanic,&nbsp;</p><p>The soil fertile and shimmering with ash, iguana droppings, dasheen, cocoa…&nbsp;</p><p>The hushed and unspoken blood of the elders,</p><p>and the first people crying upon the wind like seeds, like smoke.</p><p>Traveller - you have struggled to hold these cries that disperse,&nbsp;</p><p>this blood that runs down, down, absorbed by the earth.</p><p>Traveller - it looks like they left you nothing to hold, although…&nbsp;</p><p>there’s something there, by the river where the callalloo grows.&nbsp;</p><p>The stone carvers, they were here too?&nbsp;</p><p>The stone carvers, the sign leavers,&nbsp;</p><p>those who knew you would come,&nbsp;</p><p>who have been busy in every land, preparing your odyssey.</p><p>What gifts? What spirits did they leave for you?</p><p>And before you, traveller, arrived from the third land by sky</p><p>Others arrived on boats from yet a different land…</p><p>What messages, then?&nbsp;</p><p>What then?</p><p>How do you think these stones react to light?</p><p>Are they pictures? Or mirrors?</p><p>Imagine what reflects back to she whose gods were drowned.</p><p>Imagine what a message means to he whose tongue is tied and wrists bound,</p><p>Or the imperialist who slays in the name of his own gods,</p><p>Who bears the cross upon his sword,</p><p>Who denounces heathens with violent acts…</p><p>The carvers carve on and on through time.</p>"}]},"id":"53c3df05-1ebc-41b5-9357-4103416a1359","isHidden":false,"type":"accordion"}]
 
 ----
 
-Infoartist: <p>The album opens with Leo Robinson’s audio-visual artwork <em>Monologue for the Second Land</em>. Set in a mythologised St Vincent, a priestess guides a seeker embarking on a journey of understanding and belonging. She indicates that clues have been left in the form of petroglyphs by ancestral stone-carvers, encountered across centuries throughout colonial and contemporary histories. The piece ends with a declaration that the storytellers endure, bearing witness and leaving messages for seekers yet to come.</p><hr><p>Leo Robinson is a UK-based artist. His work explores speculative narratives, rituals and games through sculptural installation, sound, video and diagrammatical works. Robinson is represented by Tiwani Contemporary, and was recently awarded the Arts Foundation Futures Award for Visual Arts. Robinson has presented solo exhibitions at London Mithraeum, Indigo + Madder and Chapter Arts Centre and has undertaken residencies at GAS Foundation (NG) and Hospitalfield (UK).</p>
+Infoartist: 
 
 ----
 
-Infoscript: <p>Monologue for The Second Land</p><hr><p>An iridescent bridge dreams you into the unknown;</p><p>Explosive and volcanic,&nbsp;</p><p>The soil fertile and shimmering with ash, iguana droppings, dasheen, cocoa…&nbsp;</p><p>The hushed and unspoken blood of the elders,</p><p>and the first people crying upon the wind like seeds, like smoke.</p><p>Traveller - you have struggled to hold these cries that disperse,&nbsp;</p><p>this blood that runs down, down, absorbed by the earth.</p><p>Traveller - it looks like they left you nothing to hold, although…&nbsp;</p><p>there’s something there, by the river where the callalloo grows.&nbsp;</p><p>The stone carvers, they were here too?&nbsp;</p><p>The stone carvers, the sign leavers,&nbsp;</p><p>those who knew you would come,&nbsp;</p><p>who have been busy in every land, preparing your odyssey.</p><p>What gifts? What spirits did they leave for you?</p><p>And before you, traveller, arrived from the third land by sky</p><p>Others arrived on boats from yet a different land…</p><p>What messages, then?&nbsp;</p><p>What then?</p><p>How do you think these stones react to light?</p><p>Are they pictures? Or mirrors?</p><p>Imagine what reflects back to she whose gods were drowned.</p><p>Imagine what a message means to he whose tongue is tied and wrists bound,</p><p>Or the imperialist who slays in the name of his own gods,</p><p>Who bears the cross upon his sword,</p><p>Who denounces heathens with violent acts…</p><p>The carvers carve on and on through time.</p>
+Infoscript: 
 
 ----
 
@@ -107,6 +107,14 @@ Robotssnippet: true
 ----
 
 Metainherit: 
+
+----
+
+Typeslideshowaudiofile: 
+
+----
+
+Typeslideshowimagefiles: 
 
 ----
 

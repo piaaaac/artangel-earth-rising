@@ -1,4 +1,42 @@
-<?php $ass = $kirby->url("assets"); ?>
+<?php
+$ass = $kirby->url("assets");
+
+$vol1Page = page("vol1");
+$aboutPage = page("about");
+$creditsPage = page("credits");
+$artangelPage = page("artangel-panel");
+?>
+
+<!-- Panels -->
+
+<nav id="menu-panel">
+  <?php snippet("tracklist", ["tracksPage" => $vol1Page]) ?>
+  <div class="line"></div>
+</nav>
+
+<nav id="accessibility-panel">
+  <ul>
+    <li class="my-4"><a href="#" class="font-serif-l">High contrast OFF</a></li>
+    <li class="my-4"><a href="#" class="font-serif-l">Text size + -</a></li>
+    <li class="my-4"><a href="#" class="font-serif-l">Animations ON</a></li>
+  </ul>
+</nav>
+
+<nav id="artangel-panel">
+  <div class="kt-container">
+    <?= $artangelPage->blocks()->toBlocks() ?>
+  </div>
+</nav>
+
+<nav id="about-panel">
+  <div class="about-content kt-container">
+    <?= $aboutPage->blocks()->toBlocks() ?>
+  </div>
+  <div class="credits-content kt-container">
+    <?= $creditsPage->blocks()->toBlocks() ?>
+  </div>
+  <div class="line"></div>
+</nav>
 
 <!-- Texts -->
 
@@ -11,7 +49,7 @@
     </svg>
   </div>
   <!-- <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-r2l.svg" alt="Volume 1 Logo"> -->
-  <a class="only-dsk no-u" href="<?= $site->url() ?>" onclick="app.wui.handleTitleClick(event);">
+  <a class="only-dsk no-u no-color" href="<?= $site->url() ?>" onclick="wui.handleTitleClick(event);">
     <h1 class="mx-3 mb-0">EARTH RISING</h1>
   </a>
   <!-- <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-l2r.svg" alt="Volume 1 Logo"> -->
@@ -28,14 +66,14 @@
   <h2 class="only-dsk mb-0">Messages from the Pale Blue Dot</h2>
 </div>
 
-<div id="bottom-txt-about" role="button" onclick="app.wui.toggleAboutPanel()">
+<div id="bottom-txt-about" role="button" onclick="wui.toggleAboutPanel()">
   <h2 class="only-dsk mb-0">ABOUT & CREDITS</h2>
 </div>
 
 <!-- Buttons -->
 
 <nav class="button-wrapper" id="button-wrapper-top-left">
-  <button onclick="app.wui.toggleAccessibilityPanel()">
+  <button onclick="wui.toggleAccessibilityPanel()">
     <img src="<?= $ass ?>/images/icon-accessibility.svg" alt="Accessibility Icon">
   </button>
 </nav>
@@ -43,7 +81,7 @@
 <nav class="button-wrapper" id="button-wrapper-top-right">
   <button type="button" style="position: relative; top: 2.5px;"
     class="hamburger hamburger--slider"
-    onclick="app.wui.toggleMenuPanel()"
+    onclick="wui.toggleMenuPanel()"
     aria-label="Menu and Tracklist" aria-controls="navigation">
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
@@ -54,7 +92,7 @@
 <nav class="button-wrapper" id="button-wrapper-bottom-left">
   <button type="button" style="position: relative; top: 2.5px;"
     class="hamburger hamburger--slider"
-    onclick="app.wui.toggleMenuPanel()"
+    onclick="wui.toggleMenuPanel()"
     aria-label="Menu and Tracklist" aria-controls="navigation">
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
@@ -63,7 +101,7 @@
 </nav>
 
 <nav class="button-wrapper" id="button-wrapper-bottom-right">
-  <button onclick="app.wui.toggleArtangelPanel()" style="position: relative; top: 4px;">
+  <button onclick="wui.toggleArtangelPanel()" style="position: relative; top: 4px;">
     <img src="<?= $ass ?>/images/icon-artangel.svg" alt="Artangel Icon">
   </button>
 </nav>
@@ -82,13 +120,13 @@
   <div class="content-wrapper">
     <div id="track-info-artist" class="kt-container p-3"></div>
   </div>
-  <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="app.wui.toggleTrackInfo()">
+  <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="wui.toggleTrackInfo()">
     <h2 id="track-artist"></h2>
   </div>
   <span class="button-wrapper"><img src="<?= $ass ?>/images/icon-rarr.svg" /></span>
 </section>
 <section id="track-info-dsk-r">
-  <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="app.wui.toggleTrackInfo()">
+  <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="wui.toggleTrackInfo()">
     <h2 id="track-title"></h2>
   </div>
   <div class="content-wrapper">

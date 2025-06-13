@@ -1,8 +1,5 @@
 <?php
 
-$str = snippet("track-content", ["track" => page("vol2/track-1")], true);
-kill($str);
-
 
 $data = [];
 

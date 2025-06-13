@@ -21,6 +21,7 @@
 </head>
 
 <body
+  data-template="<?= $page->template()->name() ?>"
   data-current-uid="<?= $page->uid() ?>"
   data-player-playing="false"
   data-track-open=""

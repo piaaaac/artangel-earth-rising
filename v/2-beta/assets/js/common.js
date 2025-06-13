@@ -1,7 +1,3 @@
-/**
- * @param tracks comes from php (site/templates/volume.php)
- */
-
 // ----------------------------------------------------------------------------
 // Architecture
 //
@@ -53,31 +49,6 @@ addEventListener("popstate", (event) => {
   console.log(event);
 });
 
-// --- ajax
-
-function loadTrackContentAjax(id) {
-  console.log(
-    "Loading content with ajax isn't really doing much atm, since most/everything is stored in the tracks array. Keeping it for future use, but for now just returning false"
-  );
-  return false;
-  var url = window.siteUrl + "/" + id + ".json";
-  fetch(url)
-    .then((response) => {
-      return response.json();
-    })
-    .then((jsonData) => {
-      // blurContent(true);
-      setTimeout(() => {
-        // bodyContent.textContent = ""
-        // handleReceivedTrackData(jsonData);
-        console.log("handleReceivedTrackData(jsonData) to be implemented");
-      }, 600);
-    })
-    .catch((err) => {
-      console.log("Error fetching page:", err);
-    });
-}
-
 // ----------------------------------------------------------------------------
 // Class App
 // ----------------------------------------------------------------------------
@@ -96,6 +67,63 @@ class App {
     };
     this.wui.bindApp(this);
     this.pui.bindApp(this);
+    this.bindMediaSessionApiEvents();
+  }
+
+  bindMediaSessionApiEvents() {
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.setActionHandler("previoustrack", () => {
+        this.openPrevTrack();
+      });
+      navigator.mediaSession.setActionHandler("nexttrack", () => {
+        this.openNextTrack();
+      });
+      this.updateMediaSessionMetadata(null);
+    }
+  }
+
+  updateMediaSessionMetadata(trackData) {
+    if ("mediaSession" in navigator) {
+      const title = trackData ? trackData.title : "Unknown Title";
+      const artist = trackData ? trackData.artist : "Unknown Artist";
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: title,
+        artist: artist,
+        album: "~Earth Rising. Volume I",
+        artwork: [
+          {
+            src: "https://via.assets.so/img.jpg?w=96&h=96&tc=blue&bg=#cecece&t=cover",
+            sizes: "96x96",
+            type: "image/jpeg",
+          },
+          {
+            src: "https://via.assets.so/img.jpg?w=128&h=128&tc=blue&bg=#cecece&t=cover",
+            sizes: "128x128",
+            type: "image/jpeg",
+          },
+          {
+            src: "https://via.assets.so/img.jpg?w=192&h=192&tc=blue&bg=#cecece&t=cover",
+            sizes: "192x192",
+            type: "image/jpeg",
+          },
+          {
+            src: "https://via.assets.so/img.jpg?w=256&h=256&tc=blue&bg=#cecece&t=cover",
+            sizes: "256x256",
+            type: "image/jpeg",
+          },
+          {
+            src: "https://via.assets.so/img.jpg?w=384&h=384&tc=blue&bg=#cecece&t=cover",
+            sizes: "384x384",
+            type: "image/jpeg",
+          },
+          {
+            src: "https://via.assets.so/img.jpg?w=512&h=512&tc=blue&bg=#cecece&t=cover",
+            sizes: "512x512",
+            type: "image/jpeg",
+          },
+        ],
+      });
+    }
   }
 
   getAppState(property) {
@@ -117,12 +145,14 @@ class App {
     this.state.currentTrackIndex = index;
     const trackData = this.state.tracks[index];
     setUrlTrack(trackData.id);
+    this.updateMediaSessionMetadata(trackData);
 
     const that = this;
     const onAnimationDone = function () {
       that.pui.ctrl.loadNewTrack(trackData);
     };
     this.wui.updateTrackUI(trackData, onAnimationDone);
+    // window.twinkler?.setTrackMode(trackData);
   }
 
   openNextTrack() {
@@ -157,6 +187,7 @@ class App {
     this.wui.resetPlayerUI();
     setUrlHome();
     this.closeTrack();
+    // window.twinkler?.setHomeMode();
   }
 
   findTrackIndexBy(property, value) {
@@ -215,9 +246,8 @@ class WebUI {
     document.body.dataset.trackOpen = trackData.id;
     this.closeAllPanels();
     this.colorStars(null);
-    this.trackTitle.textContent = trackData.title;
-    this.trackArtist.textContent = trackData.artist;
-    this.trackInfoArtist.innerHTML = trackData.infoartist;
+    this.trackTitle.textContent = "";
+    this.trackArtist.textContent = "";
     this.circleTime.classList.add("clean");
     this.tracklistLinks.forEach((el) => el.classList.remove("active"));
     console.log("updateTrackUi ----------------------- BEFORE");
@@ -225,11 +255,22 @@ class WebUI {
     const that = this;
     this.animateCircle(() => {
       console.log("updateTrackUi ----------------------- AFTER");
-      that.trackInfoArtistMob.innerHTML = trackData.infoartist;
-      that.trackInfoScript.innerHTML = trackData.infoscript;
-      that.trackInfoScriptMob.innerHTML = trackData.infoscript;
-      that.colorCover.style.backgroundColor = trackData.uicolor;
-      that.colorStars(trackData.uicolor);
+      this.trackTitle.textContent = trackData.title;
+      this.trackArtist.textContent = trackData.artist;
+
+      // this.trackInfoArtist.innerHTML = trackData.infoartist;
+      // that.trackInfoArtistMob.innerHTML = trackData.infoartist;
+      // that.trackInfoScript.innerHTML = trackData.infoscript;
+      // that.trackInfoScriptMob.innerHTML = trackData.infoscript;
+
+      this.trackInfoArtist.innerHTML = trackData.blocksLeft;
+      that.trackInfoArtistMob.innerHTML = trackData.blocksLeft;
+      that.trackInfoScript.innerHTML = trackData.blocksRight;
+      that.trackInfoScriptMob.innerHTML = trackData.blocksRight;
+      initNewAccordions();
+
+      that.colorCover.style.backgroundColor = trackData.uiColor;
+      that.colorStars(trackData.uiColor);
       document
         .querySelector(
           "#menu-panel a.track[data-track-id='" + trackData.id + "']"
@@ -422,7 +463,7 @@ class PlayerUI {
       this.ctrl.plyr.fullscreen.toggle();
     });
     this.main.addEventListener("mouseout", () => {
-      this.togglePlayerControlsHidden(true);
+      this.togglePlayerControlsHidden(false);
     });
     this.main.addEventListener("mousemove", () => {
       that.showPlayerControls();
@@ -442,6 +483,7 @@ class PlayerUI {
 
   togglePlayerControlsHidden(bool) {
     this.main.dataset.playerControlsHidden = bool ? "true" : "false";
+    document.body.dataset.videoHideUi = bool ? "true" : "false";
     this.mediaContainer.classList.toggle("darken", !bool);
   }
 
@@ -657,24 +699,210 @@ class PlayerController {
 }
 
 // ----------------------------------------------------------------------------
-// Execution start
+// TwinklingStars Class
 // ----------------------------------------------------------------------------
 
-// Initialize objects
-const wui = new WebUI();
-const pc = new PlayerController("media-container");
-const pui = new PlayerUI(pc, {
-  prevBtn: document.getElementById("prev-track"),
-  playBtn: document.getElementById("play-pause-button"),
-  nextBtn: document.getElementById("next-track"),
-  fullscreenBtn: document.getElementById("fullscreen-button"),
-});
-const app = new App(wui, pui, tracks);
+// class TwinklingStars {
+//   constructor(canvas, color = "F1F3D7") {
+//     this.canvas = canvas;
+//     this.ctx = canvas.getContext("2d");
+//     // this.width = window.innerWidth;
+//     // this.height = window.innerHeight;
+//     // this.canvas.width = this.width;
+//     // this.canvas.height = this.height;
+//     this.resizeCanvasToDisplaySize();
+//     this.spawnProbability = 0.03;
+//     this.minStarSize = 5;
+//     this.maxStarSize = 12;
+//     window.addEventListener("resize", () => this.resizeCanvasToDisplaySize());
+//     this.stars = [];
+//     this.twinkling = true;
+//     this.area = null;
+//     this.starImage = new Image();
+//     this.setColor(color); // sets the SVG
+//     this._animate = this._animate.bind(this);
+//   }
 
-// From url: route > controller > template volume.php
-if (initialTrackUid) {
-  var track = tracks.find((t) => t.uid === initialTrackUid);
-  var index = tracks.findIndex((t) => t.uid === initialTrackUid);
-  console.log(`Track passed via url: ${index}`, track);
-  app.openTrack(index);
-}
+//   // resize() {
+//   //   this.width = window.innerWidth;
+//   //   this.height = window.innerHeight;
+//   //   this.canvas.width = this.width;
+//   //   this.canvas.height = this.height;
+//   // }
+
+//   resizeCanvasToDisplaySize() {
+//     const dpr = window.devicePixelRatio || 1;
+//     const displayWidth = Math.floor(this.canvas.clientWidth * dpr);
+//     const displayHeight = Math.floor(this.canvas.clientHeight * dpr);
+//     if (
+//       this.canvas.width !== displayWidth ||
+//       this.canvas.height !== displayHeight
+//     ) {
+//       this.canvas.width = displayWidth;
+//       this.canvas.height = displayHeight;
+//       this.width = displayWidth;
+//       this.height = displayHeight;
+//     }
+//   }
+
+//   randomInRange(min, max) {
+//     return Math.random() * (max - min) + min;
+//   }
+
+//   randomPositionInCircle(cx, cy, radius) {
+//     const angle = Math.random() * 2 * Math.PI;
+//     const r = radius * Math.sqrt(Math.random());
+//     return {
+//       x: cx + r * Math.cos(angle),
+//       y: cy + r * Math.sin(angle),
+//     };
+//   }
+
+//   spawnStar() {
+//     let x, y;
+//     if (this.area) {
+//       const pos = this.randomPositionInCircle(
+//         this.area.cx,
+//         this.area.cy,
+//         this.area.radius
+//       );
+//       x = pos.x;
+//       y = pos.y;
+//     } else {
+//       x = Math.random() * this.width;
+//       y = Math.random() * this.height;
+//     }
+
+//     const size = this.randomInRange(this.minStarSize, this.maxStarSize);
+//     const life = 1500;
+//     const createdAt = performance.now();
+
+//     this.stars.push({ x, y, size, createdAt, life });
+//   }
+
+//   _drawStars(now) {
+//     this.ctx.clearRect(0, 0, this.width, this.height);
+//     this.stars = this.stars.filter((star) => now - star.createdAt < star.life);
+
+//     for (const star of this.stars) {
+//       const age = now - star.createdAt;
+//       const opacity = this._getOpacity(age, star.life);
+//       this.ctx.globalAlpha = opacity;
+//       this.ctx.drawImage(
+//         this.starImage,
+//         star.x - star.size / 2,
+//         star.y - star.size / 2,
+//         star.size,
+//         star.size
+//       );
+//     }
+//     this.ctx.globalAlpha = 1;
+//   }
+
+//   setColor(hex) {
+//     const svg = `
+//       <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+//         <path d="M79 40C54.859 40 40 54.859 40 79C40 54.859 25.141 40 1 40C25.141 40 40 25.141 40 1C40 25.141 54.859 40 79 40Z" fill="
+//         #${hex}" stroke="#${hex}" stroke-width="2" stroke-linejoin="round"/>
+//       </svg>`;
+
+//     this.starImage.src =
+//       "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+//   }
+
+//   _getOpacity(age, life) {
+//     const effect = "4_ease_out_exponential";
+//     let opacity = 1;
+
+//     // 1. Linear fade-out
+//     if (effect === "1_fade_out_linear") {
+//       opacity = 1 - age / life;
+//     }
+
+//     // 2. Fade-in then fade-out (symmetric triangle)
+//     if (effect === "2_fade_in_out_linear") {
+//       const t = age / life;
+//       opacity = t < 0.5 ? t * 2 : (1 - t) * 2;
+//     }
+
+//     // 3. Ease-in-out (using sine)
+//     if (effect === "3_ease_in_out") {
+//       const t = age / life;
+//       opacity = Math.sin(t * Math.PI);
+//     }
+
+//     // 4. Exponential fade-out
+//     if (effect === "4_ease_out_exponential") {
+//       opacity = Math.pow(1 - age / life, 2);
+//     }
+
+//     // 5. Fade-in quickly, fade-out slowly
+//     if (effect === "5_fade_in_out") {
+//       const t = age / life;
+//       opacity =
+//         t < 0.2
+//           ? t / 0.2 // fast fade-in
+//           : 1 - (t - 0.2) / 0.8; // slow fade-out
+//     }
+
+//     // 6. Blinking effect (on-off)
+//     if (effect === "6_blinking") {
+//       opacity = age / life < 0.5 ? 1 : 0;
+//     }
+
+//     return opacity;
+//   }
+
+//   _animate(now) {
+//     if (this.twinkling && Math.random() < this.spawnProbability) {
+//       this.spawnStar();
+//     }
+
+//     this._drawStars(now);
+//     requestAnimationFrame(this._animate);
+//   }
+
+//   start() {
+//     this.twinkling = true;
+//   }
+
+//   stop() {
+//     this.twinkling = false;
+//   }
+
+//   setArea(cx, cy, radius) {
+//     this.area = { cx, cy, radius };
+//   }
+
+//   setProbability(probability) {
+//     this.spawnProbability = probability;
+//   }
+
+//   clearArea() {
+//     this.area = null;
+//   }
+
+//   run() {
+//     requestAnimationFrame(this._animate);
+//   }
+
+//   setHomeMode() {
+//     this.resizeCanvasToDisplaySize();
+//     const x = this.width / 2;
+//     const y = this.height / 2;
+//     this.setArea(x, y, 80);
+//     this.setProbability(0.02);
+//     this.start();
+//     this.run();
+//   }
+
+//   setTrackMode(trackData) {
+//     this.clearArea();
+//     this.stop();
+//     if (trackData.trackType === "audio") {
+//       this.setColor(trackData.uiColor);
+//       this.setProbability(0.02);
+//       this.start();
+//     }
+//   }
+// }

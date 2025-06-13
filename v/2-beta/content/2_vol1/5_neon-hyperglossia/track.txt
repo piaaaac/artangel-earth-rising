@@ -18,11 +18,11 @@ Typeaudiofile:
 
 ----
 
-Typevideosourcemp4: - file://ywoe7iwpljtczouf
+Typevideosourcemp4: - file://q4kf13m3iiy8xz5x
 
 ----
 
-Typevideosourcewebm: - file://7wljikbo43m1mxkr
+Typevideosourcewebm: - file://qdgproifs7iqnvw8
 
 ----
 
@@ -30,15 +30,15 @@ Typevideoposter: - file://6fsmvcp0nff1mmg6
 
 ----
 
-Typeslideshowaudiofile: 
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Emilia Álvarez is a multidisciplinary artist working with sculpture, drawing, performance, installation, video, sound, music, and technology. Her work has been exhibited in museums, galleries, clubs, and public spaces across Argentina, the UK, Japan, Mexico, and Switzerland. She has participated in residencies such as Gasworks (UK), Atelier Mondial (CH), both with URRA (ARG), and Kyoto Art Center (JP), and has received awards from Fondo Nacional de las Artes (ARG), Finnegans, Fundación Williams, British Council, MUTEK, among</p>"},"id":"555058bb-3960-4b16-9378-87e277a76c82","isHidden":false,"type":"text"}]
 
 ----
 
-Typeslideshowimagefiles: 
+Blocksright: [{"content":{"text":"<p>ABOUT THE TRACK</p><hr><p>Emilia Álvarez propels us into a planetary-cosmic future with <em>Neon Hyperglossia</em>, an audiovisual work where creation and transformation intertwine. The piece begins by erasing the words of selected authors, leaving only punctuation in place. These stripped-down marks expose the texts’ underlying rhythms, becoming the basis for a new musical score. Each symbol is interpreted sonically, assigned its own tone and tempo—on screen, they shimmer like distant stars.&nbsp;</p><p>Borrowing its name from the medical term for an oversized tongue,<em> Neon Hyperglossia</em> reimagines language as expansive, unstable, and mutating. Alvarez draws on thinkers like Silvia Rivera Cusicanqui, Sara Ahmed, Donna Haraway, and Fabio Zerpa to explore language as a contested site—where power, identity and meaning collide. The result is a constellation of voices, codes, and impossible signs, which Álvarez describes as ‘a cosmic rave of resistance and reinvention’.</p>"},"id":"2d093b78-0cd7-4a0d-8f14-1f20e1acffcf","isHidden":false,"type":"text"}]
 
 ----
 
-Infoartist: <p>Emilia Álvarez propels us into a planetary-cosmic future with <em>Neon Hyperglossia</em>, an audiovisual work where creation and transformation intertwine. The piece begins by erasing the words of selected authors, leaving only punctuation in place. These stripped-down marks expose the texts’ underlying rhythms, becoming the basis for a new musical score. Each symbol is interpreted sonically, assigned its own tone and tempo—on screen, they shimmer like distant stars.&nbsp;</p><p>Borrowing its name from the medical term for an oversized tongue,<em> Neon Hyperglossia</em> reimagines language as expansive, unstable, and mutating. Alvarez draws on thinkers like Silvia Rivera Cusicanqui, Sara Ahmed, Donna Haraway, and Fabio Zerpa to explore language as a contested site—where power, identity and meaning collide. The result is a constellation of voices, codes, and impossible signs, which Álvarez describes as ‘a cosmic rave of resistance and reinvention’.</p><hr><p>Emilia Álvarez is a multidisciplinary artist working with sculpture, drawing, performance, installation, video, sound, music, and technology. Her work has been exhibited in museums, galleries, clubs, and public spaces across Argentina, the UK, Japan, Mexico, and Switzerland. She has participated in residencies such as Gasworks (UK), Atelier Mondial (CH), both with URRA (ARG), and Kyoto Art Center (JP), and has received awards from Fondo Nacional de las Artes (ARG), Finnegans, Fundación Williams, British Council, MUTEK, among</p>
+Infoartist: 
 
 ----
 
@@ -107,6 +107,14 @@ Robotssnippet: true
 ----
 
 Metainherit: 
+
+----
+
+Typeslideshowaudiofile: 
+
+----
+
+Typeslideshowimagefiles: 
 
 ----
 

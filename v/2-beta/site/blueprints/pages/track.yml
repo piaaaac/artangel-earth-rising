@@ -19,11 +19,11 @@ tabs:
                 width: 1/2
               trackType:
                 label: Track type
-                type: select
+                type: toggles
                 options:
                   audio: Audio
                   video: Video
-                  slideshow: Slideshow
+                  # slideshow: Slideshow
                 required: true
 
               typeAudioFile:
@@ -60,21 +60,21 @@ tabs:
                 when:
                   trackType: video
 
-              typeSlideshowAudioFile:
-                label: Audio file
-                type: files
-                required: true
-                max: 1
-                query: page.audio
-                when:
-                  trackType: slideshow
-              typeSlideshowImageFiles:
-                label: Slideshow images
-                type: files
-                query: page.images
-                required: true
-                when:
-                  trackType: slideshow
+              # typeSlideshowAudioFile:
+              #   label: Audio file
+              #   type: files
+              #   required: true
+              #   max: 1
+              #   query: page.audio
+              #   when:
+              #     trackType: slideshow
+              # typeSlideshowImageFiles:
+              #   label: Slideshow images
+              #   type: files
+              #   query: page.images
+              #   required: true
+              #   when:
+              #     trackType: slideshow
 
       sidebar:
         width: 1/3
@@ -88,6 +88,12 @@ tabs:
       fields2:
         type: fields
         fields:
+          blocksLeft:
+            extends: fields/block-field
+            width: 1/2
+          blocksRight:
+            extends: fields/block-field
+            width: 1/2
           infoArtist:
             label: Artist and track info
             extends: fields/writer-field

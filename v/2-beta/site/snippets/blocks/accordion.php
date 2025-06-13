@@ -2,7 +2,7 @@
 $fieldId = "block-acc-" . pseudoRandomBytes();
 ?>
 
-<div class="block accordion" id="<?= $fieldId ?>">
+<div class="block accordion" id="<?= $fieldId ?>" data-initialized="false">
 
   <?php foreach ($block->items()->toStructure() as $item) : ?>
     <div class="accordion-item">
@@ -25,9 +25,10 @@ $fieldId = "block-acc-" . pseudoRandomBytes();
 <script>
   // Initialize accordion when DOM is loaded
   document.addEventListener("DOMContentLoaded", () => {
-    var fieldId = "<?= $fieldId ?>";
-    const accordionElement = document.getElementById(fieldId);
-    const acc = new Accordion(accordionElement);
-    console.log(acc);
+    // var fieldId = "<?= $fieldId ?>";
+    // const accordionElement = document.getElementById(fieldId);
+    // const acc = new Accordion(accordionElement);
+    // console.log(acc);
+    initNewAccordions();
   });
 </script>

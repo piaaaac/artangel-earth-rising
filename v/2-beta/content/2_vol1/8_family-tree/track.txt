@@ -14,7 +14,7 @@ Tracktype: audio
 
 ----
 
-Typeaudiofile: - file://q2qudczjzpy9bhmv
+Typeaudiofile: - file://8yq4bygvlkd00sl8
 
 ----
 
@@ -30,19 +30,19 @@ Typevideoposter:
 
 ----
 
-Typeslideshowaudiofile: 
+Blocksleft: [{"content":{"text":"<p>ARTIST</p><hr><p>Ofem Ubi is a poet and artist from Nigeria exploring the poetic through visual forms. Drawing prompts from experience, his work upholds a constant query on memory and its manifestations beyond the page. Ubi is a 2024 Prince Claus Seed Award recipient and GAS Foundation Alumni.</p>"},"id":"306d7eea-60be-4c3d-858a-07f801df977c","isHidden":false,"type":"text"}]
 
 ----
 
-Typeslideshowimagefiles: 
+Blocksright: [{"content":{"text":"<p>TRACK</p><hr><p>Ofem Ubi’s <em>Family Tree</em> weaves a powerful meditation on love, grief and defiance. Opening with heartfelt declarations of love, the poem quickly shifts to a boy’s death and a mother’s profound sorrow. In Ubi’s poem love is investigated as predictable and precarious, given freely and demanded, tender and haunting. Through repetition, invocation and pause, Ubi explores the weight of love, mourning, healing and justice.<br>&nbsp;</p>"},"id":"8149e7e2-f9fa-4bf5-b455-fbaddf058d59","isHidden":false,"type":"text"},{"content":{"items":[{"itemheader":"<p>TRANSCRIPT</p>","itemcontent":"<p>&nbsp;</p><p>JIM<br>&amp; I will smuggle your face into my family tree</p><p>JESSICA<br>&amp; I will christen you <em>redeemed</em></p><p>DOLA<br>&amp; I will find the softest part in my body and name it after you</p><p>UGO<br>&amp; I will make a mural of your cheekbone with a rose flower</p><p>ALL<br>&amp; we will walk on water</p><p>OFEM<br>Tell me, what else is love other than a manifesto?<br>what else is love other than basic amenity?&nbsp;</p><p>At the first sight of light<br>we’re a clean slate<br>only beheld by mother’s eyes –<br>the genesis of all longing&nbsp;</p><p>With hands the lushness of a gold fur fabric</p><p>and in the same light I have witnessed the shedding<br>of a boy’s breath &amp; saw his mother weep<br>shortly after placing a bounty on god’s head<br>and He<br>appeared in her sleep&nbsp;</p><p>and she&nbsp;<br>clad with rage wrestled him for answers and god<br>a convicted felon cornered&nbsp;<br>in a ring negotiates his release</p><p>&amp; she unwilling to yield<br>refusing to return to dust<br>takes his son for keeps&nbsp;</p><p>One good turn surely does deserve another<br>What love is selfish enough to demand the joy of a mourning mother?&nbsp;&nbsp;<br>What has she received that she must give?</p><p>Must we give if we must receive?&nbsp;<br>Who is giving what?</p><p>It seems love is a festival of lights</p><p>I’m too dark to comprehend</p><p>to every hand I ask for a dance I’m given a souvenir of regret&nbsp;</p><p>a souvenir I fear to pass on</p><p>In my attempts at tethering,&nbsp;<br>I have loved many;&nbsp;<br>People\t \tcountry\t\tghosts&nbsp;<br>I must’ve grown bald in my knowledge of what love means-&nbsp;<br>I do not know what love means<br>is it inconvenience or a NAT-GEO documentary about two old pigeons or cancer:&nbsp;<br>gluttonous, eating you slowly until there’s nothing left to eat so it feeds on itself.&nbsp;&nbsp;<br>It is healthier to love what cannot love you back<br>zero expectations&nbsp;</p><p>[BRIEF PAUSE]</p><p>Is it possible to love what cannot love you back?<br>what are the properties of healing?<br>the possibilities of being called beloved&nbsp;<br>of being held by a lifeless body&nbsp;<br>by a lifeless boy&nbsp;</p><p>the boy’s breath saw his mother weep&nbsp;<br>the boy’s breath saw his mother<br>the boy’s breath saw<br>the boy’s breath<br>the boy</p><p></p><p></p><p></p><p>ALL- the boy&nbsp;</p><p>OFEM- who rehearses a smile and puts on a show</p><p>ALL- the boy:&nbsp;</p><p>OFEM- alumni of a gun finger</p><p>ALL- the boy:&nbsp;</p><p>OFEM- smoke by birth</p><p>ALL- the boy:&nbsp;</p><p>OFEM- right crown on right head</p><p>ALL- the boy:&nbsp;</p><p>OFEM- blade of grass</p><p>ALL- the boy:&nbsp;</p><p>OFEM- chief of staff</p><p>ALL- the boy:&nbsp;</p><p>OFEM- Poseidon</p><p>ALL- the boy&nbsp;</p><p>OFEM- blue boy<br>the boy who blew<br>the boy who got blown away<br>the boy who left with no valediction</p><p>whose blood now quizzes God:</p><p>do you see my dirge a rite of passage?</p><p>a new kind of wailing<br>a naming ceremony&nbsp;</p><p>and the world crowns you a curator of this blood exhibition<br>having taken a swab of your name to ascertain your guilt<br>tell me<br>is this your house-style?<br>Say something</p><p>[BRIEF PAUSE]</p><p>Silence is the condensed form of presence.&nbsp;</p>"}]},"id":"760201a7-74cf-4d17-b2be-bd7fda809039","isHidden":false,"type":"accordion"}]
 
 ----
 
-Infoartist: <p>Ofem Ubi’s <em>Family Tree</em> weaves a powerful meditation on love, grief and defiance. Opening with heartfelt declarations of love, the poem quickly shifts to a boy’s death and a mother’s profound sorrow. In Ubi’s poem love is investigated as predictable and precarious, given freely and demanded, tender and haunting. Through repetition, invocation and pause, Ubi explores the weight of love, mourning, healing and justice.</p><hr><p>Ofem Ubi is a poet and artist from Nigeria exploring the poetic through visual forms. Drawing prompts from experience, his work upholds a constant query on memory and its manifestations beyond the page. Ubi is a 2024 Prince Claus Seed Award recipient and GAS Foundation Alumni.</p>
+Infoartist: 
 
 ----
 
-Infoscript: <p>JIM<br>&amp; I will smuggle your face into my family tree</p><p>JESSICA<br>&amp; I will christen you <em>redeemed</em></p><p>DOLA<br>&amp; I will find the softest part in my body and name it after you</p><p>UGO<br>&amp; I will make a mural of your cheekbone with a rose flower</p><p>ALL<br>&amp; we will walk on water</p><p>OFEM<br>Tell me, what else is love other than a manifesto?<br>what else is love other than basic amenity?&nbsp;</p><p>At the first sight of light<br>we’re a clean slate<br>only beheld by mother’s eyes –<br>the genesis of all longing&nbsp;</p><p>With hands the lushness of a gold fur fabric</p><p>and in the same light I have witnessed the shedding<br>of a boy’s breath &amp; saw his mother weep<br>shortly after placing a bounty on god’s head<br>and He<br>appeared in her sleep&nbsp;</p><p>and she&nbsp;<br>clad with rage wrestled him for answers and god<br>a convicted felon cornered&nbsp;<br>in a ring negotiates his release</p><p>&amp; she unwilling to yield<br>refusing to return to dust<br>takes his son for keeps&nbsp;</p><p>One good turn surely does deserve another<br>What love is selfish enough to demand the joy of a mourning mother?&nbsp;&nbsp;<br>What has she received that she must give?</p><p>Must we give if we must receive?&nbsp;<br>Who is giving what?</p><p>It seems love is a festival of lights</p><p>I’m too dark to comprehend</p><p>to every hand I ask for a dance I’m given a souvenir of regret&nbsp;</p><p>a souvenir I fear to pass on</p><p>In my attempts at tethering,&nbsp;<br>I have loved many;&nbsp;<br>People	 	country		ghosts&nbsp;<br>I must’ve grown bald in my knowledge of what love means-&nbsp;<br>I do not know what love means<br>is it inconvenience or a NAT-GEO documentary about two old pigeons or cancer:&nbsp;<br>gluttonous, eating you slowly until there’s nothing left to eat so it feeds on itself.&nbsp;&nbsp;<br>It is healthier to love what cannot love you back<br>zero expectations&nbsp;</p><p>[BRIEF PAUSE]</p><p>Is it possible to love what cannot love you back?<br>what are the properties of healing?<br>the possibilities of being called beloved&nbsp;<br>of being held by a lifeless body&nbsp;<br>by a lifeless boy&nbsp;</p><p>the boy’s breath saw his mother weep&nbsp;<br>the boy’s breath saw his mother<br>the boy’s breath saw<br>the boy’s breath<br>the boy</p><p></p><p></p><p></p><p>ALL- the boy&nbsp;</p><p>OFEM- who rehearses a smile and puts on a show</p><p>ALL- the boy:&nbsp;</p><p>OFEM- alumni of a gun finger</p><p>ALL- the boy:&nbsp;</p><p>OFEM- smoke by birth</p><p>ALL- the boy:&nbsp;</p><p>OFEM- right crown on right head</p><p>ALL- the boy:&nbsp;</p><p>OFEM- blade of grass</p><p>ALL- the boy:&nbsp;</p><p>OFEM- chief of staff</p><p>ALL- the boy:&nbsp;</p><p>OFEM- Poseidon</p><p>ALL- the boy&nbsp;</p><p>OFEM- blue boy<br>the boy who blew<br>the boy who got blown away<br>the boy who left with no valediction</p><p>whose blood now quizzes God:</p><p>do you see my dirge a rite of passage?</p><p>a new kind of wailing<br>a naming ceremony&nbsp;</p><p>and the world crowns you a curator of this blood exhibition<br>having taken a swab of your name to ascertain your guilt<br>tell me<br>is this your house-style?<br>Say something</p><p>[BRIEF PAUSE]</p><p>Silence is the condensed form of presence.&nbsp;</p>
+Infoscript: 
 
 ----
 
@@ -107,6 +107,14 @@ Robotssnippet: true
 ----
 
 Metainherit: 
+
+----
+
+Typeslideshowaudiofile: 
+
+----
+
+Typeslideshowimagefiles: 
 
 ----
 

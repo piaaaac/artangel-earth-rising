@@ -4,12 +4,17 @@ $ass = $kirby->url("assets");
 
 <?php snippet("header") ?>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <?= $page->text()->kt() ?>
-    </div>
+<main>
+  <div class="kt-container py-3">
+    <?= $page->blocks()->toBlocks() ?>
   </div>
-</div>
+</main>
+
+<script>
+  const wui = new WebUI();
+  const app = new App(wui, null, null);
+</script>
+
+<?php snippet("nav") ?>
 
 <?php snippet("footer") ?>

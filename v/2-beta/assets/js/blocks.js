@@ -1,12 +1,13 @@
-// ----------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // Block: accordion
-// ----------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 class Accordion {
   constructor(element) {
     this.accordion = element;
     this.items = this.accordion.querySelectorAll(".accordion-item");
     this.init();
+    this.accordion.dataset.initialized = "true";
   }
 
   init() {
@@ -50,6 +51,20 @@ class Accordion {
       arrow.classList.remove("active");
     });
   }
+}
+
+// ----------------------------------------------------------------------------
+// Utility functions
+// ----------------------------------------------------------------------------
+
+function initNewAccordions() {
+  const accordions = document.querySelectorAll(
+    ".accordion[data-initialized=false]"
+  );
+  accordions.forEach((accordionElement) => {
+    const acc = new Accordion(accordionElement);
+    console.log(acc);
+  });
 }
 
 // // Initialize accordion when DOM is loaded

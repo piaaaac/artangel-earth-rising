@@ -141,7 +141,7 @@ body {
   }
   &[data-menu-panel="true"],
   &[data-about-panel="true"] {
-    #main-content {
+    main {
       // filter: blur(15px);
       opacity: 0.1;
     }
@@ -161,7 +161,7 @@ a {
   text-decoration-thickness: 1px;
   text-underline-offset: 10%;
   color: inherit;
-  &:hover {
+  &:not(.no-color):not(.track):hover {
     color: white;
     color: var(--stars-color, $c-whiteish);
   }
@@ -219,8 +219,20 @@ ul {
 }
 
 // -----------------------------------------------------------------------------
-// SPECIFIC - PANELS
+// ANIMATIONS
 // -----------------------------------------------------------------------------
+
+@keyframes animation-float {
+  0% {
+    translate: 0 0px;
+  }
+  50% {
+    translate: 0 -20px;
+  }
+  100% {
+    translate: 0 0px;
+  }
+}
 
 @keyframes animateCircleOut {
   from {
@@ -295,9 +307,21 @@ ul {
   }
 }
 
+@keyframes bgPan4k {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: $bg-img-w * 3;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// MAIN AREA
+// -----------------------------------------------------------------------------
+
 body[data-player-playing="true"]:not([data-player-loading="true"]) {
-  &[data-track-type="video"],
-  &[data-track-type="slideshow"] {
+  &[data-track-type="video"] {
     main#main-content[data-player-controls-hidden="true"] {
       #player-ui-buttons {
         opacity: 0;
@@ -309,378 +333,406 @@ body[data-player-playing="true"]:not([data-player-loading="true"]) {
   }
 }
 
-main#main-content {
+main {
   z-index: 29;
   position: fixed;
-  top: var(--ui-space);
-  left: var(--ui-space);
-  right: var(--ui-space);
-  bottom: var(--ui-space);
-  transition: all $transition-duration;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  #backgrounds {
-    #bg-layer1,
-    #bg-layer2,
-    #color-cover {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-    #bg-layer1,
-    #bg-layer2 {
-      z-index: 30;
-      background-size: #{$bg-img-w} #{$bg-img-h}; // half of the original image size
-      background-image: url(../images/test-bg-l.gif);
-      opacity: 0;
-      transition: opacity $transition-duration-slow,
-        transform $transition-duration-slow;
-
-      // ---
-
-      // @at-root body[data-circle-animation-stage=""] & {
-      //   // background-color: red;
-      //   transform: scale(1);
-      //   opacity: 1;
-      // }
-
-      // @at-root body[data-circle-animation-stage="1"] & {
-      //   // background-color: green;
-      //   transform: scale(1.4);
-      //   opacity: 0;
-      // }
-      @at-root body[data-circle-animation-stage="2"] & {
-        // background-color: blue;
-        transform: scale(0.8);
-        opacity: 0;
-      }
-
-      // ---
-
-      @at-root body[data-circle-animation-stage=""][data-track-type="audio"]:not(
-            [data-track-open=""]
-          )
-          & {
-        opacity: 1;
-      }
-      @at-root body[data-circle-animation-stage=""][data-player-playing="false"]
-          & {
-        animation-play-state: paused;
-      }
-      @at-root body[data-circle-animation-stage=""][data-player-loading="true"]
-          & {
-        animation-play-state: paused;
-      }
-
-      // ---
-    }
-    #bg-layer1 {
-      animation: bgPan 200s linear infinite;
-      background-position-y: 0%;
-      @at-root body[data-circle-animation-stage="1"] & {
-        // background-color: green;
-        transform: scale(1.2);
-        opacity: 0;
-      }
-    }
-    #bg-layer2 {
-      animation: bgPan 450s linear infinite;
-      background-position-y: 100%;
-      @at-root body[data-circle-animation-stage="1"] & {
-        // background-color: green;
-        transform: scale(1);
-        opacity: 0;
-      }
-      @at-root body[data-circle-animation-stage=""][data-track-type="audio"]:not(
-            [data-track-open=""]
-          )
-          & {
-        opacity: 0.7;
-      }
-    }
-    #color-cover {
-      z-index: 31;
-      background-color: black;
-      pointer-events: none;
-      // transition: all 800ms $transition-duration;
-      // transition: all $transition-duration;
-      transition: all 200ms;
-      mix-blend-mode: multiply;
-      @at-root body:not([data-track-type="audio"]) & {
-        opacity: 0 !important;
-      }
-      @at-root body[data-track-type="audio"][data-track-open=""] & {
-        opacity: 0;
-      }
-    }
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // top: var(--ui-space);
+  // left: var(--ui-space);
+  // right: var(--ui-space);
+  // bottom: var(--ui-space);
+  &:not(#main-content) {
+    overflow-y: auto;
   }
-  #media-container {
-    z-index: 29;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
+  &#main-content {
     transition: all $transition-duration;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-color: black;
-    video {
-      max-width: 100%;
-      max-height: 100%;
-    }
-    .plyr--audio {
-      // opacity: 0.05;
-    }
-    @at-root body[data-track-type="video"] &.darken {
-      opacity: 0.3;
-    }
-    @at-root body[data-track-type="video"][data-player-playing="false"] & {
-      opacity: 0.3;
-    }
-    @at-root body[data-track-open=""] & {
-      opacity: 0 !important;
-    }
-  }
-  #circle-wrapper {
-    mix-blend-mode: lighten;
-    z-index: 30;
-    z-index: 60;
-    transition: all 1200ms;
-    pointer-events: none;
-
-    &.state-size-small {
-      transform: scale(0.1);
-      opacity: 0;
-      // transition: all 1.2s;
-    }
-    &.state-size-normal {
-      transform: scale(1);
-      opacity: 1;
-      // transition: all 1.2s;
-    }
-    &.state-size-large {
-      transform: scale(3);
-      opacity: 0;
-      // transition: all 1.2s;
-    }
-
-    @include media-breakpoint-up(md) {
-      width: calc(100vmin - var(--ui-space) * 3);
-      height: calc(100vmin - var(--ui-space) * 3);
-      max-width: 60vw;
-      max-height: 60vw;
-    }
-
-    #circle-dot {
-      // display: none;
-      z-index: 60;
-      pointer-events: all;
-      border-radius: 50%;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      cursor: pointer;
-      transition: all 500ms;
-      aspect-ratio: 1/1;
-      border: 1px solid $c-whiteish;
-      &.starting-point {
-        width: 20px;
-        height: 20px;
-        background-color: $c-whiteish;
-        &:not(.forced-start):hover {
-          width: 25vmin;
-          height: 25vmin;
-          background-color: transparent;
-        }
+    align-items: center;
+    #backgrounds {
+      #bg-layer1,
+      #bg-layer2,
+      #color-cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
       }
-      &.zoom-in {
-        animation: animateCircleIn 1s forwards;
-      }
-      &.zoom-out {
-        pointer-events: none;
-        // width: 80vh;
-        // height: 80vh;
-        width: calc(75vmin - 80px);
-        height: calc(75vmin - 80px);
-        background-color: transparent;
-        animation: animateCircleOut 2s;
-      }
-      @at-root body:not([data-track-open=""]) & {
+      #bg-layer1,
+      #bg-layer2 {
+        z-index: 30;
+        background-size: #{$bg-img-w} #{$bg-img-h}; // half of the original image size
+        background-image: url(../images/test-bg-l.gif);
         opacity: 0;
-        pointer-events: none;
-      }
-    }
-    #circle-time {
-      animation: animation-rotate 12s infinite linear;
-      display: flex;
+        transition: opacity $transition-duration-slow,
+          transform $transition-duration-slow;
 
-      // transform: scale(0.1);
-      // opacity: 0;
-      // transition: none;
+        // ---
 
-      @at-root body[data-player-playing="false"] & {
-        animation-play-state: paused;
+        // @at-root body[data-circle-animation-stage=""] & {
+        //   // background-color: red;
+        //   transform: scale(1);
+        //   opacity: 1;
+        // }
+
+        // @at-root body[data-circle-animation-stage="1"] & {
+        //   // background-color: green;
+        //   transform: scale(1.4);
+        //   opacity: 0;
+        // }
+        @at-root body[data-circle-animation-stage="2"] & {
+          // background-color: blue;
+          transform: scale(0.8);
+          opacity: 0;
+        }
+
+        // ---
+
+        @at-root body[data-circle-animation-stage=""][data-track-type="audio"]:not(
+              [data-track-open=""]
+            )
+            & {
+          opacity: 1;
+        }
+        @at-root body[data-circle-animation-stage=""][data-player-playing="false"]
+            & {
+          animation-play-state: paused;
+        }
+        @at-root body[data-circle-animation-stage=""][data-player-loading="true"]
+            & {
+          animation-play-state: paused;
+        }
+
+        // ---
       }
-      @at-root body[data-player-loading="true"] & {
-        animation-play-state: paused;
-      }
-      &.clean {
-        text,
-        rect {
+      #bg-layer1 {
+        animation: bgPan 200s linear infinite;
+        background-position-y: 0%;
+        @at-root body[data-circle-animation-stage="1"] & {
+          // background-color: green;
+          transform: scale(1.2);
           opacity: 0;
         }
       }
-      svg {
-        width: 100%;
-        height: 100%;
-        vector-effect: non-scaling-stroke;
+      #bg-layer2 {
+        animation: bgPan 450s linear infinite;
+        background-position-y: 100%;
+        @at-root body[data-circle-animation-stage="1"] & {
+          // background-color: green;
+          transform: scale(1);
+          opacity: 0;
+        }
+        @at-root body[data-circle-animation-stage=""][data-track-type="audio"]:not(
+              [data-track-open=""]
+            )
+            & {
+          opacity: 0.7;
+        }
+      }
+      #color-cover {
+        z-index: 31;
+        background-color: black;
+        pointer-events: none;
+        // transition: all 800ms $transition-duration;
+        // transition: all $transition-duration;
+        transition: all 200ms;
+        mix-blend-mode: multiply;
+        @at-root body:not([data-track-type="audio"]) & {
+          opacity: 0 !important;
+        }
+        @at-root body[data-track-type="audio"][data-track-open=""] & {
+          opacity: 0;
+        }
+      }
+    }
+    #media-container {
+      z-index: 29;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      transition: all $transition-duration;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      video {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .plyr--audio {
+        // opacity: 0.05;
+      }
+      @at-root body[data-track-type="video"] &.darken {
+        opacity: 0.5;
+      }
+      @at-root body[data-track-type="video"][data-player-playing="false"] & {
+        opacity: 0.5;
+      }
+      @at-root body[data-track-open=""] & {
+        opacity: 0 !important;
+      }
+    }
+    #circle-wrapper {
+      mix-blend-mode: lighten;
+      z-index: 30;
+      z-index: 60;
+      transition: all 1200ms;
+      pointer-events: none;
+
+      &.state-size-small {
+        transform: scale(0.1);
+        opacity: 0;
+        // transition: all 1.2s;
+      }
+      &.state-size-normal {
+        transform: scale(1);
+        opacity: 1;
+        // transition: all 1.2s;
+      }
+      &.state-size-large {
+        transform: scale(3);
+        opacity: 0;
+        // transition: all 1.2s;
       }
 
-      path#circlePath {
-        stroke: $c-whiteish;
-        stroke-width: 0.4px;
-        @include media-breakpoint-up(md) {
-          stroke-width: 0.2px;
+      @include media-breakpoint-up(md) {
+        width: calc(100vmin - var(--ui-space) * 3);
+        height: calc(100vmin - var(--ui-space) * 3);
+        max-width: 60vw;
+        max-height: 60vw;
+      }
+
+      #circle-dot {
+        // display: none;
+        z-index: 60;
+        pointer-events: all;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        transition: all 500ms;
+        aspect-ratio: 1/1;
+        border: 1px solid $c-whiteish;
+        &.starting-point {
+          width: 20px;
+          height: 20px;
+          background-color: $c-whiteish;
+          animation: animation-float 6s ease-in-out infinite;
+          &:not(.forced-start):hover {
+            width: 25vmin;
+            height: 25vmin;
+            background-color: transparent;
+            // translate: 0 0 !important;
+            animation-play-state: paused;
+          }
         }
-        fill: none;
+        &.zoom-in {
+          animation: animateCircleIn 1s forwards;
+        }
+        &.zoom-out {
+          pointer-events: none;
+          // width: 80vh;
+          // height: 80vh;
+          width: calc(75vmin - 80px);
+          height: calc(75vmin - 80px);
+          background-color: transparent;
+          animation: animateCircleOut 2s;
+        }
+        @at-root body:not([data-track-open=""]) & {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+      #circle-time {
+        animation: animation-rotate 12s infinite linear;
+        display: flex;
+
+        // transform: scale(0.1);
+        // opacity: 0;
+        // transition: none;
+
+        @at-root body[data-player-playing="false"] & {
+          animation-play-state: paused;
+        }
         @at-root body[data-player-loading="true"] & {
-          animation: animation-blink-loading 0.8s infinite linear;
+          animation-play-state: paused;
         }
-      }
-
-      rect.one,
-      rect.two {
-        transition: all 100ms;
-        fill: black;
-        stroke: none;
-      }
-
-      text {
-        transition: all 100ms;
-        transform: translate(-2px, 0px);
-        font-size: 5px;
-        font-family: sans-serif;
-        fill: $c-whiteish;
-        letter-spacing: 0.5px;
-        stroke: black;
-        @include font-serif-l;
-        font-size: 10px !important;
-        font-weight: 200;
-        paint-order: stroke fill;
-        #time-current,
-        #time-duration {
-          font-variant-numeric: tabular-nums;
+        &.clean {
+          text,
+          rect {
+            opacity: 0;
+          }
         }
-        #time-current {
+        svg {
+          width: 100%;
+          height: 100%;
+          vector-effect: non-scaling-stroke;
+        }
+
+        path#circlePath {
+          stroke: $c-whiteish;
+          stroke-width: 0.4px;
+          @include media-breakpoint-up(md) {
+            stroke-width: 0.2px;
+          }
+          fill: none;
           @at-root body[data-player-loading="true"] & {
             animation: animation-blink-loading 0.8s infinite linear;
           }
         }
-      }
-    }
-  }
 
-  #player-ui-buttons {
-    z-index: 40;
-    position: fixed;
-    top: 30vh;
-    transition: opacity 666ms;
+        rect.one,
+        rect.two {
+          transition: all 100ms;
+          fill: black;
+          stroke: none;
+        }
 
-    #next-track,
-    #prev-track {
-      position: fixed;
-      bottom: calc(var(--ui-space) + 20px);
-      background-color: transparent;
-      height: var(--ui-space);
-      cursor: pointer;
-      display: flex;
-    }
-    #next-track {
-      right: calc(var(--ui-space) + 20px);
-      @include media-breakpoint-up(md) {
-        top: calc(50% - var(--ui-space) / 2);
-        right: calc(2vw + var(--ui-space));
-      }
-    }
-    #prev-track {
-      left: calc(var(--ui-space) + 20px);
-      @include media-breakpoint-up(md) {
-        top: calc(50% - var(--ui-space) / 2);
-        left: calc(2vw + var(--ui-space));
-      }
-    }
-    #play-pause-button {
-      background-color: transparent;
-      transition: opacity $transition-duration 400ms;
-      // @include font-serif-l;
-      // @include media-breakpoint-up(md) {
-      //   font-size: 60px;
-      //   font-size: 7vmin;
-      // }
-      font-size: 0;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: $c-whiteish;
-      &::after {
-        content: "";
-        display: inline-block;
-        width: var(--ui-space);
-        height: var(--ui-space);
-        background-image: url(../images/icon-pause.svg);
-        background-size: contain;
-        background-position: center center;
-        background-repeat: no-repeat;
-        font-size: 0;
-      }
-      @at-root body[data-player-playing="false"] & {
-        &::after {
-          background-image: url(../images/icon-play.svg);
+        text {
+          transition: all 100ms;
+          transform: translate(-2px, 0px);
+          font-size: 5px;
+          font-family: sans-serif;
+          fill: $c-whiteish;
+          letter-spacing: 0.5px;
+          stroke: black;
+          @include font-serif-l;
+          font-size: 10px !important;
+          font-weight: 200;
+          paint-order: stroke fill;
+          #time-current,
+          #time-duration {
+            font-variant-numeric: tabular-nums;
+          }
+          #time-current {
+            @at-root body[data-player-loading="true"] & {
+              animation: animation-blink-loading 0.8s infinite linear;
+            }
+          }
         }
       }
-      @at-root body[data-circle-animating="true"] & {
-        transition: none;
-        opacity: 0;
-      }
-      // @at-root body[data-player-loading="true"] & {
-      //   &::after {
-      //     // background-image: url(../images/icon-loading.svg);
-      //     // animation: animation-loading 6s infinite linear;
-      //     animation: animation-blink-loading 0.8s infinite linear;
-      //   }
-      // }
     }
-    #fullscreen-button {
+
+    #player-ui-buttons {
+      z-index: 40;
       position: fixed;
-      background-color: transparent;
-      right: calc(var(--ui-space) + 20px);
-      top: calc(var(--ui-space) + 20px);
-      width: var(--ui-space);
-      height: var(--ui-space);
-      img {
-        width: 100%;
-        height: 100%;
+      top: 30vh;
+      transition: opacity 666ms;
+
+      #next-track,
+      #prev-track {
+        position: fixed;
+        bottom: calc(var(--ui-space) + 20px);
+        background-color: transparent;
+        height: var(--ui-space);
+        cursor: pointer;
+        display: flex;
       }
-      @include media-breakpoint-up(md) {
-        top: auto;
-        right: calc(2vw + var(--ui-space));
-        bottom: calc(2vw + var(--ui-space));
+      #next-track {
+        right: calc(var(--ui-space) + 20px);
+        @include media-breakpoint-up(md) {
+          top: calc(50% - var(--ui-space) / 2);
+          right: calc(2vw + var(--ui-space));
+        }
       }
-      @at-root body:not([data-track-type="video"]) & {
-        opacity: 0;
-        pointer-events: none;
+      #prev-track {
+        left: calc(var(--ui-space) + 20px);
+        @include media-breakpoint-up(md) {
+          top: calc(50% - var(--ui-space) / 2);
+          left: calc(2vw + var(--ui-space));
+        }
+      }
+      #play-pause-button {
+        background-color: transparent;
+        transition: opacity $transition-duration 400ms;
+        // @include font-serif-l;
+        // @include media-breakpoint-up(md) {
+        //   font-size: 60px;
+        //   font-size: 7vmin;
+        // }
+        font-size: 0;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $c-whiteish;
+        &::after {
+          content: "";
+          display: inline-block;
+          width: var(--ui-space);
+          height: var(--ui-space);
+          background-image: url(../images/icon-pause.svg);
+          background-size: contain;
+          background-position: center center;
+          background-repeat: no-repeat;
+          font-size: 0;
+        }
+        @at-root body[data-player-playing="false"] & {
+          &::after {
+            background-image: url(../images/icon-play.svg);
+          }
+        }
+        @at-root body[data-circle-animating="true"] & {
+          transition: none;
+          opacity: 0;
+        }
+        // @at-root body[data-player-loading="true"] & {
+        //   &::after {
+        //     // background-image: url(../images/icon-loading.svg);
+        //     // animation: animation-loading 6s infinite linear;
+        //     animation: animation-blink-loading 0.8s infinite linear;
+        //   }
+        // }
+      }
+      #fullscreen-button {
+        display: none;
+        position: fixed;
+        background-color: transparent;
+        right: calc(var(--ui-space) + 20px);
+        top: calc(var(--ui-space) + 20px);
+        width: var(--ui-space);
+        height: var(--ui-space);
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        @include media-breakpoint-up(md) {
+          top: auto;
+          right: calc(2vw + var(--ui-space));
+          bottom: calc(2vw + var(--ui-space));
+        }
+        @at-root body:not([data-track-type="video"]) & {
+          opacity: 0;
+          pointer-events: none;
+        }
       }
     }
   }
 }
+
+// #twinkle-canvas {
+//   z-index: 30;
+//   position: fixed;
+//   top: var(--ui-space);
+//   left: var(--ui-space);
+//   width: calc(100% - var(--ui-space) * 2);
+//   height: calc(100% - var(--ui-space) * 2);
+//   pointer-events: none;
+//   // background-color: rgba(red, 0.2);
+// }
+
+// -----------------------------------------------------------------------------
+// PANELS
+// -----------------------------------------------------------------------------
 
 #track-info-dsk-l,
 #track-info-dsk-r {
@@ -849,7 +901,7 @@ main#main-content {
       background-color: $c-whiteish;
       margin-right: 0.3em;
       animation: animation-blink-simple 1s infinite;
-      color: inherit;
+      // background-color: var(--stars-color);
     }
   }
   .line {
@@ -989,7 +1041,7 @@ main#main-content {
     left: 50%;
     width: 0;
   }
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     flex-flow: column nowrap;
     .about-content,
     .credits-content {
@@ -1030,8 +1082,8 @@ main#main-content {
 }
 
 .accordion-item {
-  border-top: 1px solid $c-whiteish;
-  border-bottom: 1px solid $c-whiteish;
+  border-top: var(--border-width) solid $c-whiteish;
+  border-bottom: var(--border-width) solid $c-whiteish;
   // &:last-child {
   //   border-bottom: none;
   // }
@@ -1043,7 +1095,7 @@ main#main-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 24px;
+    padding: 15px 24px;
     // background: white;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -1141,6 +1193,8 @@ main#main-content {
   position: fixed;
   left: var(--ui-space);
   right: var(--ui-space);
+  left: 0;
+  right: 0;
   height: var(--ui-space);
   transition: all $transition-duration;
   display: flex;
@@ -1221,12 +1275,12 @@ main#main-content {
   }
 }
 #button-wrapper-bottom-left {
-  z-index: 49;
+  z-index: 51;
   bottom: 0;
   left: 0;
 }
 #button-wrapper-bottom-right {
-  z-index: 49;
+  z-index: 51;
   bottom: 0;
   right: 0;
 }
@@ -1286,6 +1340,136 @@ main#main-content {
     opacity: 0;
   }
 }
+
+// ------------------------------------------------------------------------
+// COMPLEX STATES
+// ------------------------------------------------------------------------
+
+body[data-video-hide-ui="true"] {
+  &[data-track-type="video"] {
+    &[data-player-playing="true"] {
+      &:not(body[data-player-loading="true"]) {
+        &:not(body[data-about-panel="true"]) {
+          &:not(body[data-accessibility-panel="true"]) {
+            &:not(body[data-artangel-panel="true"]) {
+              &:not(body[data-menu-panel="true"]) {
+                &:not(body[data-track-info="true"]) {
+                  cursor: none;
+
+                  #ui-line-top,
+                  #top-txt {
+                    top: calc(0px - var(--ui-space) - 10px);
+                  }
+                  #track-info-dsk-r,
+                  #track-info-dsk-l {
+                    span.button-wrapper {
+                      bottom: calc(0px - var(--ui-space) - 10px);
+                    }
+                  }
+                  #track-info-dsk-r {
+                    right: -51%;
+                  }
+                  #track-info-dsk-l {
+                    left: -51%;
+                  }
+                  #ui-line-right {
+                    right: calc(0px - var(--ui-space) - 10px);
+                  }
+                  #ui-line-left {
+                    left: calc(0px - var(--ui-space) - 10px);
+                  }
+                  #ui-line-bottom,
+                  #bottom-txt,
+                  #bottom-txt-about {
+                    bottom: calc(0px - var(--ui-space) - 10px);
+                  }
+                  #button-wrapper-top-left {
+                    translate: calc(0px - var(--ui-space) - 10px)
+                      calc(0px - var(--ui-space) - 10px);
+                  }
+                  #button-wrapper-top-right {
+                    translate: calc(var(--ui-space) + 10px)
+                      calc(0px - var(--ui-space) - 10px);
+                  }
+                  #button-wrapper-bottom-left {
+                    translate: calc(0px - var(--ui-space) - 10px)
+                      calc(var(--ui-space) + 10px);
+                  }
+                  #button-wrapper-bottom-right {
+                    translate: calc(var(--ui-space) + 10px)
+                      calc(var(--ui-space) + 10px);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 3000px) {
+  :root {
+    --ui-space: 135px;
+    --border-width: 2px;
+  }
+  a,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: calc(var(--ui-space) * 0.35) !important;
+  }
+  a.track {
+    line-height: 2em !important;
+  }
+
+  main#main-content {
+    #backgrounds {
+      #bg-layer1,
+      #bg-layer2 {
+        background-size: #{$bg-img-w * 3} #{$bg-img-h * 3}; // Back to original image size
+        animation-name: bgPan4k;
+      }
+      #bg-layer2 {
+        background-position-y: -#{$bg-img-h};
+        scale: -1 1;
+      }
+    }
+    #circle-wrapper #circle-dot.starting-point {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+// ------------------------------------------------------------------------
+// Body states recap
+// ------------------------------------------------------------------------
+/* 
+// panels
+body[data-about-panel]
+body[data-accessibility-panel]
+body[data-artangel-panel]
+body[data-menu-panel]
+body[data-track-info]
+
+// functional state
+body[data-current-uid]
+body[data-track-open]
+body[data-track-type]
+
+// effects
+body[data-circle-animating]
+body[data-circle-animation-stage]
+body[data-player-loading]
+body[data-player-playing]
+body[data-video-hide-ui]
+*/
 
 // ------------------------------------------------------------------------
 // Layout

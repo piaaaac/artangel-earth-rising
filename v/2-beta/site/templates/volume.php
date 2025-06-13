@@ -5,10 +5,6 @@
  * @param $trackUid - from controller, from route
  * */
 
-$aboutPage = page("about");
-$creditsPage = page("credits");
-$artangelPage = page("artangel-panel");
-
 // Prepare data to pass to js
 $data = [];
 $i = 0;
@@ -17,7 +13,7 @@ foreach ($page->children()->listed() as $key => $track) {
   // $item = $track->content()->toArray();
   $item["title"] = $track->title()->value();
   $item["artist"] = $track->artist()->value();
-  $item["uicolor"] = $track->uiColor()->value();
+  $item["uiColor"] = $track->uiColor()->value();
   $item["index"] = $i;
   $item["id"] = $track->id();
   $item["uid"] = $track->uid();
@@ -25,8 +21,10 @@ foreach ($page->children()->listed() as $key => $track) {
   $item["url"] = $track->url();
   $item["infoartist"] = $track->infoArtist()->value();
   $item["infoscript"] = $track->infoScript()->value();
+  $item["blocksLeft"] = $track->blocksLeft()->toBlocks()->toHtml();
+  $item["blocksRight"] = $track->blocksRight()->toBlocks()->toHtml();
   $item["trackType"] = $track->trackType()->value();
-  $item["slideshowFilesUrls"] = [];
+  // $item["slideshowFilesUrls"] = [];
 
   // Prepare media-specific data for Plyr
   $item["media"] = [];
@@ -37,15 +35,15 @@ foreach ($page->children()->listed() as $key => $track) {
     if ($fileAudio) {
       $item["media"]["audioFileUrl"] = $fileAudio->url();
     }
-  } elseif ($trackType === "slideshow") {
-    $item["media"]["type"] = "audio";
-    $fileAudio = $track->typeSlideshowAudioFile()->toFile();
-    if ($fileAudio) {
-      $item["media"]["audioFileUrl"] = $fileAudio->url();
-    }
-    foreach ($track->typeSlideshowImageFiles()->toFiles() as $image) {
-      $item["slideshowFilesUrls"][] = $image->url();
-    }
+    // } elseif ($trackType === "slideshow") {
+    //   $item["media"]["type"] = "audio";
+    //   $fileAudio = $track->typeSlideshowAudioFile()->toFile();
+    //   if ($fileAudio) {
+    //     $item["media"]["audioFileUrl"] = $fileAudio->url();
+    //   }
+    //   foreach ($track->typeSlideshowImageFiles()->toFiles() as $image) {
+    //     $item["slideshowFilesUrls"][] = $image->url();
+    //   }
   } elseif ($trackType === "video") {
     $item["media"]["type"] = "video";
     $fileMp4 = $track->typeVideoSourceMp4()->toFile();
@@ -78,34 +76,6 @@ $json = json_encode($data);
   console.log("currentVolume", currentVolume);
 </script>
 
-<nav id="menu-panel">
-  <?php snippet("tracklist", ["tracksPage" => $page]) ?>
-  <div class="line"></div>
-</nav>
-
-<nav id="accessibility-panel">
-  <ul>
-    <li class="my-4"><a href="#" class="font-serif-l">High contrast OFF</a></li>
-    <li class="my-4"><a href="#" class="font-serif-l">Text size + -</a></li>
-    <li class="my-4"><a href="#" class="font-serif-l">Animations ON</a></li>
-  </ul>
-</nav>
-
-<nav id="artangel-panel">
-  <div class="kt-container">
-    <?= $artangelPage->blocks()->toBlocks() ?>
-  </div>
-</nav>
-
-<nav id="about-panel">
-  <div class="about-content kt-container">
-    <?= $aboutPage->blocks()->toBlocks() ?>
-  </div>
-  <div class="credits-content kt-container">
-    <?= $creditsPage->blocks()->toBlocks() ?>
-  </div>
-  <div class="line"></div>
-</nav>
 
 <main id="main-content">
   <div id="backgrounds">
@@ -151,13 +121,45 @@ $json = json_encode($data);
   </div>
 </main>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // cp = new CustomPlyr("media-container");
-    // cp.loadNewTrack("video", testMp4Url1, testPosterUrl1);
-  });
-</script>
+<!-- <canvas id="twinkle-canvas"></canvas> -->
+
 
 <?php snippet("nav") ?>
+
+<script type="text/javascript" src="<?= $kirby->url("assets") ?>/lib/plyr-3.7.8/dist/plyr.js"></script>
+<script>
+  // Initialize objects
+  const wui = new WebUI();
+  const pc = new PlayerController("media-container");
+  const pui = new PlayerUI(pc, {
+    prevBtn: document.getElementById("prev-track"),
+    playBtn: document.getElementById("play-pause-button"),
+    nextBtn: document.getElementById("next-track"),
+    fullscreenBtn: document.getElementById("fullscreen-button"),
+  });
+  const app = new App(wui, pui, tracks);
+
+  // From url: route > controller > template volume.php
+  if (initialTrackUid) {
+    var track = tracks.find((t) => t.uid === initialTrackUid);
+    var index = tracks.findIndex((t) => t.uid === initialTrackUid);
+    console.log(`Track passed via url: ${index}`, track);
+    app.openTrack(index);
+  }
+</script>
+
+<script>
+  // ----------------------------------------------------------------------------
+  // // TwinklingStars
+  // // Initialization
+  // const canvas = document.getElementById('twinkle-canvas');
+  // window.twinkler = new TwinklingStars(canvas);
+  // window.twinkler.setHomeMode();
+
+  // // UI controls
+  // const toggleBtn = document.getElementById('toggle');
+  // const areaToggle = document.getElementById('areaToggle');
+  // ----------------------------------------------------------------------------
+</script>
 
 <?php snippet("footer") ?>
