@@ -16,9 +16,15 @@ $artangelPage = page("artangel-panel");
 
 <nav id="accessibility-panel">
   <ul>
-    <li class="my-4"><a href="#" class="font-serif-l">High contrast OFF</a></li>
-    <li class="my-4"><a href="#" class="font-serif-l">Text size + -</a></li>
-    <li class="my-4"><a href="#" class="font-serif-l">Animations ON</a></li>
+    <li class="my-4">
+      <a class="accessibility-toggle no-color no-u" id="accessibility-link-contrast" href="#" onclick="wui.toggleAccessibilityProperty('accessHighContrast');" class="font-serif-l">High contrast</a>
+    </li>
+    <li class="my-4">
+      <a class="accessibility-toggle no-color no-u" id="accessibility-link-size" href="#" onclick="wui.toggleAccessibilityProperty('accessTxtSize');" class="font-serif-l">Large text</a>
+    </li>
+    <li class="my-4">
+      <a class="accessibility-toggle no-color no-u" id="accessibility-link-animations" href="#" onclick="wui.toggleAccessibilityProperty('accessAnimationsOff');" class="font-serif-l">Disable animations</a>
+    </li>
   </ul>
 </nav>
 
@@ -49,7 +55,7 @@ $artangelPage = page("artangel-panel");
     </svg>
   </div>
   <!-- <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-r2l.svg" alt="Volume 1 Logo"> -->
-  <a class="only-dsk no-u no-color" href="<?= $site->url() ?>" onclick="wui.handleTitleClick(event);">
+  <a class="no-u no-color" href="<?= $site->url() ?>" onclick="wui.handleTitleClick(event);">
     <h1 class="mx-3 mb-0">EARTH RISING</h1>
   </a>
   <!-- <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-l2r.svg" alt="Volume 1 Logo"> -->
@@ -62,12 +68,16 @@ $artangelPage = page("artangel-panel");
   </div>
 </div>
 
-<div id="bottom-txt">
+<div id="bottom-txt-subtitle">
   <h2 class="only-dsk mb-0">Messages from the Pale Blue Dot</h2>
 </div>
 
 <div id="bottom-txt-about" role="button" onclick="wui.toggleAboutPanel()">
-  <h2 class="only-dsk mb-0">ABOUT & CREDITS</h2>
+  <h2 class="mb-0">ABOUT & CREDITS</h2>
+</div>
+
+<div id="bottom-txt-close" class="only-mob" onclick="wui.toggleAboutPanel()">
+  <h2 class="mb-0">Close</h2>
 </div>
 
 <!-- Buttons -->

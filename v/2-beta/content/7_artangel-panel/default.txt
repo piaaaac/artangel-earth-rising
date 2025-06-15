@@ -2,7 +2,7 @@ Title: Artangel panel
 
 ----
 
-Blocks: [{"content":{"text":"<p>&nbsp;</p><p>Artangel produces extraordinary art in unexpected places.&nbsp;<br>&nbsp;</p><p>Find us at<br><a href=\"http://artangel.org.uk\" target=\"_blank\">Artangel.org.uk</a>&nbsp;<br>&nbsp;</p><p>Follow our work by subscribing to our <a href=\"https://www.artangel.org.uk/about_us/newsletter/\" target=\"_blank\">newsletter</a> or following us on <a href=\"https://www.instagram.com/artangel_ldn/\" target=\"_blank\">Instagram</a>.</p>"},"id":"dbd77fb0-4f00-4434-b696-7a6a513c5313","isHidden":false,"type":"text"}]
+Blocks: [{"content":{"text":"<p>&nbsp;Artangel produces extraordinary art in unexpected places.&nbsp;<br>&nbsp;</p><p>Find us at<br><a href=\"http://artangel.org.uk\" target=\"_blank\">Artangel.org.uk</a>&nbsp;<br>&nbsp;</p><p>Follow our work by subscribing to our <a href=\"https://www.artangel.org.uk/about_us/newsletter/\" target=\"_blank\">newsletter</a> or following us on <a href=\"https://www.instagram.com/artangel_ldn/\" target=\"_blank\">Instagram</a>.</p>"},"id":"dbd77fb0-4f00-4434-b696-7a6a513c5313","isHidden":false,"type":"text"}]
 
 ----
 

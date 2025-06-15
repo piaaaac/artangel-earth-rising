@@ -38,14 +38,15 @@ $bg-img-h: 1080px;
 // CSS Variables
 // -----------------------------------------------------------------------------
 
-:root {
+html {
   --ui-space: #{$ui-space-mob};
   --border-width: #{$border-width-mob};
+  --c-whiteish: #{$c-whiteish};
+  --stars-color: unset;
   @include media-breakpoint-up(md) {
     --ui-space: #{$ui-space-dsk};
     --border-width: #{$border-width-dsk};
   }
-  --stars-color: unset;
 }
 
 // -----------------------------------------------------------------------------
@@ -129,11 +130,15 @@ $bg-img-h: 1080px;
   text-rendering: geometricPrecision; // OK on chrome
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
   overflow-x: hidden;
   width: 100vw;
   background-color: black;
-  color: $c-whiteish;
+  color: var(--c-whiteish);
   @include font-serif-l;
   text-align: center;
   &.media-open {
@@ -153,7 +158,7 @@ body {
 }
 
 hr {
-  border-top: var(--border-width) solid $c-whiteish;
+  border-top: var(--border-width) solid var(--c-whiteish);
 }
 
 a {
@@ -163,7 +168,7 @@ a {
   color: inherit;
   &:not(.no-color):not(.track):hover {
     color: white;
-    color: var(--stars-color, $c-whiteish);
+    color: var(--stars-color, var(--c-whiteish));
   }
 }
 
@@ -204,6 +209,13 @@ ul {
     display: none !important;
   }
 }
+.button-wrapper,
+button {
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
 
 // -----------------------------------------------------------------------------
 // ACCESSIBILITY
@@ -212,7 +224,7 @@ ul {
 .focusable {
   &:focus,
   &:focus-visible {
-    box-shadow: 0px 0px 5px $c-whiteish;
+    box-shadow: 0px 0px 5px var(--c-whiteish);
     // outline-color: green;
     // outline-width: 5px;
   }
@@ -462,7 +474,10 @@ main {
       align-items: center;
       justify-content: center;
       background-color: black;
+      .plyr--video,
       video {
+        width: 100%;
+        height: 100%;
         max-width: 100%;
         max-height: 100%;
       }
@@ -521,11 +536,11 @@ main {
         cursor: pointer;
         transition: all 500ms;
         aspect-ratio: 1/1;
-        border: 1px solid $c-whiteish;
+        border: 1px solid var(--c-whiteish);
         &.starting-point {
           width: 20px;
           height: 20px;
-          background-color: $c-whiteish;
+          background-color: var(--c-whiteish);
           animation: animation-float 6s ease-in-out infinite;
           &:not(.forced-start):hover {
             width: 25vmin;
@@ -579,7 +594,7 @@ main {
         }
 
         path#circlePath {
-          stroke: $c-whiteish;
+          stroke: var(--c-whiteish);
           stroke-width: 0.4px;
           @include media-breakpoint-up(md) {
             stroke-width: 0.2px;
@@ -602,7 +617,7 @@ main {
           transform: translate(-2px, 0px);
           font-size: 5px;
           font-family: sans-serif;
-          fill: $c-whiteish;
+          fill: var(--c-whiteish);
           letter-spacing: 0.5px;
           stroke: black;
           @include font-serif-l;
@@ -634,6 +649,7 @@ main {
         bottom: calc(var(--ui-space) + 20px);
         background-color: transparent;
         height: var(--ui-space);
+        width: var(--ui-space);
         cursor: pointer;
         display: flex;
       }
@@ -664,7 +680,7 @@ main {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: $c-whiteish;
+        color: var(--c-whiteish);
         &::after {
           content: "";
           display: inline-block;
@@ -804,7 +820,7 @@ main {
     @include media-breakpoint-up(sm) {
       left: 0;
       .vertical-bar {
-        border-left: var(--border-width) solid $c-whiteish;
+        border-left: var(--border-width) solid var(--c-whiteish);
       }
     }
     .button-wrapper img {
@@ -835,7 +851,7 @@ main {
     @include media-breakpoint-up(sm) {
       right: 0;
       .vertical-bar {
-        border-right: var(--border-width) solid $c-whiteish;
+        border-right: var(--border-width) solid var(--c-whiteish);
       }
     }
     .button-wrapper img {
@@ -898,14 +914,14 @@ main {
       height: 0.7em;
       width: 0.7em;
       border-radius: 50%;
-      background-color: $c-whiteish;
+      background-color: var(--c-whiteish);
       margin-right: 0.3em;
       animation: animation-blink-simple 1s infinite;
       // background-color: var(--stars-color);
     }
   }
   .line {
-    border-left: var(--border-width) solid $c-whiteish;
+    border-left: var(--border-width) solid var(--c-whiteish);
     position: fixed;
     top: var(--ui-space);
     bottom: var(--ui-space);
@@ -938,7 +954,7 @@ main {
   z-index: 30;
   position: fixed;
   top: var(--ui-space);
-  width: 320px;
+  width: 400px;
   bottom: var(--ui-space);
   background-color: rgba(black, 0.9);
   padding: $space;
@@ -946,8 +962,24 @@ main {
   opacity: 0;
   pointer-events: none;
   transition: all $transition-duration;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .accessibility-toggle {
+    &::before {
+      display: inline-block;
+      border: 1px solid var(--c-whiteish);
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+      margin-right: 0.6rem;
+      position: relative;
+      top: 0.1rem;
+      content: "";
+    }
+  }
   &#accessibility-panel {
-    border-right: var(--border-width) solid $c-whiteish;
+    border-right: var(--border-width) solid var(--c-whiteish);
     left: var(--ui-space);
     @include media-breakpoint-down(md) {
       width: auto;
@@ -964,7 +996,7 @@ main {
     }
   }
   &#artangel-panel {
-    border-left: var(--border-width) solid $c-whiteish;
+    border-left: var(--border-width) solid var(--c-whiteish);
     right: var(--ui-space);
     @include media-breakpoint-down(md) {
       width: auto;
@@ -1034,7 +1066,7 @@ main {
     padding: $space;
   }
   .line {
-    border-left: var(--border-width) solid $c-whiteish;
+    border-left: var(--border-width) solid var(--c-whiteish);
     position: fixed;
     top: var(--ui-space);
     bottom: var(--ui-space);
@@ -1082,8 +1114,8 @@ main {
 }
 
 .accordion-item {
-  border-top: var(--border-width) solid $c-whiteish;
-  border-bottom: var(--border-width) solid $c-whiteish;
+  border-top: var(--border-width) solid var(--c-whiteish);
+  border-bottom: var(--border-width) solid var(--c-whiteish);
   // &:last-child {
   //   border-bottom: none;
   // }
@@ -1126,8 +1158,8 @@ main {
         content: "";
         width: 8px;
         height: 8px;
-        border-right: 1.5px solid $c-whiteish;
-        border-bottom: 1.5px solid $c-whiteish;
+        border-right: 1.5px solid var(--c-whiteish);
+        border-bottom: 1.5px solid var(--c-whiteish);
         transform: rotate(45deg);
         transition: inherit;
       }
@@ -1159,35 +1191,39 @@ main {
   }
   &.right {
     transform: scale(-1, 1);
+    @include media-breakpoint-down(xs) {
+      width: 60px;
+    }
   }
   svg {
     path.star {
       transition: all $transition-duration;
-      stroke: $c-whiteish;
+      stroke: var(--c-whiteish);
       stroke-width: 1.5px;
       opacity: 0.3;
       fill: none;
       @at-root body[data-current-uid="vol1"] &.star1 {
         opacity: 1;
-        fill: var(--stars-color, $c-whiteish);
-        stroke: var(--stars-color, $c-whiteish);
+        fill: var(--stars-color, var(--c-whiteish));
+        stroke: var(--stars-color, var(--c-whiteish));
       }
       @at-root body[data-current-uid="vol2"] &.star2 {
         opacity: 1;
-        fill: var(--stars-color, $c-whiteish);
-        stroke: var(--stars-color, $c-whiteish);
+        fill: var(--stars-color, var(--c-whiteish));
+        stroke: var(--stars-color, var(--c-whiteish));
       }
       @at-root body[data-current-uid="vol3"] &.star3 {
         opacity: 1;
-        fill: var(--stars-color, $c-whiteish);
-        stroke: var(--stars-color, $c-whiteish);
+        fill: var(--stars-color, var(--c-whiteish));
+        stroke: var(--stars-color, var(--c-whiteish));
       }
     }
   }
 }
 
 #top-txt,
-#bottom-txt,
+#bottom-txt-subtitle,
+#bottom-txt-close,
 #bottom-txt-about {
   z-index: 50;
   position: fixed;
@@ -1206,7 +1242,8 @@ main {
 #top-txt {
   top: 0;
 }
-#bottom-txt,
+#bottom-txt-subtitle,
+#bottom-txt-close,
 #bottom-txt-about {
   bottom: 0;
 }
@@ -1218,6 +1255,14 @@ main {
   }
   @at-root body[data-menu-panel="true"] & {
     opacity: 1;
+  }
+}
+#bottom-txt-close {
+  opacity: 0;
+  pointer-events: none;
+  body[data-about-panel="true"] & {
+    opacity: 1;
+    pointer-events: all;
   }
 }
 
@@ -1232,16 +1277,12 @@ main {
   justify-content: center;
   transition: all $transition-duration;
   overflow: hidden;
-  color: $c-whiteish;
+  color: var(--c-whiteish);
   button {
     background-color: transparent;
     &:not(.hamburger) {
       width: 100%;
     }
-  }
-  img {
-    width: 100%;
-    height: 100%;
   }
 }
 #button-wrapper-top-left,
@@ -1258,7 +1299,7 @@ main {
   @at-root body:not([data-track-open=""])[data-track-info="true"] & {
     @include media-breakpoint-up(sm) {
       left: calc(50% - var(--ui-space));
-      border-left: var(--border-width) solid $c-whiteish;
+      border-left: var(--border-width) solid var(--c-whiteish);
     }
   }
 }
@@ -1270,7 +1311,7 @@ main {
   @at-root body:not([data-track-open=""])[data-track-info="true"] & {
     @include media-breakpoint-up(sm) {
       right: calc(50% - var(--ui-space));
-      border-right: var(--border-width) solid $c-whiteish;
+      border-right: var(--border-width) solid var(--c-whiteish);
     }
   }
 }
@@ -1300,21 +1341,21 @@ main {
   left: 0;
   right: 0;
   height: var(--ui-space);
-  border-bottom: var(--border-width) solid $c-whiteish;
+  border-bottom: var(--border-width) solid var(--c-whiteish);
 }
 #ui-line-bottom {
   bottom: 0;
   left: 0;
   right: 0;
   height: var(--ui-space);
-  border-top: var(--border-width) solid $c-whiteish;
+  border-top: var(--border-width) solid var(--c-whiteish);
 }
 #ui-line-left {
   left: 0;
   top: 0;
   bottom: 0;
   width: var(--ui-space);
-  border-right: var(--border-width) solid $c-whiteish;
+  border-right: var(--border-width) solid var(--c-whiteish);
   @at-root body:not([data-track-open=""])[data-track-info="true"] & {
     @include media-breakpoint-up(sm) {
       left: calc(50% - var(--ui-space));
@@ -1327,7 +1368,7 @@ main {
   top: 0;
   bottom: 0;
   width: var(--ui-space);
-  border-left: var(--border-width) solid $c-whiteish;
+  border-left: var(--border-width) solid var(--c-whiteish);
   @at-root body:not([data-track-open=""])[data-track-info="true"] & {
     @include media-breakpoint-up(sm) {
       right: calc(50% - var(--ui-space));
@@ -1356,6 +1397,13 @@ body[data-video-hide-ui="true"] {
                 &:not(body[data-track-info="true"]) {
                   cursor: none;
 
+                  #play-pause-button,
+                  #prev-track,
+                  #next-track {
+                    pointer-events: none !important; // NOT WORKING, NOT SURE WHY
+                    // background-color: red;
+                    // border: 10px solid green;
+                  }
                   #ui-line-top,
                   #top-txt {
                     top: calc(0px - var(--ui-space) - 10px);
@@ -1379,7 +1427,7 @@ body[data-video-hide-ui="true"] {
                     left: calc(0px - var(--ui-space) - 10px);
                   }
                   #ui-line-bottom,
-                  #bottom-txt,
+                  #bottom-txt-subtitle,
                   #bottom-txt-about {
                     bottom: calc(0px - var(--ui-space) - 10px);
                   }
@@ -1447,6 +1495,39 @@ body[data-video-hide-ui="true"] {
   }
 }
 
+// Accessibility
+
+html[data-access-high-contrast="true"] {
+  .accessibility-toggle#accessibility-link-contrast::before {
+    background-color: var(--c-whiteish);
+  }
+  main#main-content #backgrounds #color-cover {
+    background-color: black !important;
+    mix-blend-mode: normal;
+  }
+  --c-whiteish: white;
+}
+html[data-access-txt-size="true"] {
+  .accessibility-toggle#accessibility-link-size::before {
+    background-color: var(--c-whiteish);
+  }
+  font-size: 130%;
+  @include media-breakpoint-down(xs) {
+    .stars.right {
+      display: none !important;
+    }
+  }
+}
+html[data-access-animations-off="true"] {
+  .accessibility-toggle#accessibility-link-animations::before {
+    background-color: var(--c-whiteish);
+  }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 // ------------------------------------------------------------------------
 // Body states recap
 // ------------------------------------------------------------------------
@@ -1469,6 +1550,11 @@ body[data-circle-animation-stage]
 body[data-player-loading]
 body[data-player-playing]
 body[data-video-hide-ui]
+
+// accessibility
+body[data-access-high-contrast]
+body[data-access-animations-off]
+html[data-access-txt-size]
 */
 
 // ------------------------------------------------------------------------

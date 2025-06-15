@@ -283,6 +283,16 @@ class WebUI {
     });
   }
 
+  toggleAccessibilityProperty(property, value) {
+    // Possible values
+    // accessHighContrast | accessTxtSize | accessAnimationsOff
+    if (value === undefined) {
+      value =
+        document.documentElement.dataset[property] === "true" ? false : true;
+    }
+    document.documentElement.dataset[property] = value;
+  }
+
   resetPlayerUI() {
     document.body.dataset.trackOpen = "";
     this.colorStars(null);
@@ -342,10 +352,10 @@ class WebUI {
     this.hamburgers.forEach((hamburger) => {
       hamburger.classList.toggle("is-active", false);
     });
-    document.body.dataset.accessibilityPanel = false;
-    document.body.dataset.artangelPanel = false;
     document.body.dataset.trackInfo = false;
     document.body.dataset.aboutPanel = false;
+    // document.body.dataset.accessibilityPanel = false;
+    // document.body.dataset.artangelPanel = false;
   }
 
   colorStars(color) {
