@@ -34,9 +34,14 @@ function formatTime(seconds) {
   return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
 }
 
+function goHome() {
+  const url = new URL(window.siteUrl);
+  document.location = url;
+}
+
 // --- url
 
-function setUrlHome() {
+function setUrlVolumeHome() {
   const url = new URL(window.siteUrl + "/" + currentVolume);
   history.pushState({}, "", url);
 }
@@ -189,7 +194,7 @@ class App {
   resetAlbum() {
     this.pui.toggleTrackPlay(false);
     this.wui.resetPlayerUI();
-    setUrlHome();
+    setUrlVolumeHome();
     this.closeTrack();
     // window.twinkler?.setHomeMode();
   }
@@ -237,8 +242,29 @@ class WebUI {
     this.circleTimeAnimate = document.querySelector("#circle-wrapper");
     this.main = document.querySelector("main");
     this.tracklistLinks = document.querySelectorAll("#menu-panel a.track");
-
     this.parentApp = null;
+    this.retrieveAccessibilityFeaturesState();
+  }
+
+  retrieveAccessibilityFeaturesState() {
+    const accessHighContrast = localStorage.getItem("accessHighContrast");
+    if (accessHighContrast === "true") {
+      this.toggleAccessibilityProperty("accessHighContrast", true);
+    } else {
+      this.toggleAccessibilityProperty("accessHighContrast", false);
+    }
+    const accessTxtSize = localStorage.getItem("accessTxtSize");
+    if (accessTxtSize === "true") {
+      this.toggleAccessibilityProperty("accessTxtSize", true);
+    } else {
+      this.toggleAccessibilityProperty("accessTxtSize", false);
+    }
+    const accessAnimationsOff = localStorage.getItem("accessAnimationsOff");
+    if (accessAnimationsOff === "true") {
+      this.toggleAccessibilityProperty("accessAnimationsOff", true);
+    } else {
+      this.toggleAccessibilityProperty("accessAnimationsOff", false);
+    }
   }
 
   // Passing false, null or undefined, the track UI is closed
@@ -295,6 +321,7 @@ class WebUI {
         document.documentElement.dataset[property] === "true" ? false : true;
     }
     document.documentElement.dataset[property] = value;
+    localStorage.setItem(property, value);
   }
 
   resetPlayerUI() {
@@ -483,6 +510,9 @@ class PlayerUI {
       that.showPlayerControls();
     });
     this.main.addEventListener("touchstart", () => {
+      that.showPlayerControls();
+    });
+    this.main.addEventListener("click", () => {
       that.showPlayerControls();
     });
   }

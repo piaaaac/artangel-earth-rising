@@ -18,6 +18,8 @@
 
   <?php snippet("ga") ?>
 
+  <link rel="preload" as="image" href="<?= $site->url() ?>/assets/images/test-bg-l.gif" />
+
 </head>
 
 <body

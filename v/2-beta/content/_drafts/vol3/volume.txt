@@ -1,4 +1,8 @@
-Title: Volume 2
+Title: Volume III
+
+----
+
+Volumeimage: - file://i68uj2n4ljsxnsfn
 
 ----
 
@@ -66,4 +70,4 @@ Metainherit:
 
 ----
 
-Uuid: e3kfpm2LiE5noVg8
+Uuid: LtjTSVmmfwn2lkeH

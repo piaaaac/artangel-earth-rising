@@ -217,6 +217,23 @@ button {
   }
 }
 
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  &.duration-1s {
+    animation-duration: 1s;
+  }
+  &.duration-2s {
+    animation-duration: 2s;
+  }
+  &.delay-1s {
+    animation-delay: 1s;
+  }
+  &.delay-2s {
+    animation-delay: 2s;
+  }
+}
+
 // -----------------------------------------------------------------------------
 // ACCESSIBILITY
 // -----------------------------------------------------------------------------
@@ -233,6 +250,12 @@ button {
 // -----------------------------------------------------------------------------
 // ANIMATIONS
 // -----------------------------------------------------------------------------
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 
 @keyframes animation-float {
   0% {
@@ -295,6 +318,30 @@ button {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes animation-blink-hint {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  77% {
+    opacity: 1;
+  }
+  84% {
+    opacity: 0;
+  }
+  91% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -542,6 +589,21 @@ main {
           height: 20px;
           background-color: var(--c-whiteish);
           animation: animation-float 6s ease-in-out infinite;
+          &::after {
+            content: "Click the dot to start";
+            pointer-events: none;
+            position: absolute;
+            top: calc(50% + 2.3em);
+            line-height: 1em;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: animation-blink-hint 6s infinite;
+            font-size: 1.1rem;
+            width: 200px;
+          }
+          &:hover::after {
+            content: "";
+          }
           &:not(.forced-start):hover {
             width: 25vmin;
             height: 25vmin;
@@ -710,7 +772,7 @@ main {
         // }
       }
       #fullscreen-button {
-        // display: none;
+        display: none;
 
         position: fixed;
         background-color: transparent;
@@ -789,6 +851,7 @@ main {
     position: relative;
     top: var(--ui-space);
     overflow-y: auto;
+    overflow-x: hidden;
     max-height: calc(100% - var(--ui-space) - var(--ui-space));
   }
   .button-wrapper {
@@ -1034,6 +1097,7 @@ main {
   right: var(--ui-space);
   height: calc(100% - var(--ui-space) - var(--ui-space));
   overflow-y: scroll;
+  overflow-x: hidden;
   opacity: 0;
   pointer-events: none;
   transition: all $transition-duration;
@@ -1110,6 +1174,55 @@ main {
     // padding-right: $space;
     // margin-top: 2.5em;
     margin-bottom: 0.7em;
+  }
+}
+
+.volume-selection-wrapper {
+  padding: var(--ui-space);
+  max-width: 2000px;
+  min-height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 150px calc(20px + var(--ui-space));
+  .item {
+    margin: 80px 0;
+    img.cover {
+      width: clamp(100px, 20vw, 500px);
+      aspect-ratio: 1/1 !important;
+      display: block;
+      border-radius: 50%;
+      border: var(--border-width) solid var(--c-whiteish);
+    }
+    &.disabled {
+      opacity: 0.25;
+      pointer-events: none;
+    }
+    svg.stars {
+      .star {
+        stroke: var(--stars-color, var(--c-whiteish)) !important;
+        fill: none;
+      }
+      &[data-active-star="1"] .star1 {
+        fill: var(--stars-color, var(--c-whiteish)) !important;
+      }
+      &[data-active-star="2"] .star2 {
+        fill: var(--stars-color, var(--c-whiteish)) !important;
+      }
+      &[data-active-star="3"] .star3 {
+        fill: var(--stars-color, var(--c-whiteish)) !important;
+      }
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    flex-flow: column nowrap;
+    .item {
+      margin: 30px 0;
+      img.cover {
+        width: 30vw;
+      }
+    }
   }
 }
 
@@ -1201,13 +1314,16 @@ main {
 
 .stars {
   display: flex;
-  & .left {
+  @include media-breakpoint-down(sm) {
+    width: 60px;
+  }
+  &.left {
+    @media (max-width: 420px) {
+      display: none !important;
+    }
   }
   &.right {
     transform: scale(-1, 1);
-    @include media-breakpoint-down(xs) {
-      width: 60px;
-    }
   }
   svg {
     path.star {
@@ -1400,6 +1516,8 @@ main {
 // COMPLEX STATES
 // ------------------------------------------------------------------------
 
+// Hide UI when video is playing
+
 body[data-video-hide-ui="true"] {
   &[data-track-type="video"] {
     &[data-player-playing="true"] {
@@ -1470,6 +1588,8 @@ body[data-video-hide-ui="true"] {
     }
   }
 }
+
+// 4k screens
 
 @media (min-width: 3000px) {
   :root {

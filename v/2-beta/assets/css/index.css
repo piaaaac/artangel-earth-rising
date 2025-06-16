@@ -772,8 +772,35 @@ button img {
   height: 100%;
 }
 
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+.fade-in.duration-1s {
+  animation-duration: 1s;
+}
+
+.fade-in.duration-2s {
+  animation-duration: 2s;
+}
+
+.fade-in.delay-1s {
+  animation-delay: 1s;
+}
+
+.fade-in.delay-2s {
+  animation-delay: 2s;
+}
+
 .focusable:focus, .focusable:focus-visible {
   box-shadow: 0px 0px 5px var(--c-whiteish);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes animation-float {
@@ -837,6 +864,30 @@ button img {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes animation-blink-hint {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  77% {
+    opacity: 1;
+  }
+  84% {
+    opacity: 0;
+  }
+  91% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -1076,6 +1127,23 @@ main#main-content #circle-wrapper #circle-dot.starting-point {
   animation: animation-float 6s ease-in-out infinite;
 }
 
+main#main-content #circle-wrapper #circle-dot.starting-point::after {
+  content: "Click the dot to start";
+  pointer-events: none;
+  position: absolute;
+  top: calc(50% + 2.3em);
+  line-height: 1em;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: animation-blink-hint 6s infinite;
+  font-size: 1.1rem;
+  width: 200px;
+}
+
+main#main-content #circle-wrapper #circle-dot.starting-point:hover::after {
+  content: "";
+}
+
 main#main-content #circle-wrapper #circle-dot.starting-point:not(.forced-start):hover {
   width: 25vmin;
   height: 25vmin;
@@ -1271,6 +1339,7 @@ body[data-circle-animating="true"] main#main-content #player-ui-buttons #play-pa
 }
 
 main#main-content #player-ui-buttons #fullscreen-button {
+  display: none;
   position: fixed;
   background-color: transparent;
   right: calc(var(--ui-space) + 20px);
@@ -1340,6 +1409,7 @@ body:not([data-track-type="video"]) main#main-content #player-ui-buttons #fullsc
   position: relative;
   top: var(--ui-space);
   overflow-y: auto;
+  overflow-x: hidden;
   max-height: calc(100% - var(--ui-space) - var(--ui-space));
 }
 
@@ -1628,6 +1698,7 @@ body[data-artangel-panel="true"] #accessibility-panel#artangel-panel, body[data-
   right: var(--ui-space);
   height: calc(100% - var(--ui-space) - var(--ui-space));
   overflow-y: scroll;
+  overflow-x: hidden;
   opacity: 0;
   pointer-events: none;
   transition: all 800ms;
@@ -1712,6 +1783,63 @@ body[data-about-panel="true"] #about-panel {
   margin-bottom: 0.7em;
 }
 
+.volume-selection-wrapper {
+  padding: var(--ui-space);
+  max-width: 2000px;
+  min-height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 150px calc(20px + var(--ui-space));
+}
+
+.volume-selection-wrapper .item {
+  margin: 80px 0;
+}
+
+.volume-selection-wrapper .item img.cover {
+  width: clamp(100px, 20vw, 500px);
+  aspect-ratio: 1/1 !important;
+  display: block;
+  border-radius: 50%;
+  border: var(--border-width) solid var(--c-whiteish);
+}
+
+.volume-selection-wrapper .item.disabled {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.volume-selection-wrapper .item svg.stars .star {
+  stroke: var(--stars-color, var(--c-whiteish)) !important;
+  fill: none;
+}
+
+.volume-selection-wrapper .item svg.stars[data-active-star="1"] .star1 {
+  fill: var(--stars-color, var(--c-whiteish)) !important;
+}
+
+.volume-selection-wrapper .item svg.stars[data-active-star="2"] .star2 {
+  fill: var(--stars-color, var(--c-whiteish)) !important;
+}
+
+.volume-selection-wrapper .item svg.stars[data-active-star="3"] .star3 {
+  fill: var(--stars-color, var(--c-whiteish)) !important;
+}
+
+@media (max-width: 575.98px) {
+  .volume-selection-wrapper {
+    flex-flow: column nowrap;
+  }
+  .volume-selection-wrapper .item {
+    margin: 30px 0;
+  }
+  .volume-selection-wrapper .item img.cover {
+    width: 30vw;
+  }
+}
+
 .accordion {
   margin: 0 -30px;
   overflow: hidden;
@@ -1794,14 +1922,20 @@ body[data-about-panel="true"] #about-panel {
   display: flex;
 }
 
-.stars.right {
-  transform: scale(-1, 1);
-}
-
-@media (max-width: 575.98px) {
-  .stars.right {
+@media (max-width: 767.98px) {
+  .stars {
     width: 60px;
   }
+}
+
+@media (max-width: 420px) {
+  .stars.left {
+    display: none !important;
+  }
+}
+
+.stars.right {
+  transform: scale(-1, 1);
 }
 
 .stars svg path.star {

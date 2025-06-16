@@ -30,7 +30,7 @@ Typevideoposter:
 
 ----
 
-Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Porsha Olayiwola is an Individual World Poetry Slam Champion and the author of the collection, I Shimmer Sometimes, Too. She served as the third Poet Laureate for the city of Boston. Olayiwola is a 2020 Academy of American Poets Poet Laureate fellow, and the assistant Professor of Poetry at Emerson College. Her work can be found in or forthcoming from Triquarterly Magazine, Black Warrior Review, The Boston Globe, Essence Magazine, Redivider, Split This Rock, The NBA and elsewhere.</p>"},"id":"4c835558-0fbe-4069-8337-6a89bb2c374c","isHidden":false,"type":"text"}]
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Porsha Olayiwola is an Individual World Poetry Slam Champion and the author of the collection, I Shimmer Sometimes, Too. She served as the third Poet Laureate for the city of Boston. Olayiwola is a 2020 Academy of American Poets Poet Laureate fellow, and the Assistant Professor of Poetry at Emerson College. Her work can be found in or forthcoming from Triquarterly Magazine, Black Warrior Review, The Boston Globe, Essence Magazine, Redivider, Split This Rock, The NBA and elsewhere.</p>"},"id":"4c835558-0fbe-4069-8337-6a89bb2c374c","isHidden":false,"type":"text"}]
 
 ----
 

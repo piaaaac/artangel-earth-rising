@@ -3,10 +3,30 @@ options:
   changeSlug: false
 
 tabs:
-  content:
+  tracks:
     sections:
       pages:
         type: pages
         template: track
+
+  settings:
+    columns:
+      - width: 2/3
+        sections:
+          metadata:
+            type: fields
+            fields:
+              volumeImage:
+                label: Volume image
+                type: files
+                query: page.images
+                required: true
+                max: 1
+                help: "The image will be masked in a circular shape."
+
+      - width: 1/3
+        sections:
+          files:
+            type: files
 
   seo: seo/page

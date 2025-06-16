@@ -30,7 +30,7 @@ Typevideoposter:
 
 ----
 
-Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Plumm is a vocalist, composer, multi-instrumentalist and bandleader hailing from South London, England, with a Welsh core. Plumm’s sound is dark, ethereal, alternative, trip-hop, electronic, eerie, improvisational and vocal-heavy. Her song,You Are The One Live, is the title track for Apple TV's new series Liaison. Catch her as Jamz Supernova’s ‘After Dark Discovery’ and Clash Magazine's 'one-to-watch'.</p>"},"id":"a909dd96-ad9d-4ccc-9adf-17fbb58c56cf","isHidden":false,"type":"text"}]
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Plumm is a vocalist, composer, multi-instrumentalist and bandleader hailing from South London, England, with a Welsh core. Plumm’s sound is dark, ethereal, alternative, trip-hop, electronic, eerie, improvisational and vocal-heavy. Her song, <em>You Are The One – Live</em>, is the title track for Apple TV's series <em>Liaison</em>. Catch her as Jamz Supernova’s ‘After Dark Discovery’ and Clash Magazine's 'one-to-watch'.</p>"},"id":"a909dd96-ad9d-4ccc-9adf-17fbb58c56cf","isHidden":false,"type":"text"}]
 
 ----
 

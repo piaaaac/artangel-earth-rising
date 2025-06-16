@@ -30,7 +30,7 @@ Typevideoposter:
 
 ----
 
-Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Michel Nieva is an Argentinian writer based in New York, where he teaches at NYU. Nominated among Granta's Best of Young Spanish-Language Novelists in 2021 and a winner of the O. Henry Award in 2022, Nieva is the author of Dengue Boy (2025)</p>"},"id":"7122f7a5-48bf-487c-8027-e56c7c38c723","isHidden":false,"type":"text"}]
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Michel Nieva is an Argentinian writer based in New York, where he teaches at NYU. Nominated among Granta's Best of Young Spanish-Language Novelists in 2021 and a winner of the O. Henry Award in 2022, Nieva is the author of Dengue Boy (2025).</p>"},"id":"7122f7a5-48bf-487c-8027-e56c7c38c723","isHidden":false,"type":"text"}]
 
 ----
 

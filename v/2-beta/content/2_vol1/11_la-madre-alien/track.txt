@@ -1,4 +1,4 @@
-Title: La madre alien
+Title: La madre alien (Bonus Track, ES)
 
 ----
 
@@ -30,7 +30,7 @@ Typevideoposter:
 
 ----
 
-Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Michel Nieva is an Argentinian writer based in New York, where he teaches at NYU. Nominated among Granta's Best of Young Spanish-Language Novelists in 2021 and a winner of the O. Henry Award in 2022, Nieva is the author of Dengue Boy (2025)</p>"},"id":"2f4227f7-d567-418c-9c79-38c1070424e2","isHidden":false,"type":"text"}]
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Michel Nieva is an Argentinian writer based in New York, where he teaches at NYU. Nominated among Granta's Best of Young Spanish-Language Novelists in 2021 and a winner of the O. Henry Award in 2022, Nieva is the author of Dengue Boy (2025).</p>"},"id":"2f4227f7-d567-418c-9c79-38c1070424e2","isHidden":false,"type":"text"}]
 
 ----
 
