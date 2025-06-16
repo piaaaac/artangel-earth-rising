@@ -30,16 +30,21 @@ class Accordion {
 
     // If the clicked item wasn't active, open it
     if (!isActive) {
-      this.openItem(content, arrow);
+      this.openItem(item, content, arrow);
     }
   }
 
-  openItem(content, arrow) {
+  openItem(item, content, arrow) {
     const body = content.querySelector(".accordion-body");
+    const header = item.querySelector(".accordion-header");
     const height = body.scrollHeight;
 
     content.style.height = height + "px";
     arrow.classList.add("active");
+
+    setTimeout(() => {
+      header.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 300); // wait for opening animation if any
   }
 
   closeAllItems() {

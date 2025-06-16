@@ -47,6 +47,11 @@ function setUrlTrack(id) {
 addEventListener("popstate", (event) => {
   // Handle browser back/forward navigation
   console.log(event);
+  const path = window.location.pathname; // e.g. "/users/42"
+  const segments = path.split("/").filter(Boolean); // removes empty strings
+  const lastSegment = segments[segments.length - 1];
+
+  console.log("Last path segment:", lastSegment);
 });
 
 // ----------------------------------------------------------------------------
@@ -148,10 +153,9 @@ class App {
     this.updateMediaSessionMetadata(trackData);
 
     const that = this;
-    const onAnimationDone = function () {
+    this.wui.updateTrackUI(trackData, function onAnimationDone() {
       that.pui.ctrl.loadNewTrack(trackData);
-    };
-    this.wui.updateTrackUI(trackData, onAnimationDone);
+    });
     // window.twinkler?.setTrackMode(trackData);
   }
 
@@ -319,7 +323,7 @@ class WebUI {
     if (bool === undefined) {
       bool = document.body.dataset.accessibilityPanel === "true" ? false : true;
     }
-    this.closeAllPanels();
+    // this.closeAllPanels();
     document.body.dataset.accessibilityPanel = bool;
   }
 
@@ -354,8 +358,8 @@ class WebUI {
     });
     document.body.dataset.trackInfo = false;
     document.body.dataset.aboutPanel = false;
+    document.body.dataset.artangelPanel = false;
     // document.body.dataset.accessibilityPanel = false;
-    // document.body.dataset.artangelPanel = false;
   }
 
   colorStars(color) {
@@ -508,7 +512,12 @@ class PlayerUI {
       document.body.dataset.playerLoading = "true";
     });
     this.ctrl.on("stalled", () => {
-      document.body.dataset.playerLoading = "true";
+      console.log("Safari FIX --- stalled event --- not handeling");
+      // if (this.ctrl.plyr.playing == false) {
+      //   document.body.dataset.playerLoading = "true";
+      // } else {
+      //   console.log("--------- - stalled but playing");
+      // }
     });
     this.ctrl.on("canplay", () => {
       document.body.dataset.playerLoading = "false";
@@ -526,9 +535,15 @@ class PlayerUI {
       this.circleTime.classList.remove("clean");
     });
 
+    this.ctrl.on("play", () => {
+      console.log("controller event - play");
+      document.body.dataset.playerLoading = "false";
+    });
+
     this.ctrl.on("playing", () => {
       console.log("controller event - playing");
       document.body.dataset.playerPlaying = "true";
+      document.body.dataset.playerLoading = "false";
       this.parentApp.setAppState("playing", true);
     });
 
@@ -560,37 +575,69 @@ class PlayerController {
   }
 
   loadNewTrack(track /* callback */) {
+    // Destroy the existing Plyr instance if any
+    if (this.plyr) {
+      this.plyr.destroy();
+      this.plyr = null;
+    }
+
+    // Safari FIX --- Pause and remove current source
+    const mediaElDismiss = this.mediaContainer.querySelector("video, audio");
+    if (mediaElDismiss) {
+      mediaElDismiss?.pause();
+      mediaElDismiss?.removeAttribute("src");
+      mediaElDismiss?.load(); // clears any internal state
+    }
+
     // Remove old player
-    this.plyr?.destroy();
     this.mediaContainer.innerHTML = "";
 
     // Create new media element (video or audio)
-    const mediaEl = document.createElement(track.media.type);
-    mediaEl.setAttribute("id", "player");
-    mediaEl.setAttribute("controls", "");
-    mediaEl.setAttribute("playsinline", "");
+    const mediaElNew = document.createElement(track.media.type);
+    mediaElNew.setAttribute("id", "player");
+    mediaElNew.setAttribute("controls", "");
+    mediaElNew.setAttribute("playsinline", "");
+
+    // Optionally wait until it's ready to play
+    mediaElNew.addEventListener(
+      "canplay",
+      () => {
+        mediaElNew.play().catch((err) => {
+          console.warn("Safari DEBUG - Autoplay failed:", err);
+        });
+      },
+      { once: true }
+    );
 
     if (track.media.videoFilePosterUrl && track.media.type === "video") {
-      mediaEl.setAttribute("poster", track.media.videoFilePosterUrl);
+      mediaElNew.setAttribute("poster", track.media.videoFilePosterUrl);
     }
 
     const source = document.createElement("source");
-    let src =
-      track.media.type === "video"
-        ? track.media.videoFileMp4Url
-        : track.media.audioFileUrl;
-    source.setAttribute("src", src);
-    source.setAttribute("type", `${track.media.type}/${src.split(".").pop()}`);
-    mediaEl.appendChild(source);
+
+    if (track.media.type === "audio") {
+      const source = document.createElement("source");
+      source.setAttribute("src", track.media.audioFileUrl);
+      source.setAttribute(
+        "type",
+        `audio/${track.media.audioFileUrl.split(".").pop()}`
+      );
+      mediaElNew.appendChild(source);
+    }
 
     if (track.media.type === "video") {
+      const source1 = document.createElement("source");
+      source1.setAttribute("src", track.media.videoFileMp4Url);
+      source1.setAttribute("type", "video/mp4");
+      mediaElNew.appendChild(source1);
       const source2 = document.createElement("source");
       source2.setAttribute("src", track.media.videoFileWebmUrl);
       source2.setAttribute("type", "video/webm");
-      mediaEl.appendChild(source2);
+      mediaElNew.appendChild(source2);
     }
 
-    this.mediaContainer.appendChild(mediaEl);
+    this.mediaContainer.innerHTML = "";
+    this.mediaContainer.appendChild(mediaElNew);
 
     // Reinitialize Plyr
     const plyrOptions = {

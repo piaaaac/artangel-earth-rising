@@ -114,10 +114,10 @@ $json = json_encode($data);
   </div>
   <!-- <div id="color-cover"></div> -->
   <div id="player-ui-buttons" class="player-ui">
-    <button class="focusable" id="prev-track"><img src="<?= $kirby->url("assets") ?>/images/icon-larr-double.svg" alt="Previous Track"></button>
+    <button class="focusable" id="prev-track"><img class="icon-img" src="<?= $kirby->url("assets") ?>/images/icon-larr-double.svg" alt="Previous Track"></button>
     <button class="focusable" id="play-pause-button"></button>
-    <button class="focusable" id="next-track"><img src="<?= $kirby->url("assets") ?>/images/icon-rarr-double.svg" alt="Next Track"></button>
-    <button class="focusable" id="fullscreen-button"><img src="<?= $kirby->url("assets") ?>/images/icon-fullscreen.svg" alt="Toggle fullscreen"></button>
+    <button class="focusable" id="next-track"><img class="icon-img" src="<?= $kirby->url("assets") ?>/images/icon-rarr-double.svg" alt="Next Track"></button>
+    <button class="focusable" id="fullscreen-button"><img class="icon-img" src="<?= $kirby->url("assets") ?>/images/icon-fullscreen.svg" alt="Toggle fullscreen"></button>
   </div>
 </main>
 

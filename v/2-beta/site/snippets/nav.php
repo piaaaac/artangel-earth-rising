@@ -15,17 +15,24 @@ $artangelPage = page("artangel-panel");
 </nav>
 
 <nav id="accessibility-panel">
-  <ul>
-    <li class="my-4">
-      <a class="accessibility-toggle no-color no-u" id="accessibility-link-contrast" href="#" onclick="wui.toggleAccessibilityProperty('accessHighContrast');" class="font-serif-l">High contrast</a>
-    </li>
-    <li class="my-4">
-      <a class="accessibility-toggle no-color no-u" id="accessibility-link-size" href="#" onclick="wui.toggleAccessibilityProperty('accessTxtSize');" class="font-serif-l">Large text</a>
-    </li>
-    <li class="my-4">
-      <a class="accessibility-toggle no-color no-u" id="accessibility-link-animations" href="#" onclick="wui.toggleAccessibilityProperty('accessAnimationsOff');" class="font-serif-l">Disable animations</a>
-    </li>
-  </ul>
+  <div>
+    <ul>
+      <li class="my-4">
+        <a class="accessibility-toggle no-color no-u" id="accessibility-link-contrast" href="#" onclick="wui.toggleAccessibilityProperty('accessHighContrast');" class="font-serif-l">High contrast</a>
+      </li>
+      <li class="my-4">
+        <a class="accessibility-toggle no-color no-u" id="accessibility-link-size" href="#" onclick="wui.toggleAccessibilityProperty('accessTxtSize');" class="font-serif-l">Large text</a>
+      </li>
+      <li class="my-4">
+        <a class="accessibility-toggle no-color no-u" id="accessibility-link-animations" href="#" onclick="wui.toggleAccessibilityProperty('accessAnimationsOff');" class="font-serif-l">Disable animations</a>
+      </li>
+    </ul>
+
+    <p class="pt-5 mt-4">
+      <a class="no-color no-u pointer" rel="noopener noreferrer" onclick="wui.toggleAccessibilityPanel(false);">OK</a>
+    </p>
+
+  </div>
 </nav>
 
 <nav id="artangel-panel">
@@ -55,8 +62,8 @@ $artangelPage = page("artangel-panel");
     </svg>
   </div>
   <!-- <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-r2l.svg" alt="Volume 1 Logo"> -->
-  <a class="no-u no-color" href="<?= $site->url() ?>" onclick="wui.handleTitleClick(event);">
-    <h1 class="mx-3 mb-0">EARTH RISING</h1>
+  <a class="no-u no-color mx-3" href="<?= $site->url() ?>" onclick="wui.handleTitleClick(event);">
+    <h1 class="mb-0">EARTH RISING</h1>
   </a>
   <!-- <img class="only-dsk" src="<?= $ass ?>/images/stars-volume-1-l2r.svg" alt="Volume 1 Logo"> -->
   <div class="stars right">
@@ -84,7 +91,7 @@ $artangelPage = page("artangel-panel");
 
 <nav class="button-wrapper" id="button-wrapper-top-left">
   <button onclick="wui.toggleAccessibilityPanel()">
-    <img src="<?= $ass ?>/images/icon-accessibility.svg" alt="Accessibility Icon">
+    <img class="icon-img" src="<?= $ass ?>/images/icon-accessibility.svg" alt="Accessibility Icon">
   </button>
 </nav>
 
@@ -112,7 +119,7 @@ $artangelPage = page("artangel-panel");
 
 <nav class="button-wrapper" id="button-wrapper-bottom-right">
   <button onclick="wui.toggleArtangelPanel()" style="position: relative; top: 4px;">
-    <img src="<?= $ass ?>/images/icon-artangel.svg" alt="Artangel Icon">
+    <img class="icon-img" src="<?= $ass ?>/images/icon-artangel.svg" alt="Artangel Icon" />
   </button>
 </nav>
 
@@ -133,7 +140,7 @@ $artangelPage = page("artangel-panel");
   <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="wui.toggleTrackInfo()">
     <h2 id="track-artist"></h2>
   </div>
-  <span class="button-wrapper"><img src="<?= $ass ?>/images/icon-rarr.svg" /></span>
+  <span class="button-wrapper"><img class="icon-img" src="<?= $ass ?>/images/icon-rarr.svg" /></span>
 </section>
 <section id="track-info-dsk-r">
   <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="wui.toggleTrackInfo()">
@@ -142,7 +149,7 @@ $artangelPage = page("artangel-panel");
   <div class="content-wrapper">
     <div id="track-info-script" class="kt-container p-3"></div>
   </div>
-  <span class="button-wrapper"><img src="<?= $ass ?>/images/icon-larr.svg" /></span>
+  <span class="button-wrapper"><img class="icon-img" src="<?= $ass ?>/images/icon-larr.svg" /></span>
 </section>
 
 <!-- Lines -->
