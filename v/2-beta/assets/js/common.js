@@ -158,6 +158,10 @@ class App {
     this.updateMediaSessionMetadata(trackData);
 
     const that = this;
+
+    // Safari FIX --- Pause and remove current source
+    this.pui.ctrl.mediaContainer.innerHTML = "";
+
     this.wui.updateTrackUI(trackData, function onAnimationDone() {
       that.pui.ctrl.loadNewTrack(trackData);
     });
@@ -690,8 +694,30 @@ class PlayerController {
     console.log("Plyr initialized:", this.plyr);
     this.exposePlyrEvents();
     this.bindDebugEvents();
+    const that = this;
     setTimeout(() => {
-      this.plyr.play();
+      that.plyr.play();
+      console.log("trying to play ----- ", that);
+      setTimeout(() => {
+        if (!that.plyr.playing) {
+          that.plyr.play();
+          setTimeout(() => {
+            if (!that.plyr.playing) {
+              that.plyr.play();
+              setTimeout(() => {
+                if (!that.plyr.playing) {
+                  that.plyr.play();
+                  setTimeout(() => {
+                    if (!that.plyr.playing) {
+                      alert("giving up after 5 attempts to play the track");
+                    }
+                  }, 1000);
+                }
+              }, 1000);
+            }
+          }, 1000);
+        }
+      }, 1000);
     }, 1000);
 
     document.body.dataset.trackType = track.trackType;

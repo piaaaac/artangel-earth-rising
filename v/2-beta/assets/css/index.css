@@ -1074,12 +1074,85 @@ body[data-track-open=""] main#main-content #media-container {
   opacity: 0 !important;
 }
 
+main#main-content #circle-dot-wrapper {
+  z-index: 60;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+main#main-content #circle-dot-wrapper #circle-dot {
+  pointer-events: all;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 500ms;
+  aspect-ratio: 1/1;
+  border: 1px solid var(--c-whiteish);
+  transform-origin: center center;
+}
+
+main#main-content #circle-dot-wrapper #circle-dot.starting-point {
+  width: 20px;
+  height: 20px;
+  background-color: var(--c-whiteish);
+  animation: animation-float 6s ease-in-out infinite;
+}
+
+main#main-content #circle-dot-wrapper #circle-dot.starting-point::after {
+  content: "Click the dot to start";
+  pointer-events: none;
+  position: absolute;
+  top: calc(50% + 2.3em);
+  line-height: 1em;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: animation-blink-hint 6s infinite;
+  font-size: 1.1rem;
+  width: 200px;
+}
+
+main#main-content #circle-dot-wrapper #circle-dot.starting-point:hover::after {
+  content: "";
+}
+
+main#main-content #circle-dot-wrapper #circle-dot.starting-point:not(.forced-start):hover {
+  width: 25vmin;
+  height: 25vmin;
+  background-color: transparent;
+  animation-play-state: paused;
+}
+
+main#main-content #circle-dot-wrapper #circle-dot.zoom-in {
+  animation: animateCircleIn 1s forwards;
+}
+
+main#main-content #circle-dot-wrapper #circle-dot.zoom-out {
+  pointer-events: none;
+  width: calc(75vmin - 80px);
+  height: calc(75vmin - 80px);
+  background-color: transparent;
+  animation: animateCircleOut 2s;
+}
+
+body:not([data-track-open=""]) main#main-content #circle-dot-wrapper #circle-dot {
+  opacity: 0;
+  pointer-events: none;
+}
+
 main#main-content #circle-wrapper {
   mix-blend-mode: lighten;
   z-index: 30;
   z-index: 60;
   transition: all 1200ms;
   pointer-events: none;
+  /* SAFARI FIX */
+  position: relative;
 }
 
 main#main-content #circle-wrapper.state-size-small {
@@ -1104,68 +1177,6 @@ main#main-content #circle-wrapper.state-size-large {
     max-width: 60vw;
     max-height: 60vw;
   }
-}
-
-main#main-content #circle-wrapper #circle-dot {
-  z-index: 60;
-  pointer-events: all;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  transition: all 500ms;
-  aspect-ratio: 1/1;
-  border: 1px solid var(--c-whiteish);
-}
-
-main#main-content #circle-wrapper #circle-dot.starting-point {
-  width: 20px;
-  height: 20px;
-  background-color: var(--c-whiteish);
-  animation: animation-float 6s ease-in-out infinite;
-}
-
-main#main-content #circle-wrapper #circle-dot.starting-point::after {
-  content: "Click the dot to start";
-  pointer-events: none;
-  position: absolute;
-  top: calc(50% + 2.3em);
-  line-height: 1em;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: animation-blink-hint 6s infinite;
-  font-size: 1.1rem;
-  width: 200px;
-}
-
-main#main-content #circle-wrapper #circle-dot.starting-point:hover::after {
-  content: "";
-}
-
-main#main-content #circle-wrapper #circle-dot.starting-point:not(.forced-start):hover {
-  width: 25vmin;
-  height: 25vmin;
-  background-color: transparent;
-  animation-play-state: paused;
-}
-
-main#main-content #circle-wrapper #circle-dot.zoom-in {
-  animation: animateCircleIn 1s forwards;
-}
-
-main#main-content #circle-wrapper #circle-dot.zoom-out {
-  pointer-events: none;
-  width: calc(75vmin - 80px);
-  height: calc(75vmin - 80px);
-  background-color: transparent;
-  animation: animateCircleOut 2s;
-}
-
-body:not([data-track-open=""]) main#main-content #circle-wrapper #circle-dot {
-  opacity: 0;
-  pointer-events: none;
 }
 
 main#main-content #circle-wrapper #circle-time {

@@ -541,49 +541,26 @@ main {
         opacity: 0 !important;
       }
     }
-    #circle-wrapper {
-      mix-blend-mode: lighten;
-      z-index: 30;
+    #circle-dot-wrapper {
       z-index: 60;
-      transition: all 1200ms;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       pointer-events: none;
-
-      &.state-size-small {
-        transform: scale(0.1);
-        opacity: 0;
-        // transition: all 1.2s;
-      }
-      &.state-size-normal {
-        transform: scale(1);
-        opacity: 1;
-        // transition: all 1.2s;
-      }
-      &.state-size-large {
-        transform: scale(3);
-        opacity: 0;
-        // transition: all 1.2s;
-      }
-
-      @include media-breakpoint-up(md) {
-        width: calc(100vmin - var(--ui-space) * 3);
-        height: calc(100vmin - var(--ui-space) * 3);
-        max-width: 60vw;
-        max-height: 60vw;
-      }
-
       #circle-dot {
         // display: none;
-        z-index: 60;
         pointer-events: all;
         border-radius: 50%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
         cursor: pointer;
         transition: all 500ms;
         aspect-ratio: 1/1;
         border: 1px solid var(--c-whiteish);
+        transform-origin: center center;
         &.starting-point {
           width: 20px;
           height: 20px;
@@ -629,6 +606,40 @@ main {
           pointer-events: none;
         }
       }
+    }
+    #circle-wrapper {
+      mix-blend-mode: lighten;
+      z-index: 30;
+      z-index: 60;
+      transition: all 1200ms;
+      pointer-events: none;
+
+      /* SAFARI FIX */
+      position: relative;
+
+      &.state-size-small {
+        transform: scale(0.1);
+        opacity: 0;
+        // transition: all 1.2s;
+      }
+      &.state-size-normal {
+        transform: scale(1);
+        opacity: 1;
+        // transition: all 1.2s;
+      }
+      &.state-size-large {
+        transform: scale(3);
+        opacity: 0;
+        // transition: all 1.2s;
+      }
+
+      @include media-breakpoint-up(md) {
+        width: calc(100vmin - var(--ui-space) * 3);
+        height: calc(100vmin - var(--ui-space) * 3);
+        max-width: 60vw;
+        max-height: 60vw;
+      }
+
       #circle-time {
         animation: animation-rotate 12s infinite linear;
         display: flex;
