@@ -1028,7 +1028,6 @@ main {
 
 #accessibility-panel,
 #artangel-panel {
-  z-index: 31;
   position: fixed;
   top: var(--ui-space);
   width: 400px;
@@ -1043,6 +1042,7 @@ main {
   align-items: center;
   justify-content: center;
   &#accessibility-panel {
+    z-index: 32;
     border-right: var(--border-width) solid var(--c-whiteish);
     left: var(--ui-space);
     @include media-breakpoint-down(md) {
@@ -1082,6 +1082,7 @@ main {
     }
   }
   &#artangel-panel {
+    z-index: 31;
     border-left: var(--border-width) solid var(--c-whiteish);
     right: var(--ui-space);
     @include media-breakpoint-down(md) {
@@ -1186,6 +1187,17 @@ main {
     // margin-top: 2.5em;
     margin-bottom: 0.7em;
   }
+  &.smaller * {
+    font-size: 100%;
+    font-size: smaller;
+  }
+}
+
+.scroller {
+  position: relative;
+  overflow-y: auto;
+  // -webkit-overflow-scrolling: touch;
+  max-height: 100%;
 }
 
 .volume-selection-wrapper {
@@ -1526,6 +1538,25 @@ main {
 // ------------------------------------------------------------------------
 // COMPLEX STATES
 // ------------------------------------------------------------------------
+
+// Accessibility when track/artist infos are open
+
+body:not([data-track-open=""]) {
+  &[data-track-info="true"] {
+    &[data-accessibility-panel="true"] {
+      #accessibility-panel {
+        &#accessibility-panel {
+          &#accessibility-panel {
+            @include media-breakpoint-up(sm) {
+              z-index: 61 !important;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 // Hide UI when video is playing
 

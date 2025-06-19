@@ -88,6 +88,12 @@ class App {
       navigator.mediaSession.setActionHandler("nexttrack", () => {
         this.openNextTrack();
       });
+      // navigator.mediaSession.setActionHandler("play", function () {
+      //   this.pui.toggleTrackPlay(true);
+      // });
+      // navigator.mediaSession.setActionHandler("pause", function () {
+      //   this.pui.toggleTrackPlay(false);
+      // });
       this.updateMediaSessionMetadata(null);
     }
   }
@@ -164,6 +170,7 @@ class App {
 
     this.wui.updateTrackUI(trackData, function onAnimationDone() {
       that.pui.ctrl.loadNewTrack(trackData);
+      that.pui.showPlayerControls();
     });
     // window.twinkler?.setTrackMode(trackData);
   }
@@ -697,27 +704,6 @@ class PlayerController {
     const that = this;
     setTimeout(() => {
       that.plyr.play();
-      console.log("trying to play ----- ", that);
-      setTimeout(() => {
-        if (!that.plyr.playing) {
-          that.plyr.play();
-          setTimeout(() => {
-            if (!that.plyr.playing) {
-              that.plyr.play();
-              setTimeout(() => {
-                if (!that.plyr.playing) {
-                  that.plyr.play();
-                  setTimeout(() => {
-                    if (!that.plyr.playing) {
-                      alert("giving up after 5 attempts to play the track");
-                    }
-                  }, 1000);
-                }
-              }, 1000);
-            }
-          }, 1000);
-        }
-      }, 1000);
     }, 1000);
 
     document.body.dataset.trackType = track.trackType;

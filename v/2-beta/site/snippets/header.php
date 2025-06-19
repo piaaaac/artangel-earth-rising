@@ -16,7 +16,9 @@
     window.currentTemplate = '<?= $page->template() ?>';
   </script>
 
-  <?php snippet("ga") ?>
+  <?php snippet("analytics/consent-banner") ?>
+  <?php snippet("analytics/gtag") ?>
+  <?php snippet("analytics/tag-mngr-head") ?>
 
   <link rel="preload" as="image" href="<?= $site->url() ?>/assets/images/test-bg-l.gif" />
 
@@ -31,3 +33,5 @@
   data-track-info="false"
   data-about-panel="false"
   data-menu-panel="false">
+
+  <?php snippet("analytics/tag-mngr-body") ?>

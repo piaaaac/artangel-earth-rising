@@ -30,7 +30,7 @@ Typevideoposter:
 
 ----
 
-Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Nayomi Apsara is a Sri Lankan writer and filmmaker whose work spans cinema, literature, and activism. She authored Throw Me Mountains. Her debut The Tea is Cold (2022) premiered at Busan International Short Film Festival and Jaffna International Cinema Festival.&nbsp; Apsara was featured at the Galle Literary Festival, is an alumna of Busan Asian Film School and a Khoj fellow, New Delhi. She is currently working on her debut novel, Spiking my own drink, an exploration of politics, love, and resistance.</p>"},"id":"c1e5936a-e91e-4c7d-a65b-510f1c50e580","isHidden":false,"type":"text"}]
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Nayomi Apsara is a Sri Lankan writer and filmmaker whose work spans cinema, literature, and activism. She authored <em>Throw Me Mountains</em>. Her debut <em>The Tea is Cold</em> (2022) premiered at Busan International Short Film Festival and Jaffna International Cinema Festival.&nbsp; Apsara was featured at the Galle Literary Festival, is an alumna of Busan Asian Film School and a Khoj fellow, New Delhi. She is currently working on her debut novel, <em>Spiking my own drink</em>, an exploration of politics, love, and resistance.</p>"},"id":"c1e5936a-e91e-4c7d-a65b-510f1c50e580","isHidden":false,"type":"text"}]
 
 ----
 

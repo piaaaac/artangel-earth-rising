@@ -5,6 +5,7 @@ $vol1Page = page("vol1");
 $aboutPage = page("about");
 $creditsPage = page("credits");
 $artangelPage = page("artangel-panel");
+$accessPage = page("accessibility-panel");
 ?>
 
 <!-- Panels -->
@@ -17,7 +18,7 @@ $artangelPage = page("artangel-panel");
 </nav>
 
 <nav id="accessibility-panel">
-  <div>
+  <div class="scroller">
     <ul>
       <li class="my-4">
         <a class="accessibility-toggle no-color no-u" id="accessibility-link-contrast" href="#" onclick="wui.toggleAccessibilityProperty('accessHighContrast');" class="font-serif-l">High contrast</a>
@@ -30,16 +31,22 @@ $artangelPage = page("artangel-panel");
       </li>
     </ul>
 
-    <p class="pt-5 mt-4">
+    <p class="py-2 my-4">
       <a class="no-color no-u pointer" rel="noopener noreferrer" onclick="wui.toggleAccessibilityPanel(false);">OK</a>
     </p>
+
+    <div class="kt-container smaller">
+      <?= $accessPage->blocks()->toBlocks() ?>
+    </div>
 
   </div>
 </nav>
 
 <nav id="artangel-panel">
-  <div class="kt-container">
-    <?= $artangelPage->blocks()->toBlocks() ?>
+  <div class="scroller">
+    <div class="kt-container">
+      <?= $artangelPage->blocks()->toBlocks() ?>
+    </div>
   </div>
 </nav>
 
