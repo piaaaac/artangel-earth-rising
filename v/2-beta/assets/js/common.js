@@ -548,7 +548,15 @@ class PlayerUI {
       console.log("controller event - track ended");
       this.parentApp.openNextTrack();
 
-      // Add Google Analytics event: track ended
+      // Google Analytics event: track ended
+      const t = app.state.tracks[app.state.currentTrackIndex];
+      const p = this.ctrl.plyr;
+      const progress = ((p.currentTime / p.duration) * 100).toFixed(0);
+      const eventData = {
+        trackTitle: t.title,
+      };
+      console.log("gtag event 'ended'", eventData);
+      gtag("event", "ended", eventData);
     });
 
     this.ctrl.on("waiting", () => {
@@ -598,7 +606,7 @@ class PlayerUI {
         trackProgress: progress,
         trackTime: p.currentTime.toFixed(0),
       };
-      console.log("controller event - track play", eventData);
+      console.log("gtag event 'playing'", eventData);
       gtag("event", "playing", eventData);
     });
 
@@ -606,6 +614,18 @@ class PlayerUI {
       console.log("controller event - pause");
       document.body.dataset.playerPlaying = "false";
       this.parentApp.setAppState("playing", false);
+
+      // Google Analytics event: track play
+      const t = app.state.tracks[app.state.currentTrackIndex];
+      const p = this.ctrl.plyr;
+      const progress = ((p.currentTime / p.duration) * 100).toFixed(0);
+      const eventData = {
+        trackTitle: t.title,
+        trackProgress: progress,
+        trackTime: p.currentTime.toFixed(0),
+      };
+      console.log("gtag event 'pause'", eventData);
+      gtag("event", "pause", eventData);
     });
   }
 
