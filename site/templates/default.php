@@ -4,8 +4,8 @@ $ass = $kirby->url("assets");
 
 <?php snippet("header") ?>
 
-<main>
-  <div class="kt-container py-3">
+<main class="p-5">
+  <div class="kt-container py-3 px-3">
     <?= $page->blocks()->toBlocks() ?>
   </div>
 </main>

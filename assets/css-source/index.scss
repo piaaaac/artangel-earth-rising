@@ -1231,9 +1231,12 @@ main {
       &[data-active-star="1"] .star1 {
         fill: var(--stars-color, var(--c-whiteish)) !important;
       }
+      &[data-active-star="2"] .star1,
       &[data-active-star="2"] .star2 {
         fill: var(--stars-color, var(--c-whiteish)) !important;
       }
+      &[data-active-star="2"] .star1,
+      &[data-active-star="2"] .star2,
       &[data-active-star="3"] .star3 {
         fill: var(--stars-color, var(--c-whiteish)) !important;
       }

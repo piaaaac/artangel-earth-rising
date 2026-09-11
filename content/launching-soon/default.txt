@@ -1,0 +1,73 @@
+Title: Launching soon
+
+----
+
+Blocks: [{"content":{"text":"<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>Earth&nbsp;Rising&nbsp;Volume&nbsp;II is&nbsp;launching on 24&nbsp;September&nbsp;2026.</p><p>&nbsp;</p><p>To&nbsp;be&nbsp;the&nbsp;first to&nbsp;listen <a href=\"https://www.artangel.org.uk/project/earth-rising/#volume-ii-sign-up\" target=\"_blank\">sign&nbsp;up to&nbsp;our&nbsp;Newsletter.</a> </p>"},"id":"4c28e267-5037-4735-be15-81a9876cc5ab","isHidden":false,"type":"text"}]
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: mhbaxdqm2ewjbiab
