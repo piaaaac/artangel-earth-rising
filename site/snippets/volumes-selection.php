@@ -16,7 +16,7 @@ $volumes = $site->children()->filterBy("intendedTemplate", "volume")->sortBy("ti
   ?>
     <div class="item<?= $disabled ?>">
       <div>
-        <a href="<?= $url ?>" class="text-center">
+        <a href="<?= $url ?>" class="text-center d-inline-block lh-0">
           <img class="cover d-inline-block" src="<?= $imageUrl ?>" alt="<?= $volume->title() ?> cover image" />
         </a>
       </div>

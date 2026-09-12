@@ -51,13 +51,17 @@ $accessPage = page("accessibility-panel");
 </nav>
 
 <nav id="about-panel">
-  <div class="about-content kt-container">
-    <?= $aboutPage->blocks()->toBlocks() ?>
+  <div class="about-content">
+    <div class="about-content-wrapper kt-container border-right">
+      <?= $aboutPage->blocks()->toBlocks() ?>
+    </div>
   </div>
   <div class="credits-content kt-container">
-    <?= $creditsPage->blocks()->toBlocks() ?>
+    <div class="about-content-wrapper kt-container border-left">
+      <?= $creditsPage->blocks()->toBlocks() ?>
+    </div>
   </div>
-  <div class="line"></div>
+  <!-- <div class="line"></div> -->
 </nav>
 
 <!-- Texts -->
