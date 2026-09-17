@@ -1,0 +1,125 @@
+Title: This Moment
+
+----
+
+Artist: Tong Wenmin
+
+----
+
+Uicolor: #ccff00
+
+----
+
+Tracktype: video
+
+----
+
+Typeaudiofile: - file://mxotjxazlfafmjvw
+
+----
+
+Typevideosourcemp4: - file://kiu7rgqq25css8zm
+
+----
+
+Typevideosourcewebm: - file://c3uw6m3pdxz3d7oy
+
+----
+
+Typevideoposter: - file://ipwj7o2hx5dzxzz1
+
+----
+
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Tong Wenmin is an artist working with performance, video, and installation, focusing on the meeting point of individual perception and the external environment through actions that first appear counter-intuitive. Her work hints at the allegorical character of the body within a semantically rich context. She received her BFA from Sichuan Fine Arts Institute in 2012. Her work has been shown in solo and duo exhibitions including Macalline Art Center, Beijing; HOW Art Museum, Shanghai; He Art Museum, Guangdong; By Art Matters, Hangzhou; and WHITE SPACE, Beijing, and in group exhibitions and festivals across China, Hong Kong, Japan, South Korea, Austria, Denmark, Norway, Germany, Israel, Australia, and the United States. She has taken part in residencies including MQ Artist-in-Residence: Art &amp; Ecology Studio, Vienna, The Swiss Arts Council Artists Residency, and Offshore Residency, Dinawan Island. She won the Grand Jury Prize of the Huayu Youth Award (2018), first prize in the 8th New Star Art Award (2018), and a nomination for the 5th Contemporary Sculpture Award (2017), among others. Tong lives and works in Chongqing.</p>"},"id":"759b5562-fd1f-4ce8-9f5b-c35afe0bb9c4","isHidden":false,"type":"text"}]
+
+----
+
+Blocksright: [{"content":{"text":"<p>ABOUT THE TRACK</p><hr><p>‘Qi’ is a ubiquitous movement, and the human voice is the resonance of this movement within the body. Tong Wenmin’s <em>This Moment </em>seeks to explore the relationship between one’s inner state and the external world through sound. The artist, naked and covered in mud, walks through the forest, giving voice to the depths of her inner self and creating a space for communication between humans and nature.</p>"},"id":"44e6658d-94a6-461f-b0d6-96dda433fcc4","isHidden":false,"type":"text"}]
+
+----
+
+Infoartist: 
+
+----
+
+Infoscript: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: true
+
+----
+
+Robotsfollow: true
+
+----
+
+Robotsarchive: true
+
+----
+
+Robotsimageindex: true
+
+----
+
+Robotssnippet: true
+
+----
+
+Metainherit: 
+
+----
+
+Typeaudiofiles: 
+
+----
+
+Typevideofiles: 
+
+----
+
+Typeslideshowfiles: 
+
+----
+
+Uuid: D8e4vwl6Yb5hMXfG

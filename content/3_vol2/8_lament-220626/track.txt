@@ -1,0 +1,125 @@
+Title: Lament 220626
+
+----
+
+Artist: t l k
+
+----
+
+Uicolor: #99ff00
+
+----
+
+Tracktype: audio
+
+----
+
+Typeaudiofile: - file://jfo4tpaxsnemxpes
+
+----
+
+Typevideosourcemp4: 
+
+----
+
+Typevideosourcewebm: 
+
+----
+
+Typevideoposter: 
+
+----
+
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>t l k centres the voice-as-instrument, in live and recorded contexts, with palettes formed from vocal layers, found rhythms, analogue synthesis and organic instrumentation. Fluid in genre and form, with a leaning towards cinematic ambient, downtempo electronic, skewed pop, neo-classical and musique concrète sensibilities, their works evolve from memory, dialogue, dreams and ongoing explorations into grief, selfhood, human behaviour and its coalescence and tensions with the non-human. Inspired by far-reaching influences such as minimalism, chaos theory, Taoism, Internal Family Systems and the school of Deep Listening, the ‘act of Noticing’ has evolved to be at the core of both t l k's music-making practice, and their approach to aliveness.</p>"},"id":"0072e4cf-8ebc-49b7-9eba-575137b43fc5","isHidden":false,"type":"text"}]
+
+----
+
+Blocksright: [{"content":{"text":"<p>ABUOT THE TRACK</p><hr><p>Taking a long view on our current Earthly era, t l k’s<em> Lament</em> <em>220626</em> responds to a culture that has estranged us from traditions of grieving. The artist observes a growing sentiment not only to connect with our ancient human histories, but to arrive at a mode of mourning that feels possible – authentic, effective, meaningful – in this unprecedented cultural epoch. <em>Lament 220626 </em>is one attempt to open the gate. Recorded and reamped around a binaural head microphone, the piece encircles the listener in layers of t l k's concentric voice. Most notably inspired by Scottish <em>caoineadh, </em>or keening, the piece encourages participation towards some movement of grief through the body.</p>"},"id":"8f6e4f2d-448a-4ba9-ac27-eb9665b81a42","isHidden":false,"type":"text"}]
+
+----
+
+Infoartist: 
+
+----
+
+Infoscript: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: true
+
+----
+
+Robotsfollow: true
+
+----
+
+Robotsarchive: true
+
+----
+
+Robotsimageindex: true
+
+----
+
+Robotssnippet: true
+
+----
+
+Metainherit: 
+
+----
+
+Typeaudiofiles: 
+
+----
+
+Typevideofiles: 
+
+----
+
+Typeslideshowfiles: 
+
+----
+
+Uuid: 1lJuuZNIYdA77Eoz

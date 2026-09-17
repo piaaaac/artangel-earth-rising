@@ -1,0 +1,125 @@
+Title: ping! pong! (Ogun hammer goes…)
+
+----
+
+Artist: Zane Rudolfo
+
+----
+
+Uicolor: #55ff00
+
+----
+
+Tracktype: audio
+
+----
+
+Typeaudiofile: - file://pzfqr6484hl8ighh
+
+----
+
+Typevideosourcemp4: 
+
+----
+
+Typevideosourcewebm: 
+
+----
+
+Typevideoposter: 
+
+----
+
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Zane Rodulfo is a drummer and composer living and working in New York City. Born and raised in Trinidad and Tobago, he holds Bachelor of Music degrees in Jazz Performance and Ethnomusicology from Oberlin Conservatory of Music, and a Masters of Music in Jazz Studies from New York University. A Creative Capital Awardee and National Arts Club Fellow, he has partnered with and been commissioned by the Guggenheim Museum, Whitney Museum, Asian Arts Initiative, The Harlem Arts Alliance, the Brooklyn Arts Council and Hi-ARTS. Rodulfo focuses on publicly engaging work addressing decolonisation, the intersection of traditional and contemporary music, and ideas of transcendence. His work employs electro-acoustic music composition and improvisation, applying multimedia approaches to live performance and installation. A Trinbagonian, the communal and sonic sensibilities of steel band and sound system culture is embedded in his practice, and thus he carries the politics of innovation and resourcefulness amidst material scarcity.&nbsp;</p>"},"id":"580527c8-46f6-406d-b3f2-2c96b190a8f4","isHidden":false,"type":"text"}]
+
+----
+
+Blocksright: [{"content":{"text":"<p>ABOUT THE TRACK</p><hr><p>Zane Rodulfo celebrates 75 years of the steelpan. First called the ping-pong — invented in Trinidad and Tobago by Winston ‘Spree’ Simon in the early 1940s, it was the first steelpan instrument created as a result of a colonial prohibition on drumming. In <em>ping! pong! (Ogun’s Hammer Goes...)</em>, Rodulfo highlights the steelpan as a symbol of human resilience, ingenuity, resistance and freedom amidst political suppression, colonialism and material extraction. Featuring spoken word by Anthony Joseph, the composition tells the story of his people’s determination and pays honour to Ogun, the Yoruba Orisha or deity of metalwork, iron and war. Regarded as the father of technology, he wields iron tools — hammers, chains and swords — that represent his ability to clear obstacles and protect.</p>"},"id":"6cb18bcf-323a-4adb-befa-2c35fefc0824","isHidden":false,"type":"text"},{"content":{"items":[{"itemheader":"<p>TRANSCRIPT</p>","itemcontent":"<p>Build We A Drum</p><p>Anthony Joseph</p><p><br></p><p>First thing is the skin.</p><p>Animal skin</p><p>stretched across the frame.</p><p>And it must be deeply resonant&nbsp;</p><p>like an orchestra of&nbsp;</p><p>the wind&nbsp;</p><p>\tblowing</p><p>from a hill overlooking&nbsp;</p><p>the beginning of the world.</p><p><br></p><p>And in the beginning was the drum,</p><p>the heart of the drum.</p><p>And maybe the beginning of the world&nbsp;</p><p>was an island.</p><p>Look, look at the city below.</p><p>Look at the sea beyond it.</p><p>This is what we carried,</p><p>and this is how we spoke.</p><p>Drums of black secret technology</p><p><br></p><p>And in 1884 the ordinance declare</p><p>that no drum could play in this colony.</p><p>So we beat tamboo bamboo,</p><p>bamboo knocking on the road.</p><p>The boom, the foule and the cutter</p><p>— the iron.</p><p>And the people say</p><p>‘Ogun,&nbsp;</p><p>we need a drum.</p><p>Help us build a drum that cannot&nbsp;</p><p>be destroyed.’</p><p>And they start to beat iron.</p><p>That is how the spirit come down</p><p><br></p><p>And somewhere behind the bridge</p><p>a black scientist discover</p><p>that if you concave iron</p><p>it alter the pitch.</p><p>Yes, is pan man divine that technology.</p><p>Then Totee Wilson hammer the primitive</p><p>two note drum until the notes match the chime&nbsp;</p><p>of the clock.</p><p>So the drum must beat</p><p>but then the drummer say&nbsp;</p><p>‘No, the drum must be played.</p><p>Because fundamentally&nbsp;</p><p>the drum plays you.’</p><p>The drum must be played</p><p>with wrist and struggle and rubber tipped sticks</p><p>till 100 strong become more that just&nbsp;</p><p>an orchestra of bees,&nbsp;</p><p>the band become an army.</p><p>And it sound like rebel music,</p><p>free music,</p><p>revolution music.</p><p>And now the drummer say - play!</p><p><br></p><p>And the people say</p><p>Ogun,&nbsp;</p><p>we need a drum</p><p>help us build a drum that cannot&nbsp;</p><p>be destroyed!</p>"}]},"id":"e7460d7f-c4cc-4fb0-a278-8622f61cc0c4","isHidden":false,"type":"accordion"}]
+
+----
+
+Infoartist: 
+
+----
+
+Infoscript: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: true
+
+----
+
+Robotsfollow: true
+
+----
+
+Robotsarchive: true
+
+----
+
+Robotsimageindex: true
+
+----
+
+Robotssnippet: true
+
+----
+
+Metainherit: 
+
+----
+
+Typeaudiofiles: 
+
+----
+
+Typevideofiles: 
+
+----
+
+Typeslideshowfiles: 
+
+----
+
+Uuid: mcuU3bqhCQ90DBx2

@@ -1,0 +1,125 @@
+Title: The Con(tra)cave #2: Scar Record
+
+----
+
+Artist: Duruo Wang and Wenxin Zhang
+
+----
+
+Uicolor: #ccff00
+
+----
+
+Tracktype: video
+
+----
+
+Typeaudiofile: - file://6ahaxxnwngvsbs09
+
+----
+
+Typevideosourcemp4: - file://pyfnrhewawphjzj7
+
+----
+
+Typevideosourcewebm: - file://4yvs9jutifelhl9t
+
+----
+
+Typevideoposter: - file://7mbp7fbdrjq5gbqj
+
+----
+
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Duruo Wang and Wenxin Zhang are interdisciplinary artists working collectively through The Con(tra)cave, a long-term artistic research project that examines the asymmetric relation between representation and the represented from a feminist perspective. Rooted in their encounters with spaces historically marked as ‘sunken fields’ and geologically characterised as caves and concavities in the karst landscape of Southwest China, the project interrogates the regimes of representation through which these places have been constructed as zones of lack, economically and ethically, from imperial assimilation to postcolonial and late-capitalist globalisation. The Con(tra)cave posits itself as a device of unworlding, attuned to an unutterable yet radical immanence, and traces how certain ways of existence are foreclosed and rendered available for expropriation and extraction within the grammar of value and ethics that underwrites existing forms of world-making. The project takes shape through a series of audiovisual works, performances, installations, writings and archives.</p>"},"id":"2a8a016d-d164-45fe-bee5-b419badb3229","isHidden":false,"type":"text"}]
+
+----
+
+Blocksright: [{"content":{"text":"<p>ABOUT THE TRACK</p><hr><p>Duruo Wang and Wenxin Zhang's <em>The Con(tra)cave #2: Scar Record</em> forms part of an ongoing project that views the positive-negative morphology of mountains and caves as an analogue of social space. They use this topological metaphor to think through how the boundaries of life are drawn from animism to transhumanism, and how autonomy is constituted through the abjection of its conditions of dependence. The track rewrites the story of Hundun, or Chaos, who appears in two pieces of early Chinese literature, the <em>Zhuangzi</em> and the <em>Shanhaijing.</em> Hundun is presented as a primordial, undifferentiated being that nonetheless feels. They die after two guests, Shu and Hu — figures of time — carve the faculties of separate, individuated life into their body as a gesture of gratitude. In <em>The Con(tra)cave #2: Scar Record, </em>Wang and Zhang suggest that this ontological rupture is an opening rather than an ending, a prophecy delivered from the other side of the world: the cut that kills Hundun is the ground the world is built on. In the artists’ eyes, the cut itself underwrites a haunted infrastructure upon which life articulates its own existence under an imperative to transcend and finish itself.</p>"},"id":"f6415f0a-d2cd-4eec-927e-83810cc9ad52","isHidden":false,"type":"text"},{"content":{"items":[{"itemheader":"<p>TRANSCRIPT</p>","itemcontent":"<p>Chaos,<br>said to be the emperor of the central land,<br>a confused creature，<br>faceless, senseless, formless, timeless, shadowless, wordless, worthless,<br>but a good dancer.</p><p>Chaos died after being gifted<br>with seven holes of sensory faculties.</p><p>A certain chronometric operation<br>pierced through its body seven times,<br>incising time itself.&nbsp;</p><p>From then on,&nbsp;<br>the World began to function upon its dead body.&nbsp;</p><p>Being was born from killing.</p><p>&nbsp;</p><p>This planet<br>is the scar record of the torturous transformation of Chaos,<br>the morphogenesis of lava flows, tectonic drift, erosion, and desertification …</p><p>Humanity has been struggling with the secret of life,<br>scavenging non-life for the meaning of existence.&nbsp;&nbsp;</p><p>They did not know<br>&nbsp;- not until the fossils were unearthed -&nbsp;<br>that they had all along been enclosed in a habitat saturated with death.</p><p>&nbsp;</p><p>The majority of lifeforms raised on this planet are dead.</p><p>Some of their remains<br>burn into the porous strata,<br>throbbing and resonating underground,<br>haunting the world above.</p><p>&nbsp;</p><p>Man digs for stone,<br>dwelling within shells built from their ancestral ash.<br>Urban space is a jungle of necrobes,<br>where the modern subject is haunted by nightmares.</p><p>Man drills for salt,<br>ingesting the crystallised fluids of buried life.&nbsp;<br>The human body is a transit vessel for death assemblages;<br>and so ghostly deposits seep out in the tears of the living.</p><p>&nbsp;</p><p>The modern world is animated by ghosts.<br>Those who, on their own terms, strike a deal with the underworld<br>grant non-life an afterlife.<br>They trade lives in exchange for time.<br>They extract fossil fuels<br>and burn the millennia-old remains of their predecessors,<br>in a heartbeat.&nbsp;</p><p>&nbsp;</p><p>Homo sapiens, <br>a plastic, viscous, photosensitive being.&nbsp;</p><p>When they ​​are seized with hauntosis,<br>they become terror-stricken by the origin of darkness <br>and fetishise the burning star.</p>"}]},"id":"209b37d8-7f39-4d6f-9877-dd2d219883ae","isHidden":false,"type":"accordion"}]
+
+----
+
+Infoartist: 
+
+----
+
+Infoscript: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: true
+
+----
+
+Robotsfollow: true
+
+----
+
+Robotsarchive: true
+
+----
+
+Robotsimageindex: true
+
+----
+
+Robotssnippet: true
+
+----
+
+Metainherit: 
+
+----
+
+Typeaudiofiles: 
+
+----
+
+Typevideofiles: 
+
+----
+
+Typeslideshowfiles: 
+
+----
+
+Uuid: q7WnC8cwO7YVD70l

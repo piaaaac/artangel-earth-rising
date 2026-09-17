@@ -1,0 +1,113 @@
+Title: Becoming a Mountain
+
+----
+
+Artist: Clara Arnaud
+
+----
+
+Uicolor: #ddff00
+
+----
+
+Tracktype: audio
+
+----
+
+Typeaudiofile: - file://tz241wjo0okjmw56
+
+----
+
+Typevideosourcemp4: 
+
+----
+
+Typevideosourcewebm: 
+
+----
+
+Typevideoposter: 
+
+----
+
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Clara Arnaud is a French writer, winner of the Ecology Novel Prize in France. Her literary work—both fiction and non-fiction—explores political and ecological themes, questioning our way of inhabiting the world. She has travelled extensively off the beaten track, mostly on foot or horseback, and has also worked as a consultant in international cooperation, leading missions across sub-Saharan Africa and Latin America.&nbsp; Since 2022, Clara has dedicated herself to writing and activism focused on the preservation of mountain ecosystems. She lives year-round in a remote valley in the central Pyrenees. Her writing is naturalistic, paying close attention to physical, geological, and biological phenomena. Inspired by the anthropologist Anna Tsing, her work is driven by the question: How can we best use our research to stem the tide of destruction?&nbsp;</p>"},"id":"9de870b0-e445-4fea-9b9a-b2f756efa0fb","isHidden":false,"type":"text"}]
+
+----
+
+Blocksright: [{"content":{"text":"<p>ABOUT THE TRACK</p><hr><p>The album closes with Clara Arnaud’s <em>Becoming A Mountain.</em> In 2021, the writer relocated to a remote hamlet high in the Pyrenees. The track centres on a short work of fiction inspired by that liminal space where human and non-human lives are intertwined. As the snow melts and spring approaches, the listener follows a woman who has settled in the highest cabin in a remote valley, where she lives alone. Her days are filled with repetitive gestures essential for her survival, and with observing her surroundings. She is determined to ultimately belong to the mountain. For this project, Arnaud collaborated with her neighbour Olivier Chat, a cinema sound designer. He recorded natural sounds from the mountains and chose Nicole Tidmas, a British woman living locally, to provide the voice. The entire project, from writing to mixing, was organically completed in the place that inspired it. <em>Becoming A Mountain</em> is therefore a collaboration between a writer, a sound designer, a reader, and our host: the mountain. The track is presented in two versions, the first in English and the second in French.&nbsp;</p>"},"id":"c68cff04-bde9-48f3-88a5-69373a6d4a9c","isHidden":false,"type":"text"},{"content":{"items":[{"itemheader":"<p>TRANSCRIPT</p>","itemcontent":"<p>One must stick to gestures.<br>These gestures through which one’s body is bound to the world, to all the things it is made of.<br>The buzzard returned this morning. She watches me curiously. I am the visitor.&nbsp;<br>She had built her nest in the old beech tree over there, before I built mine within these walls.<br>I light the fire in the stove, my hands arranging the kindling I have collected.<br>Soon the water to boil for coffee, water drawn from the spring, miraculous.<br>Miraculously saved, I am, too. From the world below, from the clamour of humans.<br>All it took was a step aside, a step above.<br>The fox growls. Mating season. They call him a nuisance. He is welcome here, at home, with us. The wind sings in the leaves, under my feet they crackle.<br>Silence does not exist in the mountains. Silence is the word humans use for the song of the world, which they can no longer hear.<br><br>Coffee is ready, a ray of sunshine pours into the house.<br>Stone by stone, I rebuilt this wall. All I had to do was observe the layout of the other side, imitate it, reinvent forgotten gestures.<br>I chop some wood. The saw moves back and forth in the tender flesh of a young ash tree, felled by the storm. I left the stump for the microorganisms to feast on. I took the trunk’s body to warm my own body.<br>Take what you need and no more, like civilised animals.<br>To get around, all I have left is walking. One step after another, I avoid the roots. I know the twists and turns of the terrain, the backsides of the slopes. I slalom between animal constructions, a bear's bed of leaves, a badger's den, a termite mound.<br>The black woodpecker sings his rain song. He knows.<br>Soon, there will be a deluge. Spring is generous. It nourishes the soil and washes away sorrow with its bounty.<br><br>When did I get here? I cannot remember. The moon was high and huge. Since then, I have stopped counting its cycles and my own. I have lost track of the days and weeks, months. Now I listen only to my body, the sun, and the wind.<br>Spring, really? We'll see if one last snowfall proves me wrong.<br>But there are a few clues, nonetheless: the first buds, the fox's love song.<br>And then, at the edge of the source this morning, a Lathraea clandestina in a purple bouquet.<br>It's a strange plant with no leaves. It feeds on tree sap, coupling its rhizomes to their roots. It lives on little, appearing furtively.<br>I feel a bit like a clandestine myself.<br>When I arrived here, I had only one wish: to disappear, slowly.<br>To become a mountain.<br><br>Sudden rain. On my bare shoulders. Cold, heavy.<br>I put down the saw and feel hunger rise.<br>Yesterday, I picked a basketful of chanterelles, dandelion roots and plantain — the forest provides.<br>Rain again along hair that turned gray one day of anguish. The sun tints it silver. But I have no mirror to see the passing of time on my face.<br>Rain still.<br>I let it run down me, wash me, overwhelm me.<br>I drink what falls from the sky.<br>The woodpecker still sings.<br>At last I catch a glimpse of him in the last fir tree. The other conifers couldn't withstand the scorching summers. They retreated higher up.&nbsp;One day, there won't be any higher ground left on the mountain to take shelter. We will no longer be able to escape the deadly heat of the plains. Those below will already have disappeared.<br>Perhaps I will have sedimentated in the one day, along with other organic debris.<br><br>To be nothing but a body among other bodies comforts me.<br>Sticking to the gestures that mark the passage of time.<br>Clear the small vegetable garden. Pull up, replant, take cuttings, graft this old apple tree, hope the graft takes.<br>I need so little from my former life.<br>I brush my hair with my thickened fingers.<br>I wash my body in the stream.<br>I eat with my hands.<br>But an axe, a saw, a saucepan, a wooden spatula, a groundsheet, a wool blanket, rain gear and leather shoes, a pocket knife.<br>I couldn't get rid of everything.<br>Not yet.\t<br><br>Sometimes, when I answer the call of a Tengmalm's owl’s, when the clouds write stories for me and the earth caresses the soles of my feet, then I know that the great metamorphosis is at work.<br><br>One day, I will be a female among other females.<br>I will be mineral, watery, earth and slate. I will have leaves, I will bud in spring, I will proliferate in a carcass like bacteria.<br>One day roots will grow from me and I will hoot at night, I will have embraced all these forms of life, which together vertically constitute what we call a mountain.<br>I will be earthworm, humus, I will be carrion, ibex, beech, drop of water; I will be Lathraea clandestina, blueberry, bear, sheep, woman; I will be the hand and the hair, the cell, the vein of a leaf, the sky, the clouds, a nitrogen atom, the part and the whole, the fractal ordering the shape of the torrents' stench.<br>I will have disappeared.<br>I will have become a mountain.<br><br>And someone else will pass this way and see the door open. Like a mouth or a gaping sex, offered to an embrace. They will pass through the door and begin their own molting.<br></p>"}]},"id":"f8edecb8-5b6c-4d14-a169-001c1037035f","isHidden":false,"type":"accordion"}]
+
+----
+
+Infoartist: 
+
+----
+
+Infoscript: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: moweid55jmwuprmo

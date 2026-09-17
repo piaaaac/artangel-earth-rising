@@ -1,11 +1,22 @@
+## UTILS
+
+- for consistency with VOL I, I used the word TRANSCRIPT instead of LYRICS
+
 ## TODO V2: 2026
 
-- [ ] item
+- [ ] Check arabic font
+- [x] Title stars incremental
+- [x] Menu tracks of the current volume
+- [x] Turn 2 tracks into videos (9 & 11)
+- [x] Credits, general and per song
+- [x] Import tracks, titles, texts in track page
+- [x] Import the arabic font
+- [x] PUBLICATION: put page Vol II to state listed
+- [x] check layout: center line when mouse is attached is wrongly positioned.
+      Solution: right margin of first column
 
 ## TODO V1: 2025
 
-- [ ] check layout: center line when mouse is attached is wrongly positioned.
-      Solution: right margin of first column
 - [x] check if versions are the final mastered ones
 - [x] add all correct copy
 - [x] when UI is active make video more visible (on pause or mousemove)

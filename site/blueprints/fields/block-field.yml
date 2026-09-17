@@ -3,6 +3,7 @@ type: blocks
 fieldsets:
   - text
   - accordion
+  - piaaaac_space
   # - space
   # - heading
   # - image

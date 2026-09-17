@@ -1,0 +1,125 @@
+Title: Sírírí Sideral
+
+----
+
+Artist: TIMPANA
+
+----
+
+Uicolor: #00ffdd
+
+----
+
+Tracktype: audio
+
+----
+
+Typeaudiofile: - file://dowwo1ritumaovxr
+
+----
+
+Typevideosourcemp4: 
+
+----
+
+Typevideosourcewebm: 
+
+----
+
+Typevideoposter: 
+
+----
+
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Can we imagine a future that does not need to abandon our roots in order to exist? This question runs through the work of TIMPANA (Alejandra Lanza), a Bolivian artist working across music, performance, and the exploration of the voice. Her work emerges from a process of listening again, recovering and recognising ancient memory, understanding the act of remembering as a way of recognising oneself and, at the same time, of imagining the future. She asks how these roots can enter into dialogue with the present and open a space towards what does not yet exist.&nbsp;</p><p>In her music, the sonic memories of Bolivia and other territories meet Indigenous languages such as Quechua and Guaraní, Afro-Andean-Amazonian rhythms, myth, ritual, and electronic music, as in her latest album, Gwandena.&nbsp;</p><p>Her discography includes Alma Perdida (2011) and Gwandena (2022), the latter released by the UK-based label Sounds &amp; Colours. She also directed the documentary Viaje al Mar Verde and has collaborated with artists from Mexico, Morocco, Chile, Argentina, Italy, and Tunisia, as well as with international projects and labels Turntables on the Hudson. Her work has taken her across Europe, South America, Central America, the Caribbean, and Mexico. She currently lives and works in Mexico, where she continues to develop her musical and acting practice and is involved in the creation of the label Primavera Anónima, through which she will release her forthcoming work.&nbsp;</p>"},"id":"cc9b6f13-d179-4ff1-83c5-1b16264c22fc","isHidden":false,"type":"text"}]
+
+----
+
+Blocksright: [{"content":{"text":"<p>ABOUT THE TRACK</p><hr><p>The album begins with TIMPANA's <em>Sírírí Sideral</em>. A voice emerges from silence, before language, and opens into space. <em>Om</em> and its harmonics appear as vibrations that multiply, creating a sense of expansion and movement. From these vibrations emerges <em>Ñee</em>, the Guaraní word, interpreted here by Elías Caurey. With it comes maize, <em>avati</em>, not only as food, but as memory and community. The voice carries that ancestral memory into celebration and rhythm. TIMPANA’s voices then enter matter, the body and emotion, opening again into the infinite. The piece moves between the ancestral and the cosmic, the organic, the communal and the intimate, the earth and the infinite. In the end, it returns to water: a reflection of that which has no limit, a circular journey.</p>"},"id":"403eafb1-645b-48a4-b907-42697f51d6fe","isHidden":false,"type":"text"},{"content":{"items":[{"itemheader":"<p>TRANSCRIPT</p>","itemcontent":"<p>Guaraní lyrics (Bolivia)</p><p>Corn – an excerpt from the poem \"Avati\" by Elías Caurey.</p><p>Maíz! es el que germinó de nuestro cuerpo;</p><p>Semilla que Dios nos dio;&nbsp;</p><p>Respetarla es sagrada, siempre fue parte de nosotros;</p><p>Es fuente de nuestra existencia.&nbsp;</p><p>\"Corn is what sprouted from our bodies, the seed that God gave us. To honor it is sacred. It has always been part of us and is the source of our existence.\"</p><p><br>Lyrics by TIMPANA</p><p>Allá en la montaña despierta mi alma;&nbsp;</p><p>Aquí en el fuego renace la luz;&nbsp;</p><p>Allá en el océano canto al alba;</p><p>Aquí en el viento vació mi voz.</p><p>English translation:</p><p>There in the mountains my soul awakens<br>Here in the fire the light is reborn<br>There in the ocean I sing to the dawn<br>Here in the wind I empty my voice</p>"}]},"id":"18cb21c8-db89-4f08-a50f-18ae00eb5928","isHidden":false,"type":"accordion"}]
+
+----
+
+Infoartist: 
+
+----
+
+Infoscript: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: true
+
+----
+
+Robotsfollow: true
+
+----
+
+Robotsarchive: true
+
+----
+
+Robotsimageindex: true
+
+----
+
+Robotssnippet: true
+
+----
+
+Metainherit: 
+
+----
+
+Typeaudiofiles: 
+
+----
+
+Typevideofiles: 
+
+----
+
+Typeslideshowfiles: 
+
+----
+
+Uuid: jBMlc9EwIuwDarzw

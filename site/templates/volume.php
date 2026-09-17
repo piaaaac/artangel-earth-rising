@@ -35,15 +35,6 @@ foreach ($page->children()->listed() as $key => $track) {
     if ($fileAudio) {
       $item["media"]["audioFileUrl"] = $fileAudio->url();
     }
-    // } elseif ($trackType === "slideshow") {
-    //   $item["media"]["type"] = "audio";
-    //   $fileAudio = $track->typeSlideshowAudioFile()->toFile();
-    //   if ($fileAudio) {
-    //     $item["media"]["audioFileUrl"] = $fileAudio->url();
-    //   }
-    //   foreach ($track->typeSlideshowImageFiles()->toFiles() as $image) {
-    //     $item["slideshowFilesUrls"][] = $image->url();
-    //   }
   } elseif ($trackType === "video") {
     $item["media"]["type"] = "video";
     $fileMp4 = $track->typeVideoSourceMp4()->toFile();
@@ -126,7 +117,7 @@ $json = json_encode($data);
 <!-- <canvas id="twinkle-canvas"></canvas> -->
 
 
-<?php snippet("nav") ?>
+<?php snippet("nav", ["volPage" => $page]) ?>
 
 <script type="text/javascript" src="<?= $kirby->url("assets") ?>/lib/plyr-3.7.8/dist/plyr.js"></script>
 <script>

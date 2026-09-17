@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lateef:wght@300&display=swap");
 *:not(i), *:not(i)::before, *:not(i)::after {
   margin: 0;
   padding: 0;
@@ -168,7 +169,7 @@ textarea:invalid {
   font-variant-numeric: tabular-nums;
 }
 .font-serif-l {
-  font-family: "Gaisyr", serif;
+  font-family: "Gaisyr", "Lateef", serif;
   font-size: 1.3rem;
   font-optical-sizing: auto;
   letter-spacing: 0;
@@ -196,7 +197,7 @@ textarea:invalid {
 }
 
 .font-serif-m {
-  font-family: "Gaisyr", serif;
+  font-family: "Gaisyr", "Lateef", serif;
   font-size: 18px;
   font-optical-sizing: auto;
   letter-spacing: 0;
@@ -224,7 +225,7 @@ textarea:invalid {
 }
 
 .font-serif-s {
-  font-family: "Gaisyr", serif;
+  font-family: "Gaisyr", "Lateef", serif;
   font-size: 15px;
   font-optical-sizing: auto;
   letter-spacing: 0;
@@ -555,7 +556,7 @@ body {
   width: 100vw;
   background-color: black;
   color: var(--c-whiteish);
-  font-family: "Gaisyr", serif;
+  font-family: "Gaisyr", "Lateef", serif;
   font-size: 1.3rem;
   font-optical-sizing: auto;
   letter-spacing: 0;
@@ -610,7 +611,7 @@ a:not(.no-color):not(.track):hover {
 }
 
 p {
-  font-family: "Gaisyr", serif;
+  font-family: "Gaisyr", "Lateef", serif;
   font-size: 1.3rem;
   font-optical-sizing: auto;
   letter-spacing: 0;
@@ -645,7 +646,7 @@ h5,
 h6 {
   font-weight: 300;
   margin-bottom: 15px;
-  font-family: "Gaisyr", serif;
+  font-family: "Gaisyr", "Lateef", serif;
   font-size: 1.3rem;
   font-optical-sizing: auto;
   letter-spacing: 0;
@@ -1129,7 +1130,7 @@ main#main-content #circle-wrapper #circle-time text {
   fill: var(--c-whiteish);
   letter-spacing: 0.5px;
   stroke: black;
-  font-family: "Gaisyr", serif;
+  font-family: "Gaisyr", "Lateef", serif;
   font-size: 1.3rem;
   font-optical-sizing: auto;
   letter-spacing: 0;
@@ -1797,19 +1798,19 @@ body[data-about-panel=true] #about-panel {
   opacity: 0.3;
   fill: none;
 }
-body[data-current-uid=vol1] .stars svg path.star.star1 {
+body[data-current-uid=vol1] .stars svg path.star.star.star1 {
   opacity: 1;
   fill: var(--stars-color, var(--c-whiteish));
   stroke: var(--stars-color, var(--c-whiteish));
 }
 
-body[data-current-uid=vol2] .stars svg path.star.star2 {
+body[data-current-uid=vol2] .stars svg path.star.star.star1, body[data-current-uid=vol2] .stars svg path.star.star.star2 {
   opacity: 1;
   fill: var(--stars-color, var(--c-whiteish));
   stroke: var(--stars-color, var(--c-whiteish));
 }
 
-body[data-current-uid=vol3] .stars svg path.star.star3 {
+body[data-current-uid=vol3] .stars svg path.star.star.star1, body[data-current-uid=vol3] .stars svg path.star.star.star3, body[data-current-uid=vol3] .stars svg path.star.star.star2 {
   opacity: 1;
   fill: var(--stars-color, var(--c-whiteish));
   stroke: var(--stars-color, var(--c-whiteish));
@@ -2091,10 +2092,13 @@ html[data-access-high-contrast=true] body[data-current-uid=vol1] .stars svg path
   fill: white !important;
   stroke: white !important;
 }
+html[data-access-high-contrast=true] body[data-current-uid=vol2] .stars svg path.star.star1,
 html[data-access-high-contrast=true] body[data-current-uid=vol2] .stars svg path.star.star2 {
   fill: white !important;
   stroke: white !important;
 }
+html[data-access-high-contrast=true] body[data-current-uid=vol3] .stars svg path.star.star1,
+html[data-access-high-contrast=true] body[data-current-uid=vol3] .stars svg path.star.star2,
 html[data-access-high-contrast=true] body[data-current-uid=vol3] .stars svg path.star.star3 {
   fill: white !important;
   stroke: white !important;

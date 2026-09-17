@@ -1,0 +1,24 @@
+name: Space
+preview: space_block
+# wysiwyg: true
+fields:
+  spaceSize:
+    type: toggles
+    label: Space size
+    options:
+      25px: "25px"
+      50px: "50px"
+      75px: "75px"
+      100px: "100px"
+      150px: "150px"
+      custom: other
+    default: 25px
+    required: true
+    width: 1/2
+  customSize:
+    label: Custom size
+    type: text
+    help: "Enter value with unit, e.g. 75px or 5em"
+    when:
+      spaceSize: custom
+    width: 1/2

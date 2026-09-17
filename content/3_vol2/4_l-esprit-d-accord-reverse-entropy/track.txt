@@ -1,0 +1,125 @@
+Title: L’Esprit d’accord (Reverse Entropy)
+
+----
+
+Artist: Nitin Sawhney
+
+----
+
+Uicolor: #00ff99
+
+----
+
+Tracktype: audio
+
+----
+
+Typeaudiofile: - file://akwcvdbfszech0kw
+
+----
+
+Typevideosourcemp4: 
+
+----
+
+Typevideosourcewebm: 
+
+----
+
+Typevideoposter: 
+
+----
+
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Dr Nitin Sawhney CBE is a globally celebrated musician, composer, and cultural advocate. Raised in South London, he excelled as a classical and jazz pianist, flamenco guitarist, and later studied sitar and tabla. Abandoning a law degree for music in the 1980s, Sawhney has since composed over 70 film and TV scores, released 13 acclaimed solo albums, and earned an Ivor Novello Lifetime Achievement Award, a CBE, and nine honorary doctorates.&nbsp; His groundbreaking 1999 album Beyond Skin, a Mercury Prize nominee, fused Indian classical, jazz, and electronica, earning a South Bank Show Award. Albums like Prophesy (2001) and Philtre (2005) won MOBO and BBC Radio 3 Awards, while his film scores for The Namesake, Midnight’s Children, and Mowgli: Legend of the Jungle showcased his versatility. His 2025 BAFTA-nominated score for Disney’s Tiger follows his BAFTA-winning Human Planet and other acclaimed works.&nbsp;&nbsp;</p>"},"id":"0f961f3e-e305-4f09-86a8-720f7d68c275","isHidden":false,"type":"text"}]
+
+----
+
+Blocksright: [{"content":{"text":"<p>ABOUT THE TRACK</p><hr><p>From chaos to collective order, Nitin Sawhney composed <em>L’esprit d’accord (Reverse Entropy)</em> for six string players: two violins, two violas and two cellos. It begins in deliberate dissonance. The musicians enter one by one, starting with the first violin, playing markedly out of tune. Over the opening section they gradually converge, tuning across the same bars until, in a single shared moment, they strike the first consonant harmony. From that point of arrival, the music continues to build steadily in intensity through passages of reflection, sadness and growing force. For Sawhney, the piece seeks to juxtapose the pain and chaos of our isolated lives against the quiet power of community — the beauty and grace that arise when disparate voices find common ground. He suggests that in imagination, at least, we can reverse entropy, contemplating our memories, our place within time and space, and the emergent creativity of human collaboration.&nbsp;</p>"},"id":"7ff3452d-c274-41db-8547-5eaa63dfd24a","isHidden":false,"type":"text"}]
+
+----
+
+Infoartist: 
+
+----
+
+Infoscript: 
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: 
+
+----
+
+Twittercardtype: 
+
+----
+
+Twitterauthor: 
+
+----
+
+Robotsindex: true
+
+----
+
+Robotsfollow: true
+
+----
+
+Robotsarchive: true
+
+----
+
+Robotsimageindex: true
+
+----
+
+Robotssnippet: true
+
+----
+
+Metainherit: 
+
+----
+
+Typeaudiofiles: 
+
+----
+
+Typevideofiles: 
+
+----
+
+Typeslideshowfiles: 
+
+----
+
+Uuid: 7dyTAGHgCv6yo8on

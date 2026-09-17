@@ -1,7 +1,12 @@
 <?php
+
+/**
+ * @param volPage $kirby page
+ */
+
+$volPage = isset($volPage) ? $volPage : page("vol1");
 $ass = $kirby->url("assets");
 
-$vol1Page = page("vol1");
 $aboutPage = page("about");
 $creditsPage = page("credits");
 $artangelPage = page("artangel-panel");
@@ -13,7 +18,7 @@ $accessPage = page("accessibility-panel");
 
 
 <nav id="menu-panel">
-  <?php snippet("tracklist", ["tracksPage" => $vol1Page]) ?>
+  <?php snippet("tracklist", ["tracksPage" => $volPage]) ?>
   <div class="line"></div>
 </nav>
 

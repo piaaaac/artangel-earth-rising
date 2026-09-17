@@ -1369,20 +1369,29 @@ main {
       stroke-width: 1.5px;
       opacity: 0.3;
       fill: none;
-      @at-root body[data-current-uid="vol1"] &.star1 {
-        opacity: 1;
-        fill: var(--stars-color, var(--c-whiteish));
-        stroke: var(--stars-color, var(--c-whiteish));
+      @at-root body[data-current-uid="vol1"] &.star {
+        &.star1 {
+          opacity: 1;
+          fill: var(--stars-color, var(--c-whiteish));
+          stroke: var(--stars-color, var(--c-whiteish));
+        }
       }
-      @at-root body[data-current-uid="vol2"] &.star2 {
-        opacity: 1;
-        fill: var(--stars-color, var(--c-whiteish));
-        stroke: var(--stars-color, var(--c-whiteish));
+      @at-root body[data-current-uid="vol2"] &.star {
+        &.star1,
+        &.star2 {
+          opacity: 1;
+          fill: var(--stars-color, var(--c-whiteish));
+          stroke: var(--stars-color, var(--c-whiteish));
+        }
       }
-      @at-root body[data-current-uid="vol3"] &.star3 {
-        opacity: 1;
-        fill: var(--stars-color, var(--c-whiteish));
-        stroke: var(--stars-color, var(--c-whiteish));
+      @at-root body[data-current-uid="vol3"] &.star {
+        &.star1,
+        &.star3,
+        &.star2 {
+          opacity: 1;
+          fill: var(--stars-color, var(--c-whiteish));
+          stroke: var(--stars-color, var(--c-whiteish));
+        }
       }
     }
   }
@@ -1711,10 +1720,13 @@ html[data-access-high-contrast="true"] {
     fill: white !important;
     stroke: white !important;
   }
+  body[data-current-uid="vol2"] .stars svg path.star.star1,
   body[data-current-uid="vol2"] .stars svg path.star.star2 {
     fill: white !important;
     stroke: white !important;
   }
+  body[data-current-uid="vol3"] .stars svg path.star.star1,
+  body[data-current-uid="vol3"] .stars svg path.star.star2,
   body[data-current-uid="vol3"] .stars svg path.star.star3 {
     fill: white !important;
     stroke: white !important;
