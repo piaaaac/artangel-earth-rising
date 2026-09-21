@@ -10,7 +10,7 @@ Uicolor: #ccff00
 
 ----
 
-Tracktype: video
+Tracktype: audio
 
 ----
 

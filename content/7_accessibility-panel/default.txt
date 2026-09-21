@@ -2,7 +2,7 @@ Title: Accessibility panel
 
 ----
 
-Blocks: [{"content":{"text":"<p><em>Continuous bright flashing lights are used on Neon Hyperglossia, Emilia Álvarez's track. This may not be safe for those with epilepsy or other photosentive conditions.</em></p>"},"id":"dbd77fb0-4f00-4434-b696-7a6a513c5313","isHidden":false,"type":"text"}]
+Blocks: [{"content":{"text":"<p><em>On Volume I, continuous bright flashing lights are used on Neon Hyperglossia, Emilia Álvarez's track. This may not be safe for those with epilepsy or other photosentive conditions.</em></p>"},"id":"dbd77fb0-4f00-4434-b696-7a6a513c5313","isHidden":false,"type":"text"}]
 
 ----
 

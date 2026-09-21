@@ -156,13 +156,13 @@ $accessPage = page("accessibility-panel");
     <div id="track-info-artist" class="kt-container p-3"></div>
   </div>
   <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="wui.toggleTrackInfo()">
-    <h2 id="track-artist"></h2>
+    <h2 id="track-artist" translate="no" class="notranslate"></h2>
   </div>
   <span class="button-wrapper"><img class="icon-img" src="<?= $ass ?>/images/icon-rarr.svg" /></span>
 </section>
 <section id="track-info-dsk-r">
   <div class="vertical-bar" role="button" aria-label="Toggle track info" onclick="wui.toggleTrackInfo()">
-    <h2 id="track-title"></h2>
+    <h2 id="track-title" translate="no" class="notranslate"></h2>
   </div>
   <div class="content-wrapper">
     <div id="track-info-script" class="kt-container p-3"></div>

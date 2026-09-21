@@ -59,6 +59,12 @@ addEventListener("popstate", (event) => {
   console.log("Last path segment:", lastSegment);
 });
 
+function resetScrolls() {
+  document.querySelectorAll(".content-wrapper").forEach((el) => {
+    el.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
 // ----------------------------------------------------------------------------
 // Class App
 // ----------------------------------------------------------------------------
@@ -171,6 +177,7 @@ class App {
     this.wui.updateTrackUI(trackData, function onAnimationDone() {
       that.pui.ctrl.loadNewTrack(trackData);
       that.pui.showPlayerControls();
+      resetScrolls();
     });
     // window.twinkler?.setTrackMode(trackData);
   }
@@ -314,7 +321,7 @@ class WebUI {
       that.colorStars(trackData.uiColor);
       document
         .querySelector(
-          "#menu-panel a.track[data-track-id='" + trackData.id + "']"
+          "#menu-panel a.track[data-track-id='" + trackData.id + "']",
         )
         ?.classList.add("active");
 
@@ -403,7 +410,7 @@ class WebUI {
   colorStars(color) {
     document.documentElement.style.setProperty(
       "--stars-color",
-      color ?? "unset"
+      color ?? "unset",
     );
   }
 
@@ -412,7 +419,7 @@ class WebUI {
     document.body.dataset.circleAnimationStage = "1";
     this.circleTimeAnimate.classList.remove(
       "state-size-small",
-      "state-size-normal"
+      "state-size-normal",
     );
     this.circleTimeAnimate.classList.add("state-size-large");
     const that = this;
@@ -420,7 +427,7 @@ class WebUI {
       document.body.dataset.circleAnimationStage = "2";
       that.circleTimeAnimate.classList.remove(
         "state-size-large",
-        "state-size-normal"
+        "state-size-normal",
       );
       that.circleTimeAnimate.classList.add("state-size-small");
       setTimeout(function () {
@@ -428,7 +435,7 @@ class WebUI {
         document.body.dataset.circleAnimationStage = "";
         that.circleTimeAnimate.classList.remove(
           "state-size-small",
-          "state-size-large"
+          "state-size-large",
         );
         that.circleTimeAnimate.classList.add("state-size-normal");
         if (typeof callback === "function") {
@@ -681,7 +688,7 @@ class PlayerController {
           console.warn("Safari DEBUG - Autoplay failed:", err);
         });
       },
-      { once: true }
+      { once: true },
     );
 
     if (track.media.videoFilePosterUrl && track.media.type === "video") {
@@ -695,7 +702,7 @@ class PlayerController {
       source.setAttribute("src", track.media.audioFileUrl);
       source.setAttribute(
         "type",
-        `audio/${track.media.audioFileUrl.split(".").pop()}`
+        `audio/${track.media.audioFileUrl.split(".").pop()}`,
       );
       mediaElNew.appendChild(source);
     }
@@ -729,7 +736,7 @@ class PlayerController {
     const options = Object.assign(
       {},
       plyrOptions.common,
-      plyrOptions[track.media.type]
+      plyrOptions[track.media.type],
     );
     this.plyr = new Plyr("#player", options);
     console.log("Plyr initialized:", this.plyr);

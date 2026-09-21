@@ -5,6 +5,8 @@
 ## TODO V2: 2026
 
 - [ ] Check arabic font
+- [x] to avoid translations: added meta tag name="google" content="notranslate"
+- [x] to avoid translations: added translate="no" class="notranslate"
 - [x] Title stars incremental
 - [x] Menu tracks of the current volume
 - [x] Turn 2 tracks into videos (9 & 11)
