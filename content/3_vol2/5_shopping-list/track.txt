@@ -30,7 +30,7 @@ Typevideoposter:
 
 ----
 
-Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Theresa Lola is a British Nigerian poet and artist. She has performed at the Jazz Cafe, Royal Albert Hall, JAZZx, and ICA. Her second poetry collection Ceremony for the Nameless was awarded the Derek Walcott Poetry Prize, while a poem from her first collection In Search of Equilibrium is studied in the UK's GCSE syllabus. Her debut visual poetry exhibition was Who We Beans. She has been commissioned to write for The National Gallery, Selfridges, and Nest New York. She holds an MSt in Creative Writing from the University of Oxford.&nbsp;&nbsp;</p>"},"id":"76247740-f9dd-44b5-b080-4481a7a11bbb","isHidden":false,"type":"text"}]
+Blocksleft: [{"content":{"text":"<p>ABOUT THE ARTIST</p><hr><p>Theresa Lola is a British Nigerian poet and artist. She has performed at the Jazz Cafe, Royal Albert Hall, JAZZx, and ICA. Her second poetry collection <em>Ceremony for the Nameless</em> was awarded the Derek Walcott Poetry Prize, while a poem from her first collection <em>In Search of Equilibrium</em> is studied in the UK's GCSE syllabus. Her debut visual poetry exhibition was <em>Who We Beans</em>. She has been commissioned to write for The National Gallery, Selfridges, and Nest New York. She holds an MSt in Creative Writing from the University of Oxford.&nbsp;&nbsp;</p>"},"id":"76247740-f9dd-44b5-b080-4481a7a11bbb","isHidden":false,"type":"text"}]
 
 ----
 
