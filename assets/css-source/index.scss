@@ -428,7 +428,12 @@ main {
       #bg-layer2 {
         z-index: 30;
         background-size: #{$bg-img-w} #{$bg-img-h}; // half of the original image size
+
+        /* XXX */
+        background-size: auto 100%;
+
         background-image: url(../images/test-bg-l.gif);
+        // background-repeat: repeat-x;
         opacity: 0;
         transition:
           opacity $transition-duration-slow,
@@ -484,6 +489,7 @@ main {
       #bg-layer2 {
         animation: bgPan 450s linear infinite;
         background-position-y: 100%;
+        background-image: url(../images/bg-layer2.gif);
         @at-root body[data-circle-animation-stage="1"] & {
           // background-color: green;
           transform: scale(1);
@@ -670,7 +676,7 @@ main {
           vector-effect: non-scaling-stroke;
         }
 
-        path#circlePath {
+        #circlePath {
           stroke: var(--c-whiteish);
           stroke-width: 0.4px;
           @include media-breakpoint-up(md) {

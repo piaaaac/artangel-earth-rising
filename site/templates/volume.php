@@ -81,16 +81,12 @@ $json = json_encode($data);
   <div id="circle-wrapper">
     <div id="circle-time" class="player-ui">
       <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <path id="circlePath"
-            d="M50,50
-               m -40,0
-               a 40,40 0 1,1 80,0
-               a 40,40 0 1,1 -80,0" />
-        </defs>
+        <path id="circlePath"
+          d="M50,50
+              m -40,0
+              a 40,40 0 1,1 80,0
+              a 40,40 0 1,1 -80,0" />
 
-        <!-- Visible path -->
-        <use href="#circlePath" />
         <rect class="one" x="74" y="15" width="24" height="33" />
         <rect class="two" x="74" y="53" width="24" height="31" />
 

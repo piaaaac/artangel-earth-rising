@@ -892,6 +892,8 @@ main#main-content #backgrounds #bg-layer1,
 main#main-content #backgrounds #bg-layer2 {
   z-index: 30;
   background-size: 3077px 1080px;
+  /* XXX */
+  background-size: auto 100%;
   background-image: url(../images/test-bg-l.gif);
   opacity: 0;
   transition: opacity 1400ms, transform 1400ms;
@@ -929,6 +931,7 @@ body[data-circle-animation-stage="1"] main#main-content #backgrounds #bg-layer1 
 main#main-content #backgrounds #bg-layer2 {
   animation: bgPan 450s linear infinite;
   background-position-y: 100%;
+  background-image: url(../images/bg-layer2.gif);
 }
 body[data-circle-animation-stage="1"] main#main-content #backgrounds #bg-layer2 {
   transform: scale(1);
@@ -1100,19 +1103,19 @@ main#main-content #circle-wrapper #circle-time svg {
   height: 100%;
   vector-effect: non-scaling-stroke;
 }
-main#main-content #circle-wrapper #circle-time path#circlePath {
+main#main-content #circle-wrapper #circle-time #circlePath {
   stroke: var(--c-whiteish);
   stroke-width: 0.4px;
 }
 @media (min-width: 768px) {
-  main#main-content #circle-wrapper #circle-time path#circlePath {
+  main#main-content #circle-wrapper #circle-time #circlePath {
     stroke-width: 0.2px;
   }
 }
-main#main-content #circle-wrapper #circle-time path#circlePath {
+main#main-content #circle-wrapper #circle-time #circlePath {
   fill: none;
 }
-body[data-player-loading=true] main#main-content #circle-wrapper #circle-time path#circlePath {
+body[data-player-loading=true] main#main-content #circle-wrapper #circle-time #circlePath {
   animation: animation-blink-loading 0.8s infinite linear;
 }
 
