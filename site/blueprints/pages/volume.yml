@@ -8,6 +8,7 @@ tabs:
       pages:
         type: pages
         template: track
+        info: "{{ page.artist }}"
 
   settings:
     columns:
